@@ -1,0 +1,7 @@
+about-link: https://atom.io/
+about-width: 130
+created: 20170830004112264
+modified: 20170830074931182
+tags: 
+title: atom-logo.svg
+type: image/svg+xml

@@ -1,0 +1,109 @@
+Content-Type: multipart/mixed;
+Date: Sun, 9 Jul 2017 16:42:55 -0700 (PDT)
+From: "Mark S." <thro...@yahoo.com>
+In-Reply-To: <8ba46b5a-98ce-44e6-bb82-9cfd0677d82a@googlegroups.com>
+MIME-Version: 1.0
+Message-Id: <881050b2-9f04-48a3-ba06-fa17eb2e5512@googlegroups.com>
+References: <8ba46b5a-98ce-44e6-bb82-9cfd0677d82a@googlegroups.com>
+Subject: Re: TW5 hiding  tiddlers by username, and locking?
+To: TiddlyWiki <tiddl...@googlegroups.com>
+content-transfer-encoding: 7bit
+content-type: text/plain; charset=UTF-8
+created: 20170815064015311
+date: Wed, 16 Aug 2017 18:21:43 -0700 (PDT)
+modified: 20171101080613090
+title: testing.tid
+type: application/x-tiddler
+
+------=_Part_6149_1941840863.1499643775464
+Content-Type: multipart/alternative;
+	boundary="----=_Part_6150_1777552988.1499643775465"
+
+------=_Part_6150_1777552988.1499643775465
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+I'm not sure if you meant $:/state/UserName. I went with $:/status/UserName.
+
+TW5 will let you put widgets inside of stylesheet tiddlers. If you put this
+inside a tiddler tagged as a stylesheet...
+
+<$reveal type="nomatch" state="$:/status/UserName" text="MARK">
+   button[title="Edit this tiddler"] {display:none}
+</$reveal>
+
+It would hide all the tiddler edit buttons as long as the signed-in user
+didn't match "MARK" (or whatever name you designated).
+
+Does that get you partway there?
+
+Good hunting!
+Mark
+
+On Sunday, July 9, 2017 at 3:25:45 PM UTC-7, mys...@gmail.com wrote:
+>
+>
+> I'm attempting to use TiddlyWiki as a Gaming notebook for my gaming groups
+> campaign.
+> The DM needs a way to save notes, but 'obscure' some things until he's
+> ready.
+>
+> First, i'd like to point out that I am unconcerned about multi-user
+> writing issues, and actual security isn't my goal.
+> We're on a honor system here. clearly if one of my users bypasses the
+> system,  he's just spoiling the story for himself.
+>
+> My attempt at accomplishing this was 2 fold:
+>
+> for subsections of a tiddler, fall back on a simple <$reveal> against the
+> $:/state/UserName to make sure it equals the GMs id.
+> I THINK I can even do <$reveal>s against a tag called say.. 'GM Only'..
+>
+> But i'm at a loss for how to stop a player from editing a signed tiddler
+> unless they are the signer.
+> And hiding a tiddler unless you are the signer.
+>
+> Does anyone know if this is possible?
+> Code is awesome, but even a link to the proper resources would be a great
+> help.
+>
+>
+>
+>
+------=_Part_6150_1777552988.1499643775465
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">I&#39;m not sure if you meant $:/state/UserName. I went wi=
+th $:/status/UserName.<br><br>TW5 will let you put widgets inside of styles=
+heet tiddlers. If you put this inside a tiddler tagged as a stylesheet...<b=
+r><br><div class=3D"prettyprint" style=3D"background-color: rgb(250, 250, 2=
+50); border-color: rgb(187, 187, 187); border-style: solid; border-width: 1=
+px; word-wrap: break-word;"><code class=3D"prettyprint"><div class=3D"subpr=
+ettyprint"><span style=3D"color: #000;" class=3D"styled-by-prettify">&lt;$r=
+eveal type=3D&quot;nomatch&quot; state=3D&quot;$:/status/UserName&quot; tex=
+t=3D&quot;MARK&quot;&gt;<br>=C2=A0 =C2=A0button[title=3D&quot;Edit this tid=
+dler&quot;] {display:none}<br>&lt;/$reveal&gt;</span></div></code></div><br=
+>It would hide all the tiddler edit buttons as long as the signed-in user d=
+idn&#39;t match &quot;MARK&quot; (or whatever name you designated). <br><br=
+>Does that get you partway there?<br><br>Good hunting!<br>Mark<br><br>On Su=
+nday, July 9, 2017 at 3:25:45 PM UTC-7, mys...@gmail.com wrote:<blockquote =
+class=3D"gmail_quote" style=3D"margin: 0;margin-left: 0.8ex;border-left: 1p=
+x #ccc solid;padding-left: 1ex;"><div dir=3D"ltr"><br>I&#39;m attempting to=
+ use TiddlyWiki as a Gaming notebook for my gaming groups campaign.<br>The =
+DM needs a way to save notes, but &#39;obscure&#39; some things until he&#3=
+9;s ready.<br><br>First, i&#39;d like to point out that I am unconcerned ab=
+out multi-user writing issues, and actual security isn&#39;t my goal.<br>We=
+&#39;re on a honor system here. clearly if one of my users bypasses the sys=
+tem,=C2=A0 he&#39;s just spoiling the story for himself.<br><br>My attempt =
+at accomplishing this was 2 fold:<br><br>for subsections of a tiddler, fall=
+ back on a simple &lt;$reveal&gt; against the $:/state/UserName to make sur=
+e it equals the GMs id.<br>I THINK I can even do &lt;$reveal&gt;s against a=
+ tag called say.. &#39;GM Only&#39;..<br><br>But i&#39;m at a loss for how =
+to stop a player from editing a signed tiddler unless they are the signer.<=
+br>And hiding a tiddler unless you are the signer.<br><br>Does anyone know =
+if this is possible?<br>Code is awesome, but even a link to the proper reso=
+urces would be a great help.<br><br><br><br></div></blockquote></div>
+------=_Part_6150_1777552988.1499643775465--
+
+------=_Part_6149_1941840863.1499643775464--

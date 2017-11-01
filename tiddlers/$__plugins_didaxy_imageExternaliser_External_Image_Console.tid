@@ -2,7 +2,7 @@ _canonical_root: https://didaxy.neocities.org/images
 caption: External Images
 created: 20151019102443540
 list: $:/plugins/didaxy/imageExternaliser/External_Image_Console_non_externalised $:/plugins/didaxy/imageExternaliser/External_Image_Console_retaining_body $:/plugins/didaxy/imageExternaliser/External_Image_Console_fully_external
-modified: 20170915041334792
+modified: 20171101080610704
 tags: $:/tags/ControlPanel
 title: $:/plugins/didaxy/imageExternaliser/External_Image_Console
 type: text/vnd.tiddlywiki
