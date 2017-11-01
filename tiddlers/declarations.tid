@@ -1,0 +1,10 @@
+created: 20171031051515581
+modified: 20171031051524182
+scripts: declarations.js
+tags: SimpleES6 Live
+title: declarations
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

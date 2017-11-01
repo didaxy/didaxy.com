@@ -1,0 +1,10 @@
+created: 20171027001040948
+modified: 20171031014942172
+part: 6
+partof: So, You Want To Make A Website?
+subtitle: basic html
+tags: TutorialPart
+title: The Most Basic HTML Page
+type: text/vnd.tiddlywiki
+
+To let atom know that we're trying to write HTML, all we have to do is save a blank file called ``something.html``.

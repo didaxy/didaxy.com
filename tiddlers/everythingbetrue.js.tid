@@ -1,0 +1,14 @@
+created: 20171031035222289
+modified: 20171031035237400
+tags: 
+title: everythingbetrue.js
+type: text/vnd.tiddlywiki
+
+  function truthCheck(collection, pre) {
+
+    return collection.reduce(function(acc,val) {
+      return acc && val.hasOwnProperty(pre) && !!val[pre] ;
+    }, true);
+  }
+
+  console.log(truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex":"."}, {"user": "Po", "sex": undefined}], "sex"));

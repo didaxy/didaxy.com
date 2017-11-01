@@ -1,0 +1,10 @@
+created: 20171031040231473
+modified: 20171031040239724
+scripts: pairwise.js
+tags: FCCExercises Live
+title: pairwise
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

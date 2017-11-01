@@ -1,0 +1,10 @@
+created: 20171031051821128
+modified: 20171031051829437
+scripts: types.js
+tags: SimpleES6 Live
+title: types
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

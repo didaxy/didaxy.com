@@ -1,0 +1,10 @@
+created: 20171031051707988
+modified: 20171031051716199
+scripts: inputoutput2.js
+tags: SimpleES6 Live
+title: inputoutput2
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

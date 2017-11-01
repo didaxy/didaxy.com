@@ -1,0 +1,31 @@
+created: 20171031041053334
+modified: 20171031041106185
+tags: 
+title: sumprimes.js
+type: text/vnd.tiddlywiki
+
+
+  function sumPrimes(num) {
+    function isPrime(num) {
+      var divCount = 0;
+      for (var i=1; i <= num; i++) {
+        if (num % i == 0) {divCount++;}
+      }
+      if (divCount == 2) return true;
+      return false;
+    }
+
+    var arr = [];
+    for (var i = 0; i <= num; i++) {
+      console.log(i);
+      if (isPrime(i)) {
+        console.log("true");
+        arr.push(i);
+      }
+    }
+    return arr.reduce(function(acc, val) {
+      return val + acc;
+    });
+  }
+
+  console.log(sumPrimes(10));

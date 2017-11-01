@@ -1,0 +1,22 @@
+created: 20171031051254443
+modified: 20171031051254443
+tags: scripts
+title: async001.js
+type: text/javascript
+
+console.log("...do stuff...");
+function asyncFunc() {
+    return new Promise((resolve, reject) => { // (A)
+      // setTimeout(() => resolve('DONE'), 100); // (B)
+      setTimeout(() => reject('DONE'), 100); // (B)
+    });
+}
+
+
+asyncFunc()
+.then(x => console.log('...done with result: '+x));
+
+console.log("...do more stuff...");
+
+// Output:
+// Result: DONE

@@ -1,0 +1,10 @@
+created: 20171031040045493
+modified: 20171031040102607
+scripts: makeaperson.js
+tags: FCCExercises Live
+title: makeaperson
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

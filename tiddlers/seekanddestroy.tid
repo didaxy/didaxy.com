@@ -1,0 +1,10 @@
+created: 20171031040729924
+modified: 20171031040737963
+scripts: seekanddestroy.js
+tags: FCCExercises Live
+title: seekanddestroy
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

@@ -1,0 +1,10 @@
+created: 20171031051323604
+modified: 20171031051358334
+scripts: apply.js
+tags: SimpleES6 Live
+title: apply
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

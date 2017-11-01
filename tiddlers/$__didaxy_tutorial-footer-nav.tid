@@ -1,0 +1,9 @@
+created: 20170902022044915
+modified: 20170902023802443
+tags: 
+title: $:/didaxy/tutorial-footer-nav
+type: text/vnd.tiddlywiki
+
+<div class="content-footer-navigation">
+<$link to={{!!partof}}]>Start</$link> | [[Tutorials]] | [[Contact]]
+</div>

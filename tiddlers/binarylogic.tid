@@ -1,0 +1,10 @@
+created: 20171031051420168
+modified: 20171031051428217
+scripts: binarylogic.js
+tags: SimpleES6 Live
+title: binarylogic
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

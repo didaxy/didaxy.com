@@ -1,0 +1,10 @@
+created: 20171031051602685
+modified: 20171031051610926
+scripts: filter.js
+tags: SimpleES6 Live
+title: filter
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

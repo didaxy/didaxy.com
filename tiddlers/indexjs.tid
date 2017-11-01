@@ -1,0 +1,10 @@
+created: 20171031051619397
+modified: 20171031051638941
+scripts: index.js
+tags: SimpleES6 Live
+title: indexjs
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

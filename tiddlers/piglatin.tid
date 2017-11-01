@@ -1,0 +1,10 @@
+created: 20171031040407804
+modified: 20171031040416475
+scripts: piglatin.js
+tags: FCCExercises Live
+title: piglatin
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

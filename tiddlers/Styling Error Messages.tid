@@ -1,0 +1,15 @@
+created: 20171013034005484
+modified: 20171024005927890
+tags: Live JavascriptTutorials
+title: Styling Error Messages
+type: text/vnd.tiddlywiki
+
+Is fun
+
+```
+    console.log(`%c${err}`,
+      "border: 5px dashed green;\
+      font-size: x-large;\
+      background: red "
+    );
+```

@@ -1,0 +1,87 @@
+created: 20171016113201799
+modified: 20171024005908559
+tags: Live JavascriptTutorials
+title: Program Structure
+type: text/vnd.tiddlywiki
+
+NB: DO this - most basic facts about the three primitive types, then do branching 
+
+THEN - do Arrays, then do looping. That's good. I like it.
+
+
+Now you know how to make a simple program and see it running.
+
+Hopefully you have a live server running so that you can see the changes you make reflected live in the browser.
+
+Next you need to understand the basics of a program.
+
+Programs consist, roughly speaking of two elements - data and instructions.
+
+Data is any numbers, text and other information that the program will use and the instructions will tell the computer what to do next.
+
+Data in Javascript is stored in variables.
+
+There are a number of different types of variables in Javascript, the primitive types are Number, String and Boolean.
+
+Numbers are 'floating point' and can be written just as you would expect.
+
+Text is stored in String variables.
+
+Boolean variables store either 'true' or 'false' - not as a string, but as a single logical value.
+
+A Javascript program consists of a number of 'statements', each of which is taken in turn from top to bottom and executed.
+
+A simple program without any other structure consists of a number of statements, each of which is executed in order every time the program is run.
+
+A program like the one described could take some data and produce some output, but the essence of computer programming is that the program can decide which instructions to execute, based on the data.
+
+This hints at the real secret, which is that data and programs are exactly the same thing. 
+
+There are two basic control structures - branching and looping.
+
+Branching is the idea that programming languages should give us some way to execute different sets of instructions, based on the state of the data at a particular moment.
+
+Looping is really just a special case of branching - it is the idea that programming languages should provide a way for us to specify that a particular set of instructions should be repeated until some condition (of the data) is met.
+
+With branching and looping, we can build complex programs.
+
+Javascript gives us lots of different ways to make loops and several for branching.
+
+!!Branching
+
+```
+if (expression) { }
+elseif(expression) { }
+else { }
+
+switch(variable) {
+  case value1: { }
+  case value2: { }
+}
+```
+
+!!Loops
+
+```
+for ( counter; condition; increment ) { }
+```
+
+Better loops.
+
+The 'for' loop gives us great flexibility to set the step size.
+
+In practise, it's very easy to make "off by one errors"
+
+It's pretty usual to only have the counter count in integers anyway, and do whatever you need to with the counter separately.
+
+So, why are we managing the counter at all?
+
+The commonest thing of all to do in Javascript is to loop through the elements of an array.
+
+So, why do we need to set up our own counter, measure the array for ourselves and remember to tweak it the right way - the computer ought to be able to do things like this for us.
+
+And it can.
+
+There are some better types of loops too.
+
+BTW - what's an array?

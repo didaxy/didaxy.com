@@ -1,0 +1,10 @@
+created: 20171031035241243
+modified: 20171031035259094
+scripts: everythingbetrue.js
+tags: FCCExercises Live
+title: everythingbetrue
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

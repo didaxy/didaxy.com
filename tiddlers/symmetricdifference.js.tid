@@ -1,0 +1,25 @@
+created: 20171031041124638
+modified: 20171031041143233
+tags: 
+title: symmetricdifference.js
+type: text/vnd.tiddlywiki
+
+  function sym(args) {
+    var result = [];
+    for (var i = 0; i < arguments.length; i++) {
+      arguments[i] = arguments[i].reduce(function(acc,val) {
+        if (acc.indexOf(val)<0) {acc.push(val);}
+        return acc;
+      },[]);//remove duplicates
+      for (var j=0; j < arguments[i].length; j++) {
+        //add it to result if it isn't there, remove it if it is
+        var index = result.indexOf(arguments[i][j]);
+        if (index < 0) {result.push(arguments[i][j]);}
+        else {result.splice(index,1);}
+        console.log("element: " + arguments[i][j] + " result: " + result );
+      }//for each element of the de-duped array
+    }//for each element of arguments
+    return result;
+  }//sym(args)
+
+  console.log(sym([1, 2, 3], [5, 2, 1, 4]));

@@ -1,0 +1,25 @@
+created: 20171031040353875
+modified: 20171031040405164
+tags: 
+title: piglatin.js
+type: text/vnd.tiddlywiki
+
+  function translatePigLatin(str) {
+    var consCount = 0;
+    str = str.split('');
+    while (isVowel(str[consCount]) < 0) {
+      consCount++;
+    }
+    var consBlock = str.splice(0,consCount);
+    if (consCount > 0) { str.push(consBlock.join('') + "ay"); }
+    else {str.push("way")}
+    str = str.join('');
+    return str;
+
+    function isVowel(letter) {
+      var vowels = ["a","e","i","o","u"];
+      return vowels.indexOf(letter);
+    }
+  }
+
+  console.log( translatePigLatin("chonsonant"));

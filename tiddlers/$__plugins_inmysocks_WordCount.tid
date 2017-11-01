@@ -1,0 +1,61 @@
+author: Jed Carty
+core-version: >=5.1.9
+created: 20170825035045904
+dependents: 
+description: Word count in tiddlers
+modified: 20170825035045904
+plugin-type: plugin
+title: $:/plugins/inmysocks/WordCount
+type: application/json
+version: 5.1.10-prerelease
+
+{
+    "tiddlers": {
+        "$:/plugins/inmysocks/WordCount/EditWordCountTemplate": {
+            "created": "20151207174617351",
+            "list-after": "$:/core/ui/EditTemplate/tags",
+            "modified": "20151207180148278",
+            "tags": "$:/tags/EditTemplate",
+            "title": "$:/plugins/inmysocks/WordCount/EditWordCountTemplate",
+            "text": "<$reveal type='nomatch' state='$:/settings/inmysocks/WordCount!!enable_edit_view' text=false>\n<$list filter='[is[current]has[text]]' emptyMessage=\"Word Count: 0\">\nWord Count: <$word-count tiddler=<<currentTiddler>> field='text' mode=word/>\n</$list>\n</$reveal>"
+        },
+        "$:/plugins/inmysocks/WordCount/ReadMe": {
+            "created": "20151207183017608",
+            "modified": "20151207190439310",
+            "tags": "",
+            "title": "$:/plugins/inmysocks/WordCount/ReadMe",
+            "text": "This plugin contains the [[word-count widget|$:/plugins/inmysocks/WordCount/WordCountControls]] and some templates that display the number of words in a tiddler. The value isn't updaded while you type, but if you pause for a moment it will update. You can make something that updates as you type but there are some severe performance penalties from that.\n\nTo use this just import the plugin into your wiki, save and restart. Settings are in the ~WordCount tab in the control panel. This tab is added as part of the plugin."
+        },
+        "$:/plugins/inmysocks/WordCount/Word Count Widget": {
+            "created": "20150629184020155",
+            "modified": "20151207183007098",
+            "tags": "",
+            "title": "$:/plugins/inmysocks/WordCount/Word Count Widget",
+            "text": "This is a widget that will display the number of words or characters in a tiddler or text string given to it.\n\nWidget tiddler: [[$:/plugins/inmysocks/WordCount/word-count.js]]\n\nRemember you have to save and reload your wiki before the widget will work.\n\n|!Parameter |!Description |\n|mode |This can be set to `word` or `character` and will count either words or characters, defaults to `word` |\n|tiddler |The tiddler with the text to process (defauts to `currentTiddler`) |\n|field |The field with the text to process (defaults to the text field) |\n|text |A text string for the widget to count, if this is given it overrides the `tiddler` and `field` inputs. |\n|colors |(Optional) An input that sets text color when the count reaches a certain number. See the examples below. |\n|colorState |(Optional) The name of a state tiddler to use to store the current text color so it can be used to set the color of more than just the displayed number. |\n\n!!Usage\n\n!!!Count the number of words in a string:\n\n```\n<$word-count text='some text string'/>\n```\n\n<$word-count text='some text string'/>\n\n!!!Count the number of characters in a string:\n\n```\n<$word-count text='some text string' mode=character/>\n```\n\n<$word-count text='some text string' mode=character/>\n\n!!!Count the number of words in a field:\n\n```\n<$word-count tiddler='Word Count Widget' field='title' mode=word/>\n```\n\n<$word-count tiddler='Word Count Widget' field='title' mode=word/>\n\n!!!Using the colors parameter:\n\nThis uses the `colorState` tiddler.\n\n```\n<$word-count tiddler='$:/temp/Word Count Widget' mode=character colors='#f0f:10,indianred:100,red:122' colorState='$:/state/Word Count Widget/color'/>\n```\n\n<$word-count tiddler='$:/temp/Word Count Widget' mode=character colors='#f0f:10,indianred:100,red:122' colorState='$:/state/Word Count Widget/color'/>\n\nEdit the field here:\n<$edit-text tiddler='$:/temp/Word Count Widget' class='tc-edit-texteditor'/>\n\nContents of the color state tiddler:\n\n<$view tiddler='$:/state/Word Count Widget/color'/>\n\n!!!Change colors of text as the number of characters in a field changes:\n\nAt the moment the input field loses focus every time the color changes.\n\n```\n<$word-count tiddler='$:/temp/Word Count Widget' mode=character colors='#f0f:10,indianred:100,red:122' colorState='$:/state/Word Count Widget/color'/>\n```\n\n<$word-count tiddler='$:/temp/Word Count Widget' mode=character colors='#f0f:10,indianred:100,red:122' colorState='$:/state/Word Count Widget/color'/>\n\nEdit the field here:\n<$set name=CurrentColor value={{$:/state/Word Count Widget/color}}>\n<$edit-text tiddler='$:/temp/Word Count Widget' class='tc-edit-texteditor change-color'/>\n</$set>\n\nContents of the color state tiddler:\n\n<$view tiddler='$:/state/Word Count Widget/color'/>"
+        },
+        "$:/plugins/inmysocks/WordCount/WordCountControls": {
+            "caption": "~WordCount",
+            "created": "20151207175357112",
+            "modified": "20151207180213701",
+            "tags": "$:/tags/ControlPanel",
+            "title": "$:/plugins/inmysocks/WordCount/WordCountControls",
+            "text": "<$checkbox tiddler='$:/settings/inmysocks/WordCount' field='enable_edit_view' checked=true unchecked=false default=true>Enable ~WordCount in edit mode</$checkbox><br>\n<$checkbox tiddler='$:/settings/inmysocks/WordCount' field='enable_view_mode' checked=true unchecked=false default=false>Enable ~WordCount in view mode</$checkbox> (This counts words in the raw text field, so wikitext that isn't visible in the view template is still counted. I may change this later.)"
+        },
+        "$:/plugins/inmysocks/WordCount/WordCountViewTemplate": {
+            "created": "20151207175800518",
+            "list-after": "$:/core/ui/ViewTemplate/tags",
+            "modified": "20151207180245121",
+            "tags": "$:/tags/ViewTemplate",
+            "title": "$:/plugins/inmysocks/WordCount/WordCountViewTemplate",
+            "text": "<$reveal type='match' state='$:/settings/inmysocks/WordCount!!enable_view_mode' text=true>\n<$list filter='[is[current]has[text]]' emptyMessage=\"Word Count: 0\">\nWord Count: <$word-count tiddler=<<currentTiddler>> field='text' mode=word/>\n</$list>\n</$reveal>"
+        },
+        "$:/plugins/inmysocks/WordCount/word-count.js": {
+            "created": "20151207175259922",
+            "modified": "20151207175310670",
+            "module-type": "widget",
+            "title": "$:/plugins/inmysocks/WordCount/word-count.js",
+            "type": "application/javascript",
+            "text": "/*\\\ntitle: $:/widgets/inmysocks/word-count.js\ntype: application/javascript\nmodule-type: widget\n\nA widget to count the number of words or characters in a tiddlr/field/input string\n\nWith thanks to Skeeve for the original macro version this is based on\n\nDemo site:\n\nhttp://ooktech.com/jed/ExampleWikis/WordCount/\n\nUsage:\n\n<$word-count tiddler=SomeTiddler field=some_field mode=word/>\n<$word-count text=\"some text string\" mode=character/>\n<$word-count tiddler=SomeTiddler mode=character colors=\"blue:10,green:50,red:100\"/>\n\n\\*/\n(function(){\n\n/*jslint node: true, browser: true */\n/*global $tw: false */\n\"use strict\";\n\nvar Widget = require(\"$:/core/modules/widgets/widget.js\").widget;\n\nvar WordCount = function(parseTreeNode,options) {\n\tthis.initialise(parseTreeNode,options);\n};\n\n/*\nInherit from the base widget class\n*/\nWordCount.prototype = new Widget();\n\n/*\nRender this widget into the DOM\n*/\nWordCount.prototype.render = function(parent,nextSibling) {\n\tthis.parentDomNode = parent;\n\tthis.computeAttributes();\n\tthis.execute();\n\tvar textNode = this.document.createTextNode(this.currentCount);\n\t/*parent.insertBefore(textNode,nextSibling);\n\tthis.domNodes.push(textNode);*/\n\tvar domNode = this.document.createElement(\"span\");\n\tparent.insertBefore(domNode,nextSibling);\n\tthis.renderChildren(domNode,null);\n\tthis.domNodes.push(domNode);\n};\n\n/*\nCompute the internal state of the widget\n*/\nWordCount.prototype.execute = function() {\n\tvar color_array = [];\n\tvar count_array = [];\n\tvar i;\n\n\t// Get parameters from our attributes\n\tthis.mode = this.getAttribute(\"mode\", \"word\");\n\tthis.tiddler = this.getAttribute(\"tiddler\",this.getVariable(\"currentTiddler\"));\n\tthis.field = this.getAttribute(\"field\",\"text\");\n\tthis.countText = this.getAttribute(\"text\");\n\tthis.colors = this.getAttribute(\"colors\");\n\tthis.stateTiddler = this.getAttribute(\"colorState\");\n\n\t//Find the color cut-offs, if any.\n\tif(this.colors) {\n\t\tvar color_array1 = this.colors.split(',');\n\t\tcolor_array1.sort(function sortfunction(a, b){\n\t\t\treturn a.split(':')[1] - b.split(':')[1];\n\t\t});\n\t\tfor(i = 0; i < color_array1.length; i++) {\n\t\t\tcolor_array[i] = color_array1[i].split(':')[0];\n\t\t\tcount_array[i] = color_array1[i].split(':')[1];\n\t\t}\n\t}\n\n\t// Count letters or words as appropriate.\n\tif(this.countText) {\n\t\tif(this.mode === \"character\") {\n\t\t\tthis.currentCount = this.countText.length.toString();\n\t\t} else {\n\t\t\tthis.currentCount = this.countText.match(/\\w+/g).length.toString();\n\t\t}\n\t} else {\n\t\tvar tiddler = this.wiki.getTiddler(this.tiddler);\n\t\tif(tiddler) {\n\t\t\tvar text = tiddler.getFieldString(this.field);\n\t\t\tif(this.mode === \"word\") {\n\t\t\t\tthis.currentCount = text.match(/\\w+/g).length.toString();\n\t\t\t} else if(this.mode === \"character\") {\n\t\t\t\tthis.currentCount = text.length.toString();\n\t\t\t} else {\n\t\t\t\tthis.currentCount = undefined;\n\t\t\t}\n\t\t} else {\n\t\t\tthis.currentCount = undefined;\n\t\t}\n\t}\n\n\t//If this.currentCount is long enough set the color. It is the color with the largest value that is less than this.currentCount.\n\t//If no color has a large enough value do nothing.\n\tif(this.currentCount) {\n\t\tif(color_array) {\n\t\t\tfor(i = 0; i < color_array.length; i++) {\n\t\t\t\tif(Number(this.currentCount) > Number(count_array[color_array.length - 1 - i])) {\n\t\t\t\t\tif(this.stateTiddler) {\n\t\t\t\t\t\tthis.wiki.setText(this.stateTiddler,\"text\",undefined,color_array[color_array.length -1 - i]);\n\t\t\t\t\t}\n\t\t\t\t\tthis.currentCount = '@@color:' + color_array[color_array.length -1 - i] + ';' + this.currentCount + '@@';\n\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\t\tif(i === color_array.length-1) {\n\t\t\t\t\tthis.wiki.setText(this.stateTiddler,\"text\",undefined,'');\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\n\tvar parser = this.wiki.parseText(\"text/vnd.tiddlywiki\",this.currentCount,{parseAsInline: true});\n    var parseTreeNodes = parser ? parser.tree : [];\n\tthis.makeChildWidgets(parseTreeNodes);\n};\n\n/*\nSelectively refreshes the widget if needed. Returns true if the widget or any of its children needed re-rendering\n*/\nWordCount.prototype.refresh = function(changedTiddlers) {\n\t// Re-execute the filter to get the count\n\tthis.computeAttributes();\n\tvar oldCount = this.currentCount;\n\tthis.execute();\n\tif(this.currentCount !== oldCount) {\n\t\t// Regenerate and rerender the widget and replace the existing DOM node\n\t\tthis.refreshSelf();\n\t\treturn true;\n\t} else {\n\t\treturn false;\n\t}\n\n};\n\nexports[\"word-count\"] = WordCount;\n\n})();\n"
+        }
+    }
+}

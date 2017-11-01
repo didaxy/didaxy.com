@@ -1,0 +1,10 @@
+created: 20171031051434496
+modified: 20171031051443045
+scripts: booleans.js
+tags: SimpleES6 Live
+title: booleans
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

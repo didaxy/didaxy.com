@@ -1,0 +1,10 @@
+created: 20171031051748198
+modified: 20171031051755651
+scripts: restandspread.js
+tags: SimpleES6 Live
+title: restandspread
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

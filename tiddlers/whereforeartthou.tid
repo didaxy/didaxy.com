@@ -1,0 +1,10 @@
+created: 20171031041345339
+modified: 20171031041355010
+scripts: whereforeartthou.js
+tags: FCCExercises Live
+title: whereforeartthou
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

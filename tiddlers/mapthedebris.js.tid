@@ -1,0 +1,18 @@
+created: 20171031040113459
+modified: 20171031040125195
+tags: 
+title: mapthedebris.js
+type: text/vnd.tiddlywiki
+
+function orbitalPeriod(arr) {
+    var GM = 398600.4418;
+    var earthRadius = 6367.4447;
+    console.log(Math.round((2 * Math.PI * Math.sqrt(Math.pow(earthRadius + arr[0].avgAlt,3)/GM))));
+    var result = arr.map(function(val){
+      return {"name": val.name, "orbitalPeriod": Math.round((2 * Math.PI * Math.sqrt(Math.pow(earthRadius + val.avgAlt,3)/GM)))}
+    });
+    return result;
+  }
+
+  console.log(orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}],[{name : "sputnik", avgAlt : 35873.5553}]));
+  

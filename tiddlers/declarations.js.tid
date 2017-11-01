@@ -1,0 +1,51 @@
+created: 20171031051254412
+modified: 20171031051254412
+tags: scripts
+title: declarations.js
+type: text/javascript
+
+"use strict";
+
+//four different ways to declare a variable
+var a         //var
+let b         //let
+const c = 3;  //const
+//d = 4         //implicitly
+//when we add the "use strict"; pragma, the last one is an error
+
+
+a = 1
+b = 2
+// c = 5 this is an error, without it, we see stuff get logged out
+console.log("I am in the main program");
+console.log("a: "+a);
+console.log("b: "+b);
+console.log("c: "+c);
+// console.log("d: "+d);
+// if d isn't defined, this is an error
+console.log("--------------------");
+
+//important to make sure we can see this is an error
+//make sure the console is reporting the error -
+//firefox wasn't - firefox developer is - chrome does
+//if you can't see errors like this, you will be left guessing about important stuff
+
+myFunc();
+
+function myFunc() {
+  let c = 12
+  console.log("I am inside 'myFunc'");
+  console.log("a: "+a);
+  console.log("b: "+b);
+  console.log("c: "+c);
+  // console.log("d: "+d);
+  console.log("--------------------");
+}
+
+console.log("I am back in the main program");
+console.log("a: "+a);
+console.log("b: "+b);
+console.log("c: "+c);
+// console.log("d: "+d);
+// if d isn't defined, this is an error
+console.log("--------------------");

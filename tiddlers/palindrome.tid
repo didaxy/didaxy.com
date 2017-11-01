@@ -1,0 +1,10 @@
+created: 20171031040302667
+modified: 20171031040312517
+scripts: palindrome.js
+tags: FCCExercises Live
+title: palindrome
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

@@ -1,0 +1,9 @@
+created: 20170820094616329
+modified: 20171019021325343
+tags: Plumbing styles
+title: yellowsubmarine.css
+type: text/vnd.tiddlywiki
+
+body {
+ background-color: yellow;
+}

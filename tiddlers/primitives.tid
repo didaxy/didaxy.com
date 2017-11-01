@@ -1,0 +1,10 @@
+created: 20171031051733845
+modified: 20171031051742381
+scripts: primitives.js
+tags: SimpleES6 Live
+title: primitives
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

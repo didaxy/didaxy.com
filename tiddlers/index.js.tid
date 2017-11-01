@@ -1,0 +1,33 @@
+created: 20171031051254502
+modified: 20171031051254502
+tags: scripts
+title: index.js
+type: text/javascript
+
+function printVars() {
+  console.log("here are your vars");
+  for (var prop in this) {
+    if (this.hasOwnProperty(prop)) {
+      console.log(`${prop} : ${this[prop]}`);
+    }
+  }
+}
+
+
+// let myVar = 23
+let myObj = {
+  name: "Richard",
+  age: 42
+}
+
+
+
+// printVars.bind(window)();
+//
+// confirm("all good?")
+//
+// printVars.bind(window.HTMLDocument)()
+
+// console.log(document)
+
+printVars.bind()()

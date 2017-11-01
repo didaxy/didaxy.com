@@ -1,0 +1,37 @@
+created: 20171031051254436
+modified: 20171031051254436
+tags: scripts
+title: binarylogic.js
+type: text/javascript
+
+let a = true, b = false
+function c() {return true}
+
+logger('a')
+logger('b')
+logger('!a')
+logger('b')
+logger('a && b')
+logger('a && !b')
+logger('a || b')
+logger('a || !b')
+logger('a && c()')
+logger('b && c()')
+logger('a && !b')
+
+
+function logger(x) {
+  console.log(x + "\t" + eval(x));
+}
+
+console.log(a && c());
+
+//returning one of two based on value of first
+
+let aa = false
+let bb = true
+
+let cc = bb || "hi there"
+let dd = aa && "heeeello"
+
+console.log(`${cc}, ${dd}`);

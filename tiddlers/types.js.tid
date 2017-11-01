@@ -1,0 +1,22 @@
+created: 20171031051254461
+modified: 20171031051254461
+tags: scripts
+title: types.js
+type: text/javascript
+
+const a = 4.0
+const b = "hello"
+const c = true
+const d = Symbol("x")
+const e = {a:1,b:2}
+function f() {
+
+}
+const h = new String()
+console.log(typeof(a))
+console.log(typeof(b))
+console.log(typeof(c))
+console.log(typeof(d))
+console.log(typeof(e))
+console.log(typeof(f))
+console.log(typeof(g))

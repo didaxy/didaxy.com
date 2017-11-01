@@ -1,0 +1,26 @@
+created: 20170917115222387
+modified: 20171031014920869
+part: 5
+partof: So, You Want To Make A Website?
+subtitle: Live Reloading
+tags: TutorialPart Live Tools
+title: Live Reloading
+type: text/vnd.tiddlywiki
+
+We learn through feedback.
+
+We try something and we find out whether or not it works.
+
+The quicker we can repeat 'cycles' of learning in this way, the faster we learn overall.
+
+It might not seem like a big deal, whether your browser refreshes in half a second or three seconds, but it really can be, especially when you're in unfamiliar territory or you're tweaking lots of little things that need to be just right, so you're going backwards and forwards to your code a lot.
+
+https://www.browsersync.io/#install
+
+Browser-sync is awesome. It makes it funner to try things out.
+
+
+
+https://atom.io/packages/atom-live-server
+
+You can use Atom live server to serve the code live to a browser

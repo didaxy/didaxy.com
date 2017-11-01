@@ -1,0 +1,18 @@
+created: 20171031040143436
+modified: 20171031040155793
+tags: 
+title: missingletter.js
+type: text/vnd.tiddlywiki
+
+function fearNotLetter(str) {
+  var missingLetter;
+  for (var i = 1; i < str.length ;i++) {
+    console.log(str.charCodeAt(i));
+    if (str.charCodeAt(i)-str.charCodeAt(i-1) != 1) {
+      missingLetter = String.fromCharCode(str.charCodeAt(i-1)+1);
+    }
+  }
+  return missingLetter;
+}
+
+console.log(fearNotLetter("abce"));

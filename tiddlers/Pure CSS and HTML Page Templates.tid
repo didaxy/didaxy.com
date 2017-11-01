@@ -1,0 +1,14 @@
+created: 20171023023458232
+modified: 20171023023831276
+tags: 
+title: Pure CSS and HTML Page Templates
+type: text/vnd.tiddlywiki
+
+The more I learn about the panoply of adjunct technologies in the web space, the more I become convinced that, wherever possible, I should be using only the core browser features with stock HTML and CSS.
+
+To this end, I would like to get rid of the reliance my blog currently has on Bootstrap.
+
+The simplest way to do this, I think, is to clone the whole thing (so that I don't suffer regret) tear out all the formatting and extraneous includes and then start from scratch to put the necessary functionality back.
+
+The main thing that I'm using Bootstrap for at the moment is the responsive header, and this will probably be the trickiest bit to replicate, but I figure I can do it with selects.
+

@@ -1,0 +1,21 @@
+created: 20171031041024484
+modified: 20171031041034247
+tags: 
+title: sumoddfibs.js
+type: text/vnd.tiddlywiki
+
+  function sumFibs(num) {
+    var fibArr = [1,1];
+    while (fibArr[fibArr.length - 1] < num ) {
+      fibArr.push(fibArr[fibArr.length - 1] + fibArr[fibArr.length - 2])
+    }
+    console.log(fibArr);
+    fibArr.pop('');
+    return fibArr.filter(function(val) {
+      return val % 2 == 1
+    }).reduce(function(val,acc) {
+      return acc + val;
+    });
+  }
+
+  console.log(sumFibs(10));

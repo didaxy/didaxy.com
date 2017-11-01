@@ -1,0 +1,10 @@
+created: 20171031035520167
+modified: 20171031035529222
+scripts: inventoryupdate.js
+tags: FCCExercises Live
+title: inventoryupdate
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

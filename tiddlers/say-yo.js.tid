@@ -1,0 +1,8 @@
+created: 20170820091459493
+modified: 20171019021447029
+scripts: 
+tags: Plumbing scripts
+title: say-yo.js
+type: text/vnd.tiddlywiki
+
+console.log("yo");

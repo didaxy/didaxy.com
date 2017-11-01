@@ -1,0 +1,23 @@
+created: 20171013002440893
+modified: 20171024005940478
+tags: Live JavascriptTutorials
+title: Built in Methods on the Primitives
+type: text/vnd.tiddlywiki
+
+https://www.tutorialspoint.com/javascript/javascript_builtin_functions.htm
+
+this article wins : https://javascriptweblog.wordpress.com/2010/09/27/the-secret-life-of-javascript-primitives/
+
+Then I figured out that I need the ``__proto__`` method and can do
+
+```
+var a = 42;
+
+for (method of Object.getOwnPropertyNames(a.__proto__)) {
+  console.log(method);
+  console.log(a[method]());
+}
+```
+
+To log the result of each of it's built in methods to the screen.
+

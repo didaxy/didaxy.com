@@ -1,0 +1,37 @@
+created: 20171031051254424
+modified: 20171031051254424
+tags: scripts
+title: booleasn.js
+type: text/javascript
+
+"use strict";
+
+var a = new String
+const b = new Number(4)
+let c = new Object({initprop:3, secondinitprop:{innerprop1: "value1", innerprop2: "value2"}})
+// var b = new
+const alwaysTrue = true //pretty useless
+const neverTrue = false //ditto
+
+let sometimesTrue = true
+
+a = "test"
+// b = 4
+
+c.prop1 = "test"
+c["prop2"] = 4.0
+
+c.nestedProp = {}
+c.nestedProp.test = true
+
+
+console.log(a);
+console.log(b);
+console.log(c);
+
+console.log(JSON.stringify(c,null,2))
+
+
+console.log(sometimesTrue);
+sometimesTrue = !sometimesTrue //use of the NOT unary operator
+console.log(sometimesTrue);

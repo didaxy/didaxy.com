@@ -1,0 +1,10 @@
+created: 20171031032455554
+modified: 20171031032506050
+scripts: binaryagent.js
+tags: FCCExercises Live
+title: capitalise
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

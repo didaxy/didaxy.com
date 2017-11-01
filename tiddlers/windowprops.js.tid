@@ -1,0 +1,11 @@
+created: 20171031051834982
+modified: 20171101001449533
+tags: scripts
+title: windowprops.js
+type: application/javascript
+
+for (var prop in window) {
+  if (window.hasOwnProperty(prop)) {
+    console.log(`prop: ${prop} ${window[prop]}` );
+  }
+}

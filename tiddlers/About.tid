@@ -1,0 +1,42 @@
+created: 20170820112328195
+list: a b
+logos: [[neocities-logo.svg]]  [[firefox-logo.svg]]  [[atom-logo.svg]]  [[travis-logo.svg]]  [[github-logo.svg]]  [[tiddlywiki-logo.svg]]   [[hover-logo.svg]]   [[netlify-logo.svg]]
+modified: 20171019022223501
+tags: Plumbing Live
+title: About
+type: text/vnd.tiddlywiki
+
+<div class="header-image index">
+<$image source="$:/didaxy/didaxy-logo-white.svg" class="article-image"/>
+</div>
+
+!Didaxy.com
+
+Didaxy is for helping people to make things.
+
+We use and recommend the World Wide Web - free and open [[since 1991|http://info.cern.ch/hypertext/WWW/TheProject.html]] and yet [[you are (still) not late|https://medium.com/message/you-are-not-late-b3d76f963142]]. Now is the time to learn.
+
+<center>
+''something new every day''
+</center>
+
+!!We ``<heart>`` the web stack
+<center>
+<$image width="200" source="html5-logo.svg"/>
+</center>
+even javascript.
+
+
+
+
+!!Stuff We Use
+<center>
+<$list filter="[list[!!logos]]">
+<a target="_blank" href={{!!about-link}}><$image width ={{!!about-width}} source={{!!title}}/></a>
+</$list>
+</center>
+
+
+!!You Do Too?
+
+If you like what we do and you want to join in, [[get in touch|Contact]].

@@ -1,0 +1,10 @@
+created: 20171031040648249
+modified: 20171031040657173
+scripts: searchandreplace.js
+tags: FCCExercises Live
+title: searchandreplace
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

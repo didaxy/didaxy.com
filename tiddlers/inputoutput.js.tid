@@ -1,0 +1,18 @@
+created: 20171031051254496
+modified: 20171031051254496
+tags: scripts
+title: inputoutput.js
+type: text/javascript
+
+const yourName = prompt("What's your name?")
+console.log("welcome " + yourName);
+alert("welcome " +yourName)
+
+const yourAge = prompt("How old are you?")
+const yearsTo100 = 100 - yourAge
+
+if (yearsTo100 < 0) {
+  console.log("O-Ho! You are venerable elder!");
+} else {
+  console.log(`You'll be one-hundred in ${yearsTo100} years time!` );
+}

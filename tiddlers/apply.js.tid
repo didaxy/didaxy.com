@@ -1,0 +1,17 @@
+created: 20171031051254449
+modified: 20171031051254449
+tags: scripts
+title: apply.js
+type: text/javascript
+
+//function methods
+
+let a = function myFunc(arg) {
+  return arg + 1
+}
+
+for (method of Object.getOwnPropertyNames(a.__proto__)) {
+  console.log(method);
+}
+
+console.log(Math.max.apply(null, [11, 2, 3]));

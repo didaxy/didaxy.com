@@ -1,0 +1,66 @@
+created: 20171002022447374
+modified: 20171024005858914
+tags: Live JavascriptTutorials
+title: Input and Output
+type: text/vnd.tiddlywiki
+
+!!IO
+
+Why does it say we need to open the console? What's the console and why do we need it?
+
+Javascript is a bit weird. Well, OK, actually javascript is really weird. That's why the other languages all pick on it, but when you get to know it, it has some really great qualities.
+
+Javascript expects to be running inside a web page. As you may have noticed, webpages are mostly about displaying and inputting information. Consequently, Javascript doesn't do inputting and outputting itself.
+
+This might seem strange, to have a language that can't do inputting and outputting, but it's been true for a long time that, for example, C needed a whole library to be loaded before it could print output to the screen.
+
+Javascript never needed one because the people who wrote javascript were generally content to hack and make do with what they had and what it has by way of the kinds of basic inputs and outputs we might want when learning simple programs, is pretty kooky, but it's there.
+
+!!Output
+
+The easiest way to output characters and numbers, etc. is the console.
+
+You'll only be able to see this output if you have the console open.
+
+!!Input
+
+The original purpose of the console was to output debugging information for pages and scripts so when we use it for regular output, it's a bit of a hack. 
+
+There's no way to get input from the console.
+
+The best we can do is pop up a "prompt" on the webpage.
+
+!!Not Javascript
+
+This next facts stands a chance of confusing you a lot. I know it did me to start with.
+
+When you read javascript code, you're going to see lots of things that look like part of the language but aren't and we already saw two examples. That's right, we basically haven't seen any javascript at all yet.
+
+The "console" and the "prompt" are not part of Javascript at all.
+
+They are part of the Browser - they are //available// to javascript when it runs in the browser.
+
+As we'll see when we get to our first contact with Node.js, these same objects are //not// available there.
+
+This is again, of course because Javascript is always supposed to work alongside other technologies and integrate with them. 
+
+The full list of 'web apis' is mindblowing and the thought of learning them all is truly daunting, so DON"T PANIC. Nobody knows all of it.
+
+You should instead take heart from it. 
+
+The core language is relatively small. Once you understand the core language, you will be able to figure out with relative ease how to use any of those apis.
+
+For now, however, we'll use 'console.log' to output things and we'll use 'prompt' if we ever want to get input from the user and we'll make do.
+
+Obviously, we're going to need much better ways to input and output data but for now this will do.
+
+!!Using Alert
+
+The natural counterpart to Prompt is actually Alert and you could use that instead of console.log. But each alert needs to be dismissed separately and it can get annoying to have too many things popping up.
+
+Logging to the console is less obtrusive/annoying and we're never going to use any of these methods for input and output in real pages or apps that we make.
+
+!!Test a console log and make sure you can see it
+
+Next: [[Variables]]
+

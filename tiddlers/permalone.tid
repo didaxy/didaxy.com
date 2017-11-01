@@ -1,0 +1,10 @@
+created: 20171031040338500
+modified: 20171031040346155
+scripts: permalone.js
+tags: FCCExercises Live
+title: permalone
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

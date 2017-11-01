@@ -1,0 +1,34 @@
+created: 20171002014601980
+modified: 20171027015131402
+tags: JavascriptTutorials
+title: Environment
+type: text/vnd.tiddlywiki
+
+When you're learning Javascript, you should take as much of the pain out of it as possible.
+
+I will show you how to set up an environment to learn to code in, and compare it to Codepen, etc.
+
+You will need:
+
+*Atom Editor
+*Firefox Developer edition and Google Chrome
+*The terminal
+*Node.js
+
+We're going to learn javascript in the browser and under node at the same time and we're not going to use any unnaturally integrated tools, like codepen - our goal, as well as learniing the syntax of the language, is to start to mimic what we will do when we're 'real' programmers.
+
+So, we'll have the terminal open in one window, and we're going to use it pretty much straight away. Alongside it, we'll probably have a finder window, so that we can locate files that way whenever it's easier.
+
+And we'll have the text editor and two browser windows. Why two? Well, again, we want to mimic the work of a professional web developer as soon as we start. 
+
+Different browsers display things differently and have different quirks so it's always good to check things in a different browser if they don't seem right.
+
+We're using and recommending Firefox Developer Edition because as a web professional, you should understand the importance of a free and open web to the continued development of your craft and it's important that we ensure Mozilla and Firefox remain viable into the future, so  we should use their browser to show support.
+
+And FDE just landed at version 57, meaning it gets the full benefit of the web-extensions updates and is really quick and pleasant to use.
+
+We need Chrome too because of reality - it's the most popular browser by far, so we need to make sure that things work ok there too. As you'll see, most things work everywhere but there are some important differences that you'll eventually need to know about.
+
+Now you've got the tools you need, you just need to understand the basics of how to get started.
+
+[[First Javascript]]

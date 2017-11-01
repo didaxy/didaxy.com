@@ -1,0 +1,25 @@
+created: 20171031051254418
+modified: 20171031051254418
+tags: scripts
+title: bundle.js
+type: text/javascript
+
+(function () {
+'use strict';
+
+const myObj = {
+  get() {
+      return this.value;
+    },
+    foo() {
+      console.log("foo!");
+    },
+    bar() {
+      console.log(this.value);
+    },
+    value: 5
+};
+
+console.log(myObj.value);
+
+}());

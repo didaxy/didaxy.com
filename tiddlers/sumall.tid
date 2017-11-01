@@ -1,0 +1,10 @@
+created: 20171031041006754
+modified: 20171031041015167
+scripts: sumall.js
+tags: FCCExercises Live
+title: sumall
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

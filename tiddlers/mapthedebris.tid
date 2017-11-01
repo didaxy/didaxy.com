@@ -1,0 +1,10 @@
+created: 20171031040127903
+modified: 20171031040136156
+scripts: mapthedebris.js
+tags: FCCExercises Live
+title: mapthedebris
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

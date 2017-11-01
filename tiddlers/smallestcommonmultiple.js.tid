@@ -1,0 +1,32 @@
+created: 20171031040748675
+modified: 20171031040801669
+tags: 
+title: smallestcommonmultiple.js
+type: text/vnd.tiddlywiki
+
+    function smallestCommons(arr) {
+      //e.g. for 1 and 3 - find the smallest common multiple of both 1 and 3
+      //that is evenly divisible by all numbers between 1 and 3.
+      var fac1 = Math.min(arr[0],arr[1]),
+          fac2 = Math.max(arr[0],arr[1]),
+          thisMultiple = 0;
+          stillLooking = true;
+      while (stillLooking) {
+        thisMultiple += fac1;
+        if (thisMultiple % fac2 == 0) {
+          //this is a common multiple
+          var isDivisible = true;
+          for (var test = fac1 + 1; test < fac2; test++) {
+             isDivisible = isDivisible && thisMultiple % test == 0;
+           }
+           if (isDivisible == true) {stillLooking = false;}
+        }
+      }
+
+console.log(fac1 + " " + fac2);
+      return thisMultiple;
+    }
+
+
+
+    console.log(smallestCommons([18,23]));

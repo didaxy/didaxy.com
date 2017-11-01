@@ -1,0 +1,10 @@
+created: 20171031041108528
+modified: 20171031041116172
+scripts: sumprimes.js
+tags: FCCExercises Live
+title: sumprimes
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

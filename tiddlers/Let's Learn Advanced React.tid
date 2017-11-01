@@ -1,0 +1,17 @@
+created: 20171024004445871
+modified: 20171024004851792
+tags: Live ReactTutorials React
+title: Let's Learn Advanced React
+type: text/vnd.tiddlywiki
+
+<$image class="article-image" alt="React Logo" source="react-logo.svg"/>
+
+I wrote two tutorials, mostly for my own benefit at the moment, covering the 'quick start' quide from the React docs ([[Let's Learn React]]) and the full docs ([[Let's Learn More React]]).
+
+This time I'd like to go through the 'Advanced Guides' section of the docs and pull out anything that looks relevant to my first projects.
+
+The main point of doing this is so that I know what is in these docs, in case I need to find answers that are here and to stop me hunting elsewhere for them.
+
+After this, I'd like to go over the projects that I made previously with React and look at how I made them, see if I can improve their performance (I don't think I used the production build for my game-of-life and it's running pretty slow)
+
+<<tutorial_list>>

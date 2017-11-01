@@ -1,0 +1,10 @@
+created: 20171031051722030
+modified: 20171031051729384
+scripts: iteration.js
+tags: SimpleES6 Live
+title: iteration
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

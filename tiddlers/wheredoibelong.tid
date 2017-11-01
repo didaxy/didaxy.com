@@ -1,0 +1,10 @@
+created: 20171031041304685
+modified: 20171031041312183
+scripts: wheredoibelong.js
+tags: FCCExercises Live
+title: wheredoibelong
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

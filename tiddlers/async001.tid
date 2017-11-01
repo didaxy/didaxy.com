@@ -1,0 +1,10 @@
+created: 20171031051405551
+modified: 20171031051414438
+scripts: async001.js
+tags: SimpleES6 Live
+title: async001
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

@@ -1,0 +1,25 @@
+created: 20171031032744450
+modified: 20171031032800133
+tags: 
+title: converthtmlentities.js
+type: text/vnd.tiddlywiki
+
+  function convertHTML(str) {
+    // &colon;&rpar;
+    str = str.split('').map(swapper).join('');
+    return str;
+
+    function swapper(val) {
+      switch (val) {
+        case "&": {return "&amp;"};
+        case "<": {return "&lt;"};
+        case ">": {return "&gt;"};
+        case "\'": {return "&apos;"};
+        case "\"": {return "&quot;"};
+      }
+      return val;
+    }
+  }
+
+
+  console.log(  convertHTML("Dolce & < > ' \" Gabbana"));

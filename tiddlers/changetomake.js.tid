@@ -1,0 +1,44 @@
+created: 20171031032629624
+modified: 20171031032716419
+tags: 
+title: changetomake.js
+type: text/vnd.tiddlywiki
+
+  function checkCashRegister(price, cash, cid) {
+    var madeChange = false;
+    var changeToMake = price - cash;
+    change = [];
+    var unitValue = [0.01,0.05,0.10,0.25, 1.00,5.00,10.00,20.00,100.00];
+    var unitIndex = 8;
+    while(!madeChange) {
+      if (cid[unitIndex][1] > 0) {
+        if(unitValue < changeToMake) {
+          cid[unitIndex] -= unitValue;
+          changeToMake -= unitValue
+          change.push([cid[unitIndex][1],unitValue[unitIndex]])
+          if (changeToMake == 0) {
+            return "Closed";
+          }
+        }
+
+
+      }
+
+    }
+  }
+
+  // Example cash-in-drawer array:
+  // [["PENNY", 1.01],
+  // ["NICKEL", 2.05],
+  // ["DIME", 3.10],
+  // ["QUARTER", 4.25],
+  // ["ONE", 90.00],
+  // ["FIVE", 55.00],
+  // ["TEN", 20.00],
+  // ["TWENTY", 60.00],
+  // ["ONE HUNDRED", 100.00]]
+
+  checkCashRegister(19.50, 20.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]);
+
+
+  console.log(sym([1, 2, 3], [5, 2, 1, 4]));

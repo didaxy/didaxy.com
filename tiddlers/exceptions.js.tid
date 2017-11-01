@@ -1,0 +1,37 @@
+created: 20171031051254398
+modified: 20171031051254398
+tags: scripts
+title: exceptions.js
+type: text/javascript
+
+//exceptional!
+
+function heads() {
+  console.log(a = Math.random())
+  return a < 0.5;
+}
+
+function doSomething() {
+  console.log("happily working away and then...");
+  if (heads()) {
+    throw new Error("something went terribly wrong")
+  }
+}
+
+window.onload = function() {
+  try {
+    // throw `theDukeOfWellington`
+    doSomething()
+  } catch (err) {
+    console.log(`%c${err}`,
+      "border: 5px dashed green;\
+      font-size: x-large;\
+      background: red "
+    );
+    console.log("STACK TRACE");
+    console.log("___________");
+    console.log(err.stack);
+  } finally {
+    console.log("all done boss");
+  }
+}

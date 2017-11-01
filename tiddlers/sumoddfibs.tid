@@ -1,0 +1,10 @@
+created: 20171031041036937
+modified: 20171031041044169
+scripts: sumoddfibs.js
+tags: FCCExercises Live
+title: sumoddfibs
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

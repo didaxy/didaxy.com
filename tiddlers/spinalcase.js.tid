@@ -1,0 +1,25 @@
+created: 20171031040855012
+modified: 20171031040906410
+tags: 
+title: spinalcase.js
+type: text/vnd.tiddlywiki
+
+  function spinalCase(str) {
+
+    function dashAndLower(val) {
+      console.log(val);
+      return val[0] + "-" + val[1].toLowerCase();
+    }
+    // "It's such a fine line between stupid, and clever."
+    // --David St. Hubbins
+    console.log(str);
+    str = str.replace(/([a-z])([A-Z])/g,dashAndLower);
+    console.log(str);
+    str = str.replace(/\s/g,"-");
+    console.log(str);
+    str = str.toLowerCase();
+    str = str.replace(/[_]/g,"-");
+    return str;
+  }
+
+  console.log(spinalCase('bub_aTub'));

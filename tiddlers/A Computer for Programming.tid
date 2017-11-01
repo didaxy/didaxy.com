@@ -1,0 +1,71 @@
+created: 20171031011933347
+modified: 20171031012220281
+next: [[Atom Text Editor]
+part: 1
+partof: So, You Want To Make A Website?
+subtitle: A Computer
+tags: TutorialPart Live noindex
+title: A Computer for Programming
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!A Computer For Programming
+
+!!
+
+To learn to program, you need a computer. Surprise.
+
+Although, in theory, you could use an iPad, or even a phone, in practice you probably want a 'proper computer' with a decent keyboard and good pointing device.
+
+You're going to need a reasonably new computer (<5 years old) and you'll want it to be running one of the three major operating systems: Windows, MacOS or Linux. If you try to use older hardware or an obscure OS, you're going to find it hard to get help and fix the problems that will inevitably come up.
+
+For historical reasons, web development is easier on MacOS and Linux machines, because they mostly preserve compatibility with Unix.
+
+Windows users typically have to configure extra software - such as cygwin or the new Linux subsystem - to be able to accomplish the same tasks that Mac and Linux users can.
+
+If you have a 'Windows machine' you may want to consider 'dual booting' Linux or running Linux inside a VM. Otherwise, you'll need to be aware of the differences and account for them in following tutorials, including for now, the ones on this site. The main differences are the filepaths - Windows uses ``\`` whereas Linux and Mac use ``/`` (the same as website URLs) - and the command line interface.
+
+Eventually, I'd like to make these tutorials as comprehensive as possible by including instructions for Windows.
+
+!!Using and Understanding Your Computer
+
+Before you can teach yourself to program, you need to know how to use your computer to accomplish regular tasks.
+
+You need to know how to install new software and launch programs.
+
+You also need to know at least a little bit about how your computer works.
+
+It's expected, for example, that you have a basic idea of what computer memory is. That you understand basically about files and how the filing system works.
+
+Ideally you will know a bit about how Processors themselves work and how the parts of the computer work together internally.
+
+You //don't// need to know everything. What you need is a good enough //model// of what's going on. The longer you spend working with computers, the better your models will get.
+
+!!Buying a Computer
+
+If you need to buy a computer for development and you can afford it, you should probably buy a Mac. They need fixing a lot less and tend to just "get out of your way" and let you get on with learning.
+
+If you get a Linux computer, you'll likely learn a lot about how all the parts of the system work together, because you'll have to.
+
+The thing to try and understand, I think, which might not be obvious before you start, is that programming is only part of 'working with computers'.
+
+A lot of people who 'work with computers' are responsible for Systems Administration - that is, for making the computers run right and keeping them running. This probably looks a lot like programming to most people, but it isn't.
+
+If you run Linux, you'll learn about administering a Linux system. If you run Windows you'll learn about administering Windows machines (there are lots of people in SMEs all over the world employed to do nothing but administer Windows machines). If you run MacOS, you will learn that Mac users don't often need to worry about the same sorts of problems, because all the hardware and software is so tightly managed by Apple and things tend to "just work".
+
+!!Buying a Mac
+
+Having extolled the virtues of Mac so warmly, let me also say that I can well appreciate the 'sticker shock' involved in a trip to the Apple Store. I live in Australia and the cheapest Macbook Pro in 2017 is $1900, or $2700 with the 'touch bar'.
+
+My advice is that you don't need the Pro at all. The Macbook air is a perfectly good machine. The operating system is the thing that's going to make your life easier, not a touch-bar or a retina display (but don't be tempted to try and run MacOS on PC hardware, it's a World of Pain).
+
+And you don't need to buy a new machine. Old Macs work really well, which is why they tend to hold their re-sale price well, but they //do// get cheaper.
+
+Now (late 2017) seems to be quite a good time to pick up an older Mac laptop for a pretty good price (~$500, based on a few quick searches) which is possibly because lots of people are up-grading after waiting for the new models which came out early this year. If you can't afford to go to the Apple Store, my advice would be to hunt around for something a few years old (<5) that's within your budget.
+
+Anyway, commercial over. I know some people love Windows and will assume this is just more partisanship, but I promise that isn't true. I just want you to have a nice time learning to program!
+
+<<tutorial_nav>>

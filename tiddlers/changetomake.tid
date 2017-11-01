@@ -1,0 +1,10 @@
+created: 20171031032719613
+modified: 20171031032732146
+scripts: changetomake.js
+tags: FCCExercises Live
+title: changetomake
+type: text/vnd.tiddlywiki
+
+<$list filter={{!!scripts}}>
+{{||codetemplate}}
+</$list>

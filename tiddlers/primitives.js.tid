@@ -1,0 +1,141 @@
+created: 20171031051254479
+modified: 20171031051254479
+tags: scripts
+title: primitives.js
+type: text/javascript
+
+// let a = {maybe: true}
+// let b = {maybe: true}
+//
+// console.log(a === b ? true : false);
+//
+// // a and b are NOT equal to each other
+//
+// let c = {$:42}
+// let d = {$:42}
+//
+// if (c === d) {console.log("they match!")} else {console.log("they don't...");}
+//
+// //c and d are also not equal to each other.
+// //objects can never be equal, unless they are the same object
+//
+// let e = c
+//
+// //what about e?
+//
+// console.log(e === c ? true : false);
+//
+// //this is TRUE, because e and c ARE the same object, watch...
+//
+// e.newProp = "Now I'm here!"
+//
+// console.log(c.newProp);
+
+//setting properties on c sets them on e too
+//because there aren't really two things
+//there isn't really anything called 'c' or 'e'
+//they're both just names that you can use to refer
+//to the object that the system is creating internally
+
+//let's try the same thing with a string
+
+// let myString = ""
+//
+// console.log(myString.length);
+//
+// for (var prop in myString) {
+//     console.log(`${prop} : ${myString[prop]}`);
+// }
+//
+// console.log(Object.getOwnPropertyNames(Math));
+//
+// console.log(Object.getOwnPropertyNames(myString));
+
+
+//now with some numbers
+
+let myNum = 42
+//
+// console.log(myNum.constructor);
+//
+// console.log(myNum);
+//
+// console.log("and...");
+//
+// console.log(Object.getOwnPropertyNames(Object.prototype))
+//
+// console.log(typeof(myNum));
+// console.log(myNum.prototype);
+//
+// let x = typeof(myNum)
+// console.log(x);
+// console.log(Object.getOwnPropertyNames(myNum.constructor))
+// console.log(Number.MAX_VALUE);
+
+//
+
+// Number.prototype.returnMe= function() {
+//     return this;
+// }
+//
+// var a = 42;
+// var b = a.returnMe();
+//
+// a; //"abc"
+// typeof a; //"string" (still a primitive)
+// b; //"abc"
+// typeof b; //"object"
+
+// console.log(b);
+
+// console.log(a.__proto__);
+//
+// for (var method in a.__proto__) {
+//   console.log(`${method} : ${a[method]}`);
+// }
+//
+// // const aMethods
+//
+// for (method of Object.getOwnPropertyNames(a.__proto__)) {
+//   console.log(method);
+//   console.log(a[method]());
+// }
+//
+// var b = "hello"
+//
+// for (method of Object.getOwnPropertyNames(b.__proto__)) {
+//   console.log(method);
+// }
+//
+// console.log(b.anchor("hello"));
+
+// window.onload = () => {
+//   console.log("yo")
+// }
+
+let arr = null
+console.log(typeof(arr));
+
+//typeof null should REALLY be null, but it isn't
+
+// for (method of Object.getOwnPropertyNames(arr.__proto__)) {
+//   console.log(method);
+// }
+// console.log("---");
+
+// The above lines fail because null isn't an object, even though
+// the type of object is null
+
+console.log(typeof(arr));
+console.log(arr instanceof Object);
+
+console.log(typeof(42));
+console.log(42 instanceof Number);
+
+let d
+
+console.log(typeof(d));
+
+for (method of Object.getOwnPropertyNames(d.__proto__)) {
+  console.log(method);
+}

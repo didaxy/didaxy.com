@@ -1,0 +1,34 @@
+created: 20171031051254473
+modified: 20171031051254473
+tags: scripts
+title: restandspread.js
+type: text/javascript
+
+a = "hello"
+var obj = {
+  foo: 123
+};
+
+
+var propDesc = Object.getOwnPropertyDescriptor(obj, 'foo');
+console.log(propDesc);
+
+//the REST operator
+//multiply any number of paramenters
+
+function multAll(n, ...arr) {
+  return n * arr.reduce((p, c) => (p * c), 1)
+}
+
+
+
+console.log(multAll(4, 3, 2, 1));
+
+//with spread operator
+
+console.log(multAll(...[2, 2, 2]));
+
+let arr1 = [2, 3, 4]
+let arr2 = [5, 6, 7]
+arr1.push(...arr2)
+console.log(multAll(...arr1));

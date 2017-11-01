@@ -1,0 +1,23 @@
+created: 20171031040632032
+modified: 20171031040645867
+tags: 
+title: searchandreplace.js
+type: text/vnd.tiddlywiki
+
+//did you know that strings are immutable in javascript? They are.
+  function myReplace(str, before, after) {
+    console.log(after);
+
+    if (before[0].toUpperCase() == before[0]) {
+      after = after.split('');
+      var cap = after[0].toUpperCase();
+      after.splice(0,1,cap)
+      after = after.join('');
+      console.log(after);
+    }
+
+    var afterStr = str.replace(before, after);
+    return afterStr;
+  }
+
+  console.log(myReplace("A quick brown fox Jumped over the lazy dog", "Jumped", "leaped"));

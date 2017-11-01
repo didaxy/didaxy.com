@@ -1,0 +1,15 @@
+created: 20171031040954503
+modified: 20171031041003724
+tags: 
+title: sumall.js
+type: text/vnd.tiddlywiki
+
+  function sumAll(arr) {
+    var sum = 0;
+    arr = arr.sort(function(a,b){return a - b;});
+    for (var i=arr[0]; i<=arr[1];i++) {
+      sum += i;
+    }
+    return sum;
+  }
+  console.log("out: " + sumAll([2,4]));

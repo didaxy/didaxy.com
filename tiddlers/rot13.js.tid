@@ -1,0 +1,32 @@
+created: 20171031040600580
+modified: 20171031040610329
+tags: 
+title: rot13.js
+type: text/vnd.tiddlywiki
+
+function rot13(str) { // LBH QVQ VG!
+  var thisCode,
+      outputCode,
+      outStr="";
+  for (var i=0; i<str.length;i++) {
+    thisCode = str.charCodeAt(i);
+    outputCode = thisCode;
+    console.log(thisCode);
+    if(thisCode >=65 && thisCode <= 90) {outputCode = doRot13(thisCode);}
+    console.log("out: " + outputCode);
+
+    outStr += String.fromCharCode(outputCode)
+  }
+
+  function doRot13(inVal) {
+    var outVal = inVal + 13;
+    if (outVal > 90) {outVal = 65 + (outVal - 91);}
+    return outVal;
+  }
+
+
+  return outStr;
+}
+
+// Change the inputs below to test
+console.log(rot13("SERR PBQR PNZC"));
