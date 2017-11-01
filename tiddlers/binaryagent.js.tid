@@ -1,8 +1,8 @@
 created: 20171031032258277
-modified: 20171101080611053
+modified: 20171101081702756
 tags: 
 title: binaryagent.js
-type: text/vnd.tiddlywiki
+type: application/javascript
 
   function binaryAgent(str) {
     var message = str.split(' ').map(function (val) {

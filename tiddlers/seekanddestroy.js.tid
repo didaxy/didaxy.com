@@ -1,8 +1,8 @@
 created: 20171031040714517
-modified: 20171101080612858
+modified: 20171101081813316
 tags: 
 title: seekanddestroy.js
-type: text/vnd.tiddlywiki
+type: application/javascript
 
 function destroyer(arr) {
   // Remove all the values

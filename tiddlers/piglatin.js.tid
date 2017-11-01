@@ -1,8 +1,8 @@
 created: 20171031040353875
-modified: 20171101080612532
+modified: 20171101081801251
 tags: 
 title: piglatin.js
-type: text/vnd.tiddlywiki
+type: application/javascript
 
   function translatePigLatin(str) {
     var consCount = 0;

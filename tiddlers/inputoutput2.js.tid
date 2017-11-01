@@ -1,8 +1,8 @@
 created: 20171031051254490
-modified: 20171101080611979
+modified: 20171101081738580
 tags: scripts
 title: inputoutput2.js
-type: text/javascript
+type: application/javascript
 
 //main
 "use strict";

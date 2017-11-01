@@ -1,8 +1,8 @@
 created: 20171031051254502
-modified: 20171101080612028
+modified: 20171101081735602
 tags: scripts
 title: index.js
-type: text/javascript
+type: application/javascript
 
 function printVars() {
   console.log("here are your vars");

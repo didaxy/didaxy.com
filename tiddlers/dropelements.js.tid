@@ -1,8 +1,8 @@
 created: 20171031032909774
-modified: 20171101080611622
+modified: 20171101081723917
 tags: 
 title: dropelements.js
-type: text/vnd.tiddlywiki
+type: application/javascript
 
   function dropElements(arr, func) {
     while (func(arr[0]) === false) {arr.shift();}

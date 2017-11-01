@@ -1,8 +1,8 @@
 created: 20171031041249420
-modified: 20171101080613201
+modified: 20171101081845281
 tags: 
 title: wheredoibelong.js
-type: text/vnd.tiddlywiki
+type: application/javascript
 
 function getIndexToIns(arr, num) {
   // Find my place in this sorted array.

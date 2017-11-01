@@ -1,8 +1,8 @@
 created: 20171031035713168
-modified: 20171101080611904
+modified: 20171101081741831
 tags: 
 title: inventoryupdate2.js
-type: text/vnd.tiddlywiki
+type: application/javascript
 
   function updateInventory(arr1, arr2) {
     var totalInv = arr1.concat(arr2).sort(function(a,b){return b[1] < a[1];});

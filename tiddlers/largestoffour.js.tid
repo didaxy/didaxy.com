@@ -1,8 +1,8 @@
 created: 20171031035809977
-modified: 20171101080611846
+modified: 20171101081745253
 tags: 
 title: largestoffour.js
-type: text/vnd.tiddlywiki
+type: application/javascript
 
 function largestOfFour(arr) {
   // You can do this!

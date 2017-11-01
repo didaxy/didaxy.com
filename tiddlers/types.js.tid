@@ -1,8 +1,8 @@
 created: 20171031051254461
-modified: 20171101080612945
+modified: 20171101081843731
 tags: scripts
 title: types.js
-type: text/javascript
+type: application/javascript
 
 const a = 4.0
 const b = "hello"

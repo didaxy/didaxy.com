@@ -1,8 +1,8 @@
 created: 20171031051254484
-modified: 20171101080611887
+modified: 20171101081743327
 tags: scripts
 title: iteration.js
-type: text/javascript
+type: application/javascript
 
 //main
 "use strict";

@@ -1,8 +1,8 @@
 created: 20171031051254407
-modified: 20171101080611581
+modified: 20171101081725364
 tags: scripts
 title: equality.js
-type: text/javascript
+type: application/javascript
 
 //lenient versus strict equality
 

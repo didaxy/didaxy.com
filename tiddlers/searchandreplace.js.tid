@@ -1,8 +1,8 @@
 created: 20171031040632032
-modified: 20171101080612871
+modified: 20171101081811864
 tags: 
 title: searchandreplace.js
-type: text/vnd.tiddlywiki
+type: application/javascript
 
 //did you know that strings are immutable in javascript? They are.
   function myReplace(str, before, after) {

@@ -1,8 +1,8 @@
 created: 20171031040249017
-modified: 20171101080612566
+modified: 20171101081757990
 tags: 
 title: palindrome.js
-type: text/vnd.tiddlywiki
+type: application/javascript
 
   //palindrome
   function palindrome(str) {

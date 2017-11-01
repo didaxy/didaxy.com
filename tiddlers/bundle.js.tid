@@ -1,8 +1,8 @@
 created: 20171031051254418
-modified: 20171101080611326
+modified: 20171101081711818
 tags: scripts
 title: bundle.js
-type: text/javascript
+type: application/javascript
 
 (function () {
 'use strict';

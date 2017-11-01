@@ -1,8 +1,8 @@
 created: 20171031051254443
-modified: 20171101080611105
+modified: 20171101081659571
 tags: scripts
 title: async001.js
-type: text/javascript
+type: application/javascript
 
 console.log("...do stuff...");
 function asyncFunc() {

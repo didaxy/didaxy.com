@@ -1,8 +1,8 @@
 created: 20171031040026071
-modified: 20171101080612256
+modified: 20171101081751251
 tags: 
 title: makeaperson.js
-type: text/vnd.tiddlywiki
+type: application/javascript
 
   function Car(make, model, year) {
     this.make = make;

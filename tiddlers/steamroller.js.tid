@@ -1,8 +1,8 @@
 created: 20171031040924813
-modified: 20171101080612775
+modified: 20171101081822703
 tags: 
 title: steamroller.js
-type: text/vnd.tiddlywiki
+type: application/javascript
 
   function steamrollArray(arr) {
     // I'm a steamroller, baby

@@ -1,8 +1,8 @@
 created: 20171031032744450
-modified: 20171101080611268
+modified: 20171101081717891
 tags: 
 title: converthtmlentities.js
-type: text/vnd.tiddlywiki
+type: application/javascript
 
   function convertHTML(str) {
     // &colon;&rpar;

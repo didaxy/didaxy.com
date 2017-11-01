@@ -1,8 +1,8 @@
 created: 20171031041329406
-modified: 20171101080613183
+modified: 20171101081847744
 tags: 
 title: whereforeartthou.js
-type: text/vnd.tiddlywiki
+type: application/javascript
 
 function whatIsInAName(collection, source) {
     // What's in a name?

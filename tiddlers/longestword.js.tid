@@ -1,8 +1,8 @@
 created: 20171031035936565
-modified: 20171101080612291
+modified: 20171101081747859
 tags: 
 title: longestword.js
-type: text/vnd.tiddlywiki
+type: application/javascript
 
   function findLongestWord(str) {
     return str.split(' ').map(function(word) {return word.length;}).reduce(function (prev, curr){return Math.max(prev, curr);},0);

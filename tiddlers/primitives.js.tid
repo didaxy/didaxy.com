@@ -1,8 +1,8 @@
 created: 20171031051254479
-modified: 20171101080612513
+modified: 20171101081803855
 tags: scripts
 title: primitives.js
-type: text/javascript
+type: application/javascript
 
 // let a = {maybe: true}
 // let b = {maybe: true}

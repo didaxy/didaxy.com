@@ -1,8 +1,8 @@
 created: 20171031051254496
-modified: 20171101080611995
+modified: 20171101081737099
 tags: scripts
 title: inputoutput.js
-type: text/javascript
+type: application/javascript
 
 const yourName = prompt("What's your name?")
 console.log("welcome " + yourName);

@@ -1,8 +1,8 @@
 created: 20171031032435630
-modified: 20171101080611314
+modified: 20171101081714107
 tags: 
 title: capitalise.js
-type: text/vnd.tiddlywiki
+type: application/javascript
 
   function titleCase(str) {
     arr = str.split(' ');

@@ -1,8 +1,8 @@
 created: 20171031040954503
-modified: 20171101080612750
+modified: 20171101081833863
 tags: 
 title: sumall.js
-type: text/vnd.tiddlywiki
+type: application/javascript
 
   function sumAll(arr) {
     var sum = 0;

@@ -1,8 +1,8 @@
 created: 20171031051254473
-modified: 20171101080612430
+modified: 20171101081805601
 tags: scripts
 title: restandspread.js
-type: text/javascript
+type: application/javascript
 
 a = "hello"
 var obj = {

@@ -1,8 +1,8 @@
 created: 20171031035312276
-modified: 20171101080611548
+modified: 20171101081728812
 tags: 
 title: exactchange.js
-type: text/vnd.tiddlywiki
+type: application/javascript
 
   function checkCashRegister(price, cash, cid) {
     var priceInPennies = Math.round(price*100),

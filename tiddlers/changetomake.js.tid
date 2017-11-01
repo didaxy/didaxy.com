@@ -1,8 +1,8 @@
 created: 20171031032629624
-modified: 20171101080611299
+modified: 20171101081715851
 tags: 
 title: changetomake.js
-type: text/vnd.tiddlywiki
+type: application/javascript
 
   function checkCashRegister(price, cash, cid) {
     var madeChange = false;

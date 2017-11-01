@@ -1,8 +1,8 @@
 created: 20171031051254424
-modified: 20171101080611380
+modified: 20171101081646372
 tags: scripts
 title: booleasn.js
-type: text/javascript
+type: application/javascript
 
 "use strict";
 

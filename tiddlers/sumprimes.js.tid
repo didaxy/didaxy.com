@@ -1,9 +1,8 @@
 created: 20171031041053334
-modified: 20171101080612714
+modified: 20171101081837364
 tags: 
 title: sumprimes.js
-type: text/vnd.tiddlywiki
-
+type: application/javascript
 
   function sumPrimes(num) {
     function isPrime(num) {

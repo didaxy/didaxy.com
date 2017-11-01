@@ -1,8 +1,8 @@
 created: 20171031051254436
-modified: 20171101080611040
+modified: 20171101081704295
 tags: scripts
 title: binarylogic.js
-type: text/javascript
+type: application/javascript
 
 let a = true, b = false
 function c() {return true}

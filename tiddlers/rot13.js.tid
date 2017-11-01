@@ -1,8 +1,8 @@
 created: 20171031040600580
-modified: 20171101080612396
+modified: 20171101081808640
 tags: 
 title: rot13.js
-type: text/vnd.tiddlywiki
+type: application/javascript
 
 function rot13(str) { // LBH QVQ VG!
   var thisCode,

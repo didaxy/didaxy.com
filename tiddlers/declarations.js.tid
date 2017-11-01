@@ -1,8 +1,8 @@
 created: 20171031051254412
-modified: 20171101080611253
+modified: 20171101081719406
 tags: scripts
 title: declarations.js
-type: text/javascript
+type: application/javascript
 
 "use strict";
 

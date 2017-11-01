@@ -1,8 +1,8 @@
 created: 20171031041216982
-modified: 20171101080612664
+modified: 20171101081840395
 tags: 
 title: telephonecheck.js
-type: text/vnd.tiddlywiki
+type: application/javascript
 
   function telephoneCheck(str) {
     var re=/^1?\s?(\(\d{3}\)|\d{3})\s?-?\d{3}\s?-?\d{4}$/
