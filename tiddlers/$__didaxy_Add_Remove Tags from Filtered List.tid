@@ -1,0 +1,47 @@
+created: 20170525014117652
+modified: 20171102012304528
+tags: Plumbing
+title: $:/didaxy/Add/Remove Tags from Filtered List
+type: text/vnd.tiddlywiki
+
+enter a filter expression:<$edit-text tiddler="$:/temp/rs/tagger-filter" field="filter" type="search" tag="input" placeholder="enter a filter expression"/>
+
+Select a tag: <$select tiddler='$:/temp/rs/tagger-filter' default='HelloThere'>
+<$list filter='[all[shadows+tiddlers]tags[]sort[title]]'>
+<option value=<<currentTiddler>>><$view field='title'/></option>
+</$list>
+</$select>
+
+<table>
+<th>Tiddler</th><th>Has tag?</th><th>Add/remove</th>
+<$list filter={{$:/temp/rs/tagger-filter!!filter}}>
+<tr>
+<td>
+<$link>{{!!title}}</$link>
+</td>
+<td>
+<$list filter="[all[current]tag{$:/temp/rs/tagger-filter}]">
+YES</$list>
+</td>
+<td>
+<$list filter="[all[current]tag{$:/temp/rs/tagger-filter}]">
+<$button>
+<$fieldmangler>
+<$action-sendmessage $message="tm-remove-tag" $param={{$:/temp/rs/tagger-filter}}/>
+</$fieldmangler>
+Remove
+</$button>
+</$list>
+<$list filter="[all[current]!tag{$:/temp/rs/tagger-filter}]">
+<$button>
+<$fieldmangler>
+<$action-sendmessage $message="tm-add-tag" $param={{$:/temp/rs/tagger-filter}}/>
+</$fieldmangler>
+Add
+</$button></$list>
+</td>
+</tr>
+
+</$list>
+</table>
+

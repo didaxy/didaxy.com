@@ -1,0 +1,19 @@
+created: 20171102013746558
+modified: 20171102014402619
+tags: Live
+title: Code Snippets
+type: text/vnd.tiddlywiki
+
+!!Code Snippets
+
+These are small code samples, written over the course of the last year and a half. Some of them are better than others..
+
+!!Free Code Camp
+<$list filter="[tag[FCCExercises]]">
+<li><$link>{{!!title}}</$link></li>
+</$list>
+
+!!Simple ES6
+<$list filter="[tag[SimpleES6]]">
+<li><$link>{{!!title}}</$link></li>
+</$list>

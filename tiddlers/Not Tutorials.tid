@@ -1,5 +1,5 @@
 created: 20170928023144903
-modified: 20171101080612590
+modified: 20171102014330953
 tags: Live Plumbing
 title: Not Tutorials
 type: text/vnd.tiddlywiki
@@ -8,6 +8,7 @@ type: text/vnd.tiddlywiki
 
 These are things that are not tutorials (yet), but might still be interesting.
 
+* [[Code Snippets]]
 * Didaxy early version (on netlify) - https://financial-controller-beaver-27738.netlify.com, also https://gatekeeper-cow-37540.netlify.com/introduction-to-tiddlywiki
 * A Sample Jekyll Website - http://www.baristars.online/
 
