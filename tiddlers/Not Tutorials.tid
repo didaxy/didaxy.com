@@ -1,5 +1,5 @@
 created: 20170928023144903
-modified: 20171102014330953
+modified: 20171102054303610
 tags: Live Plumbing
 title: Not Tutorials
 type: text/vnd.tiddlywiki
@@ -9,41 +9,45 @@ type: text/vnd.tiddlywiki
 These are things that are not tutorials (yet), but might still be interesting.
 
 * [[Code Snippets]]
-* Didaxy early version (on netlify) - https://financial-controller-beaver-27738.netlify.com, also https://gatekeeper-cow-37540.netlify.com/introduction-to-tiddlywiki
 * A Sample Jekyll Website - http://www.baristars.online/
 
-* Portfolio Page
-* Tribute Page
-
 * [[Calculator|https://r1chard5mith.github.io/calculator/]]
+
+* [[Wikipedia Viewer|https://r1chard5mith.github.io/wikipedia_viewer/]]
+
+
+* [[React Game of Life|https://r1chard5mith.github.io/react_gameoflife/]]
+* [[React Ghosts and Keys Game|https://r1chard5mith.github.io/react_ghosts_and_keys/]] + Map Editor
+
+* [[React Pair-matching Game|https://r1chard5mith.github.io/pairmatch/]]
+
+
+* Authbase - [[this|https://shielded-hollows-37077.herokuapp.com/]] (I think)
+* [[Choosili|https://polar-wildwood-26214.herokuapp.com/]] - and [[here|https://whispering-bayou-82923.herokuapp.com/]] too.
+* [[URL shortener|https://vast-beach-37456.herokuapp.com/]] - lttl.co
+* [[Filesize Microservice|https://immense-citadel-61838.herokuapp.com/]]
+* [[Image Search|https://agile-sands-89462.herokuapp.com/]] - https://radiant-spire-48849.herokuapp.com/ (and both look broken)
+* [[Request-header Microservice|https://mighty-escarpment-59983.herokuapp.com/]]
+* [[Date-parser Microservice|https://morning-plains-94969.herokuapp.com/]]
+
+(if these Heroku apps don't work, please [[check the status log|https://status.heroku.com/]])
+
 * Local Weather
 * Pomodoro Clock
 * Random Quote Generator
 * Simon Game
 * Tic-tac-toe game
 * Twitch-viewer*
-* Wikipedia Viewer
 
+* Portfolio Page
+* Tribute Page
 
-* React Game of Life
-* React Ghosts and Keys Game
-* Ghosts and Keys Map Editor
+* Didaxy early version (on netlify) - https://financial-controller-beaver-27738.netlify.com, also https://gatekeeper-cow-37540.netlify.com/introduction-to-tiddlywiki
+
 * React Recipe-box App
 * React To-Do App
 * (React Mark-down Editor)
-* [[React Pair-matching Game|https://r1chard5mith.github.io/pairmatch/]]
-* (React Tic-tac-Toe game)
 
 * D3 Visualisations
-
-* Authbase - [[this|https://shielded-hollows-37077.herokuapp.com/]] (I think)
-* [[Choosili|https://polar-wildwood-26214.herokuapp.com/]] - and [[here|https://whispering-bayou-82923.herokuapp.com/]] too.
 * (picshuffler)
-* [[URL shortener|https://vast-beach-37456.herokuapp.com/]] - lttl.co
-* [[Filesize Microservice|https://immense-citadel-61838.herokuapp.com/]]
-* [[Image Search|https://agile-sands-89462.herokuapp.com/]]
-* Image search twice? - https://radiant-spire-48849.herokuapp.com/ (and both look broken)
-* [[Request-header Microservice|https://mighty-escarpment-59983.herokuapp.com/]]
-* [[Date-parser Microservice|https://morning-plains-94969.herokuapp.com/]]
-
-(if these Heroku apps don't work, please [[check the status log|https://status.heroku.com/]])
+* (React Tic-tac-Toe game)
