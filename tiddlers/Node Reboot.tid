@@ -1,0 +1,28 @@
+created: 20171104022843610
+modified: 20171104024455650
+tags: 
+title: Node Reboot
+type: text/vnd.tiddlywiki
+
+!Node Reboot
+
+!!First Thing
+
+The first thing we do is get MongoDB up and running locally which involves installing it with Brew. In my case I have to hack out the old pieces of it that were left around from it being installed with a different user account.
+
+This basically just involves reading the error messages that say it doesn't have access to this or that file and then changing ownership and permissions on those files until it can install itself.
+
+Once it's installed, you should be able to type ``mongod`` and have it start the "daemon" that runs the database.
+
+Once the daemon's running, you can start the "shell", if you would like to by typing ``mongo``. This will give you the mongoDB command line, for interacting with your database.
+
+You can also install and run ``admin-mongo`` which will run as a server or as an electron app (if you care to configure it that way). I find that visually inspecting the database is good while I'm building out my app and checking that it works.
+
+!!Next Thing
+
+Now that Mongo is running locally, I can configure my local development environment to point to it, using the instructions that I left for myself.
+
+Picking up abandoned projects is hard. In this case made harder by the fact that I now have several versions of this project lying around.
+
+I am going to beat away the rest of them - this is hard because I will have //less stuff// at the end of the day - but that's what needs to happen. Having "more stuff" isn't better anyway.
+

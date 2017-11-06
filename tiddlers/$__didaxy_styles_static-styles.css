@@ -20,13 +20,13 @@ a:visited {
   width: 100%;
   min-height: 100px;
   color: #673599;
-  background-color: #f5eff7;
+  background-color: #52a0e8;
   text-align: center;
   padding-top: 20px;
 }
 
 .footer .container-fluid {
-  background-color: #f5eff7;
+  background-color: #52a0e8;
   background: linear-gradient(135deg, #f1e7f7, #ba99cf);
 }
 
@@ -101,7 +101,7 @@ h2 {
 
 .navbar {
   color:  #533599;
-  background-color: #f5eff7;
+  background-color: #52a0e8;
   margin-top: -1rem;
 }
 
@@ -117,7 +117,7 @@ h2 {
 }
 
 .header-image.index {
-    background: linear-gradient(180deg, #f5eff7, #fff);
+    background: linear-gradient(180deg, #52a0e8, #fff);
   margin-top: -20px;
 }
 

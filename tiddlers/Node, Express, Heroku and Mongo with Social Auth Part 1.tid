@@ -1,9 +1,9 @@
 created: 20170130093531922
-modified: 20171101080612071
+modified: 20171104015730176
 part: 1
 partof: Node, Express, Heroku and Mongo with Social Auth
 subtitle: Creating a Project, Version Control and Deployment Workflow
-tags: TutorialPart
+tags: Live TutorialPart
 title: Node, Express, Heroku and Mongo with Social Auth Part 1
 type: text/vnd.tiddlywiki
 

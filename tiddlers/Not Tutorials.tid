@@ -1,5 +1,5 @@
 created: 20170928023144903
-modified: 20171102054303610
+modified: 20171104015535626
 tags: Live Plumbing
 title: Not Tutorials
 type: text/vnd.tiddlywiki
@@ -8,25 +8,20 @@ type: text/vnd.tiddlywiki
 
 These are things that are not tutorials (yet), but might still be interesting.
 
-* [[Code Snippets]]
 * A Sample Jekyll Website - http://www.baristars.online/
 
+* [[Code Snippets]]
 * [[Calculator|https://r1chard5mith.github.io/calculator/]]
-
 * [[Wikipedia Viewer|https://r1chard5mith.github.io/wikipedia_viewer/]]
-
 
 * [[React Game of Life|https://r1chard5mith.github.io/react_gameoflife/]]
 * [[React Ghosts and Keys Game|https://r1chard5mith.github.io/react_ghosts_and_keys/]] + Map Editor
-
 * [[React Pair-matching Game|https://r1chard5mith.github.io/pairmatch/]]
 
-
-* Authbase - [[this|https://shielded-hollows-37077.herokuapp.com/]] (I think)
-* [[Choosili|https://polar-wildwood-26214.herokuapp.com/]] - and [[here|https://whispering-bayou-82923.herokuapp.com/]] too.
+* [[Choosili|httpchoosili.com/]] - voting app.
 * [[URL shortener|https://vast-beach-37456.herokuapp.com/]] - lttl.co
 * [[Filesize Microservice|https://immense-citadel-61838.herokuapp.com/]]
-* [[Image Search|https://agile-sands-89462.herokuapp.com/]] - https://radiant-spire-48849.herokuapp.com/ (and both look broken)
+
 * [[Request-header Microservice|https://mighty-escarpment-59983.herokuapp.com/]]
 * [[Date-parser Microservice|https://morning-plains-94969.herokuapp.com/]]
 
@@ -51,3 +46,4 @@ These are things that are not tutorials (yet), but might still be interesting.
 * D3 Visualisations
 * (picshuffler)
 * (React Tic-tac-Toe game)
+* [[Image Search|https://agile-sands-89462.herokuapp.com/]] - https://radiant-spire-48849.herokuapp.com/ (and both look broken)
