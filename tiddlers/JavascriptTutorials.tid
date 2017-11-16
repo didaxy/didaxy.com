@@ -1,6 +1,6 @@
 created: 20171019024759171
-list: [[Running Javascript Programs]] Environment [[Live Reload Server]] [[Input and Output]] Variables [[Program Structure]] [[Functions as Data]] Symbols [[Styling Error Messages]] [[Map and Filter]] [[Built in Methods on the Primitives]]
-modified: 20171101080611869
+list: [[Input and Output]] Variables [[Program Structure]] [[Functions as Data]] [[Built in Methods on the Primitives]] Symbols [[Styling Error Messages]] [[Map and Filter]]
+modified: 20171116025849979
 tags: Plumbing
 title: JavascriptTutorials
 type: text/vnd.tiddlywiki

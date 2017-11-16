@@ -1,5 +1,5 @@
 created: 20170919044301133
-modified: 20171101080613210
+modified: 20171116021745777
 tags: Live JavascriptTutorials
 title: Variables
 type: text/vnd.tiddlywiki
@@ -114,6 +114,7 @@ here's where we need to make sure that we can see the console errors that are ge
 
 If not, we need to change the set up of our environment until we can see them.
 
+!!Constants
 
 
 Next: [[Functions]]
