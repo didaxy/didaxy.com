@@ -1,0 +1,42 @@
+created: 20171116014929549
+modified: 20171116015521763
+part: 4
+partof: So, You Want To Make A Website?
+subtitle: A Web Server
+tags: TutorialPart
+title: A Web Server
+type: text/vnd.tiddlywiki
+
+!A Web Server
+
+You can open your web pages from the local filesystem but some things don't work right that way.
+
+To make sure you're developing pages and apps that are going to work right when they're deployed, you're going to want to 'serve' them to yourself over HTTP, the way a regular web server does.
+
+This means to run a server, but don't panic! This is not nearly as troubling as it might sound if you have some idea of servers as being complicated.
+
+There are lots of ways to run a server and they aren't complicated.
+
+The simplest way, in the context of the tools we already have installed is to use an extension for Atom to do the serving.
+
+If you choose to use a different editor, there will probably be an equivalent tool or you can run a server independent of your editor.
+
+Live servers watch your code for changes and update the browser automatically.
+
+We learn through feedback.
+
+We try something and we find out whether or not it works.
+
+The quicker we can repeat 'cycles' of learning in this way, the faster we learn overall.
+
+It might not seem like a big deal, whether your browser refreshes in half a second or three seconds, but it really can be, especially when you're in unfamiliar territory or you're tweaking lots of little things that need to be just right, so you're going backwards and forwards to your code a lot.
+
+https://www.browsersync.io/#install
+
+Browser-sync is awesome. It makes it funner to try things out.
+
+
+
+https://atom.io/packages/atom-live-server
+
+You can use Atom live server to serve the code live to a browser
