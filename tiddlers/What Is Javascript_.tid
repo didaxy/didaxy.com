@@ -1,0 +1,22 @@
+created: 20171122125058646
+modified: 20171122131057590
+tags: JavascriptTutorials
+title: What Is Javascript?
+type: text/vnd.tiddlywiki
+
+Javascript is the scripting language of web browsers.
+
+A scripting language is one that's intended to let you control another technology, in this case the web browser. One thing this means is that Javascript relies entirely on the browser for input and output, as we will shortly see.
+
+Node is an alternative environment that allows Javascript to run outside of the browser by providing its own set of APIs (Application Programming Interface).
+
+Originally Javascript was used just to add simple interactivity to standard HTML pages but it is now used to write very large and complicated applications which run either in the browser, under Node JS or even in a combination of the two (making them 'full stack' applications).
+
+For a Javascript program to run in the browser, there first needs to be an HTML file. The Javascript can then be included inside this file or written in a separate file, in which case it must be referenced from the HTML file in the correct way.
+
+Recently Javascript has been going through a phase of rapid development, which has led to the introduction of many important improvements. At the same time, a fixation for 'backwards compatibility' means that basically anything that ever worked will still work now, even though in many cases you there are good reasons why you shouldn't do it that way.
+
+For many years Douglas Crockford's 'Javascript the Good Parts' was considered a go-to resource for learning which parts of the language should be avoided and which patterns preferred. That book is out of date now with introduction of ES6 (Javascript is actually called Ecmascript, because reasons) and the subsequent iterations (now on a rolling 'evergreen' schedule)
+
+Javascript is a great language to learn programming with. All the tools are at your disposal. My goal is to walk you through all the features of the new and improved Javascript, pointing out what I think are the best parts available and which parts we probably don't want to use ourselves but that we still need to know about because they will have been used in the past in code that we might one day have to maintain.
+

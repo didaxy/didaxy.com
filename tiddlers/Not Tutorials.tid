@@ -1,5 +1,5 @@
 created: 20170928023144903
-modified: 20171104015535626
+modified: 20171123104024527
 tags: Live Plumbing
 title: Not Tutorials
 type: text/vnd.tiddlywiki
@@ -18,32 +18,27 @@ These are things that are not tutorials (yet), but might still be interesting.
 * [[React Ghosts and Keys Game|https://r1chard5mith.github.io/react_ghosts_and_keys/]] + Map Editor
 * [[React Pair-matching Game|https://r1chard5mith.github.io/pairmatch/]]
 
-* [[Choosili|httpchoosili.com/]] - voting app.
+* [[Choosili|http://www.choosi.li/]] - voting app.
 * [[URL shortener|https://vast-beach-37456.herokuapp.com/]] - lttl.co
 * [[Filesize Microservice|https://immense-citadel-61838.herokuapp.com/]]
 
 * [[Request-header Microservice|https://mighty-escarpment-59983.herokuapp.com/]]
 * [[Date-parser Microservice|https://morning-plains-94969.herokuapp.com/]]
-
-(if these Heroku apps don't work, please [[check the status log|https://status.heroku.com/]])
-
-* Local Weather
-* Pomodoro Clock
-* Random Quote Generator
-* Simon Game
-* Tic-tac-toe game
-* Twitch-viewer*
-
-* Portfolio Page
-* Tribute Page
-
-* Didaxy early version (on netlify) - https://financial-controller-beaver-27738.netlify.com, also https://gatekeeper-cow-37540.netlify.com/introduction-to-tiddlywiki
-
-* React Recipe-box App
-* React To-Do App
+* [[React Tic-tac-Toe game|https://r1chard5mith.github.io/react_tic_tac_toe/]] (my version)
+*[[React Markdown Editor|https://r1chard5mith.github.io/react_markdown_editor/]]
+* [[Simon Game|https://r1chard5mith.github.io/simon_game/]]
+* [[Random Quote Generator|https://r1chard5mith.github.io/random_quote_generator/]]
+* [[Pomodoro Clock|https://r1chard5mith.github.io/pomodoro_clock/]]
+*[[Snake Game|https://r1chard5mith.github.io/snake_game/]]
+* [[Local Weather|https://r1chard5mith.github.io/local_weather/]]
+* [[React Recipe-box App|https://r1chard5mith.github.io/react_recipes/]] (not working)
+* [[React To-Do App|https://r1chard5mith.github.io/react_todo/]]
 * (React Mark-down Editor)
-
-* D3 Visualisations
-* (picshuffler)
-* (React Tic-tac-Toe game)
 * [[Image Search|https://agile-sands-89462.herokuapp.com/]] - https://radiant-spire-48849.herokuapp.com/ (and both look broken)
+* [[Twitch-viewer|https://r1chard5mith.github.io/twitch_viewer/]] (this is broken by an api change)
+* [[D3 Visualisations|https://r1chard5mith.github.io/fcc_d3/]]
+* [[Platform Game|https://r1chard5mith.github.io/platform_game/]] (from Eloquent Javascript)
+
+
+
+(if the Heroku apps don't work, please [[check the status log|https://status.heroku.com/]])

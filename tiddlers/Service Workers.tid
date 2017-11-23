@@ -1,0 +1,28 @@
+created: 20171123051400151
+modified: 20171123053230673
+tags: 
+title: Service Workers
+type: text/vnd.tiddlywiki
+
+Service workers might be more useful than this, but they were designed with one main goal in mind, it seems and that is to cache web sites for offline use.
+
+Let's go with that for a minute, anyway.
+
+(They can also do other things, like 'push notifications' - joyful)
+
+---
+
+I suppose getting a service worker onto people's browsers is a way of having your program always running on their browser, to some limited extent, so that you can be waiting for them to ask for things and you can respond quickly, instead of having to always go to the network first.
+
+I suppose that you will potentially be able to install and otherwise rely on the presence of quite sophisticated technology without a continuous network connection.
+
+---
+
+Service workers work with Promises, so as to be asynchronous.
+
+Promises aren't complicated, they are just a data type that resolves later and triggers code execution...
+
+We use service workers as a way of delivering a blazing fast service for fat apps.
+
+If we don't have a fat app, we might not need them.
+
