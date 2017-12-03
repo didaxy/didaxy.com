@@ -1,8 +1,12 @@
 created: 20171203031846286
-modified: 20171203032354369
-tags: 
+modified: 20171203040220554
+tags: Live
 title: Bio
 type: text/vnd.tiddlywiki
+
+<div class="header-image index">
+<$image source="$:/didaxy/didaxy-logo-white.svg" class="article-image"/>
+</div>
 
 !!Richard Smith
 

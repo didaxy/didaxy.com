@@ -1,8 +1,12 @@
 created: 20170928023144903
-modified: 20171203032320482
+modified: 20171203040244744
 tags: Live Plumbing
 title: Portfolio
 type: text/vnd.tiddlywiki
+
+<div class="header-image index">
+<$image source="$:/didaxy/didaxy-logo-white.svg" class="article-image"/>
+</div>
 
 !Portfolio
 
