@@ -1,7 +1,7 @@
 created: 20170820112328195
 list: a b
 logos: [[neocities-logo.svg]]  [[firefox-logo.svg]]  [[atom-logo.svg]]  [[travis-logo.svg]]  [[github-logo.svg]]  [[tiddlywiki-logo.svg]]   [[hover-logo.svg]]   [[netlify-logo.svg]]
-modified: 20171101080611207
+modified: 20171203035053059
 tags: Plumbing Live
 title: About
 type: text/vnd.tiddlywiki
@@ -9,6 +9,19 @@ type: text/vnd.tiddlywiki
 <div class="header-image index">
 <$image source="$:/didaxy/didaxy-logo-white.svg" class="article-image"/>
 </div>
+
+!About Me
+
+My name is Richard and I like programming computers.
+
+I wrote a [[longer bio|Bio]] about myself.
+
+!Now
+
+Right now I am preparing my site so that I can send links to prospective employers.
+
+I am also taking part in [[Advent of Code|Advent of Code 2017]].
+
 
 !Didaxy.com
 

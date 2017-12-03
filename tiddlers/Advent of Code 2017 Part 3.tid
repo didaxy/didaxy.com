@@ -1,0 +1,21 @@
+created: 20171203034907729
+modified: 20171203035007760
+next: [[Advent of Code 2017 Part 4]]
+part: 3
+partof: Advent of Code 2017
+previous: [[Advent of Code 2017 Part 2]]
+scripts: aoc2017day3a.js, aoc2017day3b.js
+subtitle: Day 3
+tags: TutorialPart Live noindex
+title: Advent of Code 2017 Part 3
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!Star 1
+
+!!Star 2
+
+<<tutorial_nav>>
