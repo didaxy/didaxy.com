@@ -1,11 +1,11 @@
 created: 20171203034504365
-modified: 20171203035030136
+modified: 20171203043024964
 next: [[Advent of Code 2017 Part 3]]
 part: 1
 partof: Advent of Code 2017
 previous: [[Advent of Code 2017 Part 1]]
-scripts: aoc2017day1a.js, aoc2017day1b.js
-subtitle: Day 2
+scripts: aoc2017day1a.js
+subtitle: Day 1
 tags: TutorialPart Live noindex
 title: Advent of Code 2017 Part 1
 type: text/vnd.tiddlywiki

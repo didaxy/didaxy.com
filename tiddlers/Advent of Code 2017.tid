@@ -1,9 +1,8 @@
 created: 20171203033817596
-modified: 20171203034058745
-tags: 
+modified: 20171203042054797
+tags: Live
 title: Advent of Code 2017
 type: text/vnd.tiddlywiki
 
-<$image class="article-image" alt="from tiddlywiki to static html" source="aoc.png"/>
-
+!Advent of Code 2017
 <<tutorial_list>>

@@ -1,6 +1,3 @@
-created: 20171203041632801
-list: $:/didaxy/styles/static-styles.css $:/didaxy/templates/static.template.css Portfolio index About Tutorials
-modified: 20171203041632801
+list: index myStuff
 title: $:/StoryList
-type: text/vnd.tiddlywiki
 
