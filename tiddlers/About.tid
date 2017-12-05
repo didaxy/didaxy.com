@@ -1,7 +1,7 @@
 created: 20170820112328195
 list: a b
 logos: [[neocities-logo.svg]]  [[firefox-logo.svg]]  [[atom-logo.svg]]  [[travis-logo.svg]]  [[github-logo.svg]]  [[tiddlywiki-logo.svg]]   [[hover-logo.svg]]   [[netlify-logo.svg]]
-modified: 20171203035053059
+modified: 20171205013919373
 tags: Plumbing Live
 title: About
 type: text/vnd.tiddlywiki
@@ -14,11 +14,11 @@ type: text/vnd.tiddlywiki
 
 My name is Richard and I like programming computers.
 
-I wrote a [[longer bio|Bio]] about myself.
+I wrote a longer [[bio about myself here|Bio]].
 
 !Now
 
-Right now I am preparing my site so that I can send links to prospective employers.
+Right now I am preparing a [[Portfolio]] to show to prospective employers.
 
 I am also taking part in [[Advent of Code|Advent of Code 2017]].
 
@@ -27,13 +27,13 @@ I am also taking part in [[Advent of Code|Advent of Code 2017]].
 
 Didaxy is for helping people to make things.
 
-We use and recommend the World Wide Web - free and open [[since 1991|http://info.cern.ch/hypertext/WWW/TheProject.html]] and yet [[you are (still) not late|https://medium.com/message/you-are-not-late-b3d76f963142]]. Now is the time to learn.
+The World Wide Web - free and open [[since 1991|http://info.cern.ch/hypertext/WWW/TheProject.html]] and yet [[you are (still) not late|https://medium.com/message/you-are-not-late-b3d76f963142]]. Now is the time to learn.
 
 <center>
 ''something new every day''
 </center>
 
-!!We ``<heart>`` the web stack
+!!``<heart>`` the web stack
 <center>
 <$image width="200" source="html5-logo.svg"/>
 </center>
