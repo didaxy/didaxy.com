@@ -1,7 +1,7 @@
 created: 20170820112328195
 list: a b
 logos: [[neocities-logo.svg]]  [[firefox-logo.svg]]  [[atom-logo.svg]]  [[travis-logo.svg]]  [[github-logo.svg]]  [[tiddlywiki-logo.svg]]   [[hover-logo.svg]]   [[netlify-logo.svg]]
-modified: 20171205013919373
+modified: 20171205014333345
 tags: Plumbing Live
 title: About
 type: text/vnd.tiddlywiki
@@ -18,7 +18,9 @@ I wrote a longer [[bio about myself here|Bio]].
 
 !Now
 
-Right now I am preparing a [[Portfolio]] to show to prospective employers.
+Right now I am preparing a [[Portfolio]] to show to prospective employers and writing a [[bio]] for similar purposes.
+
+I'm also making a voting platform, with Node, Express and Mongo, to be hosted on Heroku and mLab (http://www.choosi.li) that I will eventually write about. (scrappy notes here: [[Node, Express, Heroku and Mongo with Social Auth]]
 
 I am also taking part in [[Advent of Code|Advent of Code 2017]].
 

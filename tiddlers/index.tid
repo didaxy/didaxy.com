@@ -1,5 +1,5 @@
 created: 20170729040253509
-modified: 20171203032924450
+modified: 20171205020026005
 tags: Plumbing Live noindex
 title: index
 type: text/vnd.tiddlywiki
@@ -7,8 +7,24 @@ type: text/vnd.tiddlywiki
 <div class="header-image index">
 <$image source="didaxy_logo.svg" class="article-image"/>
 </div>
+<div class="didaxy-definition">
 
-!!Welcome
+!!''di•da•xy (ˌdaɪ dæk si, -daɪˈdækt)''
+
+"""
+
+
+v.
+the art or science of learning, as applied to oneself and others, towards the expeditious acquisition of knowledge and skills.
+
+[1525–35; < Greek autodídaktos self-taught; didactic, long bow? essentially Neologistic]
+
+di•dacti•cal•ly, adv. 
+au•to•di•dact, n.
+"""
+</div>
+
+!!Hello.
 
 My name is [[Richard Smith|Bio]] and this is [[my website|About]]. 
 

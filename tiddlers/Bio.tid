@@ -1,5 +1,5 @@
 created: 20171203031846286
-modified: 20171203040220554
+modified: 20171205043035433
 tags: Live
 title: Bio
 type: text/vnd.tiddlywiki
@@ -9,5 +9,59 @@ type: text/vnd.tiddlywiki
 </div>
 
 !!Richard Smith
+
+!!Introduction
+
+I am applying for a job as a junior web developer.
+
+I'm 42 years old. Pretty old for a junior, right? It didn't even occur to me this might be a problem when I decided to change careers, but I've read a few articles on HN and elsewhere that suggest it might be. We'll find out, I suppose.
+
+!!Education
+
+I'm originally from England, where I went to a 'comprehensive' school and got GCSE's and A-levels (year 10 and VCE equivalents) before putting myself through University.
+
+I have a degree in Theoretical Physics and worked in condensed-matter research for three years before becoming a high-school teacher.
+
+!!Background in Computers
+
+I was the UNIX sys-admin for our research group, wrote the department's first website and hacked on 100,000 lines of "academic" FORTRAN 77 for modelling OLEDs.
+
+I don't expect any of this to count for very much in the present day, but it does show I've known //something// about computers for quite a while. I've done bits of programming in the past with everything from BASIC to assembly language.
+
+!!Teaching
+
+I taught Math, Science and Robotics for about 11 years and loved it for the first 10. I worked at some very good schools 
+
+I always promised that I wouldn't be anyone's bored teacher, so three years ago, I left and became a 'stay at home dad' to my son, Noah. My wife is the best.
+
+[img[noah2.png]]
+
+!!Coding
+
+In June, 2015 I read Paul Ford's hypertext essay '[[What is Code?|https://www.bloomberg.com/graphics/2015-paul-ford-what-is-code/]]' and a light went on in my head. Even though a lot of what I've done my whole life has been about computers and programming, I'd never seriously considered 'turning pro' before then but the more I thought about it, and the more I looked into the modern stack, the more excited I became about the prospect.
+
+!!Auto-didactic
+
+Evenings, weekends and nap-times for the last two-and-a-bit years, I taught myself how to make things with HTML, CSS and Javascript.
+
+I taught myself build tools and deployment and ES6 and React and npm and lots of the other little bits that go together to make a complete workflow. 
+
+I'm embarrassed to admit that I even had to teach myself to touch type, having gotten on fine with two fingers for the first 40 years or so.
+
+And I taught myself to write algorithms again and remembered how much I enjoy it and that sometimes I am quite good at it. 
+
+Now, Noah's ready for school and I'm at the point where I feel I'm probably employable. There's always more to learn, but I think I know enough about React and JS to be useful in the right position.
+
+!!Jobs
+
+I'm looking for a junior position. I really want to work with a big, diverse group of smart people who I can learn from. I'd like to work on something that has a tangible feedback loop with real-world consequences. I'd prefer to work somewhere that is using modern tools and languages.
+
+I'm a quick learner and good problem solver. Realistically, there are still some gaps in my knowledge - I'm likely to need MDN more than most people for a while still and I'm missing any formal CS/algorithms training - but I'm working hard all the time to learn more and to fix up the holes that I find.
+
+!!Summary
+
+I find it hard writing about myself. Writing about all the things I've done in the past feels weird but leaving it out would be weird, too. This is weird. I'm weird.
+
+
 
 {{$:/didaxy/content-footer-nav}}
