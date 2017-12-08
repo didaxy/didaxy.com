@@ -1,5 +1,5 @@
 created: 20170928023144903
-modified: 20171203040244744
+modified: 20171208031547005
 tags: Live Plumbing
 title: Portfolio
 type: text/vnd.tiddlywiki
@@ -28,7 +28,7 @@ This is a portfolio of things that I made over the last 18 months, whilst learni
 !!Heroku with Node
 * [[Request-header Microservice|https://mighty-escarpment-59983.herokuapp.com/]]
 * [[Filesize Microservice|https://immense-citadel-61838.herokuapp.com/]]
-* [[URL shortener|https://vast-beach-37456.herokuapp.com/]] - lttl.co
+* [[URL shortener|https://vast-beach-37456.herokuapp.com/]] - hosted: [[http://www.lttl.co]]
 * [[Date-parser Microservice|https://morning-plains-94969.herokuapp.com/]]
 (if the Heroku apps don't work, please [[check the status log|https://status.heroku.com/]])
 

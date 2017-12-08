@@ -1,5 +1,5 @@
 created: 20170820112112231
-modified: 20171203040202009
+modified: 20171208023814994
 tags: Plumbing Live
 title: Tutorials
 type: text/vnd.tiddlywiki
@@ -8,11 +8,11 @@ type: text/vnd.tiddlywiki
 <$image source="$:/didaxy/didaxy-logo-white.svg" class="article-image"/>
 </div>
 
-!!Web
-<$list filter="[tag[WebTutorials]]"/>
+!!Tiddlywiki Related
+<$list filter="[tag[TWTutorials]]"/>
 
-!!Javascript
-<$list filter="[tag[JSTutorials]]"/>
+!!Integrations
+<$list filter="[tag[IntegrationTutorials]]"/>
 
 !!React
 <$list filter="[tag[ReactTutorials]]"/>
@@ -20,11 +20,15 @@ type: text/vnd.tiddlywiki
 !!Node
 <$list filter="[tag[NodeTutorials]]"/>
 
+!!Web
+<$list filter="[tag[WebTutorials]]"/>
 
-!!Tiddlywiki Related
-<$list filter="[tag[TWTutorials]]"/>
+!!Javascript
+<$list filter="[tag[JSTutorials]]"/>
 
-!!Integrations
-<$list filter="[tag[IntegrationTutorials]]"/>
+
+
+
+
 
 
