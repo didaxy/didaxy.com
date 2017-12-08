@@ -1,12 +1,12 @@
 created: 20171022215112468
-modified: 20171101080611771
-next: [[Let's Learn More React Part 3]]
+modified: 20171208035209234
+next: [[React Notes Part 3]]
 part: 2
-partof: Let's Learn More React
-previous: [[Let's Learn More React Part 1]]
+partof: React Notes
+previous: [[React Notes Part 1]]
 subtitle: State
 tags: TutorialPart Live noindex
-title: Let's Learn More React Part 2
+title: React Notes Part 2
 type: text/vnd.tiddlywiki
 
 <<tutorial_header>>
@@ -184,10 +184,6 @@ Parents can't know whether children have state. It's encapsulated.
 All components //could// be purely functional, as far as any other components are concerned.
 
 State can be passed down as props to children.
-
-
-
-
 
 
 <<tutorial_nav>>

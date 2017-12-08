@@ -1,11 +1,12 @@
 created: 20171023233852590
-modified: 20171101080611734
+modified: 20171208035247544
+next: [[React Notes Part 7]]
 part: 6
-partof: Let's Learn More React
-previous: [[Let's Learn More React Part 5]]
+partof: React Notes
+previous: [[React Notes Part 5]]
 subtitle: Thinking in React
 tags: TutorialPart Live noindex
-title: Let's Learn More React Part 6
+title: React Notes Part 6
 type: text/vnd.tiddlywiki
 
 <<tutorial_header>>

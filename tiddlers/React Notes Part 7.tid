@@ -1,11 +1,12 @@
 created: 20171024004901431
-modified: 20171101080611824
-next: [[Let's Learn Advanced React Part 2]]
-part: 1
-partof: Let's Learn Advanced React
+modified: 20171208035320702
+next: [[React Notes Part 8]]
+part: 7
+partof: React Notes
+previous: [[React Notes Part 6]]
 subtitle: JSX
 tags: TutorialPart Live noindex
-title: Let's Learn Advanced React Part 1
+title: React Notes Part 7
 type: text/vnd.tiddlywiki
 
 <<tutorial_header>>
