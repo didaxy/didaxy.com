@@ -1,5 +1,5 @@
 created: 20170820111946111
-modified: 20171203032632602
+modified: 20171208035525708
 remote_scripts: https://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js
 remote_styles: https://cdn-images.mailchimp.com/embedcode/classic-10_7.css
 scripts: mailchimp.js
@@ -16,9 +16,14 @@ type: text/vnd.tiddlywiki
 
 r1chard5mith@icloud.com
 
+
+!!Social
+
+<a target="_blank" href="https://twitter.com/autodidaxy">Twitter<$image width="50px"source="$:/didaxy/didaxy-logo.svg"/></a>
+
 !!Email List
 
-A weekly summary of what's new.
+A regular summary of what's new (not currently active).
 
 <!-- Begin MailChimp Signup Form -->
 <div id="mc_embed_signup">
@@ -39,7 +44,3 @@ A weekly summary of what's new.
 </div>
 <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
 <!--End mc_embed_signup-->
-
-!!Social
-
-<a target="_blank" href="https://twitter.com/autodidaxy">Twitter<$image width="50px"source="$:/didaxy/didaxy-logo.svg"/></a>
