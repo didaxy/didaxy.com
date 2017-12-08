@@ -1,5 +1,5 @@
 created: 20170903091804909
-modified: 20171101080611199
+modified: 20171208033807749
 scripts: adsense.js
 tags: IntegrationTutorials Live Static
 title: Adding Google Adsense to a Static Site
@@ -68,7 +68,7 @@ But I got a second email, telling me that I can now put advertising blocks on my
 <<extimg 'https://didaxy.neocities.org/images/adsense_reviewing.png'>>
 
 
-<<extimg 'https://didaxy.neocities.org/images/adsense_approved'>>
+<<extimg 'https://didaxy.neocities.org/images/adsense_approved.png'>>
 
 !!Adding the Ads
 
@@ -92,4 +92,4 @@ It seems that only one instance of a particular ad is allowed on each page - com
 
 Anyway, it seems to work, so I expect the money will come rolling in now.
 
-[img[adsense-code.png]]
+<<extimg 'https://didaxy.neocities.org/images/adsense-code.png'>>
