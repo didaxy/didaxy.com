@@ -1,5 +1,5 @@
 created: 20171203031846286
-modified: 20171208014945996
+modified: 20171208015227455
 tags: Live
 title: Bio
 type: text/vnd.tiddlywiki
@@ -10,7 +10,7 @@ type: text/vnd.tiddlywiki
 
 !!Richard Smith
 
-[img[https://didaxy.neocities.org/images/face3.png]]
+<img src="https://didaxy.neocities.org/images/face3.png" width="100%">
 
 !!Introduction
 
