@@ -1,5 +1,5 @@
 created: 20170820112112231
-modified: 20171208023814994
+modified: 20171209040008726
 tags: Plumbing Live
 title: Tutorials
 type: text/vnd.tiddlywiki
@@ -20,11 +20,6 @@ type: text/vnd.tiddlywiki
 !!Node
 <$list filter="[tag[NodeTutorials]]"/>
 
-!!Web
-<$list filter="[tag[WebTutorials]]"/>
-
-!!Javascript
-<$list filter="[tag[JSTutorials]]"/>
 
 
 
