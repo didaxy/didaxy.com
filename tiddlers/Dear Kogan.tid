@@ -1,0 +1,43 @@
+created: 20171213014808871
+modified: 20171213033856923
+tags: 
+title: Dear Kogan
+type: text/vnd.tiddlywiki
+
+HN: FED201712A / FSDEV201712A / dev.jobs+console
+
+Dear Kogan,
+
+My name is Richard and I would like to apply for a job as a junior developer.
+
+I am 42 years old, which is obviously quite a bit older than the average junior. I am changing careers after having been a teacher for ten years. For the last two years I have been a stay-at-home dad and I taught myself javascript and React (+html, css, webpack, express etc.)
+
+My degree qualification was in Theoretical Physics (I am originally from England) and I worked as a researcher in computational chemistry before I was a teacher. I have programmed a lot in the past - back then I wrote Fortran 77 (!) to run on huge UNIX machines - and have a lot of experience of writing algorithms etc. even though I don't have much formal CS.
+
+But I am brand-new to the modern web stack and more excited than ever about learning. I'm at the point in my progression now where I feel I know enough to be useful as part of a team and also that I need to be part of a team to level-up further. I have a good grasp on most of es6 now and think I understand React pretty well.
+
+I know that there is still a lot I need to learn about javascript, not to mention Python, which I've barely touched, but I'm a very hard-working person and learning is my super-power. As far as I can tell I am still as good at it as ever and certainly my enthusiasm is still as great.
+
+My Github is here: https://github.com/r1chard5mith
+
+At the moment I am in the middle of making a voting app with express: 
+code: https://github.com/r1chard5mith/choosili
+site: http://www.choosi.li (on Heroku)
+
+When that's finished I will go back and fix up everything else in my portfolio (there are broken api calls and versioning issues to be fixed and some of my React code is out of date).
+
+I also have a site here: https://www.didaxy.com where I have writing about Tiddlywiki (an awesome open source wiki that I use), some notes on React and links to working versions of some of my apps.
+
+I'm a long-time contributor to Tiddlywiki: https://groups.google.com/forum/#!forum/TiddlyWiki (and search for my name)
+
+Also, a lot of my learning last year was via Freecodecamp and I have been a regular contributor to their forums: https://forum.freecodecamp.org/u/r1chard5mith/summary
+
+As well as my Node projects, I am also currently doing Advent of Code https://adventofcode.com/2017 (I've got all 24 stars so far and my highest rank was 399)
+
+I'd really like to work at Kogan. It seems like somewhere I'd get to work with smart people using modern tools. You have a very good reputation in the dev community, the fundamentals of your company seem great and it's an exciting time to be in the space that you're in. I relish the challenge of working on things that have immediate, real-world results.
+
+I hope you'll see enough evidence of competence to give me a shot at your interview process. If you don't, then I'd really appreciate any feedback you can give me.
+
+Yours Sincerely,
+Richard Smith (0477 641 455)
+r1chard5mith@icloud.com

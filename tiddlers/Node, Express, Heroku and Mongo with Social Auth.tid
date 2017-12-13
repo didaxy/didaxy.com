@@ -1,5 +1,5 @@
 created: 20170806082643834
-modified: 20171209040029992
+modified: 20171213001547015
 tags: Live NodeTutorials
 title: Node, Express, Heroku and Mongo with Social Auth
 type: text/vnd.tiddlywiki
@@ -9,8 +9,6 @@ type: text/vnd.tiddlywiki
 
 
 !!Introduction
-
-The goal of this tutorial is to provide you with the basis for writing your own applications which require authentication and need to be backed by a database.
 
 The first two "full stack" apps in the freecodecamp roadmap match these criteria and you could use this tutorial as the basis for both of those projects.
 

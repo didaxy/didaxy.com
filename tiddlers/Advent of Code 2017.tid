@@ -1,8 +1,13 @@
 created: 20171203033817596
-modified: 20171203042054797
+modified: 20171213034343696
 tags: Live
 title: Advent of Code 2017
 type: text/vnd.tiddlywiki
 
 !Advent of Code 2017
+
+The repo with my solutions in is at https://github.com/didaxy/adventofcode 
+
+Eventually my solutions will appear here:
+
 <<tutorial_list>>
