@@ -1,14 +1,16 @@
 created: 20171213014808871
-modified: 20171214030604318
+draft.of: Dear Kogan
+draft.title: Dear Kogan
+modified: 20171214030746375
 tags: 
-title: Dear Kogan
+title: Draft of 'Dear Kogan'
 type: text/vnd.tiddlywiki
 
 HN: FED201712A / FSDEV201712A / dev.jobs+console
 
 Dear Kogan,
 
-My name is Richard and I would like to apply for a job as a junior developer.
+My name is Richard and I would like to apply for a job as a ''junior developer'' (front end or full stack).
 
 I am 42 years old, which is obviously quite a bit older than the average junior. I am changing careers after having been a teacher for ten years. For the last two years I have been a stay-at-home dad and I taught myself javascript and React (+html, css, webpack, express etc.)
 
@@ -21,7 +23,9 @@ I have always enjoyed learning new things and I find that I'm just as enthusiast
 My Github is here: https://github.com/r1chard5mith
 
 At the moment I am in the middle of making a voting app with express: 
+
 code: https://github.com/r1chard5mith/choosili
+
 site: http://www.choosi.li (on Heroku)
 
 When that's finished I will go back and fix up everything else in my portfolio. There are broken api calls and versioning issues to be fixed in my older projects and some of my React code is out of date. I wasn't planning to start applying quite yet but I saw your post on HN and everything I read online makes it sound like an awesome place to work,  so I thought I'd give it a go.
