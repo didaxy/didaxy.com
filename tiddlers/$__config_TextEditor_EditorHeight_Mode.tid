@@ -1,6 +1,6 @@
 created: 20170820091210802
-modified: 20171213031522512
+modified: 20171214040552693
 title: $:/config/TextEditor/EditorHeight/Mode
 type: text/vnd.tiddlywiki
 
-auto
+fixed

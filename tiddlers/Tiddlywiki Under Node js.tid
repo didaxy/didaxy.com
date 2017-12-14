@@ -1,5 +1,5 @@
 created: 20170729023419860
-modified: 20171101080613030
+modified: 20171214040613767
 partof: Introduction to TiddlyWiki
 subtitle: Installing and Running Tiddlywiki Under Node.js
 tags: IntroductoryTiddlywiki TutorialPart Live
@@ -177,3 +177,5 @@ If you'd like to be able to access your wikis, even when your main computer is o
 In theory you could expose your Tiddlywiki Node server to the real internet and then access it from "anywhere".
 
 In practise, this is a terrible idea because it hasn't been sufficiently tested for security. There is absolutely no guarantee that a bad (but clever) person won't find a way to exploit it and pwn your life. 
+
+{{$:/didaxy/content-footer-nav}}

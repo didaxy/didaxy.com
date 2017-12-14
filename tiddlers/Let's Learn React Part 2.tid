@@ -1,5 +1,5 @@
 created: 20171017093703404
-modified: 20171101080611707
+modified: 20171214124100354
 next: [[Let's Learn React Part 3]]
 part: 2
 partof: Let's Learn React
@@ -176,6 +176,7 @@ If we look at the code that we have to begin with, we can see that the Board is 
 Render square takes this value as an argument called ``i`` but currently doesn't do anything with it. At the moment, all it does is return an instance of "Square", which is another of the classes that we have been given.
 
 We can pass data from the Board component "down into" the Square component as "props" (properties). To do so, we change the return statement of ``renderSquare`` so that it now returns a Square component and passes a prop to it - the value, ``i``.
+
 ```
     return <Square value={i} />;
 
@@ -226,6 +227,7 @@ constructor(props) {
   super(props)
 
 }
+```
 
 !!Constructor Snippet in Atom
 
