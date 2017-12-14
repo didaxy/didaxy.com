@@ -141,6 +141,7 @@ body {
 }
 
 .giphy-gif {
+ max-width: 100%;
   display: block;
  margin: auto;
  border: 1px solid;

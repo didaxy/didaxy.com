@@ -1,5 +1,5 @@
 created: 20170928023144903
-modified: 20171208031547005
+modified: 20171214001853211
 tags: Live Plumbing
 title: Portfolio
 type: text/vnd.tiddlywiki
@@ -10,7 +10,9 @@ type: text/vnd.tiddlywiki
 
 !Portfolio
 
-This is a portfolio of things that I made over the last 18 months, whilst learning the web stack. A lot of them were written as part of [[Freecodecamp|https://www.freecodecamp.org]].
+This is a portfolio of things that I made. A lot of them were written as part of [[Freecodecamp|https://www.freecodecamp.org]]. 
+
+You can see the code for all of my work online at [[Github|https://github.com/r1chard5mith]]
 
 !!HTML, CSS, JS
 * A Sample Jekyll Website - http://www.baristars.online/
@@ -19,7 +21,7 @@ This is a portfolio of things that I made over the last 18 months, whilst learni
 * [[Tic-tac-Toe game|https://r1chard5mith.github.io/react_tic_tac_toe/]]
 * [[Simon Game|https://r1chard5mith.github.io/simon_game/]]
 * [[Pomodoro Clock|https://r1chard5mith.github.io/pomodoro_clock/]]
-* [[Snake Game|https://r1chard5mith.github.io/snake_game/]]
+
 
 !!React
 * [[React Pair-matching Game|https://r1chard5mith.github.io/pairmatch/]]
@@ -32,25 +34,19 @@ This is a portfolio of things that I made over the last 18 months, whilst learni
 * [[Date-parser Microservice|https://morning-plains-94969.herokuapp.com/]]
 (if the Heroku apps don't work, please [[check the status log|https://status.heroku.com/]])
 
+!!Currently
+
+* [[Choosili|http://www.choosi.li/]] - voting app.
+
 !Partially Broken Stuff
 
-The projects linked below all worked once, and will one day rise again, but for now they're broken for various reasons. I wish it wasn't so, but alas. You can see the code for all of my work online at [[Github|https://github.com/r1chard5mith]]
-
-
-!!Need Work
-* [[Choosili|http://www.choosi.li/]] - voting app.
 * [[React Ghosts and Keys Game|https://r1chard5mith.github.io/react_ghosts_and_keys/]] + Map Editor
 * [[Calculator|https://r1chard5mith.github.io/calculator/]]
 * [[Wikipedia Viewer|https://r1chard5mith.github.io/wikipedia_viewer/]] (https blocking an API call)
-
-!!Borked by API Changes
+* [[Snake Game|https://r1chard5mith.github.io/snake_game/]]
 * [[Local Weather|https://r1chard5mith.github.io/local_weather/]] (https issues)
 * [[Image Search|https://agile-sands-89462.herokuapp.com/]] - https://radiant-spire-48849.herokuapp.com/ (and both look broken)
 * [[Twitch-viewer|https://r1chard5mith.github.io/twitch_viewer/]] (this is broken by an api change)
-
-
-
-!!Borked by ...?
 * [[D3 Visualisations|https://r1chard5mith.github.io/fcc_d3/]]
 * [[React Recipe-box App|https://r1chard5mith.github.io/react_recipes/]] (not working)
 * [[React To-Do App|https://r1chard5mith.github.io/react_todo/]]

@@ -1,7 +1,14 @@
 created: 20171031015759843
-modified: 20171208034715852
+modified: 20171214022158225
 tags: Live TWTutorials
 title: Intermediate Tiddlywiki
 type: text/vnd.tiddlywiki
 
-[[Experiments in Packing and Unpacking Tiddlers]]
+!!Intermediate Tiddlywiki
+
+These are mostly just notes for now. You should check out [[Introduction to Tiddlywiki]] if you've never heard of it.
+
+*[[Experiments in Packing and Unpacking Tiddlers]]
+*[[Making a "Pop Out" Task Tracker in Tiddlywiki]]
+*[[Selectively Hiding The Edit Button On Tiddlers]]
+
