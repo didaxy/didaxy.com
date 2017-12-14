@@ -1,5 +1,5 @@
 created: 20171031031758538
-modified: 20171101080611287
+modified: 20171214032326994
 tags: 
 title: codetemplate
 type: text/vnd.tiddlywiki
@@ -12,7 +12,7 @@ type: text/vnd.tiddlywiki
 
 The code is running in this page - open your console to see the results.
 
-This code is maintained in a Github repo at x
+This code is maintained in a Github repo at https://github.com/r1chard5mith/fcc_exercises
 
 Made with love by Richard Smith as part of Freecodecamp.
 

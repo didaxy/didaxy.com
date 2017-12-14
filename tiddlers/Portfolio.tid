@@ -1,5 +1,5 @@
 created: 20170928023144903
-modified: 20171214001853211
+modified: 20171214032334852
 tags: Live Plumbing
 title: Portfolio
 type: text/vnd.tiddlywiki
@@ -16,21 +16,21 @@ You can see the code for all of my work online at [[Github|https://github.com/r1
 
 !!HTML, CSS, JS
 * A Sample Jekyll Website - http://www.baristars.online/
-* [[Code Snippets]]
 * [[Random Quote Generator|https://r1chard5mith.github.io/random_quote_generator/]]
 * [[Tic-tac-Toe game|https://r1chard5mith.github.io/react_tic_tac_toe/]]
 * [[Simon Game|https://r1chard5mith.github.io/simon_game/]]
 * [[Pomodoro Clock|https://r1chard5mith.github.io/pomodoro_clock/]]
-
+* [[Code Snippets]]
+* [[Advent of Code|https://github.com/didaxy/adventofcode]] (repo)
 
 !!React
 * [[React Pair-matching Game|https://r1chard5mith.github.io/pairmatch/]]
-* [[React Game of Life|https://r1chard5mith.github.io/react_gameoflife/]]
+* [[React Game of Life|https://r1chard5mith.github.io/react_gameoflife/]] (the 100 x100 grid is much faster in Chrome than FF)
 
 !!Heroku with Node
+* [[URL shortener|https://vast-beach-37456.herokuapp.com/]] - hosted: [[http://www.lttl.co]] (Mongo backend)
 * [[Request-header Microservice|https://mighty-escarpment-59983.herokuapp.com/]]
 * [[Filesize Microservice|https://immense-citadel-61838.herokuapp.com/]]
-* [[URL shortener|https://vast-beach-37456.herokuapp.com/]] - hosted: [[http://www.lttl.co]]
 * [[Date-parser Microservice|https://morning-plains-94969.herokuapp.com/]]
 (if the Heroku apps don't work, please [[check the status log|https://status.heroku.com/]])
 
@@ -40,17 +40,15 @@ You can see the code for all of my work online at [[Github|https://github.com/r1
 
 !Partially Broken Stuff
 
-* [[React Ghosts and Keys Game|https://r1chard5mith.github.io/react_ghosts_and_keys/]] + Map Editor
-* [[Calculator|https://r1chard5mith.github.io/calculator/]]
-* [[Wikipedia Viewer|https://r1chard5mith.github.io/wikipedia_viewer/]] (https blocking an API call)
-* [[Snake Game|https://r1chard5mith.github.io/snake_game/]]
+* [[React Ghosts and Keys Game|https://r1chard5mith.github.io/react_ghosts_and_keys/]] (I think the css is off, it basically 'works' still)
+* [[Calculator|https://r1chard5mith.github.io/calculator/]] (works but some glitches to iron out)
+* [[Wikipedia Viewer|https://r1chard5mith.github.io/wikipedia_viewer/]] (https blocking a 'random word' api call)
+* [[Snake Game|https://r1chard5mith.github.io/snake_game/]] (I want to rewrite this from scratch)
 * [[Local Weather|https://r1chard5mith.github.io/local_weather/]] (https issues)
-* [[Image Search|https://agile-sands-89462.herokuapp.com/]] - https://radiant-spire-48849.herokuapp.com/ (and both look broken)
+* [[Image Search|https://agile-sands-89462.herokuapp.com/]] - completely broken by an API change (uses Bing image search)
 * [[Twitch-viewer|https://r1chard5mith.github.io/twitch_viewer/]] (this is broken by an api change)
-* [[D3 Visualisations|https://r1chard5mith.github.io/fcc_d3/]]
-* [[React Recipe-box App|https://r1chard5mith.github.io/react_recipes/]] (not working)
-* [[React To-Do App|https://r1chard5mith.github.io/react_todo/]]
-* [[React Markdown Editor|https://r1chard5mith.github.io/react_markdown_editor/]]
-* [[Platform Game|https://r1chard5mith.github.io/platform_game/]] (from Eloquent Javascript)
+* [[D3 Visualisations|https://r1chard5mith.github.io/fcc_d3/]] (I basically hate d3)
+* [[React To-Do App|https://r1chard5mith.github.io/react_todo/]] (not deployed right)
+
 
 
