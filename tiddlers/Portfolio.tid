@@ -1,5 +1,5 @@
 created: 20170928023144903
-modified: 20171214032334852
+modified: 20171214034447437
 tags: Live Plumbing
 title: Portfolio
 type: text/vnd.tiddlywiki
@@ -38,7 +38,7 @@ You can see the code for all of my work online at [[Github|https://github.com/r1
 
 * [[Choosili|http://www.choosi.li/]] - voting app.
 
-!Partially Broken Stuff
+!!Partially Broken Stuff
 
 * [[React Ghosts and Keys Game|https://r1chard5mith.github.io/react_ghosts_and_keys/]] (I think the css is off, it basically 'works' still)
 * [[Calculator|https://r1chard5mith.github.io/calculator/]] (works but some glitches to iron out)
