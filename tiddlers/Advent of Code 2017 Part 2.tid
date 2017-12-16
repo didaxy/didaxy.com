@@ -1,5 +1,5 @@
 created: 20171203034334123
-modified: 20171216093955672
+modified: 20171216094327668
 next: [[Advent of Code 2017 Part 3]]
 part: 2
 partof: Advent of Code 2017
@@ -12,6 +12,8 @@ type: text/vnd.tiddlywiki
 <<tutorial_header>>
 
 <$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+[[https://adventofcode.com/2017/day/1]]
 
 Now, instead of considering the next digit, it wants you to consider the digit halfway around the circular list. That is, if your list contains 10 items, only include a digit in your sum if the digit 10/2 = 5 steps forward matches it. Fortunately, your list has an even number of elements.
 
