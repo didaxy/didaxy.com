@@ -1,0 +1,13 @@
+created: 20171217002525993
+modified: 20171217002603884
+title: jupyter notebook
+type: text/vnd.tiddlywiki
+
+
+The Jupyter Notebook
+The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.
+
+
+They recommend getting python through 'anaconda'....
+
+https://www.anaconda.com/download/#macos
