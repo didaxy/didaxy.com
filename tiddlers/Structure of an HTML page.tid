@@ -1,0 +1,83 @@
+created: 20180110024353951
+modified: 20180123005704294
+next: 
+part: 2
+partof: A Run Through HTML
+previous: Writing, Testing and Editing HTML
+subtitle: Structure of an HTML page
+tags: Live TutorialPart
+title: Structure of an HTML page
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_partof_parts" name={{!!partof}}/>
+
+!!HTML
+
+Browsers access the web one page at a time. A page is a document written in HTML.
+
+HTML is the "Hypertext Markup Language" and the text of webpages is called "hypertext", meaning that it can include links to other documents.
+
+The original function of HTML was to create hypertext documents by "marking up" existing documents to show where the links were and where they should lead. It has expanded since then to allow the creation of much more sophisticated pages, but the basic notion remains the same.
+
+At the heart of every web page is a plain text document, which has been marked-up in order to provide a richer experience.
+
+!!Tags
+
+Marking a piece of text involves inserting a tag immediately before it, and a corresponding one immediately after it. Tags themselves are enclosed in 'angle brackets' `<` and `>`. The tag which comes at the end of marked content is called the 'closing tag' and is differentiated by starting with a slash `/` character.
+
+```
+the quick brown fox <em>jumped</em> over the lazy dogs back
+```
+
+Here one word in a sentence has been marked for emphasis. The tag used is 'em'; it's opened immediately before the word 'jumped' and closed immediately afterwards, leading to just that word being emphasised (by default, it will be in italics) when the browser renders this part of our document.
+
+The marked-up piece of content is known as an HTML element.
+
+
+<<<
+the quick brown fox <em>jumped</em> over the lazy dogs back
+<<<
+
+!!Nesting
+
+If it were part of a real document, the sentence above would itself be enclosed in tags, indicating it to be a normal paragraph, like so
+
+```
+<p>the quick brown fox <em>jumped</em> over the lazy dogs back</p>
+```
+
+Reading this from left to right we see that the p tag is 'opened', then the 'em' tag is opened. then the em tag is closed and then the p tag is closed.
+
+In this case we would say that the em element is 'nested' within the p element. This is the how HTML documents end up being constructed and it is quite common for the 'nesting' to be many layers deep - a word, inside a paragraph, which is part of a section, which is part of a panel etc. and for there to be many such nested structures on any one page.
+
+The outside structure of the nesting arrangement is a set of 'html' tags which wrap everything. This is known as the ''root element''.
+
+!!Head and Body
+
+Nested inside the html element, you will almost always find two (and only two) elements - the `head` and the `body`. 
+
+The body contains the page content. Everything that gets rendered to the screen is included in the body element.
+
+The head contains meta-data about the document.
+
+```
+<html>
+  <head>
+  </head>
+  <body>
+    <p>the quick brown fox 
+  <em>jumped</em> over the lazy dog's back</p>
+  </body>
+<html>
+```
+
+!!DOCTYPE
+
+As well as wrapping the whole of our document in ''html'' tags, we also need to declare its 'DOCTYPE', right at the start.
+
+In the past there were various convoluted forms for the 'doctype declaration' specifying exactly which version of HTML you were using. Now there is only one kind and all we need to do is `!DOCTYPE html`.
+
+
+<<tutorial_nav>>

@@ -1,0 +1,66 @@
+created: 20180111014320416
+modified: 20180111051330369
+next: 
+part: 
+partof: What is Webassembly?
+subtitle: Specification
+tags: TutorialPart Live
+title: The WASM Specification
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_partof_parts" name={{!!partof}}/>
+
+https://webassembly.github.io/spec/
+
+The spec consists of three parts
+
+1. Core - which is most of it
+2. Javascript - which is specific to JS
+3. Web - which is the smalles part of all
+
+
+!!Core
+https://webassembly.github.io/spec/core/index.html
+
+The core spec is very long and detailed.
+
+The text representation of WASM is in terms of s-expressions.
+
+https://en.wikipedia.org/wiki/S-expression
+
+!!Javascript
+
+All the stuff about what wasm and js can share and how they should share it - memory, tables, namespaces. All good stuff, but a bit over my head at the moment, except to know that it's there (and, I think it's useful to have an idea about what //isn't// in there.
+
+!!Web
+
+* The streaming compilation and instantiation methods.
+
+Use the fetch API (which I need to add to the list)
+
+you have to set the type as application/wasm
+
+same-origin is enforced
+
+format of error messages
+
+
+<<<
+A WebAssembly location is a reference to a particular instruction in the binary, and may be displayed by a browser or engine in similar contexts as JavaScript source locations. It has the following format:
+
+${url}:wasm-function[${funcIndex}]:${pcOffset}
+
+Where
+
+${url} is the URL associated with the module, if applicable (see notes).
+
+${funcIndex} is the function index relative to the module.
+
+${pcOffset} is the offset in the module binary of the first byte of the instruction, printed in hexadecimal with lower-case digits, with a leading 0x prefix.
+<<<
+
+
+
+<<tutorial_nav>>

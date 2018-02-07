@@ -1,0 +1,105 @@
+created: 20180110053502279
+modified: 20180110102152533
+next: 
+part: 2
+partof: What is Webassembly?
+previous: Web Assembly Literature Review
+subtitle: Installing Tools
+tags: TutorialPart Live
+title: Web Assembly Tool Installation
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_partof_parts" name={{!!partof}}/>
+
+!!Overview
+
+
+!!Install Emscripten
+
+https://kripken.github.io/emscripten-site/docs/getting_started/downloads.html#installation-instructions
+
+And then follow the instructions there. 
+
+```
+# Fetch the latest registry of available tools.
+./emsdk update
+
+# Download and install the latest SDK tools.
+./emsdk install latest
+
+# Make the "latest" SDK "active" for the current user. (writes ~/.emscripten file)
+./emsdk activate latest
+
+# Activate PATH and other environment variables in the current terminal
+source ./emsdk_env.sh
+```
+
+Note that the second step (./emsdk install latest) may take some time.
+
+We also need to make sure we have installed the system compiler tools (for Mac OS, that means X-code command line tools) as well as git, node and cmake.
+
+Cmake was the only one I needed to get. I think I could have used brew (http://brewformulas.org/Cmake) but I used the link at emscripten, just in case, to download a package from https://cmake.org/download/
+
+I wasn't expecting this to be a GUI app, I thought there would be a command line tool?
+
+"The easiest way to verify the installation is to compile some code using Emscripten."
+
+!!Emscripten Tutorial
+
+"Emscripten is accessed using the Emscripten Compiler Frontend (emcc). This script invokes all the other tools needed to build your code, and can act as a drop-in replacement for a standard compiler like gcc or clang. It is called on the command line using ./emcc or ./em++"
+
+Then I go to the directory 
+
+/Users/didaxy/Documents/emsdk-portable/emscripten/1.37.28
+
+inside my installation and run emcc...
+
+Oh no, there's a rabbit hole...
+
+I had to do this
+
+EM_CONFIG= ./emcc
+
+on the suggestion of someone here: https://github.com/kripken/emscripten/issues/4416
+
+(someone else said "You must have skipped the
+
+./emsdk activate latest
+
+
+Ok - some re-running of commands and I got it to work.
+
+verify: https://kripken.github.io/emscripten-site/docs/building_from_source/verify_emscripten_environment.html#verifying-the-emscripten-environment
+
+using ./emcc -v and then ./emcc tests/hello_world.cpp
+
+(which takes a while) and generates a.out.js, which looks OK. This is 'asm.js' and we're going on from here to wasm, but for now we can say that emscripten works.
+
+we can run 
+
+node a.out.js and it will log 'hello world'
+
+hoorah!
+
+We can add the emscripten sdk folder to PATH in .bash_profile (in your user directory)
+
+!!Make a WASM Example
+
+moz
+
+!!Rust
+
+I started looking for ways to include emscripten in a build pipeline and found this: https://medium.com/@ianjsikes/get-started-with-rust-webassembly-and-webpack-58d28e219635
+
+Which looks like a good tutorial - and it made me think that maybe I would be better learning Rust than either C or C++. Regardless of any technical discussion, it seems that Rust is generaly agreed to be sufficiently low-level to be a replacement for C or C++ and, for me personally, it doesn't have the same baggage that those languages have.
+
+I learned a bit of both of them, a long time ago in another world, and I'd rather face the future rather than the ghosts of old failures, at least until I am a qualified Jedi.
+
+In terms of systems programming, i might not be able to get //all// the cred without C and/or C++, but I think I might get far enough.
+
+
+https://www.rust-lang.org/en-US/install.html
+
+<<tutorial_nav>>

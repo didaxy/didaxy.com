@@ -1,0 +1,26 @@
+created: 20180111045331031
+modified: 20180111045348656
+tags: 
+title: Fetch API
+type: text/vnd.tiddlywiki
+
+https://fetch.spec.whatwg.org/#response
+
+<<<
+Goals
+To unify fetching across the web platform this specification supplants a number of algorithms and specifications:
+
+HTML Standard’s fetch and potentially CORS-enabled fetch algorithms [HTML]
+CORS [CORS]
+HTTP `Origin` header semantics [ORIGIN]
+Unifying fetching provides consistent handling of:
+
+URL schemes
+Redirects
+Cross-origin semantics
+CSP [CSP]
+Service workers [SW]
+Mixed Content [MIX]
+`Referer` [REFERRER]
+
+<<<

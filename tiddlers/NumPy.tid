@@ -1,7 +1,9 @@
 created: 20171224000421597
-modified: 20171224000447703
+modified: 20180111120522164
 tags: 
 title: NumPy
 type: text/vnd.tiddlywiki
 
 http://nbviewer.jupyter.org/github/vlad17/np-learn/blob/master/presentation.ipynb?flush_cache=true
+
+https://docs.scipy.org/doc/numpy-1.10.1/reference/generated/numpy.exp.html

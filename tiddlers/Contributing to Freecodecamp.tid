@@ -1,0 +1,55 @@
+created: 20180111235209326
+modified: 20180116110537046
+tags: 
+title: Contributing to Freecodecamp
+type: text/vnd.tiddlywiki
+
+SO. I thought I'd better bite the bullet. 'turn gamekeeper', and help to make the Freecodecamp beta work.
+
+the repo: https://github.com/freeCodeCamp/freeCodeCamp
+
+Here is the contributors guide: https://github.com/freeCodeCamp/freeCodeCamp/blob/staging/CONTRIBUTING.md
+
+There's a gitter room here; https://gitter.im/FreeCodeCamp/Contributors
+
+This was the issue that inspired me to try and help: https://forum.freecodecamp.org/t/issue-with-a-react-lesson-on-beta/168144
+
+So, I have a fix ready to go for that.
+
+It's quite laborious to wait for the webpack build in nodemon (?) 
+
+
+Squashing commits: https://forum.freecodecamp.org/t/how-to-squash-multiple-commits-into-one-with-git/13231
+
+Logining in locally: https://forum.freecodecamp.org/t/how-to-log-in-to-your-local-instance-of-free-code-camp/19552
+
+My github app: https://github.com/settings/applications/649236
+
+---
+
+I went right to the edge of submitting a PR and then couldn't because the issue is already open to someone else.
+
+Now I'll wait to be told what to do next.
+
+---
+
+For the rest of today I am going to do x because y.
+
+!!Day 2
+
+I did an hour of this, this morning - poking at the issue board, etc. I think a lot of these issues are just to do with a lack of (ability to be) taking responsibility by people. Also, I suspect there's a fair bit of LARPing in this particular FOSS effort, given the fact that there are a lot of baby developers wanting to try on their school uniforms.
+
+!!Issue
+
+OK - I get to do the PR like yesterday, but including (hopefully) fixing two other small issues too.
+
+Frustrating bollox about this.
+
+!Ya
+
+To run freecodecamp locally do this now
+
+go there and type
+
+```
+npm 

@@ -1,5 +1,5 @@
 created: 20170806064450194
-modified: 20171208035348636
+modified: 20180110042623537
 tags: $:/tags/Macro
 title: $:/didaxy/macros/tutorial_macros
 type: text/vnd.tiddlywiki
@@ -23,6 +23,14 @@ type: text/vnd.tiddlywiki
 \define tutorial_parts($name$)
 <h3 class="tutorial-parts">Part: <$link to="$name$">0 </$link>
 <$list filter="[prefix[$name$]nsort[part]] -[[$name$]]">
+<$link to={{!!title}}>  {{!!part}}</$link>
+</$list>
+</h3>
+\end
+
+\define tutorial_partof_parts($name$)
+<h3 class="tutorial-parts">Part: <$link to="$name$">0 </$link>
+<$list filter="[partof[$name$]nsort[part]] -[[$name$]]">
 <$link to={{!!title}}>  {{!!part}}</$link>
 </$list>
 </h3>

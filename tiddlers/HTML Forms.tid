@@ -1,0 +1,24 @@
+created: 20180110042936534
+modified: 20180110043258260
+next: 
+part: 5
+partof: A Run Through HTML
+subtitle: Forms
+tags: Live TutorialPart
+title: HTML Forms
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!Interactivity
+
+Forms are a crucial part of the web - they were originally the only way for a browser to send information to a server.
+
+!!Formspree
+
+https://formspree.io/
+
+
+<<tutorial_nav>>

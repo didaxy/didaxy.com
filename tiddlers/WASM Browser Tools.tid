@@ -1,0 +1,20 @@
+created: 20180111041159397
+modified: 20180111055850655
+partof: What is Webassembly?
+subtitle: Browser Tools
+tags: TutorialPart Live
+title: WASM Browser Tools
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_partof_parts" name={{!!partof}}/>
+
+https://www.youtube.com/watch?v=R1WtBkMeGds
+
+!!VS Code
+
+https://marketplace.visualstudio.com/items?itemName=ukyo.wast
+
+
+<<tutorial_nav>>
