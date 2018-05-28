@@ -1,10 +1,10 @@
 created: 20180111014320416
-modified: 20180111051330369
+modified: 20180528072245012
 next: 
 part: 
 partof: What is Webassembly?
 subtitle: Specification
-tags: TutorialPart Live
+tags: TutorialPart
 title: The WASM Specification
 type: text/vnd.tiddlywiki
 
