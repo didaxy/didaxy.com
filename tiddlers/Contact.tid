@@ -1,5 +1,5 @@
 created: 20170820111946111
-modified: 20171214020757918
+modified: 20180528040649269
 remote_scripts: https://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js
 remote_styles: https://cdn-images.mailchimp.com/embedcode/classic-10_7.css
 scripts: mailchimp.js
