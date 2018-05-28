@@ -1,5 +1,5 @@
 created: 20170729040253509
-modified: 20171214040605000
+modified: 20180528004106343
 tags: Plumbing Live noindex
 title: index
 type: text/vnd.tiddlywiki
@@ -12,16 +12,9 @@ type: text/vnd.tiddlywiki
 
 </div>
 
-!!''di•da•xy ( daɪ dæk si )''
-
 !!Hello.
 
-My name is [[Richard Smith|Bio]] and this is [[my website|About]]. 
-
-The site is built using [[Tiddlywiki as a Static Generator|Exporting Static Sites From Tiddlywiki]].
-
-
-Please [[get in touch|Contact]] and let me know what you think I can improve, your feedback is very welcome. 
+I am the new broom.
 
 
 {{$:/didaxy/content-footer-nav}}
