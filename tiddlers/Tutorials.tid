@@ -1,5 +1,5 @@
 created: 20170820112112231
-modified: 20180728085432227
+modified: 20180728093844834
 tags: Plumbing Live
 title: Tutorials
 type: text/vnd.tiddlywiki
@@ -7,6 +7,9 @@ type: text/vnd.tiddlywiki
 <div class="header-image index">
 <$image source="$:/didaxy/didaxy-logo-white.svg" class="article-image"/>
 </div>
+
+!!Python
+<$list filter="[tag[PythonTutorials]]"/>
 
 !!Tiddlywiki Related
 <$list filter="[tag[TWTutorials]]"/>

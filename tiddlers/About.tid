@@ -1,7 +1,7 @@
 created: 20170820112328195
 list: a b
 logos: [[neocities-logo.svg]]  [[firefox-logo.svg]]  [[atom-logo.svg]]  [[travis-logo.svg]]  [[github-logo.svg]]  [[tiddlywiki-logo.svg]]   [[hover-logo.svg]]   [[netlify-logo.svg]]
-modified: 20180528040035074
+modified: 20180728094559805
 tags: Plumbing Live
 title: About
 type: text/vnd.tiddlywiki
@@ -12,6 +12,6 @@ type: text/vnd.tiddlywiki
 
 !About 
 
-This is a website about Computers and Learning. 
+This is a website about Computers and Learning Things. 
 
 Built with love in Melbourne, Australia.

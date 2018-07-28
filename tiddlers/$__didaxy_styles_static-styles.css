@@ -113,6 +113,10 @@ h2 {
 color: blue;
 }
 
+.navbar-brand > a:visited {
+color: blue;
+}
+
 
 .header-image {
     width: 100vw;
