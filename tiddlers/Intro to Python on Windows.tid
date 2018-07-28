@@ -1,0 +1,11 @@
+created: 20180728093246648
+modified: 20180728100155138
+next: 
+subtitle: Installing Software
+tags: Live PythonTutorials
+title: Intro to Python on Windows
+type: text/vnd.tiddlywiki
+
+<$image class="article-image" alt="from tiddlywiki to static html" source="pythonlogo.svg"/>
+
+<<tutorial_list>>
