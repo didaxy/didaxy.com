@@ -1,9 +1,9 @@
 created: 20170902022508347
-modified: 20171203033000142
+modified: 20180728072437576
 tags: 
 title: $:/didaxy/content-footer-nav
 type: text/vnd.tiddlywiki
 
 <div class="content-footer-navigation">
-[[About]] | [[Bio]] | [[Portfolio]] | [[Tutorials]] | [[Contact]]
+[[About]] | [[Tutorials]] | [[Contact]]
 </div>

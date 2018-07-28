@@ -12,22 +12,22 @@ body {
   text-decoration: none;
 }
 a:visited {
-  color: #533599
+  color: #f0f
 }
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   min-height: 100px;
-  color: #673599;
-  background-color: #52e859;
+  color: #fff;
+  background-color: #333;
   text-align: center;
   padding-top: 20px;
+  padding-bottom: 40px;
 }
 
 .footer .container-fluid {
-  background-color: #52a0e8;
-  background: linear-gradient(135deg, #f1e7f7, #ba99cf);
+  background-color: #555;
 }
 
 .footer div {
@@ -100,15 +100,19 @@ h2 {
 }
 
 .navbar {
-  color:  #533599;
-  background-color: #52a0e8;
+  color:  #000;
+  background-color: #0ff;
   margin-top: -1rem;
 }
 
 .nav-link > a {
-  color:  #533599;
-
+ color: blue;
 }
+
+.nav-link > a:visited {
+color: blue;
+}
+
 
 .header-image {
     width: 100vw;
@@ -117,7 +121,7 @@ h2 {
 }
 
 .header-image.index {
-    background: linear-gradient(180deg, #52a0e8, #fff);
+    background: linear-gradient(180deg, #0ff, #fff);
   margin-top: -20px;
 }
 
