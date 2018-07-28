@@ -1,5 +1,5 @@
 created: 20170729040253509
-modified: 20180528040316550
+modified: 20180713131030125
 tags: Plumbing Live noindex
 title: index
 type: text/vnd.tiddlywiki
@@ -12,11 +12,7 @@ type: text/vnd.tiddlywiki
 
 </div>
 
-!!Hello.
-
-I am the new broom.
-
-{{baby29.svg}}
+!!Have a Blackstar
 
 
 {{$:/didaxy/content-footer-nav}}
