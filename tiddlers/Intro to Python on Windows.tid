@@ -1,5 +1,5 @@
 created: 20180728093246648
-modified: 20180728100155138
+modified: 20180728125239433
 next: 
 subtitle: Installing Software
 tags: Live PythonTutorials
@@ -7,5 +7,17 @@ title: Intro to Python on Windows
 type: text/vnd.tiddlywiki
 
 <$image class="article-image" alt="from tiddlywiki to static html" source="pythonlogo.svg"/>
+
+!!Introduction To Python On Windows
+
+We are going to learn about Python, using Windows.
+
+We are going to use it to build an application that stores information in an SQL database.
+
+We are going to learn how to use it to make a simple web-scraper and pen-testing tool.
+
+We start by installing tools and then write and compile a simple program.
+
+Our aim is to set up an environment where we can write, test and debug our code with as little friction as possible.
 
 <<tutorial_list>>
