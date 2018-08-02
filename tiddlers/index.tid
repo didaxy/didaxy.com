@@ -1,5 +1,5 @@
 created: 20170729040253509
-modified: 20180729123325537
+modified: 20180802105511634
 tags: Plumbing Live noindex
 title: index
 type: text/vnd.tiddlywiki
@@ -12,7 +12,10 @@ type: text/vnd.tiddlywiki
 
 </div>
 
-<center><h1>D I D A X Y . C O M</h1></center>
+<center><h1>D I D A X Y . C O M</h1>
+<p>🧠 • 💰 • 📚 • ✍🏽</p>
+<p>Here to help.</p>
+</center>
 
 {{$:/didaxy/content-footer-nav}}
 
