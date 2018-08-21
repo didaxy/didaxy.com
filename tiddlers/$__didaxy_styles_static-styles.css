@@ -11,9 +11,7 @@ body {
 .navbar a:hover {
   text-decoration: none;
 }
-a:visited {
-  color: #f0f
-}
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -32,6 +30,10 @@ a:visited {
 
 .footer div {
  padding-top: 10px;
+}
+
+.footer a {
+ color: #f0f;
 }
 
 /* dropdown menu tweaks */
@@ -146,6 +148,12 @@ body {
   text-align: center;
   clear: both;
   padding-top: 1rem;
+  padding-bottom: 2rem;
+  color: #f0f;
+}
+
+.content-footer-navigation  a {
+  color: #f0f;
 }
 
 .giphy-gif {

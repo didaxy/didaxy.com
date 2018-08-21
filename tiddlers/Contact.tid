@@ -1,5 +1,5 @@
 created: 20180528071551397
-modified: 20180528071657590
+modified: 20180803015930385
 remote_scripts: https://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js
 remote_styles: https://cdn-images.mailchimp.com/embedcode/classic-10_7.css
 scripts: mailchimp.js
@@ -12,6 +12,7 @@ type: text/vnd.tiddlywiki
 <$image source="$:/didaxy/didaxy-logo-white.svg" class="article-image"/>
 </div>
 
+<center>
 !!Email
 
 r1chard5mith@icloud.com
@@ -20,7 +21,4 @@ r1chard5mith@icloud.com
 !!Social
 
 <a target="_blank" href="https://twitter.com/autodidaxy">Twitter: @autodidaxy</a>
-
-
-<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
-<!--End mc_embed_signup-->
+</center>
