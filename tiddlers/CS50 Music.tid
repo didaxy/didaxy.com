@@ -1,0 +1,301 @@
+created: 20180903041027538
+modified: 20180904123246635
+tags: Live CS50
+title: CS50 Music
+type: text/vnd.tiddlywiki
+
+https://courses.edx.org/courses/course-v1:HarvardX+CS50+X/course/#block-v1:HarvardX+CS50+X+type@chapter+block@bdc606f10e7347f6a61a341c4544bbf7
+
+https://docs.cs50.net/2018/x/psets/3/pset3.html
+
+https://docs.cs50.net/2018/x/psets/3/music/music.html
+
+https://en.wikipedia.org/wiki/Piano_key_frequencies
+
+!Specification
+
+!bday.txt
+In bday.txt, type the ASCII representation of Happy Birthday, translating its sheet music, above, to the machine-readable representation prescribed herein. You should find that the song begins with:
+
+D4@1/8
+D4@1/8
+E4@1/4
+D4@1/4
+G4@1/4
+F#4@1/2
+
+!helpers.c
+
+!!is_rest
+Complete the implementation of is_rest in helpers.c. Recall that blank lines represent rests in our machine-readable format. And recall that synthesize will call this function in order to determine if one of the lines a user has typed in is indeed blank.
+
+What does it mean for a line to be blank? To answer that question, start by looking at cs50.h itself, wherein get_string is documented:
+
+https://github.com/cs50/libcs50/blob/develop/src/cs50.h
+
+What do the comments atop get_string say that the function returns if a user simply hits Enter, thereby inputting only a "line ending" (i.e., \n)?
+
+When is_rest is subsequently passed such a string, s, how should it (nay, you!) recognize as much?
+
+!!duration
+Complete the implementation of duration in helpers.c. Recall that this function should take as input as a string a fraction and convert it into some integral number of eighths. You may assume that duration will only be passed a string formatted as X/Y, whereby each of X and Y is a positive decimal digit, and Y is, moreover, a power of 2.
+
+!!frequency
+Finally, complete the implementation of frequency in helpers.c. Recall that this function should take as input as a string a note (e.g., A4) and return its corresponding frequency in hertz as an int.
+
+And recall that:
+
+The frequency, f, of some note is 2n/12 × 440, where n is the number of semitones from that note to A4.
+
+Each key on a piano is said to be one semitone, otherwise known as a half step, away from its adjacent neighbor, whether white or black.
+
+The effect of # and b, otherwise known as accidentals, is to raise or lower, respectively, the pitch of a note by one semitone.
+
+In implementing this function, you might find pow and round, both declared in math.h, of interest.
+
+!How I Went About This
+
+I decided that transcribing happy birthday wasn't the first thing I wanted to do - I wanted to fix the program first.
+
+I then realised that I couldn't even test the program until all the parts I have to write were written.
+
+So I did two things - I filled them all in with dummy returns (I also needed to 'use' their arguments in printf statements to avoid the unused variables error)
+
+```
+// Helper functions for music
+
+#include <cs50.h>
+
+//do I need these?
+#include <stdio.h>
+#include <string.h>
+
+#include "helpers.h"
+
+// Converts a fraction formatted as X/Y to eighths
+int duration(string fraction)
+{
+        printf("  fraction: %s", fraction);
+
+    return 1;
+}
+
+// Calculates frequency (in Hz) of a note
+int frequency(string note)
+{
+        printf("  note: %s", note);
+
+    return 440;
+}
+
+// Determines whether a string represents a rest
+bool is_rest(string s)
+{
+        printf("  string: %s", s);
+
+    return true;
+}
+```
+
+I wrote a different program that I knew would compile and that would call the same helper functions.
+
+What I actually did first was copy everything into a new directory for 'playing with' because I know that there's a chance I'll get my bits working and break something else along the way.
+
+In the new directory I wrote a new program that I call "rig.c" and which I compiled using "gcc rig.c -o rig helpers.c -lcs50" (I don't really understand make but I was able to figure out this much by looking at the Makefile).
+
+```
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+
+#include "helpers.h"
+#include "wav.h"
+
+#define NELEMS(x)  (sizeof(x) / sizeof(*x))
+
+
+int main(void)
+{
+    string notes[] = {"G4@1/4", "", "C5@1/8"};
+    int max = NELEMS(notes);
+    printf("length: %i\n", max);
+    int n = 0;
+    do
+    {
+        printf("%s", notes[n]);
+        if (is_rest(notes[n]))
+        {
+            printf("(rest)\n");
+        }
+        else
+        {
+            char line[strlen(notes[n])];
+            strcpy(line, notes[n]);
+            string note = strtok(line, "@");
+            string fraction = strtok(NULL, "@");
+            printf(" , duration: %i , frequency: %i\n", frequency(note), duration(fraction));
+        }
+    } while (n++ < max - 1);
+}
+```
+
+Then I set about making the helper functions work correctly.
+
+The first one is pretty neat.
+
+At first I had 
+
+```
+bool is_rest(string s)
+{
+    if (*s = '\0')
+    {
+        return true;
+    }
+    return false;
+}
+```
+
+but then I realised I could do this, which is much cooler.
+
+```
+bool is_rest(string s)
+{
+    return (*s == 0);
+}
+```
+
+This part worked, so next I need to do the frequency and the duration calculations.
+
+Neat.
+
+!!Durations
+
+Looking at the input files and reading the spec, it seems that the durations all have a denominator of 8, 4 or 2 and a single digit numerator (they all actually seem to be '1').
+
+I can get the numerator and denominator
+
+If the denominator is 8, I return the numerator, otherwise I double both of them and check again.
+
+That's my algorithm and when I transcribe it to code, it looks like this.
+
+```
+int duration(string fraction)
+{
+        printf("  fraction: %s", fraction);
+        // 1/8 = 1
+        // 2/8 = 2
+        // ...
+        // 1/4 = 2
+        // 1/2 = 4
+
+        //get the first digit
+        //get the last digits after the slash
+
+        //NB: strtok keeps a buffer to the string,
+        //you pass it a null pointer the second time
+        //to have it continue with the last one it saw
+        int numerator = atoi(strtok(fraction, "/"));
+        int denominator = atoi(strtok(NULL, "/"));
+        while (denominator < 8)
+        {
+            numerator *= 2;
+            denominator *=2;
+        }
+        return numerator;
+}
+```
+
+I found 'strtok' in the 'synthesise.c' file, where it was used to split the initial string on the '@', like so;
+
+```
+string note = strtok(line, "@");
+string fraction = strtok(NULL, "@");
+```
+
+Reading the man page wasn't very illuminating so I googled "stroke NULL" and found a [[stack overflow post|https://stackoverflow.com/questions/29638598/strtok-why-you-have-to-pass-the-null-pointer-in-order-to-get-the-next-token]] which explained that 'strtok' retains a buffer of whatever it's been passed previously, which is why the second call doesn't need to pass a reference to the string and so must pass a NULL pointer instead.
+
+Because of the way I set up my testing program to begin with, I just need to recompile it using "gcc rig.c -o rig helpers.c -lcs50" each time, it collects the changes I've made to the header file and the results are reflected in its output, which looks like this
+
+```
+length: 3
+G4@1/4  note: G4  fraction: 1/4 , duration: 440 , frequency: 2
+(rest)
+C5@1/8  note: C5  fraction: 1/8 , duration: 440 , frequency: 1
+```
+
+Adding new values to the list for testing is just a matter of inserting them into the array called notes
+
+```
+    string notes[] = {"G4@1/4", "", "C5@1/8", "Ab2@1/2"};
+```
+
+which will be reflected in the output for testing
+
+```
+length: 4
+G4@1/4  note: G4  fraction: 1/4 , duration: 440 , frequency: 2
+(rest)
+C5@1/8  note: C5  fraction: 1/8 , duration: 440 , frequency: 1
+Ab2@1/2  note: Ab2  fraction: 1/2 , duration: 440 , frequency: 4
+```
+
+!!Frequencies
+
+https://en.wikipedia.org/wiki/Piano_key_frequencies
+
+The last part is to return the correct frequency. I need to be 'careful' with this one just to make sure I've understood what it is I'm supposed to do but basically I think I need to assign a numeric value to the key that's been played, relative to middle-A (440Hz) and then apply a formula to map from the key to the frequency.
+
+The last character of the note string will be a number that tells us what octave to be in.
+
+The first character is an ASCII character A - G that tells us which note within the octave to play.
+
+The second character in the note string is //either// the same as the last character, a number, or it is one of the symbols '#' or 'b' in which case it will modify the note by one place 'semi-tone', ie; one place up or down.
+
+OK - I did the frequency bit too.
+
+```
+int frequency(string note)
+{
+    int notelen = strlen(note);
+    //unit = number of notes in an octave
+    const int unit = 12;
+    //get last char - octave number, and offset it by 4
+    int octave = (note[notelen - 1] - '0') - 4;
+    //get first digit - convert to a number
+    int map[] = {0,2,3,5,7,8,10};
+    int number = map[note[0] - 'A'];
+    //this number should be the number of semitones up or down from A...
+    //of the note BEFORE it gets it's sharp/flat
+
+    //bare_absolute_note is (octave * unit) + number
+    int barenote = (octave * unit) + number;
+    //check second char - # increment, b decrement
+    int finalnote = barenote;
+    if (note[1] == '#')
+    {
+        finalnote++;
+    }
+    if (note[1] == 'b')
+    {
+        finalnote--;
+    }
+    
+    //convert to a frequency
+    int frequency = round(440 * pow(2,(finalnote/12.0)));
+    printf("  octave: %i, note: %i, bare: %i, final: %i", octave, number, barenote, finalnote);
+
+    return frequency;
+}
+```
+
+I know it might have bugs and I don't super like the map look-up table thing that I have to get to the number of semi-tone offsets, but it works and it's 'ok' for now. Now that I have my functions returning at least sensible values, I should be able to compile the actual distribution and have it run and look for the actual bugs there.
+
+The reason for doing this is that to check my code, I need to enter all the notes, and I thought it probably worth writing happy birthday now, and also writing the script I need to check it, using the tools provided (rather than typing them all into my test array)
+
+All I have to do is move my helpers file back up a directory and I can forget that my 'rig' project ever existed.
+
+NB: running check50 showed lots of failing tests that were caused by printf statements inside the function calls - these were becoming/being identified as the return values of the functions.
+
+Easy fix and all passing tests.
+

@@ -1,0 +1,84 @@
+created: 20180831104802297
+modified: 20180904125239469
+tags: CS50
+title: Lecture 3
+type: text/vnd.tiddlywiki
+
+Lecture 3
+
+Algorithms
+
+"""
+00:00:00 - Memory Overview
+00:02:37 - Null Terminator
+
+\0 - 8 zero bits, the null terminator
+
+
+
+00:04:06 - initials.c
+
+need to include a terminator even if we manually construct a char array.
+
+help50 - to help with the coding exercises
+
+00:18:50 - Finding 50
+
+Sorts
+
+00:27:00 - Linear Search
+00:27:53 - Binary Search
+00:28:51 - Sorting Blue Books
+00:31:19 - Sorting Humans
+00:32:51 - Human Bubble Sort
+00:34:55 - Human Selection Sort
+00:38:13 - Bubble Sort Pseudocode
+00:41:52 - Selection Sort Pseudocode
+00:43:12 - Insertion Sort Pseudocode
+00:45:16 - Algorithmic Running Time
+00:47:23 - Analyzing Bubble Sort
+
+logarithmic time - log(N)
+
+"""
+
+* Learn more about logarithms
+
+"""
+
+00:52:47 - Big-O Notation
+
+
+O(1) = constant time
+
+
+
+00:55:27 - Omega Notation
+
+best case 
+
+
+00:57:43 - Theta Notation
+
+
+means best and worst times are the same
+
+
+__five minute break__
+
+00:59:03 - Visualizing Algorithms
+01:03:03 - sigma0.c
+
+Teaches recursion here.
+
+base-case, and self-calling
+
+01:06:11 - sigma1.c
+01:12:20 - Merge Sort Pseudocode
+01:14:19 - Merge Sort Step-by-Step
+01:25:20 - Formalizing Merge Sort
+01:27:57 - Visualizing Merge Sort
+01:30:03 - Pset3 Teaser
+01:34:38 - The Sounds of Algorithms
+"""
+

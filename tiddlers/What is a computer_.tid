@@ -1,0 +1,91 @@
+caption: What is a computer?
+created: 20170909095216836
+modified: 20180904123927988
+tags: Live Computer
+title: What is a computer?
+type: text/vnd.tiddlywiki
+
+We typically think of computers as consisting of a screen and a keyboard 
+
+!!more
+
+A computer doesn't have to have a screen.
+
+
+!!CPU
+
+The "brain" of a computer is a Processor, often called a "chip". A chip can have one or more "cores". A core is an engine for reading and executing instructions from a program. The instructions a particular chip can carry out make up it's Instruction Set.
+
+A Processor is generally situated on a "main board" or "mother board" which also contains a set of helper chips, called the chip set.
+
+In addition to the other chips, the main board generally carries "volatile memory" (RAM) and an array of ports for connecting input and output devices (I/O devices, often called 'peripherals').
+
+These ports include those that allow us to connect keyboards, mice, screens etc. and the processor and its chipset know how to access those ports. For example, if you connect a screen using HDMI, the chipset will generate and maintain an output on the HDMI port that transmits all the information necessary to draw the screen.
+
+!!0s and 1s
+
+All the information in a computer is stored and transmitted as "1s and 0s" where 1 and 0 are represented by two different voltage levels.
+
+What makes electronic computers possible is logic gates. The vast, incomprehensible complexity of a running computer all stems from the simple ability of the processor to act in different ways depending on the value of certain registers.
+
+
+
+!!Single Program Computers
+
+The original electronic computing devices were intended to run a single program at once.
+
+The program necessarily had to be written in the instruction set of the processor on which it was intended to run.
+
+Very quickly though, computers became multi-program. As well as the main program they were executing, they would be running all kinds of other programs to help do so. For example, they might have a program for loading the main one from the right place on a tape drive, etc. or another that allowed you to connect to the computer from a remote terminal.
+
+!!Assembly Language
+
+Writing "Machine Code" by hand is tedious and error prone - we're just not very good at not making mistakes with binary representations.
+
+Assembly code was intended to be more readable by humans making it easier to write programs without making errors.
+
+An "Assembler" would then "Assemble" your "Assembly" into Machine Code that you could run on your processor.
+
+
+!!Abstraction
+
+The secret magic to computers is abstraction.
+
+The Assembly language is an 'abstraction' intended to relieve programmers of some of the burden of needing to understand some of the underlying complexity.
+
+What happened next, the explosion of computers into every aspect of human life was facilitated largely by the process of abstraction.
+
+!!The Operating System
+
+The operating system of a modern computer is a huge set of programs that provide a consistent set of abstractions over the underlying hardware of the computer.
+
+What this means is that we can, and do, talk about "windows computers" or "mac computers" meaning machines that run a particular operating system and then, to a great extent we can ignore the particular hardware a machine has.
+
+Of course there are important caveats to that - the specific hardware needed to run a particular game may be hotly discussed, for example, but if it's meant to work on a PC, we know it will never work on a Mac and vice versa.
+
+The operating system is a very powerful set of abstractions.
+
+!!Programming Languages
+
+The other important class of abstractions are programming languages. 
+
+A programming language is a set of rules for writing programs.
+
+The processor can still only run machine code.
+
+A program written in a programming language still needs to be turned into a machine code program that can run on a processor. Generally it would get run through either an "interpreter" or a "compiler", each of which are programs in their own right (it's programs all the way down) 
+
+(and in case you were wondering, yes, you can (re)write a compiler in the language that it, itself compiles)
+
+The benefit of the abstraction in this case is that the same program 
+
+
+!!History of Computers
+
+https://technicshistory.wordpress.com/2016/11/25/an-expeditious-method-of-conveying-intelligence/
+
+!!Architecture Modern
+https://en.wikipedia.org/wiki/Bus_%28computing%29
+https://en.wikipedia.org/wiki/Busbar
+https://en.wikipedia.org/wiki/X86_assembly_language
+

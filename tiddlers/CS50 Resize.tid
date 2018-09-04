@@ -1,0 +1,91 @@
+created: 20180904060758392
+modified: 20180904122557069
+tags: Live CS50
+title: CS50 Resize
+type: text/vnd.tiddlywiki
+
+scanf 
+
+atof
+
+fseek
+
+fputc
+
+Again, we can start from 'copy.c' but this time we need to change information in the headers as well as picture data because the sizes are going to change.
+
+This is a bit trickier
+
+if the factor is 1.0 we want a copy of the picture
+
+if the factor is 2.0 we want to double every column and double every row
+
+Doubling means the result will be twice as wide.
+
+if the factor is 1.5 we want to end up with 50% more rows - in this case, we want to double every second row (and column)
+
+if the factor is 1.25, we want to end up with 25% more rows - ie; we want to double every fourth one.
+
+subtract 1 from it and find the reciprocal 
+
+1.25 -> 0.25 -> 4
+1.5 -> 0.5 -> 2
+2.0 -> 1.0 -> 1
+
+what about other fractions
+
+1.6 -> 0.6 -> 1/0.6 = 1.6
+
+how do we flip every 1.6th row?
+
+step = 1.6
+count = step
+do the first row, n = 1, so n<count, so write it out
+do the next row, n=2, n > count so
+{
+    duplicate this row;
+    increase count by step;
+}
+
+NB: this generalises, I'm pretty sure, to all the cases
+
+It really is worth stopping and thinking about these things. I find that for whatever reason, I seem better able to reason about this type of thing than when I was younger. I think I've become more cautious, having run off into the weeds too many times and now I stop and I ponder things a second time before I try to dash them off.
+
+Think about n > 2.0 and less than 1.0
+
+step = 2.5
+count = 2.5
+do
+{
+    matrix[n] = integer part of count 
+}
+
+count : 2.5, 3.0, 
+matrix:    2, 3, 
+
+you get the repeating pattern [2,3]
+
+0.3
+count: 0.3, 0.6, 0.9, 1.2, 0.5, 0.8, 1.1, 0.4, 0.7, 1.0
+matrix:   0,    0,     0,   1,     0,    0,    1,    0,    0,  1
+
+you get pattern [0,0,0,1,0,0,1,0,0,1]
+
+The pattern here is 10 elements long and it creates 3 lines - for every 10 lines of input file, you'll get 3 lines of output file.
+
+If your input file is 13 lines long, you'll still get 3 lines of output. If it's 14 lines, you'll get 4.
+
+To find the length of the output, then, you can just use this matrix and some maths.
+
+I'm "pretty sure" that if the factor is limited to 1 decimal place, the longest matrix is 10, but it still feels a bit uncomfortable having to declare my own memory for that....
+
+Not sure if that's the case though - it does say "the first (f) must be a floating-point value in (0.0, 100.0]"
+
+but it also has the example
+
+```
+$ ./resize .25 large.bmp small.bmp
+```
+
+oh well - we'll see.
+

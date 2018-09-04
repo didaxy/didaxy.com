@@ -1,0 +1,172 @@
+created: 20180903013916892
+modified: 20180904125705207
+tags: Live CS50
+title: CS50 Crack
+type: text/vnd.tiddlywiki
+
+This is a good problem, as you might expect from Harvard.
+
+It's good because it feels fairly approachable, but it gets harder as you go along.
+
+We need to generate all the possible passwords of any length unto 5 from alphabetic (upper and lower case) letters.
+
+There are a number of different ways you could approach it.
+
+The first way I did it was like this
+
+```
+#define _XOPEN_SOURCE
+#include <unistd.h>
+#include <cs50.h>
+#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int next(char *c)
+{
+    if(c[0]==0) return 0;
+    if(c[0]=='Z')
+    {
+        c[0]='a';
+        return next(c+sizeof(char));
+    }
+    if(c[0]=='z')
+    {
+        c[0] = 'A';
+        return 1;
+    }
+    c[0]++;
+    return 1;
+}
+
+int main(int argc, string argv[])
+{
+    if (argc != 2)
+    {
+        printf("wrong number of arguments!\n");
+        return 1;
+    }
+    string hash = argv[1];
+    printf("thanks, got argc: %i and hashed password: %s \n", argc, hash);
+    char salt[3];
+    memcpy( salt, &argv[1][0], 2 );
+    salt[2] = '\0';
+    printf("the salt was: %s\n", salt);
+    printf("brute force attack over alphabetic passwords.\n");
+    int MAX_LEN = 5; //temporary restriction
+    char guess[6];
+
+    // int SYMBOL_SIZE = 2 * ('z' - 'a');
+
+    //construct the passwords systematically
+    for (int length = 1; length <= MAX_LEN; length++)
+    {
+        printf("trying passwords of length %i\n", length);
+        // printf(".");
+        //zero the guess
+        for(int i = 0; i < length; i++) guess[i] = 'a';
+        guess[length] = '\0'; //delimit the string
+        for (int index = 0; index < length; index++)
+        {
+            do
+            {
+                if (strcmp(crypt(guess, salt),hash) == 0)
+                {
+                    printf("%s\n", guess);
+                    return 0;
+                }
+            } while(next(guess));
+        }
+    }
+
+
+
+    printf("not found in strings up to %i characters long.\n", MAX_LEN);
+    return 1;
+}
+
+```
+
+The trouble with this is it takes a //long// time to run.
+
+When I found this, I took the following steps...
+
+I set up the cs50 environment on my own machine to check the running time there and found it to be comparable - maybe faster, but not an order of magnitude faster.
+
+I ran some tests to make sure it can find shorter passwords, to do this, I wrote a program to encrypt a set of words to compare against.
+
+```
+#define _XOPEN_SOURCE
+#include <unistd.h>
+#include <cs50.h>
+#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define NELEMS(x)  (sizeof(x) / sizeof((x)[0]))
+
+int main(void)
+{
+    const char *words[] = {"a","aa","aaa","aaaa","aaaaa"};
+    int n = 0;
+    int max = NELEMS(words);
+    do
+    {
+        printf("%s : %s\n", words[n], crypt(words[n],"50"));
+    } while (n++ < max - 1);
+}
+
+```
+
+NB: I probably don't need all the headers but, :shrug:
+
+Next I timed my program.
+
+It took 1.6s to crack "aaa" and ~110s to crack "aaaa" and the search space for the problem is one more order of magnitude Bigger still.
+
+Whereas you'd "expect" the second number to be ~52x bigger than the first, it's actually more like 70 times bigger. 
+
+There are two things going on here - 1. the search space is quite big and it will take some time to complete no matter what.
+
+2. The algorithm could probably be better.
+
+The question, in a situation like this, is how much faster can I make it and how long will that take?
+
+If I was a student at Harvard, I think I'd be likely to double-check my code and then set it going for the weekend - you could run it as a bash-script, right? But then again, I'm assuming the VM won't kick me out after a certain period of time, etc.
+
+What's the fastest I'm likely to get it? well 52 * 52 * that first time, currently 1.6s
+
+Even if I get that number down to 1s and I don't incur any overhead in the multipliers, it's still going to have a maximum run time of 45 minutes. But I admit, that is tempting...
+
+OK, we'll spend an hour and see if we can make it any faster.
+
+The list of passwords to crack, as posted on the course site this year is
+
+```
+anushree:50xcIMJ0y.RXo
+brian:50mjprEcqC/ts
+bjbrown:50GApilQSG3E2
+lloyd:50n0AAUD.pL8g
+malan:50CcfIk1QrPr6
+maria:509nVI8B9VfuA
+natmelo:50JIIyhDORqMU
+rob:50JGnXUgaafgc
+stelios:51u8F0dkeDSbY
+zamyla:50cI2vYkF0YU2
+```
+
+The first two are three-character and two-characters long, the third one appears not to yield to four...
+
+There is always the possibility that I have some kind of bug affecting the code for longer passwords, we'll see.
+
+For now I'm going to re-run it against the password hash for 'bjbrown' with the timer on - we'll use that password as a bench-mark for any improvements I'm able to make to the underlying code.
+
+This is the real reason why this challenge is good, because for students who are //very// interested, there's a lot to go at here - getting into the weeds on how long each operation takes and what the best way to speed something up is.
+
+It turned out that the password hash I'd chosen at random happened to be the one that took the longest to crack. The others all turned out to be relatively straightforward without worrying too much about a speed boost from anywhere. Not really sure what happened to my calculations above, as nothing took anywhere near 45 minutes, let alone 2 hours.
+
+Oh well. Onwards and upwards.
+
+Next job is to submit all the week one homework and get straight on to the week 2 homework.
