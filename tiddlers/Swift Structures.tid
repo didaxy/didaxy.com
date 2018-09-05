@@ -1,5 +1,5 @@
 created: 20180905080951998
-modified: 20180905084919528
+modified: 20180905095704863
 tags: Live Swift
 title: Swift Structures
 type: text/vnd.tiddlywiki
@@ -19,4 +19,128 @@ struct Person {
 }
 ```
 
+!!Init
+
+Whenever you define a new type, you must consider how you'll create new instances. This lesson covers different approaches to initializing property values.
+
+!!!Memberwise Initialisers
+
+!!!Custom Initialisers
+
+!!!Instance Methods
+
+and 
+
+!!!Mutating Methods
+
+```
+struct Odometer {
+  var count: Int = 0 // Assigns a default value to the `count` 
+  property. 
+ 
+  mutating func increment() {
+    count += 1
+  }
+ 
+  mutating func increment(by amount: Int) {
+    count += amount
+  }
+ 
+  mutating func reset() {
+    count = 0
+  }
+}
+ 
+var odometer = Odometer() // odometer.count defaults to 0
+odometer.increment() // odometer.count is incremented to 1
+odometer.increment(by: 15) // odometer.count is incremented to
+16 
+odometer.reset() // odometer.count is reset to 0
+```
+
+!!Computed Properties
+
+With computed properties, you can create properties that can compute their value based on other instance properties or logic.
+ 
+
+```
+struct Temperature {
+  var celsius: Double
+ 
+  var fahrenheit: Double {
+    return celsius * 1.8 + 32
+  }
+ 
+  var kelvin: Double {
+    return celsius + 273.15
+  }
+}
+```
+
+To add a computed property, you declare the property as a variable (because its value can change). You must also explicitly declare the type. Then you use an open curly brace ({) and closing curly brace (}) to define the logic that calculates the value to return.
+You can access computed properties using dot syntax, just as you would with any other property.
+
+ 
+```
+let currentTemperature = Temperature(celsius: 0.0)
+print(currentTemperature.fahrenheit)
+print(currentTemperature.kelvin)
+Console Output:
+32.0
+273.15
+```
+
+!!Property Observers
+
+willSet and didSet
+
+```
+struct StepCounter {
+    var totalSteps: Int = 0 {
+        willSet {
+            print("About to set totalSteps to \(newValue)")
+        }
+        didSet {
+            if totalSteps > oldValue  {
+                print("Added \(totalSteps - oldValue) steps")
+            }
+        }
+    }
+}
+```
+
+!!Static (Type) Properties and Methods
+
+These are defined on the type, not on the instances and can be got at with dot notation.
+
+!!copying
+
+structures are passed by copying
+
+!!Self and Shadowing
+
+The ``self`` keyword refers to the current instance of the type. It's usually possible for the Swift compiler to infer it.
+
+The use of self is required within initializers that have parameter names that match property names.
+
+
+```
+struct Temperature {
+  var celsius: Double
+ 
+  init(celsius: Double) {
+    self.celsius = celsius
+  }
+}
+```
+ 
+This concept is called shadowing, and you will learn more about it in a future lesson.
+
+!!Let vs Var
+
+As a general rule, you should use let whenever possible to define an instance of a structure, use var if the instance needs to be mutated, and use var when defining the properties of a structure.
+
 Excerpt From: Apple Education. “App Development with Swift.” Apple Inc. - Education, 2017. iBooks. https://itunes.apple.com/au/book/app-development-with-swift/id1219117996?mt=11
+
+[[Swift Classes and Inheritance]]
+

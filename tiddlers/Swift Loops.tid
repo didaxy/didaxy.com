@@ -1,0 +1,57 @@
+created: 20180905120741526
+modified: 20180905121345133
+tags: Live Swift
+title: Swift Loops
+type: text/vnd.tiddlywiki
+
+!!for in
+
+“for index in 1...5 {
+  print("This is number \(index)")
+}”
+
+“for _ in 1...5 {
+  print("This is number \(index)")
+}”
+
+“let names = ["Joseph", "Cathy", "Winston"]
+for name in names {
+  print("Hello \(name)")
+}”
+
+“for letter in "ABCD".characters {
+  print("The letter is \(letter)")
+}”
+
+“for (index, letter) in "ABCD".characters.enumerated() {
+  print("\(index): \(letter)")
+}
+”“If you use a for-in loop with a dictionary, the loop generates a tuple–a special type that can hold an ordered list of values wrapped in parentheses– that holds the key and value of each entry. Since a dictionary is typically accessed by specifying a key, the loop doesn't guarantee any particular order of the items as it works through the dictionary:
+ 
+let vehicles = ["unicycle" : 1, "bicycle" : 2, "tricycle" : 3, 
+"quad bike" : 4] 
+for (vehicleName, wheelCount) in vehicles {
+  print("A \(vehicleName) has \(wheelCount) wheels")
+}”
+
+
+!!while break
+
+“while numberOfLives > 0 {
+  playMove()
+  updateLivesCount()
+}”
+
+“//Prints -3 through 0
+for counter in -3...3 {
+  print(counter)
+  if counter == 0 {
+    break
+  }
+}”
+
+
+Excerpts From: Apple Education. “App Development with Swift.” Apple Inc. - Education, 2017. iBooks. https://itunes.apple.com/au/book/app-development-with-swift/id1219117996?mt=11
+
+
+[[Swift UIKit]]
