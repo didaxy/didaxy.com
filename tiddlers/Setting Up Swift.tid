@@ -1,0 +1,75 @@
+created: 20180430054658271
+modified: 20180905015414107
+tags: Live iOS
+title: Setting Up Swift
+type: text/vnd.tiddlywiki
+
+!!Install X-code
+
+X-code is gigantic. The latest Beta is about 8 gigabytes in it's base configuration. 
+
+I downloaded the beta to try and fix and issue with my iPad not being accessible. It seemed like a problem that should only occur if the iPad was running a beta version, which it isn't. But it did seem to fix the problem, although there's also a chance that something else altogether was causing it in the first place.
+
+Any version of X-code will work fine for learning Swift, but if you want to test your code on a real device, you might need to deal with this issue. If you don't have X-code already, you should probably download the stable version from the App Store and upgrade later when version 10 gets officially released.
+
+!!Soggy Old Projects
+
+I don't know about you but if I've dabbled with things before, it can put me off wanting to pick them up again. I sort of have some working bits and pieces of swift laying around, but I don't really remember how I made them work.
+
+I have a little spelling/speaking app that I made a few months ago and loaded onto my iPhone for my son to play with. I dug it out (ok, I downloaded it from Github) and got it loading on to the iPad we now have (after solving the issue mentioned above) and it works fine, but the display doesn't resize to fill the iPad screen and I don't know what to change to fix it.
+
+I could start fiddling with things and hope I don't break something else in the process of getting it to resize correctly, but it doesn't feel like a great basis for learning.
+
+To learn the language properly, so that it sticks, I need to start at the beginning. The fact I've done some bits before just means I can go faster.
+
+Always remember, there is no shame in starting at the beginning each time. Buckminster Fuller would constantly go back to the beginning of //everything// and try to think them through anew. So, let's be like Bucky and start at the very beginning. Once more with feeling.
+
+!!REPL
+
+You can start a swift REPL (read, evaluate, print loop) from the Mac terminal by typing "swift".
+
+I found I was getting an error, but then swift appeared to start normally.
+
+The error looked like this
+
+```
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+  File "/anaconda2/lib/python2.7/copy.py", line 52, in <module>
+    import weakref
+  File "/anaconda2/lib/python2.7/weakref.py", line 14, in <module>
+    from _weakref import (
+ImportError: cannot import name _remove_dead_weakref
+```
+
+Apparently, it's happening because I have Homebrew Python installed and the version doesn't match the one that Swift needs for some reason.
+
+The issue is discussed here: https://forums.swift.org/t/swift-repl-starts-with-error-when-homebrew-python-is-installed/12927/2
+
+And the simplest workaround is just to alias the swift command for one that points to the right place, like this (thanks saagarjha and tkrajacic!)
+
+```
+alias swift="PATH=/System/Library/Frameworks/Python.framework/Versions/Current/bin:$PATH swift"
+```
+
+It's a bit of a moot point at the moment, because I don't really want the REPL for anything, as even the Swift documentation tells me.
+
+“Working in playgrounds is preferable to working in a REPL for many reasons. For starters, they make writing Swift code fun and simple. Using a more familiar interface, you can type in a line of code and the results appear immediately in the sidebar. If your code runs over a period of time, you can watch the progress in the timeline.
+”
+
+Excerpt From: Apple Education. “App Development with Swift.” Apple Inc. - Education, 2017. iBooks. https://itunes.apple.com/au/book/app-development-with-swift/id1219117996?mt=11"
+
+You can close the REPL by typing
+
+```
+ :quit
+```
+
+!!Playgrounds
+
+“the default playground comes with an import statement and the variable var str = "Hello, playground"? Open the results sidebar (if it's not already displayed) and note that the string value is printed in the sidebar.”
+
+Excerpt From: Apple Education. “App Development with Swift.” Apple Inc. - Education, 2017. iBooks. https://itunes.apple.com/au/book/app-development-with-swift/id1219117996?mt=11
+
+[img[https://pbs.twimg.com/media/DmS070GU4AAuh5j.jpg:large]]
+

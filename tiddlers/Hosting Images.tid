@@ -1,0 +1,35 @@
+created: 20180905015432298
+modified: 20180905020827589
+tags: Live IntegrationTutorials
+title: Hosting Images
+type: text/vnd.tiddlywiki
+
+!Q: Where can you host the images for your website?
+
+At various times in the past, the answer to this question would have been pretty easy to find. There were services that competed for the right to host your images.
+
+Now lots of photo sites prevent "hot-linking" to stop themselves being used in this way. It's still true, however, that hosting images for most people's website is ridiculously cheap. So cheap, that surely we can get image hosting for free?
+
+!!Upload Your Own
+
+Really the simplest way to manage it is probably to host all your own images.
+
+The problem with that, at the moment, is that the rest of my site doesn't have a server. It's deployed via Netlify and is 'serverless' (in the sense that it's distributed over dozens of different servers, that I don't need to know or care about).
+
+I could just stuff images onto Github and they would get deployed. It works for a smallish set of images for simple sites, but I don't like the idea of it for a collection that's going to grow and grow over time. I want to know that, if I'm responsible for the images in the future, there will be tools to let me manage them in bulk. The other, more pressing, objection to using Github is that it often doesn't seem quick enough - maybe that is deliberate, precisely to stop people using it that way.
+
+Where else could we store images? I mean, potentially?
+
+!!Can you host them on Twitter?
+
+[img[https://pbs.twimg.com/media/DmS5AZgVAAAeUhG.jpg:large]]
+
+Hmmm... it turns out you... can? It seems ridiculously easy to do so. Do you think they'd have a problem with you doing this? Do you think they'd try to stop it if they realised you were doing it? They wouldn't care, right? Definitely not for a little site.
+
+Besides, it's //so// convenient that you might even just use it as a way to stuff in place-holder images to be replaced by properly hosted copies later.
+
+I suppose the danger is if you don't do that, because why bother if it's so easy? and then one day they all get deleted and you don't even remember what they were images of...
+
+The benefit of doing it this way is it's really quick to upload images and get a URL for them. You just tweet the picture (by dragging it onto the tweet box in the web UI), view the tweet, right-click the image and "open in a new tab" and then copy the URL. 
+
+If I'm writing here, in my Tiddlywiki-powered ~~blogging~~ web-writing interface, I can paste the URL, wrap it in wikitext and I'm done.
