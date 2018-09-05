@@ -1,0 +1,38 @@
+created: 20180531124317265
+modified: 20180905032014054
+title: HTML on a live server
+type: text/vnd.tiddlywiki
+
+Install a live server
+
+
+```
+npm install -g live-server
+```
+
+Make a directory
+
+Touch an index.html
+
+start the server on a port and your default browser should open at a blank page
+
+```
+live-server --port=8777
+```
+
+Open that index file in a text editor
+
+For live reload to work, you need a minimum amount of page structure with tags, so that live-server can insert it's own code into the document, in order to reload it.
+
+```
+<html>
+    <head>
+
+    </head>
+    <body>
+        hi there! all good?
+    </body>
+</html>
+```
+
+HOW WAS I DOING CODE? HOW DOES THIS LOOK?

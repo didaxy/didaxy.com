@@ -1,0 +1,116 @@
+created: 20180430011549761
+modified: 20180905030550711
+tags: Tiddlywiki
+title: Making Notes With Tiddlywiki
+type: text/vnd.tiddlywiki
+
+Tiddlywiki is the most awesomely useful tool for anyone who wants to organise lots of little bits of information - keeping and organising notes is the canonical example of it's use, but it can do a lot more besides. I think of it as somewhat of a Swiss-army knife for web content.
+
+Tiddlywiki is the first place I go when I want to make a note about something - just the fact that it lives in my browser and allows me to easily author snippets of content with links embedded is useful enough.
+
+Let's say you have some sort of project that you want to organise - for example, you might be writing a book about Owls.
+
+Pretty early on in your project, you're going to find yourself with lots of information that has a vague or provisional structure and lots of connections between the pieces.
+
+People seem to try and use online services to do some of the things that Tiddlywiki can do for them. The problem, really, I think is one of communication. It isn't immediately obvious from the outside exactly what you can use Tiddlywiki for - there are lots of different answers to that question. You can use it to make websites and publish them. You can use it to make your own tools by re-coding the user interface. But at it's simplest, it's a 'place' to put lots of little (or big) pieces of information (content, data...) and then 'organise' them.
+
+I thought that what I might do is make some notes here, for anyone who might find them, about the way that I use Tiddlywiki.
+
+Before I found Tiddlywiki, I would always have lots of notes stored somewhere - usually they would be word processor documents organised in folders and maybe split into sections.
+
+Tiddlywiki lets me put notes, with titles, into a single document.
+
+A large part of the trust I place in Tiddlywiki is based on the fact that I know it's 'just a webpage' - my data isn't being stored in some proprietary format, it's all 'just there'. 
+
+So, how do I use it? Well - what I'm doing right now, and the reason I'm writing notes at all, is spring-cleaning my computer (and my head) by purging everything I don't need from my digital life.
+
+And then I thought I would write about it and to me the very first place I think to write is in Tiddlywiki. So that's what I'm doing, writing this in Tiddlywiki.
+
+What often happens whilst I'm writing about one thing is that ideas about other things will pop up that I don't want to forget. If I'm using tiddlywiki, I can just make new Tiddlers, jot down the idea and then come back to what I'm working on.
+
+So, having decided to write this, I fire up Tiddlywiki. I do this using the command line, where I have it installed with NPM.
+
+Now - Tiddlywiki was originally and traditionally designed to be a kind of 'guerrilla application' and all you needed was a single HTML file that had everything packed inside it and your browser. Increasing limitations on browsers over the years, particularly their ability to manipulate the filing system, have made that simple method increasingly faff-ful. You can still get it to work that way, if you need to, but for anyone comfortable with the  command line, it's not the easiest way.
+
+I already have Tiddlywiki installed and it isn't too long since I've used it, but I happen to know that there's a new version out (5..1.16) so we might as well upgrade
+
+npm upgrade -g tiddlywiki
+
+As part of my spring-clean, I reset my laptop (~MacBook Air) to factory settings and tried to organise things a bit better than they were before. 
+
+What I'd like, ideally, is to have back-ups of my wikis without any effort, so I'll make them in my iCloud Drive and have them sync automatically. This will have the additional benefit of making the individual toddlers that make up my site available to edit elsewhere... more on that later.
+
+To get to the iCloud library, you can do 
+
+```
+cd ~/Library/Mobile\ Documents/com~apple~CloudDocs
+```
+
+Once there I can make a new tiddlywiki by doing
+
+```
+tiddlywiki --init server myDirectory
+cd myDirectory
+```
+
+which is equivalent to doing:
+
+```
+mkdir myDirectory
+cd myDirectory
+tiddlywiki --init server
+```
+
+Once you've initialised the server or if, like me, you already have a directory ready to go, you can run it using
+
+```
+tiddlywiki --server
+```
+
+Once the server's running, all I need is my browser. I point it at 127.0.0.1:8080 and I've got a 'wiki'. What can I do with it?
+
+Well, for one thing, I can make a new Tiddler and start typing this.
+
+---
+
+If I'm working away at something and I need to make a note, Tiddlywiki is always my first choice. It only takes a few seconds to fire up the server if it's not already running and I can make a new tiddler, with a name and that gets created as a file in the right folder.
+
+The best thing about tiddlywiki is that I can just put everything in the one place and know that I'll be able to find it again later.
+
+So, that's use case one - make some notes and find them again later.
+
+Use case number two is 'process' a bunch of bits of information that you thought at the time were important enough to make and keep but which you now need to decide what to do with.
+
+This is the problem that I'm about right now and the reason I thought to start the series of notes in the first place.
+
+The situation is this - I have a bunch of notes that I made, pieces of text and links copied from the internet and longer pieces of writing that I made in pages and notes on my Mac and iPhone, and a load of code snippets and notes.
+
+---
+
+Beware Tool-Procrastination!!
+
+Now I'm not only using Tiddlywiki to 'sort out my life', I'm also using it to make notes on the process - should I really be using the same wiki to do both of those things?
+
+Issues like this tend to plague me when I'm procrastinating - another great thing about Tiddlywiki is that I know I will be able to move the data in the future. Portability the maximum because it's all 'just web stuff'.
+
+
+---
+
+I know that I will be able to extract any parts of it that I want to and import them into new wikis or other programs altogether. It's these assurances that keep me coming back to Tiddlywiki. It's just so darn useful.
+
+I also know that I'll be able to publish to the web without any hassle - after all, outside of some corporate environments, the web and not paper, is the preferred target. And yet most people are still using some sort of word-processor that's optimised for print-media. To get their document back to HTML, they need to export it. Easier to just work with everything 'web native'.
+
+
+
+---
+
+Tiddlywiki hasn't got a market valuation. It doesn't even keep track of how many users it has.
+
+It's an open source project, the brain-child of a single, unassuming English programmer and supported by a small but enthusiastic community of developers and power-users.
+
+Even if development stops tomorrow, there's no company to go out of business, no assets to be seized, no danger of the software or my right to use it disappearing over-night.
+
+---
+
+
+((Tiddlywiki is coded in javascript, renders HTML and contains it's own mark-up language called WikiText, so there's a lot to learn about it. All I really know about it's internals is that it's very complicated yet based on simple principles. Tiddlywiki is, in a sense, 'written in Tiddlywiki' - this is not basic)))

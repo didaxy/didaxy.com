@@ -1,0 +1,112 @@
+created: 20180905040709410
+modified: 20180905041556155
+tags: Live Swift
+title: Swift Control Flow
+type: text/vnd.tiddlywiki
+
+!Swift
+!!Control Flow
+
+!!!Vocabulary
+*conditional 
+*if statement
+*If-else statement
+*interval matching
+*logical operators 
+*switch
+*ternary operator
+
+Excerpt From: Apple Education. “App Development with Swift.” Apple Inc. - Education, 2017. iBooks. https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewBook?id=1219117996
+
+!!Logical Operators
+<<extimg "https://pbs.twimg.com/media/DmTXdlmX4AAJRw9.jpg:large">>
+
+!!Boolean Values
+
+You can assign the results of a logical operator to a Bool constant or variable in order to check or access the value later. Bool values can only be true or false.
+In the following code, the Bool statement determines that number doesn't qualify as isSmallNumber:
+
+```
+let number = 1000
+let isSmallNumber = number < 10 
+// number is not less than 10, so isSmallNumber is assigned 
+a `false` value 
+```
+
+Logical not is ``!``
+
+!!if and if-else
+
+```
+let temperature = 100
+if temperature >= 100 {
+  print("The water is boiling.")
+}
+```
+
+```
+let temperature = 100
+if temperature >= 100 {
+  print("The water is boiling.")
+} else {
+  print("The water is not boiling.")
+}
+```
+
+!!Switch
+
+
+```
+let numberOfWheels = 2
+switch numberOfWheels {
+case 1:
+    print("Unicycle")
+case 2:
+    print("Bicycle")
+case 3:
+    print("Tricycle")
+case 4:
+    print("Quadcycle")
+default: 
+    print("That's a lot of wheels!")
+}
+```
+
+Better switch statements.
+
+```
+let character = "z"
+ 
+switch character {
+case "a", "e", "i", "o", "u" :
+    print("This character is a vowel.")
+default: 
+    print("This character is a consonant.")
+}
+
+```
+
+Interval matching.
+
+```
+switch distance {
+case 0...9:
+    print("Your destination is close.")
+case 10...99:
+    print("Your destination is a medium distance from here.")
+case 100...999:
+    print("Your destination is far from here.")
+default: 
+    print("Are you sure you want to travel this far?")
+}
+```
+
+!!Ternary Operator
+
+Just like Jaascript
+
+```
+largest = a > b ? a : b
+```
+
+[[X-code]]

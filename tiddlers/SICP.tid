@@ -1,0 +1,15 @@
+created: 20180802115703326
+modified: 20180905033751469
+tags: 
+title: SICP
+type: text/vnd.tiddlywiki
+
+I came across this rather nice edition of SICP
+
+http://sarabander.github.io/sicp/html/index.xhtml#toc-Unofficial-Texinfo-Format
+
+and I thought I might use it as the impetus to stop putting off 'doing' it. It comes highly recommended by both Paul Graham and my friend Ed, who are both Lisp afficianados. Ed, at least, writes Clojure these days, so maybe that's the way to do it.
+
+I fancy 'just starting' though, too
+
+[[Scheme]]

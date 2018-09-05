@@ -1,6 +1,6 @@
 created: 20180430054658271
-modified: 20180905015414107
-tags: Live iOS
+modified: 20180905035231793
+tags: SwiftTutorials Live iOS
 title: Setting Up Swift
 type: text/vnd.tiddlywiki
 
@@ -67,9 +67,30 @@ You can close the REPL by typing
 
 !!Playgrounds
 
+A playground is an X-code document type that runs Swift code and displays the results in a readable way.
+
 “the default playground comes with an import statement and the variable var str = "Hello, playground"? Open the results sidebar (if it's not already displayed) and note that the string value is printed in the sidebar.”
 
 Excerpt From: Apple Education. “App Development with Swift.” Apple Inc. - Education, 2017. iBooks. https://itunes.apple.com/au/book/app-development-with-swift/id1219117996?mt=11
 
 [img[https://pbs.twimg.com/media/DmS070GU4AAuh5j.jpg:large]]
 
+
+“On a technical level, a playground is a file wrapper around a main.swift file.”
+
+“ Bool
+ constant
+comment
+ Double
+ function
+ immutable
+ Int
+ let
+ mutable
+ property
+ type inference
+ type safety
+ variable
+ var”
+
+[[Swift Variables]]

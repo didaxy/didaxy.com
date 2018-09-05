@@ -1,0 +1,75 @@
+created: 20170914012842139
+modified: 20180905031215623
+tags: Computer
+title: Abstraction
+type: text/vnd.tiddlywiki
+
+!!Abstraction
+
+As we will probably mention ad nauseum, the defining feature of human-computer interactivity is abstraction.
+
+Abstraction is how different groups of computer scientists and engineers hide the complexity of the systems they build from other people who only need to use them.
+
+This is how a "stack" is built.
+
+One group of experts builds ever better chips and boards - the "bare metal" of the computer, but they stick to an "abstraction" that tells other people how to write software that will work. 
+
+The operating system is usually the key piece of software that needs to be able to talk to the "bare metal", so other programs don't need to worry about the computer at all, only the operating system.
+
+The operating system might be referred to, perhaps along with hardware and/or other software components as a "platform".
+
+The operating system as an abstraction is, of course, how games or other programs can be released and "guaranteed" to work on, for example, Windows 10 computers.
+
+
+!!Abstraction
+
+Packaging Complicated things.
+
+Cars have a standard interface. It's an abstraction.
+
+Cars can change completely, as long as the abstraction remains the same.
+
+Abstraction is a superpower.
+
+A computer's only input source is a power cable.
+
+How can it do so much? 
+
+1 and 0 is all a computer can do.
+
+!!I Don't Know How it Works, But it Does.
+
+Computers are all different.
+
+If we had to write all our code in Assembly language, we would have to write a separate, slightly different (sometimes totally different) program for each type of chip.
+
+Windows or MacOS, or Linux is an ABSTRACTION over the underlying system, which offers some kind of promise about what we can do with a computer.
+
+It frees us from needing to know anything at all about your computer.
+
+All we have to do is write something that will work on Windows and we leave Microsoft to worry about making it run on every different kind of machine.
+
+The desire for interoperability amongst competing operating systems drives further abstraction as people build "virtual machines" of one kind or another.
+
+By building and maintaining compatible versions of a virtual machine for each operating system platform, a new platform is created - Java being the canonical example - and people can then write Java programs, for the Java platform, without caring about what operating system their users are using, let alone the hardware underneath it.
+
+!!Born Abstract
+
+The web - that being the only part of the internet that most people think about now - was invented as an abstraction. 
+
+It was born free, and as a result became a great success and forced radical changes in the tactics of the competing platforms.
+
+When we write programs for the web, we don't need to worry about what hardware, what operating system, or even what browser our users are using (the last is a lie)
+
+!!All AbstracaLA
+
+The really powerful feature of abstractions is that they accumulate.
+
+If we know how to program javascript for the browser, we don't need to know (much) about browsers, operating systems or firmware. We certainly don't need to know about memory registers, clock speeds or HDMI signals.
+
+Every time somebody encapsulates and abstracts functionality, they're adding to the collective power available to everyone else.
+
+Let's try to think about what's actually happening when we do something simple.
+
+Your computer is never 'just sitting there', it's always doing things.
+

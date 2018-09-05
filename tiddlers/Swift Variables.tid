@@ -1,0 +1,87 @@
+created: 20180905034845276
+modified: 20180905040702756
+tags: Swift Live
+title: Swift Variables
+type: text/vnd.tiddlywiki
+
+!!Variables
+
+Use ``let`` for constants.
+
+```
+let name = "Richard"
+```
+
+and ``var`` for variables
+
+Use constants when you can because they are safer, faster and more idiomatic.
+
+Variable names use CamelCase, shouldn't start with a number and can't contain operators.
+
+!!Comments
+
+
+```
+// this is a one-line comment
+
+\*  this comment spans
+      multiple lines. *\
+```
+
+!!Types
+
+Type definition
+
+
+```
+struct Person {
+  let firstName: String
+  let lastName: String
+ 
+  func sayHello() {
+    print("Hello there! My name is \(firstName) \(lastName).")
+  }
+}
+```
+
+Type instances
+
+```
+let aPerson = Person(firstName: "Jacob", lastName: "Edwards")
+let anotherPerson = Person(firstName: "Candace", lastName:
+"Salinas")
+ 
+aPerson.sayHello()
+anotherPerson.sayHello()
+
+
+Console Output:
+Hello there! My name is Jacob Edwards.
+Hello there! My name is Candace Salinas.
+
+```
+
+<<extimg "https://pbs.twimg.com/media/DmTVsUUXcAE6m_c.jpg:large">>
+
+!!Collection Types
+
+"Swift also supports collection types, which group instances into a single variable. One collection type is called an Array, which stores an ordered list of objects. Another collection type is called a Dictionary, which has keys that help you look up specific values. You can use collections to store multiple objects in a single constant or variable. You'll learn more about collections in a future lesson.
+”
+
+Excerpt From: Apple Education. “App Development with Swift.” Apple Inc. - Education, 2017. iBooks. https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewBook?id=1219117996
+
+!!Type Safety
+
+!!Type Inference
+
+!!Required Values
+
+!!Operators
+
+*Assignment
+*Basic Maths
+*Compound Assignment
+*Order of Operations
+*Type Conversion
+
+[[Swift Control Flow]]

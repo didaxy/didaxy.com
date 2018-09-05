@@ -1,0 +1,37 @@
+created: 20170915044723370
+modified: 20180905031325169
+tags: Web
+title: Signing Up For AWS
+type: text/vnd.tiddlywiki
+
+AWS can be free. If it's not totally free, it can still be pretty cheap. But it can also be expensive. And you have to be prepared to "watch things" closely, to make sure you don't inadvertently cost yourself a lot of money.
+
+You need to be a real person to use AWS - you need a credit card of some sort and a real phone number that they can reach you at.
+
+Once you're verified, you're like a kid in candy with (just about) every tool in the box to play with.
+
+Probably.
+
+What I want to do first is somehow get couchDB running here - it seems one way to do that is with a pre-installed image of the necessary software that can be one-click deployed to a web host, made by Bitnami.
+
+Include in our "try lots of things for free" deal, we get 750 free hours/month on one of these EC2 (Elastic Cloud) instances.
+
+We should be able to just "one click" it from here:
+
+But our account, although created AND verified, is still not, you know, quite working.... they probably just need a couple of pints of my sons blood or something, it should be fine.
+
+It's the next day and I'm still getting the same message - it hasn't been quite 24 hours, so I'll hold off on contacting support for now, but I'm guessing the problem, whatever it is, will persist.
+
+I suppose it could be the fact that my "credit card" is actually a "debit card" but you would think that if they had a particular issue with something, they would just be able to flag it for me to fix?
+
+I will wait, we will see.
+
+Success!
+
+Basically 24 hours on the dot and I get another email telling me that I'm good to go and 
+
+```
+For the next 12 months, you'll have free access to core AWS compute, storage, database, and application services within the limits of the Free Tier.
+```
+
+Hooray!

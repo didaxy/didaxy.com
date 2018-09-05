@@ -1,5 +1,5 @@
 created: 20170820112112231
-modified: 20180905020818113
+modified: 20180905023435620
 tags: Plumbing Live
 title: Tutorials
 type: text/vnd.tiddlywiki
@@ -13,6 +13,9 @@ type: text/vnd.tiddlywiki
 
 !!The Command Line
 <$list filter="[tag[CommandLineTutorials]]"/>
+
+!!Swift
+<$list filter="[tag[SwiftTutorials]]"/>
 
 !!Python
 <$list filter="[tag[PythonTutorials]]"/>

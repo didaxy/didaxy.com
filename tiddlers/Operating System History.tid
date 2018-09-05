@@ -1,0 +1,48 @@
+created: 20180521013853947
+modified: 20180905031834032
+tags: 
+title: Operating System History
+type: text/vnd.tiddlywiki
+
+"When I was a lad we had to get up half an hour before we went to bed and lick t' road clean" - Monty Python's Four Yorkshiremen Sketch
+
+I was born in England in 1975 and the first computer I saw was an Atari running Pong.
+
+When I was about 8 years old I got a ZX Spectrum computer. 
+
+When I was at high-school, we had a single computer lab for a school of ~1500 kids and it had about 30 Acorn Archimedes computers in it.
+
+I first used a PC with Windows on it when I was about 18 years old. Back then, Windows wasn't actually an Operating System in its own right - you needed to have DOS - the Microsoft Disk Operating System - installed before you could run windows. And you could //stop// Windows, too, and be returned to DOS.
+
+DOS was what computers really looked like before Windows and the other 'graphical' operating systems came along. There are no windows, no pointer, no notion of moving things around or clicking on them - by default there's no spatial organisation of information on the screen at all - there's just a 'prompt' and if you press letters on the keyboard, they appear next to the prompt.
+
+When you press return, whatever you'd previously typed is then interpreted as a command to the operating system to perform some function.
+
+The functions provided by DOS and the way they were implemented were inspired by the way that people interacted with other computer systems that went before. There were many different operating systems for many different hardware designs (architectures) but they all had to work against the constraints of the hardware of the day. The line-by-line input/output paradigm of the "command line" is a consequence of the input-output hardware of the early days.
+
+When they were able to use early electronic monitors to display output instead of tape machines, they nevertheless brought the basic concept of line-by-line input and output with them.
+
+DOS is perfectly capable of displaying changing information anywhere on the screen - but it's input/output paradigm is still line-by-line.
+
+When Windows stopped needing DOS to be there, it incorporated the command into itself. The development of Windows is private business for Microsoft and they can make it work however they like, but they always have to be careful to make sure it is enough like the other computers.
+
+In the meanwhile, Apple had their own operating system which booted into  a graphical environment and was always intended to be that way.
+
+UNIX got copied via the work of GNU and Linux to work as a replacement for Windows that was and is freely available - one of the greatest achievements of the 'hacker community' which people basically thought would be impossible until it was accomplished - a completely free operating system that was as good //or better// than the commercial alternatives.
+
+Then Apple ditched their old operating system and built a new one, based on Linux but with lots of proprietary software on top to integrate with their hardware and services.
+
+Apple have generally been able to sell their hardware at a premium on the promise of tight integration between their hardware and software.
+
+When the web exploded in popularity, Linux was a good choice for servers because you didn't have to pay anybody for a license to use it, so it became very popular. This meant that if you wanted to develop for the web, you probably needed to know about Linux and the tools needed to get the best from it. 
+
+In theory you can interact with Linux servers from Windows computers, but there's always going to be an issue of translation in going from one environment to the other. So running Linux became popular but was always a bit painful.
+
+This is basically how Apple ended up with a large slice of the developer community preferring their software - it's both tightly integrated and remotely managed, meaning that it generally 'just works' but it's sufficiently 'Linux-like' that it's easy to interact with Linux servers and the like and the majority of the skills learned in one environment are directly transferrable to the other.
+
+Personally, I used to be an advocate of using 'anything except a Mac' until I was given one for work and I realised that I was a LOT more productive when I didn't need to tinker with settings and resolve conflicts and update drivers all the time. I've really never looked back since I started using them.
+
+I now tell people that if their time has any value at all to them, it'll actually work out cheaper over any reasonable period of time to own a Mac instead of any other kind of personal computer.
+
+I get it if you're a school-kid and a Windows computer is all you have. I understand also that it's fundamentally interesting to be able to use only free or extremely cheap resources and put together a working computer and all the software it needs for your own education and entertainment. If you have the time and the inclination, I heartily recommend you give it a go - I had lots of fun 'back in the day' with projects like Linux From Scratch and I learned a lot. But I also remember times when it took me days or even sometimes literally weeks to get individual machines working the way I needed them to and. I learned lots of valuable lessons along the way, but I'm happier to not repeat the experience.
+

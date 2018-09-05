@@ -1,5 +1,5 @@
 created: 20180904115712585
-modified: 20180904125429969
+modified: 20180905023357853
 tags: Live
 title: now
 type: text/vnd.tiddlywiki
@@ -36,7 +36,7 @@ Today I did the '[[Whodunit?|CS50 Whodunit]]' part of the next homework and made
 
 !!Swift
 
-I am also picking up iOS programming. Swift is a bit different from the other languages I've learned so far, and I have to use X-Code.
+I am also picking up iOS programming. [[Swift]] is a bit different from the other languages I've learned so far, and I have to use X-Code.
 
 My motivation is honestly just to make things that my son thinks are cool, which means they have to run on an iPad.
 

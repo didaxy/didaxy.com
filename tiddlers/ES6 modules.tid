@@ -1,0 +1,89 @@
+created: 20170918022531833
+modified: 20180905031616293
+tags: Javascript
+title: ES6 modules
+type: text/vnd.tiddlywiki
+
+!ES6 Modules
+
+https://forum.freecodecamp.org/t/chrome-61-adds-native-support-for-javascript-modules/146532
+
+
+https://bugzilla.mozilla.org/show_bug.cgi?id=568953
+
+
+about:config
+
+To people new to Javascript, the whole ecosystem can seem a bit crazy because it is.
+
+There's always been differences between the way different browsers implement the spec at any given time. There have always been things that don't work.
+
+The way we do it now, all of the major browsers are considered 'evergreen' meaning that they'll never go out of date, as long as they keep connecting to the internet to get their updates.
+
+What that means for Javascript is that //eventually// all of the features you've heard about will be implemented.
+
+ES6 was a major revision of the language and you could easily argue that the 'community' should have paused for a few years to let everybody catch their breath and come up to speed, but they didn't.
+
+In fact, before any of the major browsers had implemented the whole ES6 feature set, the standards committee (TC39) had begun the process of adding new features to the language.
+
+To begin with, this was called ES2016, then maybe we would have ES2017 but... it became ridiculous to everyone, I guess, to be talking about the ES2016 specification, in 2017, knowing that ES2015 wasn't implemented in the browser. Eventually, the community accepted that the reality and the project is now referred to as ES Harmony - a rolling program of improvements.
+
+ES6/2015 //has// been implemented somewhere - in Node.js for one, but long before that, it was already implemented in javascript 'transpilers' such as Babel.
+
+Babel and other such transpilers can understand Javascript using the latest and greatest syntax from ES Harmony and produce plain old ES5, which is now guaranteed to work pretty much everywhere.
+
+At first you might be perplexed as to how come they can make the 'old' javascript do all the things that the 'new' one can do but if you stop to think about it, we already know that any programming language can do everything.
+
+The only thing that you can add to a programming language is 'syntactic sugar' since programming languages are 'pure sugar' to begin with.
+
+The very simplest instruction in any programming language is 'just sugar' on top of something that the machine is actually doing.
+
+When the language gets new features, then, they are just new //ways// of doing things. The sugar is important because it gives us new ways to express ourselves, which is really what the language is about.
+
+
+
+
+...
+
+
+!!Node
+
+https://nodejs.org/en/blog/
+
+Has been difficult: https://nodesource.com/blog/es-modules-and-node-js-hard-choices/
+
+https://github.com/nodejs/LTS#lts-schedule1
+
+
+
+```
+12 Sep Node v8.5.0 (Current)
+
+    build
+        Snapshots are now re-enabled in V8 #14875
+    console
+        Implement minimal console.group(). #14910
+    deps
+        upgrade libuv to 1.14.1 #14866
+        update nghttp2 to v1.25.0 #14955
+    dns
+        Add verbatim option to dns.lookup(). When true, results from the DNS resolver are passed on as-is, without the reshuffling that Node.js otherwise does that puts IPv4 addresses before IPv6 addresses. #14731
+    fs
+        add fs.copyFile and fs.copyFileSync which allows for more efficient copying of files. #15034
+    inspector
+        Enable async stack traces #13870
+    module
+        Add support for ESM. This is currently behind the --experimental-modules flag and requires the .mjs extension. node --experimental-modules index.mjs #14369
+```
+
+Turns out they landed behind a flag in the stable release just 6 days ago //and// you need to change the file extension, invoking the Michael Jackson option.
+
+https://www.npmjs.com/package/n
+
+
+
+
+!!Rollup
+
+https://rollupjs.org/#tree-shaking
+

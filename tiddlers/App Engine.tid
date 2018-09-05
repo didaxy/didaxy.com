@@ -1,0 +1,74 @@
+created: 20180624052738501
+modified: 20180905032014050
+tags: 
+title: App Engine
+type: text/vnd.tiddlywiki
+
+App Engine Quickstart
+
+Using Google Cloud Shell
+
+Cloud Shell is a built-in command line tool for the console. We're going to use Cloud Shell to deploy our app.
+
+Open Google Cloud Shell 
+Clone the sample code
+Use Cloud Shell to clone and navigate to the "Hello World" code. The sample code is cloned from your project repository to the Cloud Shell.
+
+In Cloud Shell enter:
+
+Clone a sample repository:
+
+TUTORIALDIR=src/imagesearch-170809/nodejs_mvms_quickstart-2018-06-24-15-24
+
+git clone https://github.com/GoogleCloudPlatform/nodejs-getting-started.git $TUTORIALDIR
+
+Switch to the tutorial directory:
+
+cd $TUTORIALDIR/1-hello-world
+
+Testing your app
+
+Install npm packages
+We will install the npm packages on Cloud Shell in order to test run the Node.js app.
+
+To install npm packages, enter:
+
+npm install
+
+Test your app on Cloud Shell 
+Cloud Shell lets you test your app before deploying to make sure it's running as intended, just like debugging on your local machine.
+
+To test your app enter:
+
+export PORT=8080 &&
+npm start
+
+Preview your app with "Web preview" 
+Your app is now running on Cloud Shell. You can access the app by using "Web preview"  to connect to port 8080. show me how
+
+Terminating the preview instance 
+Terminate the instance of the application by pressing Ctrl+C in the Cloud Shell.
+
+App Engine Quickstart
+
+ Congratulations
+
+You have successfully deployed an App Engine application! Here are some next steps:
+
+Delete your tutorial project
+You should delete your project  to avoid additional charges.
+
+Download the Google Cloud SDK and develop locally
+Download Cloud SDK for Mac OS X
+After it downloads, extract the file  and initialize the SDK .
+
+Build your next application
+Learn how to use App Engine with other Cloud Platform products:
+
+
+Use Cloud Datastore
+Use Cloud Datastore, a highly scalable NoSQL database with high performance, to speed up your app development.
+
+Learn to use Cloud Storage
+Cloud Storage is a powerful and simple object storage service.
+

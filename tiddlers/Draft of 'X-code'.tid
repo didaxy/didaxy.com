@@ -1,0 +1,34 @@
+created: 20180905041538669
+draft.of: X-code
+draft.title: X-code
+modified: 20180905043556991
+tags: Live Swift
+title: Draft of 'X-code'
+type: text/vnd.tiddlywiki
+
+!!Vocabulary
+*active scheme
+*assistant editor
+*compiler
+*console pane, or console area
+*debug area
+*executable apps
+*Git
+*IDE
+*project
+*project navigator
+*project template
+*push notifications
+*standard editor
+*storyboard
+*target
+*utilities area
+*variables view
+*version editor
+
+Excerpt From: Apple Education. “App Development with Swift.” Apple Inc. - Education, 2017. iBooks. https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewBook?id=1219117996
+
+<<extimg "https://pbs.twimg.com/media/DmTc00qX4AEoa1c.jpg:large">>
+
+A target - a finished thing your project can produce. ie; an app for a particular platform.
+
