@@ -1,6 +1,73 @@
 created: 20180905041538669
-modified: 20180905041543984
+modified: 20180905051334593
 tags: Live Swift
 title: X-code
 type: text/vnd.tiddlywiki
 
+!!Vocabulary
+*active scheme
+*assistant editor
+*compiler
+*console pane, or console area
+*debug area
+*executable apps
+*Git
+*IDE
+*project
+*project navigator
+*project template
+*push notifications
+*standard editor
+*storyboard
+*target
+*utilities area
+*variables view
+*version editor
+
+Excerpt From: Apple Education. “App Development with Swift.” Apple Inc. - Education, 2017. iBooks. https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewBook?id=1219117996
+
+<<extimg "https://pbs.twimg.com/media/DmTc00qX4AEoa1c.jpg:large">>
+
+A target - a finished thing your project can produce. ie; an app for a particular platform.
+
+!!Running Apps
+
+“breakpoint
+bug
+deprecated code
+developer mode
+compiler error, or error
+exception
+landscape
+portrait
+step control buttons
+”
+
+Excerpt From: Apple Education. “App Development with Swift.” Apple Inc. - Education, 2017. iBooks. https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewBook?id=1219117996
+
+!!Simulator
+
+To rotate the image from portrait to landscape orientation, use the keyboard shortcuts Command-Left Arrow and Command-Right Arrow.
+
+
+!!Building for your own device
+
+Register for a developer account and then set that account up in X-code and you can deploy your app to your own devices.
+
+!!Wireless Deployment
+
+I didn't know about this, and it probably solves my "can't connect to this device" problem, but if you connect the device once with a wire, you can set it to connect wirelessly in future.
+
+!!Warnings and Errors
+
+!!Setting a Breakpoint
+
+Left click the line gutter.
+
+No shortcut to remove them?
+
+!!Documentation Browser
+
+opt-click a keyword for its documentation.
+
+[[X-code Interface Builder]]
