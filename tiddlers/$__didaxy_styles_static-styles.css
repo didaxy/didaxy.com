@@ -13,6 +13,7 @@ body {
 }
 
 .footer {
+  position: absolute;
   bottom: 0;
   width: 100%;
   min-height: 100px;
@@ -160,4 +161,8 @@ body {
   display: block;
  margin: auto;
  border: 1px solid;
+}
+
+.tc-tiddler-body {
+  padding-bottom: 2em;
 }

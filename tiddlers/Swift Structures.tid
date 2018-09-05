@@ -1,6 +1,22 @@
 created: 20180905080951998
-modified: 20180905083654014
+modified: 20180905084919528
 tags: Live Swift
 title: Swift Structures
 type: text/vnd.tiddlywiki
 
+
+
+Dot notation
+
+Internal methods
+
+```
+struct Person {
+  var name: String
+  func sayHello() {
+    print("Hello, there! My name is \(name)!")
+  }
+}
+```
+
+Excerpt From: Apple Education. “App Development with Swift.” Apple Inc. - Education, 2017. iBooks. https://itunes.apple.com/au/book/app-development-with-swift/id1219117996?mt=11
