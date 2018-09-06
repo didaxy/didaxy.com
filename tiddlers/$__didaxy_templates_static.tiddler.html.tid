@@ -1,5 +1,5 @@
 created: 20170815071157183
-modified: 20180528042742104
+modified: 20180906073453364
 remote_scripts: 
 scripts: pagescript.js
 styles: yellowsubmarine.css
@@ -14,6 +14,7 @@ type: text/vnd.tiddlywiki
 `<!doctype html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width; maximum-scale=1; minimum-scale=1;" />
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
   (adsbygoogle = window.adsbygoogle || []).push({

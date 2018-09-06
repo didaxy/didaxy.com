@@ -4,10 +4,16 @@ html {
   position: relative;
   min-height: 100%;
 }
+
+
 body {
   line-height: 1.5em;
   margin-bottom: 180px;
+    /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
+
 .navbar a:hover {
   text-decoration: none;
 }
@@ -164,5 +170,11 @@ body {
 }
 
 .tc-tiddler-body {
-  padding-bottom: 2em;
+  padding-bottom: 4em;
+}
+
+@media (max-width: 480px) { 
+    h1 {
+        color: red;
+    }
 }

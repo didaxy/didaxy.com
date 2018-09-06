@@ -1,5 +1,5 @@
 created: 20180430054658271
-modified: 20180905035231793
+modified: 20180905123925511
 tags: SwiftTutorials Live iOS
 title: Setting Up Swift
 type: text/vnd.tiddlywiki
@@ -73,7 +73,7 @@ A playground is an X-code document type that runs Swift code and displays the re
 
 Excerpt From: Apple Education. “App Development with Swift.” Apple Inc. - Education, 2017. iBooks. https://itunes.apple.com/au/book/app-development-with-swift/id1219117996?mt=11
 
-[img[https://pbs.twimg.com/media/DmS070GU4AAuh5j.jpg:large]]
+<<extimg "https://pbs.twimg.com/media/DmS070GU4AAuh5j.jpg:large">>
 
 
 “On a technical level, a playground is a file wrapper around a main.swift file.”
