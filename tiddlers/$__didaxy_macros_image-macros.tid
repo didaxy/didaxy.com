@@ -1,5 +1,5 @@
 created: 20170825015419903
-modified: 20180905040149885
+modified: 20180908060336624
 tags: $:/tags/Macro
 title: $:/didaxy/macros/image-macros
 type: text/vnd.tiddlywiki
@@ -7,6 +7,12 @@ type: text/vnd.tiddlywiki
 \define extimg(url)
 <center>
 <img  width="60%" class="article-image" src="$url$"/>
+</center>
+\end
+
+\define extimg80(url)
+<center>
+<img  width="80%" class="article-image" src="$url$"/>
 </center>
 \end
 

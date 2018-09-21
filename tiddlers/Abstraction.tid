@@ -1,75 +1,35 @@
 created: 20170914012842139
-modified: 20180905031215623
-tags: Computer
+modified: 20180921013137428
+tags: Live Computer
 title: Abstraction
 type: text/vnd.tiddlywiki
 
-!!Abstraction
+!Abstraction
 
-As we will probably mention ad nauseum, the defining feature of human-computer interactivity is abstraction.
+Abstraction is a very simple and powerful idea.
 
-Abstraction is how different groups of computer scientists and engineers hide the complexity of the systems they build from other people who only need to use them.
+It's the key to how we make and use computers, but you can see it everywhere you look around you at the human world.
 
-This is how a "stack" is built.
+Put simply, abstraction means that you don't need to know how a thing works to be able to use it. Instead all you need to know is how to work it's "interface".
 
-One group of experts builds ever better chips and boards - the "bare metal" of the computer, but they stick to an "abstraction" that tells other people how to write software that will work. 
+Most adults can drive a car, but most of them couldn't make one, or fix their own if it broke. And they don't need to be able to, because to use their car, all they need is to understand the interface to it - the standard arrangement of pedals, switches and the steering-wheel.
 
-The operating system is usually the key piece of software that needs to be able to talk to the "bare metal", so other programs don't need to worry about the computer at all, only the operating system.
+There are some other aspects to the overall "interface" of the car, like which side the filler-cap/charger-port is on and which type of fuel you should put in it. But to use one, you don't need to know or care about the details of how it was made or how it functions "under the hood".
 
-The operating system might be referred to, perhaps along with hardware and/or other software components as a "platform".
+Abstraction, whilst useful in lots of places, is //essential// to the way we build and use computers because they are so vastly, wildly complex.
 
-The operating system as an abstraction is, of course, how games or other programs can be released and "guaranteed" to work on, for example, Windows 10 computers.
+Computers are without comparison the most complex things humans have ever made and the only way we're able to manage that complexity is via layer upon layer of abstraction.
 
+One very obvious layer of abstraction that most people are familiar with is the "operating system" - Windows say, or MacOS or Linux, or Android or iOS - if a computer is running a particular operating system, we expect it to behave in certain ways, regardless of any other details about the computer.
 
-!!Abstraction
+Programming languages are also abstractions. Their published specifications are promises that programs constructed in a particular way will produce particular outputs.
 
-Packaging Complicated things.
+An abstraction is "leaky" if it isn't always sufficient to understand the interface. If you sometimes you have to understand the details of the implementation, the abstraction is a leaky one.
 
-Cars have a standard interface. It's an abstraction.
+A lot of programming is about the creation of your own abstractions. Lots of computer science has been done to investigate the best ways to form your own abstractions.
 
-Cars can change completely, as long as the abstraction remains the same.
+Object oriented approaches used to be very popular.
 
-Abstraction is a superpower.
+The modern vogue is for Functional Programming languages. One big reason for this is that the "pure" functions preferred in this style can be mathematically proven correct. Because they don't produce side-effects, they produce nice, solid abstractions over operations (not objects).
 
-A computer's only input source is a power cable.
-
-How can it do so much? 
-
-1 and 0 is all a computer can do.
-
-!!I Don't Know How it Works, But it Does.
-
-Computers are all different.
-
-If we had to write all our code in Assembly language, we would have to write a separate, slightly different (sometimes totally different) program for each type of chip.
-
-Windows or MacOS, or Linux is an ABSTRACTION over the underlying system, which offers some kind of promise about what we can do with a computer.
-
-It frees us from needing to know anything at all about your computer.
-
-All we have to do is write something that will work on Windows and we leave Microsoft to worry about making it run on every different kind of machine.
-
-The desire for interoperability amongst competing operating systems drives further abstraction as people build "virtual machines" of one kind or another.
-
-By building and maintaining compatible versions of a virtual machine for each operating system platform, a new platform is created - Java being the canonical example - and people can then write Java programs, for the Java platform, without caring about what operating system their users are using, let alone the hardware underneath it.
-
-!!Born Abstract
-
-The web - that being the only part of the internet that most people think about now - was invented as an abstraction. 
-
-It was born free, and as a result became a great success and forced radical changes in the tactics of the competing platforms.
-
-When we write programs for the web, we don't need to worry about what hardware, what operating system, or even what browser our users are using (the last is a lie)
-
-!!All AbstracaLA
-
-The really powerful feature of abstractions is that they accumulate.
-
-If we know how to program javascript for the browser, we don't need to know (much) about browsers, operating systems or firmware. We certainly don't need to know about memory registers, clock speeds or HDMI signals.
-
-Every time somebody encapsulates and abstracts functionality, they're adding to the collective power available to everyone else.
-
-Let's try to think about what's actually happening when we do something simple.
-
-Your computer is never 'just sitting there', it's always doing things.
-
+Being able to create your own abstractions and build with them to make new things is one of the real "super-powers" of programming. It's very fun to do.

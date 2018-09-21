@@ -1,5 +1,5 @@
 created: 20180904060758392
-modified: 20180904122557069
+modified: 20180911024721021
 tags: Live CS50
 title: CS50 Resize
 type: text/vnd.tiddlywiki
@@ -89,3 +89,7 @@ $ ./resize .25 large.bmp small.bmp
 
 oh well - we'll see.
 
+* get the paper book back
+* come here
+* read the man pages for the things at the top of this tiddler
+* Implement my algorithm

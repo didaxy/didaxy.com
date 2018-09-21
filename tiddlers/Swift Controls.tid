@@ -1,0 +1,18 @@
+created: 20180908060647706
+modified: 20180908060820493
+tags: Live Swift
+title: Swift Controls
+type: text/vnd.tiddlywiki
+
+!Controls
+
+“In the previous section, you learned about common views, which display information to the user. What about responding to user input? You'll use tools in UIKit, called controls, to tell the app what to do.
+”
+
+“When the user interacts with a control, the control triggers a control event”
+
+“After setting up a control in Interface Builder, you set up an IBAction that responds to a specific control event and allows you to execute a block of code. Most often you will use the Primary Action Triggered (UIControlEventPrimaryActionTriggered) control event. This control event is triggered when a button is tapped or when the value of a control changes.
+
+
+
+Excerpt From: Apple Education. “App Development with Swift.” Apple Inc. - Education, 2017. iBooks. https://itunes.apple.com/au/book/app-development-with-swift/id1219117996?mt=11

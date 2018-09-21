@@ -1,18 +1,23 @@
 created: 20170930063801716
-modified: 20180904123724264
+modified: 20180921052627645
 tags: Plumbing $:/tags/SideBar
 title: Tutorialist
 type: text/vnd.tiddlywiki
 
-<div class="header-image index">
-<$image source="$:/didaxy/didaxy-logo-white.svg" class="article-image"/>
-</div>
+[[Tutorials]]
+
+
+!!Computer
+<<list-tagged-draggable Computer>>
 
 !!Web
 <<list-tagged-draggable WebTutorials>>
 
 !!Javascript
 <<list-tagged-draggable JSTutorials>>
+
+!!Node
+<<list-tagged-draggable NodeTutorials>>
 
 !!React
 <<list-tagged-draggable ReactTutorials>>

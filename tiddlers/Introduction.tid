@@ -1,52 +1,40 @@
 created: 20180413032450666
-modified: 20180905023202189
+modified: 20180921023124560
 tags: Live Computer Teaching
 title: Introduction
 type: text/vnd.tiddlywiki
 
-What Is A Computer?
-There is no such thing as a dumb question
+!!What Is A Computer?
 
 When it comes to early self-teaching in computer programming there is extreme variation of assumed knowledge and a lack of proper basic mental models of what a computer is and how it works.
 
-One possible solution is to have a really good course that covers all the ‘basics’ of computers, enough so that you can learn to program.
+People of my generation wrangled Linux from floppies onto recalcitrant x86 machines. Prevailing reality at the time was that if you wanted to program one of them, at some point you were probably also going to have to install its software from scratch. If you pursued an interest in "computers" of any kind, in fact, with the devotion of a teenager, you were quite likely to end up knowing obscure facts about drivers or dip-switches or boot loaders. It sort of all went together, but that isn't really true any more.
 
-It needn’t be a very long course.
+Now you can use an iPad or a MacBook and never learn anything about any of that stuff. You can learn to program by connecting to an online IDE and have access to all the tools you need, but without ever bumping up against all the pain-points and idiosyncrasies of "real computers".
 
-It would span from “what’s a computer?” in the sense of literally identifying all the computers we use (ipads etc.) and saying what they have in common (IO, processing), up to "now you know enough to start programming".
+On the one hand, I can't help feeling that "kids today" must be missing out on some of the "joy" of the struggle - they're not //really// learning how to use computers, says the "grumpy old man" in me.
 
-You could argue, I suppose, that you don't need to know anything at all about the underlying machine to start programming today. And that's a pretty persuasive argument, too, I think.
+But on the other hand, surely it must be good that they don't have to go through all that struggle before they can even learn?
 
-It would talk about virtualisation and abstraction.
+And anyway, if I stop and think about what we were really "learning" - was it really all that much closer to how computers "really" work? The boot loaders and the drivers and the dip-swithches aren't fundamental - they're just things that happen to be one way and not another and we needed to know the details of them in a way that they don't. If we hadn't needed to, we wouldn't have either - we weren't a unique generation of Uber-geeks, that was just what we needed to do to achieve the things we wanted to do. The generations before us fixed their own cars and made their own radios. "The Kids" will be fine, they'll be inspired to learn new skills in their turn, to make their own cool, that we probably won't understand.
 
-It would talk about the pieces of a computer as they are traditionally conceived.
+Nevertheless, it's clear that you do need to know //something// about computers to be able to program them.
 
-It would talk about the common models of processing that we have.
+It turns out, though, that you don't really need to understand all that much.
 
-“Booting” would be a chapter/section.
+The "core" of a computer is a Processor. A processor is connected to Memory (RAM) and also to the Input and Output (I/O) devices of the computer (screen, network, keyboard etc.)
 
-It would talk about the basics of operating systems and the similarities and differences between the major operating systems. 
+There are lots of other parts in a modern computer, but they're all there to make these parts work better.
 
-Filing systems, directory structure, filetypes/extensions.
+The job of the processor is to carry out a series of instructions, which are stored in a section of the memory. The instructions involve things like loading pieces of data from memory, performing simple calculations and logical operations, and storing pieces of data back to memory. 
 
-How to use the GUI.
+In general, then, the result of the computer running a program is that its own internal state changes. The "1s and 0s" that are stored in its memory are different than before. But, of course, that wouldn't be much use if there weren't also some //external// effect of having run the program, and some way to interact with the computer, which is why it has input and output (I/O) devices.
 
-How to use the command-line/shell/terminal.
+Some of the operations result in Outputs being sent to the various output devices that are connected to the computer, such as a network interface or a screen. Other operations check for inputs, which are encoded via our input devices such as keyboards and mice. These things typically need to be done millions or billions of times every second, regardless of whatever other calculations or programs the processor is running.
 
-It would talk about models of “what is it doing?” to understand what is going on when your computer is running.
+If you had to make sure that, while your program was running, the computer still updated the screen correctly, you'd never be able to get started. 
 
+The reason you can write "hello world" without also knowing about the refresh-rate of monitors is that the operating system is already doing all that stuff.
 
+One of the most fundamental jobs of the operating system "kernel" is to schedule all the programs that are running at once so that, during each slice of a second, each of them gets to run for its allotted time.
 
-Of course, a book/course like that is going to contain some/a lot of things that some/a lot of its students already know. Preparatory courses are inherently like that, I guess.
-There is a tendency in some people, I think. to skip the preparatory material on the basis that it will be too boring and they’ll pick it up as they go along, to which I say “fine”. Seriously, do whatever works best for you. But make sure that you do pick it up later and you don’t end up with fundamental gaps, because they’ll definitely slow you down later.
-
-Computers are a miracle of human ingenuity and they are only possible at all because of the way that we are all able to work together on them - whole communities of people specialise in different aspects of the machine as a whole and the pieces come together and work as a whole because the machines have evolved with specifications and abstractions.
-
-The other big problem is figuring out __how much__ you need to learn about each of the aspects of the machine and its environment - how much of the history of computers do you need to know to understand where they’re at right now. It’s a difficult question because if we were to pick any one tiny piece of the overall system that is a modern computer, we could drill down into almost unfathomable complexity. Just memory chips, for example - we could be here for months, just learning about the intricacies of just the physical aspects of the solid state memory, before ever getting to the software aspects of memory management. 
-The question then, should be “how much do you need to know about computer memory to be a programmer”. Well… if you wanted to program a memory management system, the answer is probably “everything”, but to write your first 100 programs? Something like that - “How much do you need to know about computers to write your first 100 programs?” the answer is more like: it exists, it stores numbers, everything in the computer is stored as a number? 
-You certainly need to have some idea that it exists and that it is a limited resource… that it will be lost when the power is turned off? 
-Are these bad assumptions? I don’t know. What’s the best case for them being bad assumptions?
-Suppose you learn to program on a cloud IDE and you only ever use online ‘serverless’ services? Do you still need to know about physical memory? I think so. Why? Because even if the physical hardware you deal with is completely abstracted, the PC architecture still forms the basis for the shared mental model we have of the computer and how it works.
-For example, in any system there is going to be a division between volatile and non-volatile memory, so you are going to need to have some concept of them before you can write programs that manipulate and store data.
-
-It’s a good project, I think, because it seems hard but attainable - useful but not (often?) done before - and within my spheres of expertise (I couldn’t claim to be an expert programmer, but I can justifiably claim to be something of an expert-user of computers and have seen all aspects of them at one point or another, but at the same time I don’t have any in depth technical knowledge in any one particular area, so I should be able to fairly assess the situation.

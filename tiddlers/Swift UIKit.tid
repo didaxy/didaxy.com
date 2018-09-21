@@ -1,6 +1,42 @@
 created: 20180905121351577
-modified: 20180905123815143
+modified: 20180908060715982
 tags: Live Swift
 title: Swift UIKit
 type: text/vnd.tiddlywiki
 
+!Views
+
+The foundational class for all visual elements defined in UIKit is the UIView, or view. 
+
+UIKit defines dozens of special UIView subclasses that perform specific tasks. For example, UILabel displays text
+
+“To display a view onscreen, you need to give it a frame—which consists of a size and a position—and add it to the view hierarchy. The area within the view is its bounds. A view is transparent by default, so you'll also need to set a background color property.
+Here are some of the attributes you can change when working with views:
+”
+
+
+<<extimg80 "https://pbs.twimg.com/media/DmjOXyXU0AASP7F.jpg:large">>
+
+!!Label
+
+!!Image
+
+!!Text
+
+For entering text.
+
+!!Scroll View
+
+!!Table View
+
+!!Toolbars
+
+!!Navigation Bars
+
+!!Tab Bars
+
+[[Swift Controls]]
+
+
+
+Excerpts From: Apple Education. “App Development with Swift.” Apple Inc. - Education, 2017. iBooks. https://itunes.apple.com/au/book/app-development-with-swift/id1219117996?mt=11
