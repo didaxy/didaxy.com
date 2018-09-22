@@ -1,11 +1,15 @@
 created: 20171031051834982
-modified: 20180614101536531
-tags: scripts noindex
-title: windowprops.js
-type: application/javascript
+modified: 20180922031731939
+tags: Live Javascript
+title: Getting the Properties of Built-ins
+type: text/vnd.tiddlywiki
 
+
+
+```
 for (var prop in window) {
   if (window.hasOwnProperty(prop)) {
     console.log(`prop: ${prop} ${window[prop]}` );
   }
 }
+```

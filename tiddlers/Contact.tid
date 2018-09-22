@@ -1,5 +1,5 @@
 created: 20180528071551397
-modified: 20180803015930385
+modified: 20180921102055417
 remote_scripts: https://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js
 remote_styles: https://cdn-images.mailchimp.com/embedcode/classic-10_7.css
 scripts: mailchimp.js
@@ -13,6 +13,7 @@ type: text/vnd.tiddlywiki
 </div>
 
 <center>
+
 !!Email
 
 r1chard5mith@icloud.com

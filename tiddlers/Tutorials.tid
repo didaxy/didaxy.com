@@ -1,5 +1,5 @@
 created: 20170820112112231
-modified: 20180921023457731
+modified: 20180922031004657
 tags: Plumbing Live
 title: Tutorials
 type: text/vnd.tiddlywiki
@@ -15,7 +15,7 @@ type: text/vnd.tiddlywiki
 <$list filter="[tag[CommandLineTutorials]]"/>
 
 !!Swift
-<$list filter="[tag[SwiftTutorials]]"/>
+<$list filter="[tag[Swift]]"/>
 
 !!Python
 <$list filter="[tag[PythonTutorials]]"/>
@@ -37,6 +37,12 @@ type: text/vnd.tiddlywiki
 
 !!HTML
 <$list filter="[tag[HTMLTutorials]]"/>
+
+!!Serverless
+<$list filter="[tag[ServerlessTutorials]]"/>
+
+!!CS50
+<$list filter="[tag[CS50]]"/>
 
 !!WASM
 

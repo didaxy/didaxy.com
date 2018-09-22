@@ -1,6 +1,6 @@
 created: 20180110023656146
-modified: 20180528072254040
-tags: WASMTutorials
+modified: 20180921105057832
+tags: Live WASMTutorials
 title: What is Webassembly?
 type: text/vnd.tiddlywiki
 
@@ -9,16 +9,11 @@ type: text/vnd.tiddlywiki
 !What is Webassembly?
 !!Introduction
 
-Web assembly is a 'compilation target' for the web which is rapidly reaching maturity and may well be the 'next big thing'.
+Web assembly is a 'compilation target' for the web which is rapidly reaching maturity.
 
 Until now Javascript has been in the unique position of being the only language that is easy to deliver to web browsers. Javascript delivers its programs to browsers as source code.
 
-Web assembly will allow applications to be written in other 
- and compiled into a form that browsers everywhere will be able to run. Instead of source code, these programs will be delivered as binaries.
-
-What this is going to mean for the future of Javascript is hard to discern, but it's almost certainly going to get some competition for the best way to build some kinds of applications in the future.
-
-It seems to merit some inquiry, so we're going to do that.
+Web assembly will allow applications to be written in other languages and compiled into a form that browsers everywhere will be able to run. Instead of source code, these programs will be delivered as binaries.
 
 
 

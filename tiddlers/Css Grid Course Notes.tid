@@ -1,24 +1,16 @@
 created: 20171123110921557
-modified: 20180905030550705
+modified: 20180921095213651
 tags: CSS
 title: Css Grid Course Notes
 type: text/vnd.tiddlywiki
 
 !!Grid
 
-This is a course on CSS Grid
 
 CSS Grid brings some sanity to styling HTML pages.
 
 It offers us the chance to replace lots of the 'hacks' that have been used in the past to achieve 2D control with tools that are essentially 1D in nature.
-
-!!Principles
-
-My guide will lead you into the why of creating a grid based layout and show you at least two full examples of usage.
-
-There will be some ancillary concepts associated with these finished pages - for example there might be a modal pop-up to display detail of images shown in a grid.
-
-There won't be a back end or anything like that.
+be a back end or anything like that.
 
 !!Concepts
 
@@ -30,15 +22,10 @@ https://abookapart.com/products/get-ready-for-css-grid-layout
 
 https://css-tricks.com/snippets/css/complete-guide-grid/
 
-I'm coming back to here to do more with CSS Grid - I'm making this tutorial so that I can have a "Pilot Course", so that I can put something up, so that I can sell something...
 
-I don't know about any of that. All I'm trying to do is my best.
+Note that it's very useful to have code auto-complete for your css files when you're working with new features.
 
-Had to remember how to get tern js working for Atom - it requires a config file
 
-https://atom.io/packages/atom-ternjs
-
-It is very useful.
 
 !!Responsive
 

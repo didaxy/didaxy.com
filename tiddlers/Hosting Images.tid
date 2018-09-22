@@ -1,5 +1,5 @@
 created: 20180905015432298
-modified: 20180905020827589
+modified: 20180922031339159
 tags: Live IntegrationTutorials
 title: Hosting Images
 type: text/vnd.tiddlywiki
@@ -33,3 +33,31 @@ I suppose the danger is if you don't do that, because why bother if it's so easy
 The benefit of doing it this way is it's really quick to upload images and get a URL for them. You just tweet the picture (by dragging it onto the tweet box in the web UI), view the tweet, right-click the image and "open in a new tab" and then copy the URL. 
 
 If I'm writing here, in my Tiddlywiki-powered ~~blogging~~ web-writing interface, I can paste the URL, wrap it in wikitext and I'm done.
+
+!!Some other notes
+
+Embedding a single image
+
+Attaching data to the image
+
+Responsive Images
+
+Using the picture tag
+
+https://www.html5rocks.com/en/tutorials/responsive/picture-element/
+
+
+
+Picture formats
+- 
+-webP
+
+guetzli jpeg compression - http://www.theodo.fr/blog/2017/05/size-matters-compressing-images-using-googles-guetzli/
+
+
+
+In Static Site Generators
+
+https://www.netlify.com/blog/2015/08/20/simple-responsive-images-with-jekyll/
+
+https://github.com/netlify/jekyll-srcset

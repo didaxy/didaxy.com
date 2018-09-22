@@ -1,9 +1,13 @@
 created: 20170903091804909
-modified: 20171208033807749
+modified: 20180922030056628
 scripts: adsense.js
 tags: IntegrationTutorials Live Static
 title: Adding Google Adsense to a Static Site
 type: text/vnd.tiddlywiki
+
+NB: I have since decided to remove Google's widgets from this site, you can read about why I made the change here.
+
+...because I'd like to keep my page source as clean as possible and I don't really see any benefit from the ads themselves. I'm also removing the Google analytics code.
 
 !!Ads
 

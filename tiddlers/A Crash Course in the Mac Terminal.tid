@@ -1,5 +1,5 @@
 created: 20170924020431579
-modified: 20180904124601547
+modified: 20180922002316757
 part: 8
 partof: So, You Want To Make A Website?
 subtitle: The Terminal
@@ -10,8 +10,6 @@ type: text/vnd.tiddlywiki
 !A Crash Course in the Mac Terminal
 
 !!Introduction
-
-I recently wrote a short tutorial by way of [[Introduction to Tiddlyserver]] and a follow up about running [[Tiddlyserver on the Raspberry Pi]]. The former potentially requires  use of the command-line / terminal and the latter certainly requires it. 
 
 Whilst it isn't difficult to use the terminal, if you haven't done it before it can be somewhat daunting so I thought it would be useful to try and give a short explanation of the main features that you will use.
 

@@ -1,38 +1,10 @@
 created: 20180430011549761
-modified: 20180905030550711
-tags: Tiddlywiki
-title: Making Notes With Tiddlywiki
+modified: 20180922032852177
+tags: Live IntroductoryTiddlywiki
+title: Using Tiddlywiki With Github and iCloud
 type: text/vnd.tiddlywiki
 
-Tiddlywiki is the most awesomely useful tool for anyone who wants to organise lots of little bits of information - keeping and organising notes is the canonical example of it's use, but it can do a lot more besides. I think of it as somewhat of a Swiss-army knife for web content.
 
-Tiddlywiki is the first place I go when I want to make a note about something - just the fact that it lives in my browser and allows me to easily author snippets of content with links embedded is useful enough.
-
-Let's say you have some sort of project that you want to organise - for example, you might be writing a book about Owls.
-
-Pretty early on in your project, you're going to find yourself with lots of information that has a vague or provisional structure and lots of connections between the pieces.
-
-People seem to try and use online services to do some of the things that Tiddlywiki can do for them. The problem, really, I think is one of communication. It isn't immediately obvious from the outside exactly what you can use Tiddlywiki for - there are lots of different answers to that question. You can use it to make websites and publish them. You can use it to make your own tools by re-coding the user interface. But at it's simplest, it's a 'place' to put lots of little (or big) pieces of information (content, data...) and then 'organise' them.
-
-I thought that what I might do is make some notes here, for anyone who might find them, about the way that I use Tiddlywiki.
-
-Before I found Tiddlywiki, I would always have lots of notes stored somewhere - usually they would be word processor documents organised in folders and maybe split into sections.
-
-Tiddlywiki lets me put notes, with titles, into a single document.
-
-A large part of the trust I place in Tiddlywiki is based on the fact that I know it's 'just a webpage' - my data isn't being stored in some proprietary format, it's all 'just there'. 
-
-So, how do I use it? Well - what I'm doing right now, and the reason I'm writing notes at all, is spring-cleaning my computer (and my head) by purging everything I don't need from my digital life.
-
-And then I thought I would write about it and to me the very first place I think to write is in Tiddlywiki. So that's what I'm doing, writing this in Tiddlywiki.
-
-What often happens whilst I'm writing about one thing is that ideas about other things will pop up that I don't want to forget. If I'm using tiddlywiki, I can just make new Tiddlers, jot down the idea and then come back to what I'm working on.
-
-So, having decided to write this, I fire up Tiddlywiki. I do this using the command line, where I have it installed with NPM.
-
-Now - Tiddlywiki was originally and traditionally designed to be a kind of 'guerrilla application' and all you needed was a single HTML file that had everything packed inside it and your browser. Increasing limitations on browsers over the years, particularly their ability to manipulate the filing system, have made that simple method increasingly faff-ful. You can still get it to work that way, if you need to, but for anyone comfortable with the  command line, it's not the easiest way.
-
-I already have Tiddlywiki installed and it isn't too long since I've used it, but I happen to know that there's a new version out (5..1.16) so we might as well upgrade
 
 npm upgrade -g tiddlywiki
 

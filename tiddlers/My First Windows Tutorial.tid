@@ -1,6 +1,23 @@
 created: 20180728093215321
-modified: 20180728093315255
+modified: 20180921095651962
 tags: WindowsTutorials Live
 title: My First Windows Tutorial
 type: text/vnd.tiddlywiki
+
+!Windows
+
+!!Text Editor
+
+!!Browsers
+
+!!The Command Line
+
+* [[Intro to the Windows Command Line]]
+* [[Install and Use the Windows 10 Linux Subsystem]]
+
+!!Git and Github
+
+!!Context Switching
+
+Some support for virtual desktops, which in my opinion help to manage context switching.
 
