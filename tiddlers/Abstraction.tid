@@ -1,5 +1,5 @@
 created: 20170914012842139
-modified: 20180922035857293
+modified: 20181112024206409
 tags: Live Computer
 title: Abstraction
 type: text/vnd.tiddlywiki
@@ -23,13 +23,3 @@ Computers are without comparison the most complex things humans have ever made a
 One very obvious layer of abstraction that most people are familiar with is the "operating system" - Windows say, or MacOS or Linux, or Android or iOS - if a computer is running a particular operating system, we expect it to behave in certain ways, regardless of any other details about the computer.
 
 Programming languages are also abstractions. Their published specifications are promises that programs constructed in a particular way will produce particular outputs.
-
-An abstraction is "leaky" if it isn't always sufficient to understand the interface. If you sometimes you have to understand the details of the implementation, the abstraction is a leaky one.
-
-A lot of programming is about the creation of your own abstractions. Lots of computer science has been done to investigate the best ways to form your own abstractions.
-
-Object oriented approaches used to be very popular.
-
-The modern vogue is for Functional Programming languages. One big reason for this is that the "pure" functions preferred in this style can be mathematically proven correct. Because they don't produce side-effects, they produce nice, solid abstractions over operations (not objects).
-
-Being able to create your own abstractions and build with them to make new things is one of the real "super-powers" of programming. It's very fun to do.

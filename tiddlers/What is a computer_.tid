@@ -1,73 +1,48 @@
 caption: What is a computer?
 created: 20170909095216836
-modified: 20180922035848426
+modified: 20181120041306869
 tags: Live Computer
 title: What is a computer?
 type: text/vnd.tiddlywiki
 
-!!What Is A Computer?
+!What is a Computer?
 
-When it comes to early self-teaching in computer programming there is extreme variation of assumed knowledge and a lack of proper basic mental models of what a computer is and how it works.
+Computers are everywhere. You're probably reading this on a computer right now. It was sent to your computer by another computer. In between those two computers were lots of other computers, running the internet. Smartphones are computers, tablets are computers and lots of other things have computers 'inside them'. Most cars made today have at least one computer in them and increasingly everyday objects like TVs and even toasters have computers inside them. So, what is a computer? What do all these things have in common?
 
-People of my generation wrangled Linux from floppies onto recalcitrant x86 machines. Prevailing reality at the time was that if you wanted to program one of them, at some point you were probably also going to have to install its software from scratch. If you pursued an interest in "computers" of any kind, in fact, with the devotion of a teenager, you were quite likely to end up knowing obscure facts about drivers or dip-switches or boot loaders. It sort of all went together, but that isn't really true any more.
+All of these devices are 'connected' to other things, usually with electrical connections, which allow them to interact with the world by receiving 'inputs' and producing 'outputs'. The way they produce outputs, based on a particular set of inputs, is determined by their 'programming' and this is what makes them computers. Simply put, a computer is any device that can be 'programmed'. 
 
-Now you can use an iPad or a MacBook and never learn anything about any of that stuff. You can learn to program by connecting to an online IDE and have access to all the tools you need, but without ever bumping up against all the pain-points and idiosyncrasies of "real computers".
+!What Makes Up a Computer?
 
-On the one hand, I can't help feeling that "kids today" must be missing out on some of the "joy" of the struggle - they're not //really// learning how to use computers, says the "grumpy old man" in me.
+To be 'programmable' a computer must have some way for us to get information into it and some way for us to get the 'results' out. It also needs some way to store our program, expressed as a series of instructions for the computer to carry out, which it does in a component called its 'memory'.
 
-But on the other hand, surely it must be good that they don't have to go through all that struggle before they can even learn?
+The last and most important thing every computer has is a 'processor' which is connected to everything else in the computer and carries out the instructions that make up our program. The instructions we can use are determined by the manufacturer of the computer and make up its 'instruction set'.
 
-And anyway, if I stop and think about what we were really "learning" - was it really all that much closer to how computers "really" work? The boot loaders and the drivers and the dip-swithches aren't fundamental - they're just things that happen to be one way and not another and we needed to know the details of them in a way that they don't. If we hadn't needed to, we wouldn't have either - we weren't a unique generation of Uber-geeks, that was just what we needed to do to achieve the things we wanted to do. The generations before us fixed their own cars and made their own radios. "The Kids" will be fine, they'll be inspired to learn new skills in their turn, to make their own cool, that we probably won't understand.
+Basically every computer in the world, then, has input and output methods, memory and a processor. The way these components are arranged together is referred to as 'von Neumann' architecture after the pioneering researcher John von Neumann (date-date).
 
-Nevertheless, it's clear that you do need to know //something// about computers to be able to program them.
+There are lots and lots of other components inside a computer, but they're all there to facilitate the working of these main elements.
 
-It turns out, though, that you don't really need to understand all that much.
+!Input and Output
 
-The "core" of a computer is a Processor. A processor is connected to Memory (RAM) and also to the Input and Output (I/O) devices of the computer (screen, network, keyboard etc.)
+If a computer wasn't connected to the outside world in any way, there would be no point in it running at all, because we'd never know the result of its work. Computers are //only// useful at all because they can receive input and produce output.
 
-There are lots of other parts in a modern computer, but they're all there to make these parts work better.
+The computer in your toaster may receive input from a thermometer and send output to a heater and a magnet to hold toast in place.
 
-The job of the processor is to carry out a series of instructions, which are stored in a section of the memory. The instructions involve things like loading pieces of data from memory, performing simple calculations and logical operations, and storing pieces of data back to memory. 
+The computer in an iPad is connected to its own screen, to the touch digitiser, to the ports, to the network.
 
-In general, then, the result of the computer running a program is that its own internal state changes. The "1s and 0s" that are stored in its memory are different than before. But, of course, that wouldn't be much use if there weren't also some //external// effect of having run the program, and some way to interact with the computer, which is why it has input and output (I/O) devices.
+!Memory and Processors
 
-Some of the operations result in Outputs being sent to the various output devices that are connected to the computer, such as a network interface or a screen. Other operations check for inputs, which are encoded via our input devices such as keyboards and mice. These things typically need to be done millions or billions of times every second, regardless of whatever other calculations or programs the processor is running.
+Modern electronic computers all store and transmit information in 'binary', meaning that it is encoded using only two states - the famous "1's and 0's". The size of the memory of the computer is measured in terms of how many ones and zeroes it can store. Typically this is a very large number, measured in the billions.
 
-If you had to make sure that, while your program was running, the computer still updated the screen correctly, you'd never be able to get started. 
+The 'clock speed' of a processor tells us how many instructions it can carry out each second. A typical number is 2Ghz, meaning it can carry out about two billion instructions each second.
 
-The reason you can write "hello world" without also knowing about the refresh-rate of monitors is that the operating system is already doing all that stuff.
+This is an astronomical number, necessarily so. Even when it appears to be doing nothing, a computer has to do very many things each second. As well as running any programs that you or I have given it, it has to update all its outputs and scan all its inputs.
 
-One of the most fundamental jobs of the operating system "kernel" is to schedule all the programs that are running at once so that, during each slice of a second, each of them gets to run for its allotted time.
+!Operating Systems
 
+In practise, the processor of a computer is always managed by a piece of software called an Operating System or, more specifically, a Kernel which is responsible for parcelling out time to each of the processes that need to run during each tiny slice of time. The two billion instructions per second get divided up so that the screen knows what to show, the music keeps playing, the keyboard keeps responding to presses and the cursor moves with the mouse in addition to the computer running each of the programs that appear to be running 'at the same time'. In a way, it's all just a trick.
 
+!!What is a Program?
 
-!!Is it?
+The most fundamental kind of program, like we mentioned above, in a computer is one expressed as 'machine code'.
 
-Programs are so much more interesting than computers.
-
-Now you can run your programs anywhere.
-
-You still need to understand something about "what's going on" but it's //all// in abstract terms now. There's code and then there's that code running in the cloud //or anywhere// - the implementation details are not so interesting any more.
-
-"Here is my code, run it" - or, in other words, what's the point of having computers if we still have to do boring stuff and not make mistakes. We're not very good at boring, error-prone work. We're good at designing space-ships and new flavours of ice-cream.
-
-Computers are our boring, perfect little friends - they should be the only ones who need to know about computers.
-
-I'm exaggerating obviously, but not much. I know //someone// needs to know how computers actually work. Or, at least, how to make more of them. For now at least.
-
-But I also think a lot of us don't need to know how now. There isn't really a comparable transition from the past on the same scale. I guess there was a time when, to drive a car, you or someone you knew (employed) had to //really// know how it worked. And then, you didn't. It's kind of the same, I guess. And just like //someone// still has to know about the inner workings of the engine, someone has to know about how graphics cards are made. Everyone else just needs the spec-sheet.
-
-Here is my code, just run it.
-
-!!But, I have a computer, right here?
-
-To produce code you need an input method and an output method. The most common combination is a screen and a keyboard.
-
-By far the easiest way to learn to code in the fashion of most modern developers is by using a Unix-style operating system, Linux or MacOS, on a laptop.
-
-If you have a Windows machine instead, you can install the Linux subsystem under Windows 10, run Linux in a virtual machine, or dual-boot Windows alongside the distribution(s) of your choice.
-
-You can use Windows instead, but there will probably be occasions when you still need to know the Linux way of doing things anyway to interact with other systems so in general it's going to be a bit harder.
-
-You can even use an operating system that doesn't give you full access to the filing system in a conventional way - like Android or iOS, but if you do, by far the easiest way to proceed is to use an online or app-based IDE (Integrated Development Environment) like Cloud-9, that gives you an experience as close as possible to developing under a Unix-style system.
-
+Most programs are not written in machine code. Instead they are written in languages which are easier for humans to use and then one of two things happens to them. They are either 'compiled' or they get 'interpreted'. 
