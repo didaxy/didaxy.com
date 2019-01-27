@@ -1,38 +1,12 @@
 created: 20180904115712585
-modified: 20180905023357853
+modified: 20190127070712100
 tags: Live
 title: now
 type: text/vnd.tiddlywiki
 
 !What Are You Working On Right Now?
 
-!!Writing
-
-I'm trying to write more.
-
-I write a lot. I write constantly. I always have. It's basically how I think. If I wasn't able to write things down, I don't think I would be able to make sense of anything. If anything, I should probably be aiming to write less, not more, so what do I mean?
-
-What I'm trying to do more of - what I'd really //like// to do more of - is the kind of writing that, at least theoretically, someone else might read. Preferably of their own free will.
-
-It's hard, right? Writing is hard. That's my revelation of the day. Stop the presses. 
-
-Specifically what I am trying to write more of, right now, is this website, which I refuse to refer to as a blog. 
-
-I figure if I can kind of align several things that I'm sort of OK at, I might be able to make that add up to a profitable way to spend my time, without needing to bow to the man. I was thinking that maybe if I could get programming to overlap with writing, I might be able to get somewhere. 
-
-We'll see.
-
-!!CS50
-
-I'm surveying [[CS50]] from Harvard, through EdX, at the recommendation of an online acquaintance.
-
-Today I was writing C code to solve some of the fun challenges that make up the assignments for the course.
-
-So far, I'd really recommend the course to anyone who thinks they might be interested in programming and wants to jump right in. The pace is pretty fast and it covers a lot of ground, but they do a really great job of spreading the material so that there's something available for novices and students who've already done a bit of programming - the assignments are nicely differentiated.
-
-Yesterday I finished off [[Crack|cs50 Crack]] and did [[Music|CS50 Music]].
-
-Today I did the '[[Whodunit?|CS50 Whodunit]]' part of the next homework and made a start on [[Resize|CS50 Resize]].
+!!Javascript
 
 !!Swift
 
@@ -41,23 +15,3 @@ I am also picking up iOS programming. [[Swift]] is a bit different from the othe
 My motivation is honestly just to make things that my son thinks are cool, which means they have to run on an iPad.
 
 He's learning to read at the moment, so I figure it's a pretty good excuse to learn some app-programming and make some things that he might think are cool //and// that might help him to learn some things for school.
-
-!!Junior Programming
-
-The first week of CS50 introduces programming concepts using [[Scratch]]. I've seen Scratch before but never really played with it. Turns out it's pretty interesting, though somewhat limited.
-
-They have a stripped down version as an app for the iPad called Scratch Jr - it's pretty interesting.
-
-Anyway - my son seems pretty interested and he's made a few little things. We also have the Lego Boost set which we haven't really made proper use of yet, so we're exploring programming a bit more together. I'm super-careful with this stuff to make sure it's his idea to do programming - I never want it to be something that I push on him, even though I think it's a pretty essential skill. I want him to enjoy it.
-
-Another project that looks quite interesting is from Google and is called Blockly - https://developers.google.com/blockly/ .
-
-
-
-!!Bricklaying
-
-I have always wanted to know how to lay bricks. Just one of those things.
-
-Found myself watching Youtube videos of people laying bricks. Like a hungry man reading cook-books. 
-
-Bought some bricks, some sand and some hydrated lime. And then practice. That's all.
