@@ -1,6 +1,6 @@
 caption: What is a computer?
 created: 20170909095216836
-modified: 20181120041306869
+modified: 20181120062236105
 tags: Live Computer
 title: What is a computer?
 type: text/vnd.tiddlywiki
@@ -27,7 +27,7 @@ If a computer wasn't connected to the outside world in any way, there would be n
 
 The computer in your toaster may receive input from a thermometer and send output to a heater and a magnet to hold toast in place.
 
-The computer in an iPad is connected to its own screen, to the touch digitiser, to the ports, to the network.
+The computer in an iPad is connected to its own screen, to the touch digitiser, to the ports, to the network and to all its sensors such as the accelerometer, compass and camera.
 
 !Memory and Processors
 
