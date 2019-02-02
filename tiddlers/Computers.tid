@@ -1,0 +1,13 @@
+created: 20190202064837666
+modified: 20190202065353631
+tags: Live
+title: Computers
+type: text/vnd.tiddlywiki
+
+A Computer is a programmable device consisting of hardware and software.
+
+To learn programming, we ideally need a modern operating system.
+
+The operating system can run on "the bare metal" or it can run on a Virtual Machine, which is a program, usually running inside another operating system.
+
+Virtualbox is free virtualisation software from Oracle and Microsoft supply free 'images' of Windows, with the WSL and Ubuntu installed already.

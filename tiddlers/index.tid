@@ -1,12 +1,12 @@
 created: 20190202052246814
-modified: 20190202060710010
+modified: 20190202064832132
 tags: Live
 title: index
 type: text/vnd.tiddlywiki
 
 !Things
 
-*Computers (hardware, software, the stack)
+*[[Computers]] (hardware, software, the stack)
 *Operating Systems (files, filing systems, folders, extensions, paths, permissions, installing software)
 *The Command Line (navigating, file operations, running programs/issuing commands, writing scripts)
 *Text Editors (nano, vi, emacs, VS Code, IDEs)

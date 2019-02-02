@@ -1,32 +1,38 @@
 created: 20180903002458588
-modified: 20190127064213382
+modified: 20190202112057342
 tags: CommandLineTutorials Live
 title: Aliasing Commands in the Bash Shell
 type: text/vnd.tiddlywiki
 
-The whole point of computers is to make things easier.
-
-When you're learning all about how complicated they are, there can be a tendency to revel in that complexity. If you're not careful, you could end up being a Windows network technician or something - if you're smart, you'll try to make your tools get out of your way, at the very least and better still, they could actually help you to do things quicker and better, instead of forcing you to fill your head with the arcane details of //how// everything works.
-
-Setting up bash aliases and scripts to get things done is a good example of this.
-
+!Aliasing Commands in the Bash Shell
 Here are some things that I have found useful to change on my MacBook, to make life easier at the command line.
 
-When I list things, I basically always want the long listing, so I alias one to the other - beautiful.
+When I list things, I basically always want the long listing, so I alias one to the other, like so
 
-I use Tiddlywiki to run Node servers that serve my notebooks. Some of these are public by default, like the one that I use to build this website, but some of them are for my private notes. I back those ones up by having them read and write from my iCloud directory (I also have Time-machine making local copies of them, but if you can have off-site backup for zero cost or ongoing effort, you really should.
+```
+alias ls="ls -la"
+```
+You can run alias commands at the terminal, but when you restart the shell, they will be reset. To have them run every time your start a new shell, you can put them in your ``.bash_profile`` file. 
+
+Your ``.bash_profile`` is a [[hidden file|Hidden Files]] in your home directory (you can always return to your home directory with just ``cd``).
+
+I use Tiddlywiki to run Node servers that serve my notebooks. Some of these are public by default, like the one that I use to build this website, but some of them are for my private notes. I back those ones up by having them read and write from my iCloud directory (I also have Time-machine making local copies of them, so this way I get onsite and offsite back up for very little effort.)
 
 The only small problem with doing that is that the iCloud folder is located at a long and difficult to remember path
 
-PATH
+```
+~/Library/Mobile\ Documents/com~apple~CloudDocs
+```
 
-Instead of remembering that every time, I can alias it to something I will remember, like say "icloud".
+Instead of remembering that every time, I can //alias// it to something I will remember, like say "icloud".
 
-ALIAS
+```
+alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
+```
 
 !!Bash Scripts
 
-When I run Tiddlywiki, I specify the port that I want it to serve on which means I can start several at once by specifying different ports. 
+When I run Tiddlywiki itself, I specify the port that I want it to serve on which means I can start several at once by specifying different ports. 
 
 This means I could alias the tiddlywiki command like this
 
@@ -52,7 +58,13 @@ In practice, of course, I find myself hunting through my history for the command
 
 Instead I can write a short program, with a variable and run it from the command line.
 
+```
+#!/bin/bash
+
+tiddlywiki --server $1 $:/core/save/all text/plain text/html "" "" 0.0.0.0
+```
+
 Writing the script is pretty easy, as long as you know how to reference command line arguments as variables, and you know the magic words to put at the top of the file to identify it as a bash script.
 
-If you want to be able to run it from anywhere, you should put it somewhere on your path, strip off the ".sh" extension and make sure you have permission to run it.
+If you want to be able to run it from anywhere, you should put it somewhere on your path, mine is in ``/usr/local/bin``. You should also remove the ".sh" [[extension|File Extensions]] and make sure you have [[permission|File Permissions]] to run it.
 
