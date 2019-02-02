@@ -1,10 +1,44 @@
 created: 20171031002219981
-modified: 20180905025446609
+modified: 20190201011210762
 tags: Live JSTutorials
 title: Congratulations On Choosing Javascript
 type: text/vnd.tiddlywiki
 
 !Congratulations On Choosing Javascript
+
+Congratulations on choosing Javascript(tm), the world's most popular web scripting language!
+
+Javascript, also known as ECMAScript, is what makes the web interactive. It's also now used to script many other systems - the Node.js runtime, MongoDB databases and the latest versions of Minecraft, for example.
+
+Javascript programs are written and sent from computer to computer in plain text files, created with a text editor. 
+
+
+!!Where to Write Javascript
+
+We write Javascript programs, like those in most other languages, using a text editor that saves plain-text files (ie; not a word-processor). There are many popular text editors and any will do. If you don't already have a favourite, we'll recommend VS Code.
+
+VS Code is the latest hotness in text editors, meaning that it has a big community around it, lots of bug fixes and improvements going on all the time and a thriving extension ecosystem, meaning that you will be able to find lots of add-ons to make your life easier in various ways when you become more advanced.
+
+Of course, by the time you're advanced, there will probably be a new hotness, but at least while you're learning, it makes sense to use the most popular tools of right now because it will be easier to find help with anything that goes wrong or you don't understand.
+
+In the simplest use case, there isn't much that can go wrong with a text editor. You use it to open one or more files, you edit them, and you save them.
+
+Do you know about file extensions?
+
+Javascript files generally have the extension '.js'.
+
+If you open a '.js' javascript file with a browser, you should see the text of the file. Is that what you were expecting? Maybe, maybe not, but it is the defined behaviour. The people who make browsers could make it different, but this is the way it works.'
+
+!!Hello World
+
+Web browsers display web pages. They also display other documents, such as pdfs, images and text files.
+
+Javascript programs rely on their 'runtime environment' for their interactions with the outside world. This is the nature of scripting languages. When we write a javascript program as part of a webpage that prints things to the screen, it's really the browser that's doing the printing and our program is just asking/instructing it for what we want (ie; providing the 'script').
+
+For this reason, you see, javascript doesn't have any input/output methods of its own. Instead we 'call' for the functionality we need, using a standard interface - an API, or Application Programming Interface.
+
+So, to write the standard 'hello world' program in Javascript, in the browser, we need to choose one of the methods for printing text to the screen that the browser makes available to us.
+
 
 <<list-tagged-draggable tag:"JavascriptTutorials">>
 

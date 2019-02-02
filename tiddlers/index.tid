@@ -1,22 +1,20 @@
-created: 20170729040253509
-modified: 20190127071510227
-tags: Plumbing Live noindex
+created: 20190202052246814
+modified: 20190202060430242
+tags: 
 title: index
 type: text/vnd.tiddlywiki
 
-<div class="header-image index">
-<$image source="unicornrainbow.svg" class="article-image"/>
-</div>
-<div class="didaxy-definition">
+!Things
 
-
-</div>
-
-<center><h1>D I D A X Y . C O M</h1>
-<p>🧠 • 💰 • 📚 • ✍🏽</p>
-<p>Here to help.</p>
-<h2><$link to="now">Now?</$link></h2>
-</center>
+*Computers (hardware, software, the stack)
+*Operating Systems (files, filing systems, folders, extensions, paths, permissions, installing software)
+*The Command Line (navigating, file operations, running programs/issuing commands, writing scripts)
+*Text Editors (nano, vi, emacs, VS Code, IDEs)
+*Programs (Programs require existing software, compilers, interpreters, source code, executables/binaries, scripts, Virtual Machines)
+*Web Browsers
+*HTML5(css)
+*Javascript
+*React
+*iOS
 
 {{$:/didaxy/content-footer-nav}}
-

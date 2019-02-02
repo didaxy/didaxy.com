@@ -1,9 +1,8 @@
 created: 20180430011549761
-modified: 20180922032852177
-tags: Live IntroductoryTiddlywiki
+modified: 20190202010621668
+tags: IntroductoryTiddlywiki
 title: Using Tiddlywiki With Github and iCloud
 type: text/vnd.tiddlywiki
-
 
 
 npm upgrade -g tiddlywiki
