@@ -1,15 +1,15 @@
-created: 20170815074447863
-modified: 20180803015616137
+created: 20170901233845247
+modified: 20190202062130973
 navbar-entries: About Tutorials Contact
 navbar_fixed_yes_no: no
 optclass: 
-site-logo: $:/didaxy/didaxy-logo-white.svg
-site-name: Didaxy
+site-logo: $:/didaxy/didaxy-logo.svg
+site-name: Flydaxy
 tags: 
 title: $:/didaxy/static-header
 type: text/vnd.tiddlywiki
 
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light">
 <div class="container-fluid">
 <div class="navbar-brand"> <$link to="index"><$image source={{$:/didaxy/static-header!!site-logo}} width="48px"/>&nbsp;{{$:/didaxy/static-header!!site-name}}</$link></div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,20 @@ type: text/vnd.tiddlywiki
             </li>
             </$wikify>
        </$list>
-       
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="./recent.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Recent
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+<$list filter="[tag[Live]!tag[noindex]!sort[modified]limit[10]]">
+<div  class="dropdown-item"><$link to=<<currentTiddler>>>{{!!title}}</$link></div>
+</$list>
+<div  class="dropdown-item"><$link to="Recent"> MORE... </$link></div>
+
+        </div>
+      </li>
     </ul>
   </div>
 </div>
