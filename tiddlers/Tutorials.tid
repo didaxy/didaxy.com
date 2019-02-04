@@ -1,12 +1,9 @@
 created: 20170820112112231
-modified: 20181112022104491
+modified: 20190204010800158
 tags: Plumbing Live
 title: Tutorials
 type: text/vnd.tiddlywiki
 
-<div class="header-image index">
-<$image source="$:/didaxy/didaxy-logo-white.svg" class="article-image"/>
-</div>
 
 !!Learn To Program
 <$list filter="[tag[Computer]]"/>

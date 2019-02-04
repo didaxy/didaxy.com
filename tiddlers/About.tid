@@ -1,16 +1,12 @@
 created: 20170820112328195
 list: a b
 logos: [[neocities-logo.svg]]  [[firefox-logo.svg]]  [[atom-logo.svg]]  [[travis-logo.svg]]  [[github-logo.svg]]  [[tiddlywiki-logo.svg]]   [[hover-logo.svg]]   [[netlify-logo.svg]]
-modified: 20180904122721601
+modified: 20190204010845295
 tags: Plumbing Live
 title: About
 type: text/vnd.tiddlywiki
 
-<div class="header-image index">
-<$image source="$:/didaxy/didaxy-logo-white.svg" class="article-image"/>
-</div>
 <center>
-
 <h1>About </h1>
 
 Didaxy.com is about Programming Computers and Learning Things. 
