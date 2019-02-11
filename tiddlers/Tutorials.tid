@@ -1,53 +1,7 @@
-created: 20170820112112231
-modified: 20190204010800158
-tags: Plumbing Live
+created: 20190210230614013
+modified: 20190210230644798
+tags: Live
 title: Tutorials
 type: text/vnd.tiddlywiki
 
-
-!!Learn To Program
-<$list filter="[tag[Computer]]"/>
-
-!!The Command Line
-<$list filter="[tag[CommandLineTutorials]]"/>
-
-!!Swift
-<$list filter="[tag[Swift]]"/>
-
-!!Python
-<$list filter="[tag[PythonTutorials]]"/>
-
-!!Tiddlywiki Related
-<$list filter="[tag[TWTutorials]]"/>
-
-!!Integrations
-<$list filter="[tag[IntegrationTutorials]]"/>
-
-!!Javascript
-<$list filter="[tag[JSTutorials]]"/>
-
-!!React
-<$list filter="[tag[ReactTutorials]]"/>
-
-!!Node
-<$list filter="[tag[NodeTutorials]]"/>
-
-!!HTML
-<$list filter="[tag[HTMLTutorials]]"/>
-
-!!Serverless
-<$list filter="[tag[ServerlessTutorials]]"/>
-
-!!CS50
-<$list filter="[tag[CS50]]"/>
-
-!!WASM
-
-<$list filter="[tag[WASMTutorials]]"/>
-
-
-
-
-
-
-
+!Learn to Program
