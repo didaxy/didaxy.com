@@ -1,0 +1,48 @@
+created: 20190213095635112
+modified: 20190220130924366
+tags: 
+title: Raspberry Pi and Lego Boost
+type: text/vnd.tiddlywiki
+
+Raspbian Lite
+
+https://www.raspberrypi.org/downloads/raspbian/
+
+Headless Pi
+
+https://styxit.com/2017/03/14/headless-raspberry-setup.html
+
+Bluetooth Stack
+
+https://raspberry-projects.com/pi/pi-operating-systems/raspbian/bluetooth/bluetooth-commands
+
+Python
+
+https://github.com/undera/pylgbst#bluetooth-backend-prerequisites (most up to date)
+
+https://github.com/JorgePe/BOOSTreveng
+
+
+
+https://github.com/JorgePe/pyb00st/blob/master/linux.md
+
+https://github.com/JorgePe/pyb00st
+
+Node
+
+https://github.com/nathankellenicki/node-poweredup (winner?)
+
+https://thisdavej.com/beginners-guide-to-installing-node-js-on-a-raspberry-pi/#install-node
+
+https://github.com/nodesource/distributions
+
+https://github.com/noble/noble#prerequisites
+
+https://github.com/ttu/node-movehub-async
+
+https://github.com/hobbyquaker/node-movehub (https://www.npmjs.com/package/movehub)
+
+Lego Specs
+
+https://github.com/LEGO/lego-ble-wireless-protocol-docs
+
