@@ -3,7 +3,6 @@
 html {
   position: relative;
   min-height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -15,13 +14,7 @@ body {
   word-wrap: break-word;
 }
 
-.container {
-   display: block;
-   margin: auto;
-   width:80%;
-}
-
-.header a:hover {
+.navbar a:hover {
   text-decoration: none;
 }
 
@@ -30,6 +23,8 @@ body {
   bottom: 0;
   width: 100%;
   min-height: 100px;
+  color: #fff;
+  background-color: #333;
   text-align: center;
   margin-top: 4em;
   padding-top: 20px;
@@ -37,6 +32,7 @@ body {
 }
 
 .footer .container-fluid {
+  background-color: #555;
 }
 
 .footer div {
@@ -44,9 +40,29 @@ body {
 }
 
 .footer a {
+ color: #f0f;
 }
 
+/* dropdown menu tweaks */
+
+.dropdown-menu {
+  background-color: #f5eff7;
+  border: none;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.dropdown-item {
+  padding: 0.5rem;
+  color: inherit;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
 .page-content {
+
 }
 
 /*.footer > .container {
@@ -92,7 +108,9 @@ h2 {
  padding-bottom: 10px;
 }
 
-.header {
+.navbar {
+  color:  #000;
+  background-color: #0ff;
   margin-top: -1rem;
 }
 
@@ -108,7 +126,19 @@ color: blue;
 color: blue;
 }
 
-.container {
+
+.header-image {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-bottom: -150px;
+}
+
+.header-image.index {
+    background: linear-gradient(180deg, #0ff, #fff);
+  margin-top: -20px;
+}
+
+.page-content .container {
   max-width: 800px;
 }
 
@@ -126,9 +156,11 @@ body {
   clear: both;
   padding-top: 1rem;
   padding-bottom: 2rem;
+  color: #f0f;
 }
 
 .content-footer-navigation  a {
+  color: #f0f;
 }
 
 .giphy-gif {

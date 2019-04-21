@@ -1,5 +1,5 @@
 created: 20170815071157183
-modified: 20190202062015005
+modified: 20190421053722391
 remote_scripts: 
 scripts: pagescript.js
 styles: yellowsubmarine.css
@@ -15,22 +15,6 @@ type: text/vnd.tiddlywiki
 <html>
 <head>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-3085544309069826",
-    enable_page_level_ads: true
-  });
-</script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', '`<$view tiddler="$:/didaxy/token/ganalytics"/>`', 'auto');
-  ga('send', 'pageview');
-</script>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="generator" content="TiddlyWiki" />
 <meta name="tiddlywiki-version" content="`{{$:/core/templates/version}}`" />
@@ -39,9 +23,8 @@ type: text/vnd.tiddlywiki
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="mobile-web-app-capable" content="yes"/>
 <meta name="format-detection" content="telephone=no">
-<link id="faviconLink" rel="shortcut icon" href="./favicon.png">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/vs.min.css">`
+<link id="faviconLink" rel="shortcut icon" href="./favicon.png">`
+
 <$list filter="[list[!!remote_styles]]">
 `<link rel="stylesheet" href="`{{!!title}}`">`
 </$list>`
@@ -65,11 +48,8 @@ type: text/vnd.tiddlywiki
 `{{$:/didaxy/static-footer||$:/core/templates/html-tiddler}}`
 
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>`
 
-<$list filter="[list[!!remote_scripts]]">
+`<$list filter="[list[!!remote_scripts]]">
 `<script src="`{{!!title}}`"  type="text/javascript"></script>`
 </$list>
 <$list filter="[list[!!scripts]]">
