@@ -1,5 +1,5 @@
 created: 20170815075646179
-modified: 20180728073417915
+modified: 20190422092828459
 tags: 
 title: $:/didaxy/template/static-view-template
 type: text/vnd.tiddlywiki
@@ -10,6 +10,6 @@ tc-tiddler-frame tc-tiddler-view-frame $(missingTiddlerClass)$ $(shadowTiddlerCl
 \define folded-state()
 $:/state/folded/$(currentTiddler)$
 \end
-<$set name="storyTiddler" value=<<currentTiddler>>><$set name="tiddlerInfoState" value=<<qualify "$:/state/popup/tiddler-info">>><$tiddler tiddler=<<currentTiddler>>><div class=<<frame-classes>>><$list filter="[all[shadows+tiddlers]tag[$:/tags/StaticViewTemplate]!has[draft.of]]" variable="listItem"><$transclude tiddler=<<listItem>>/></$list>
+<$set name="storyTiddler" value=<<currentTiddler>>><$set name="tiddlerInfoState" value=<<qualify "$:/state/popup/tiddler-info">>><$tiddler tiddler=<<currentTiddler>>><div class="frame"><$list filter="[all[shadows+tiddlers]tag[$:/tags/didaxy/StaticViewTemplate]!has[draft.of]]" variable="listItem"><$transclude tiddler=<<listItem>>/></$list>
 </div>
 </$tiddler></$set></$set>

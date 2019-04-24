@@ -1,5 +1,5 @@
 created: 20170815071157183
-modified: 20190421053722391
+modified: 20190422092239077
 remote_scripts: 
 scripts: pagescript.js
 styles: yellowsubmarine.css
@@ -37,7 +37,7 @@ type: text/vnd.tiddlywiki
 
 `<title>`<$view field="caption"><$view field="title"/></$view>: {{$:/core/wiki/title}}`</title>
 </head>
-<body class="tc-body">`
+<body>`
 {{$:/didaxy/static-header||$:/core/templates/html-tiddler}}`<section class="page-content"><div class="container">`<$importvariables filter="[[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]">
 <$view tiddler="$:/didaxy/template/static-view-template" format="htmlwikified"/>
 </$importvariables>`
