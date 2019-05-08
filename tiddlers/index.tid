@@ -1,20 +1,13 @@
 created: 20190202052246814
-modified: 20190210233321495
+modified: 20190508101337734
 tags: Live
 title: index
 type: text/vnd.tiddlywiki
 
-!Things
+!Teaching Noah How to Make a Website
 
-*[[Computers|What's a Computer?]] (hardware, software, the stack)
-*Operating Systems (files, filing systems, folders, extensions, paths, permissions, installing software)
-*The Command Line (navigating, file operations, running programs/issuing commands, writing scripts)
-*Text Editors (nano, vi, emacs, VS Code, IDEs)
-*Programs (Programs require existing software, compilers, interpreters, source code, executables/binaries, scripts, Virtual Machines)
-*Web Browsers
-*HTML5(css)
-*Javascript
-*React
-*iOS
+This is some writing on my website. And this is a link to another [[page|Noah's Page]]
+
+Make an app to help you [[learn to tell the time]].
 
 {{$:/didaxy/content-footer-nav}}

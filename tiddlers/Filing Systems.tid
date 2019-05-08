@@ -1,0 +1,15 @@
+created: 20190427072306337
+modified: 20190427074826202
+tags: Live
+title: Filing Systems
+type: text/vnd.tiddlywiki
+
+!Filing Systems
+
+Most people who use computers regularly are familiar with the idea of 'apps' and 'files'. Apps, or Applications are programs that you can run and use on your computer. Files are pieces of data that can be created or opened using different apps.
+
+You are probably aware that there are different kinds of files. You can't open a video file with a word-processor, or a text document with a painting program. The files themselves are just made up of many, many 1s and 0s but different types of files contain information encoded in different ways.
+
+When you use an app to create and save a file and you give it a name, usually the file is also given an 'extension' to tell the computer what type of file it is.
+
+Sometimes the file extensions are not visible by default.

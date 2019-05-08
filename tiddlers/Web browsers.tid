@@ -1,0 +1,18 @@
+created: 20190427075040288
+modified: 20190427080810972
+title: Web browsers
+type: text/vnd.tiddlywiki
+
+!Web Browsers
+
+The web browser is one of the most important and useful applications that most people use. You are probably reading this right now in your web browser.
+
+All of the major operating systems come with at least one browser installed. Microsoft (Windows) make the Edge browser, a replacement for their older Explorer browser and Apple (MacOS) make Safari.
+
+The other two major browsers are Chrome, which is made by Google and Firefox, which is made by Mozilla. Chrome is the most widely used browser and Firefox is important because it is [[open source|https://www.mozilla.org/en-US/moss/]].
+
+For opening and viewing web pages, there are very few differences between the major browsers but there are some quirks that will make things look and behave slightly differently in each of them. They also all contain different tools that are useful to programmers, so web developers tend to have several different browsers installed.
+
+You can use the browser you have installed by default to download all the others. If for some reason you don't have a browser at all, you can use the command line to download the installer for Firefox (follow [[these instructions|https://ftp.mozilla.org/pub/firefox/releases/latest/README.txt]]) and run that, then use Firefox to download the others.
+
+

@@ -96,6 +96,19 @@ h2 {
 
 .header {
   margin-top: -1rem;
+  display: inline-flex;
+}
+
+.header ul li {
+  display: inline-block;
+}
+
+.header-nav-item {
+  vertical-align: middle;
+}
+
+.header-nav-link {
+    padding: 0.5rem;
 }
 
 .nav-link > a {
