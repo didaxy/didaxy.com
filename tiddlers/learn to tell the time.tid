@@ -1,10 +1,14 @@
 created: 20190508101551678
-modified: 20190508101659313
+modified: 20190508104202934
 scripts: tellthetime.js
 tags: Live
 title: learn to tell the time
 type: text/vnd.tiddlywiki
 
 Use this to learn to tell the time.
-
-<div class="app"></div>
+<center>
+<canvas
+      id="canvas"
+      width="400"
+      height="400"
+      style="background-color:#333"></canvas>
