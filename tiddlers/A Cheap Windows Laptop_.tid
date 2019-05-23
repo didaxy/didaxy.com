@@ -1,0 +1,67 @@
+created: 20190523015052730
+modified: 20190523023640920
+title: A Cheap Windows Laptop?
+type: text/vnd.tiddlywiki
+
+!A Cheap Windows Laptop
+
+Can you learn to program on the cheapest new laptop available? You'd think so, wouldn't you? I mean, it's current year and Microsoft have surely worked out how to run Windows really fast on even the cheapest of hardware?
+
+Not so much.
+
+Right out of the box, Windows seems to run just fine but then, a couple of weeks into using it, we hit problems - specifically a system-wide lag that made it impossible to use.
+
+- sigh - 
+
+I remember all this. I remember spending hours, literally every single week, just figuring out how to make my computer work the way //it was already working yesterday//.
+
+It's the sort of thing that feels like fun at first, at least if you're the sort of person who enjoys figuring out problems with computers (which, if you want to learn to program, I assume you are, at least to some extent).
+
+But after a while it just becomes tedious, because you realise you're not learning anything fundamental about the way the machine actually works. All you're doing is figuring out some esoteric set of steps you can follow to unwind whatever arbitrary mess Microsoft have made of your machine.
+
+It seems that now, with all new and improved Windows 10, the problems are even more annoying.
+
+The under-powered thing about the laptop is that it's disk is comically small. A 32gb ssd, when Windows itself was taking up 20ish gb out of the box and 26 once it got all the updates it wanted right away.
+
+These are obviously thin margins to be playing with, and I do have a plan to hopefully ameliorate the problem down the track by installing a second drive in the m2 slot, but I still thought 3gb of free space should be enough to allow the operating system to function properly.
+
+I popped open the task manager and saw that the disk access was at 100%
+
+Googling suggested a few things to try and at first I assumed it must be trying to use a swap file, but it actually turned out to be 'Windows Defender' that was somehow causing the problem and turning it off fixed things.
+
+But you can't actually //leave// it turned off and it tells you right there in the setting "we will turn this on again in the future".
+
+So, if my son is going to use this laptop, I have to be sure he knows how to turn off the virus scanner and reboot the laptop. But oh wait...
+
+If the machine even tries to get an update, it will get turned back on and then the machine will grind to a halt again at the same time as trying to get the update. Ok, wow. But no problem, right? I'll just turn off updates and apply them manually every month or two instead. Oh.
+
+You can't turn off updates in Windows 10 home edition. I don't know what to even say about that. Microsoft have always seemed user-hostile to me but this is going too far. I can't use the operating system I've paid for unless I allow them to hijack my internet connection and make my machine unusable, possibly for days at a time.
+
+Holy moly. What a load of old shit.
+
+We have to try something else, right? What we're going to try is Linux on a Pendrive to start with.
+
+!!Pendrive Linux
+
+The first thing I want to try is default Ubuntu, because I know it's a well-supported distribution and the steps should be easy to replicate. What I need it to do is run a browser well and hopefully play Minecraft eventually, which might mean having to get the java edition, we will see.
+
+Here are some [[instructions|https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-ubuntu#0]] for creating an install on a pen drive. 
+
+I am going to install the latest release of Ubuntu, which at the moment is 19.04. The download is about 2.1Gb.
+
+Here is Etcher, about to burn my pen drive
+
+<<extimg80 "https://pbs.twimg.com/media/D7N9F67V4AAXrDH.png">>
+
+And this is etcher validating the install
+
+<<extimg80 "https://pbs.twimg.com/media/D7N-pKxUwAA9OA7.png">>
+
+And this is MacOS complaining that it can't read the disk
+
+<<extimg80 "https://pbs.twimg.com/media/D7N_PZnUwAAx6Wn.png">>
+
+But that's OK, because of course I want to insert it in my cheap laptop instead.
+
+I //could// probably have just-about used the cheap laptop itself to create this boot image, but I'm guessing it would have taken several times as long and been a lot more frustrating, especially if the problems it's experiencing caused the image to be corrupted somewhere along the way.
+
