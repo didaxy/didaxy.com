@@ -1,5 +1,6 @@
 created: 20190523015052730
-modified: 20190523023640920
+modified: 20190525022540940
+tags: Live
 title: A Cheap Windows Laptop?
 type: text/vnd.tiddlywiki
 
@@ -65,3 +66,16 @@ But that's OK, because of course I want to insert it in my cheap laptop instead.
 
 I //could// probably have just-about used the cheap laptop itself to create this boot image, but I'm guessing it would have taken several times as long and been a lot more frustrating, especially if the problems it's experiencing caused the image to be corrupted somewhere along the way.
 
+!!Does It Work?
+
+This all worked fine and the resulting Linux seems quite usable. Running from the USB it's never going to be really snappy, but I'm encouraged that if I //do// install it, it will be a good replacement for the bad Windows experience.
+
+(NB: the laptop has a micro-SD card slot, but can't boot from it)
+
+Trouble is that, to install it, I'm going to need more space and I don't really want to delete Windows altogether, because I know there are likely to be some things we want to do with the machine that can only be done with Windows and, besides, I expect that giving Windows a slightly bigger disk will solve most of its problems anyway.
+
+At this point, then, I'm going to order an 'm2 2242' SSD to go in the expansion slot. Although there were much cheaper options, I bought a 64gb drive for ~$45(Australian) from a local supplier.
+
+This isn't heaps of space, but I'm planning to try moving the Windows install to it and putting Linux on the original (32gb) drive.
+
+I can't do any more with this until the drive arrives.

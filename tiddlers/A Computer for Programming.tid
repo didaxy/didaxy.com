@@ -1,5 +1,5 @@
 created: 20190521045036483
-modified: 20190523015045490
+modified: 20190525023522636
 tags: Live
 title: A Computer for Programming
 type: text/vnd.tiddlywiki
@@ -31,6 +31,14 @@ Linux is a good choice for learning to program, because it's free, gives you lot
 !!MacOS
 
 The advantage that Apple have is being able to tightly integrate their operating system with their hardware, which means they provide a very good 'managed' experience where things rarely go wrong and need fixing. Because MacOS is based on Linux, it gives you access to all the same power-tools if you need to use them. It offers the 'best of both worlds'.
+
+I feel bad recommending a Mac, but the truth is, it's going to by far the smoothest and most efficient experience.
+
+Right now, in Australia the cheapest Mac for sale directly from Apple is $629 for a refurbished Mac mini (You'd need to add a keyboard, mouse and screen). You can buy a refurbished Mac laptop from a 3rd party for about the same or a little less for older models. Anything 2013ish or later should be fine. 
+
+Macs //are// more expensive than PCs in general but the amount of time you save by using one will pay for the difference a hundred times over.
+
+But, like I said, if you have to, you can use whatever you have.
 
 [[Connecting to the Internet]]
 
