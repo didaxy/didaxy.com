@@ -1,3 +1,4 @@
 tiddlywiki --rendertiddlers [!is[system]tag[Live]] $:/didaxy/templates/static.tiddler.html static text/plain --rendertiddler $:/didaxy/templates/static.template.css static/static.css text/plain --savetiddler $:/didaxy/favicon.png static/favicon.png
-c output/fixed/* output/static
+cp output/fixed/* output/static
 pwd
+ls
