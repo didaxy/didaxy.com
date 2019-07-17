@@ -13,4 +13,4 @@ deploy:
     branch: master
 after_script:
   - echo "hello"
-  - cp ./output/fixed/* ./output/static
+  - mv /output/fixed/* /output/static
