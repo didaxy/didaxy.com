@@ -3,6 +3,7 @@ node_js:
   - "node"
 before_script:
   - npm install -g tiddlywiki
+  - mkdir output/static
   - touch output/static/whereami.html
 script: ./build.sh
 deploy:
