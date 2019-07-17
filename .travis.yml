@@ -12,5 +12,4 @@ deploy:
   on:
     branch: master
 after_script:
-  - echo "hello"
-  - mv /output/fixed/* /output/static
+    - touch whereami.html
