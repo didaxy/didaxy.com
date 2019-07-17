@@ -1,5 +1,5 @@
 created: 20190716035939211
-modified: 20190716235327028
+modified: 20190717043710668
 tags: Live
 title: HTML 1
 type: text/vnd.tiddlywiki
@@ -14,6 +14,8 @@ The plainest possible HTML file that will "work" is a text file with some charac
 hello world
 
 ```
+
+<a href="./simplest/simplest.html" target="blank">Example</a>
 
 This should open in a web browser and display the characters that you entered on the screen. Success!
 
@@ -130,6 +132,13 @@ In the same way that we talked about the text being "wrapped in" tags, we might 
 Here, we might say that " the p element is being wrapped by the body element", meaning that the ``body`` element starts before the ``p`` element and finishes after it.
 
 The other way that we could say the same thing is to say that "the p element is //nested// inside the html element", meaning that it is completely contained inside it (like an egg, in a nest)
+
+!!The Doctype Declaration
+
+The simplest valid HTML page: <a href="./simplest/simplestvalid.html" target="blank">Example</a>
+
+Simplest conventional page: <a href="./simplest/simplestconventional.html" target="blank">Example</a>
+
 
 !!Don't be confused by...
 
