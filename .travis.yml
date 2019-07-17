@@ -3,6 +3,7 @@ node_js:
   - "node"
 before_script:
   - npm install -g tiddlywiki
+  - touch output/static/whereami.html
 script: ./build.sh
 deploy:
   provider: pages
@@ -12,4 +13,3 @@ deploy:
   on:
     branch: master
 after_script:
-    - touch whereami.html
