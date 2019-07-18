@@ -1,14 +1,17 @@
-created: 20190716234645402
-modified: 20190717060537098
-tags: Live
+created: 20190718022338100
+modified: 20190718022941215
+tags: testTutorial Live
 title: Make Your Own Website
 type: text/vnd.tiddlywiki
+
+<$image class="article-image" alt="a tutorial logo/image" source="Motovun Jack.svg"/>
 
 !Make Your Own Website
 
 To make your own website you need a computer with an internet connection, a web browser, an email address and a text-editor.
 
-!!Getting Started
-# [[Tools]]
-# [[Writing Your First Page|HTML 1]]
-# [[Lesson 2|HTML 2]]
+!!Abstract
+
+
+
+<<tutorial_list>>

@@ -1,8 +1,19 @@
 created: 20190716035939211
-modified: 20190717043710668
+modified: 20190718023026186
+next: [[Make Your Own Website Part 3]]
+part: 2
+partof: Make Your Own Website
+previous: [[Make Your Own Website Part 1]]
+subtitle: Your First HTML Page
 tags: Live
-title: HTML 1
+title: Make Your Own Website Part 2
 type: text/vnd.tiddlywiki
+
+<$image class="tutorial-part-image" alt="a tutorial logo/image" source="Motovun Jack.svg"/>
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
 
 !HTML
 

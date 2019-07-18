@@ -1,0 +1,36 @@
+created: 20190718022451449
+modified: 20190718023042882
+next: [[Make Your Own Website Part 2]]
+part: 1
+partof: Make Your Own Website
+subtitle: Tools
+tags: Live TutorialPart noindex
+title: Make Your Own Website Part 1
+type: text/vnd.tiddlywiki
+
+<$image class="tutorial-part-image" alt="a tutorial logo/image" source="Motovun Jack.svg"/>
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!Summary
+Wintery
+
+!Tools
+
+!!An Operating System
+
+!!A Text Editor
+
+There are different ways that you can learn to write Javascript. For example, you can use an online editor, like real.it. Most professional programmers will write javascript in a text editor, installed in their operating system.
+
+!!A Web Browser
+
+Probably Chrome.
+
+!!The Terminal
+
+The terminal is a CLI or "Command Line Interface"
+
+<<tutorial_nav>>
