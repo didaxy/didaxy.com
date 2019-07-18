@@ -1,0 +1,20 @@
+created: 20190718011649397
+draft.of: A Multi Part Tutorial
+draft.title: A Multi Part Tutorial
+modified: 20190718013224407
+tags: testTutorial Live
+title: Draft of 'A Multi Part Tutorial'
+type: text/vnd.tiddlywiki
+
+<$image class="article-image" alt="a tutorial logo/image" source="Motovun Jack.svg"/>
+
+!A Sample Multi-part Tutorial
+!!Introduction
+
+This tutorial will show you how to format tutorials by example.
+
+!!Abstract
+
+
+
+<<tutorial_list>>

@@ -60,8 +60,15 @@ body {
 .article-image {
   display:block;
   margin: auto;
-  max-width: 100%;
+  max-width: 80%;
 }
+
+.tutorial-part-image {
+  display:block;
+  margin: auto;
+  width: 50%;
+}
+
 
 pre {
     font-size: 90%;
