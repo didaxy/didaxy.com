@@ -1,5 +1,5 @@
 created: 20170815074630884
-modified: 20180803014119812
+modified: 20190718014141958
 tags: 
 title: $:/didaxy/static-footer
 type: text/vnd.tiddlywiki
@@ -7,6 +7,7 @@ type: text/vnd.tiddlywiki
 <footer class="footer">
 <div class="container-fluid">
 <div>
+{{$:/didaxy/content-footer-nav}}
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a></div><div>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</div>
 <div>Made with Love in Melbourne, Australia</div>
 </div>
