@@ -1,0 +1,27 @@
+created: 20190718052210651
+modified: 20190718052657010
+next: [[Make Your Own Website Part 5]]
+part: 4
+partof: Make Your Own Website
+previous: [[Make Your Own Website Part 3]]
+subtitle: Basic Page Elements
+tags: Live
+title: Make Your Own Website Part 4
+type: text/vnd.tiddlywiki
+
+<$image class="tutorial-part-image" alt="a tutorial logo/image" source="Motovun Jack.svg"/>
+
+<<tutorial_header>>
+
+NOte tO sElf: Split this up and inter-leave it with the workflow stuff currently in part 3.
+
+!The Basic Elements of HTML
+
+*Text
+**headings/titles
+**paragraphs
+**lists
+*Images
+*iframes (youtube videos)
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
