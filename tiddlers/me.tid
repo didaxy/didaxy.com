@@ -1,5 +1,5 @@
 created: 20190717002104264
-modified: 20190717002257584
+modified: 20190719073004128
 tags: Live
 title: me
 type: text/vnd.tiddlywiki
@@ -13,3 +13,5 @@ Running a test to link to these static assets:
 <a href="./test.html">test</a>
 
 [[test|./test.html]]
+
+[[Canvas Test]]
