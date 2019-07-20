@@ -1,5 +1,5 @@
 created: 20190718052210651
-modified: 20190718052657010
+modified: 20190720044239986
 next: [[Make Your Own Website Part 5]]
 part: 4
 partof: Make Your Own Website
@@ -13,10 +13,11 @@ type: text/vnd.tiddlywiki
 
 <<tutorial_header>>
 
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
 NOte tO sElf: Split this up and inter-leave it with the workflow stuff currently in part 3.
 
 !The Basic Elements of HTML
-
 *Text
 **headings/titles
 **paragraphs
@@ -24,4 +25,94 @@ NOte tO sElf: Split this up and inter-leave it with the workflow stuff currently
 *Images
 *iframes (youtube videos)
 
-<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+The Elements We'll Cover in this Course
+
+*html
+*head
+**DOCTYPE
+**meta
+**link
+**style
+**title
+*body
+*h1 - h6
+*button
+*em
+*strong
+*a
+*br
+*hr
+*span
+*div
+*img
+**area
+**map
+*kbd ???
+*blockquote
+*code
+*var
+*samp <- ???
+*pre
+*table
+**tbody
+**td
+**th
+**tr
+**tfoot
+**thead
+**col
+**colgroup
+*input
+*form
+**fieldset
+**select
+***optgroup
+***option
+**input
+**textarea
+***label
+*frame
+**noframes
+**frameset
+**legend
+**iframe
+
+*ol, ul
+**li
+
+
+*Both Head and Body
+**script
+***noscript
+**comment
+
+*presentational
+**sub
+**sup
+**tt
+**b
+**big
+**small
+**I
+**
+
+Elements we'll mention in passing
+*abbr
+*acronym
+*address
+*caption
+*cite
+*dd
+*del
+*dfn
+*dl
+*dt
+*ins
+*base
+*bdo
+*object <- ???
+**param
+*q <--- how this work?
+
+Here is a good reference for me to check this organisation against: http://server2client.com/html4reference/htmltagsfunction.html
+

@@ -1,5 +1,5 @@
 created: 20170815071157183
-modified: 20190719073816364
+modified: 20190720060157974
 remote_scripts: 
 scripts: pagescript.js
 styles: yellowsubmarine.css
@@ -14,7 +14,6 @@ type: text/vnd.tiddlywiki
 `<!doctype html>
 <html>
 <head>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="generator" content="TiddlyWiki" />
 <meta name="tiddlywiki-version" content="`{{$:/core/templates/version}}`" />
