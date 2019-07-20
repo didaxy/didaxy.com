@@ -1,5 +1,5 @@
 created: 20190718052210651
-modified: 20190720044239986
+modified: 20190720070111497
 next: [[Make Your Own Website Part 5]]
 part: 4
 partof: Make Your Own Website
@@ -114,5 +114,7 @@ Elements we'll mention in passing
 **param
 *q <--- how this work?
 
-Here is a good reference for me to check this organisation against: http://server2client.com/html4reference/htmltagsfunction.html
+~~Here is a good reference for me to check this organisation against: http://server2client.com/html4reference/htmltagsfunction.html~~
+
+That reference is for HTML4 and is out of date.
 

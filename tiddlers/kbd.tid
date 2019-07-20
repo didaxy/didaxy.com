@@ -1,0 +1,9 @@
+created: 20190720063938745
+modified: 20190720064904034
+tags: 
+title: kbd
+type: text/vnd.tiddlywiki
+
+this is a test
+<<kbd "ctrl">>-<<kbd alt>>-<<kbd del>>
+

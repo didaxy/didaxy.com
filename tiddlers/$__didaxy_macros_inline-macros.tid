@@ -1,0 +1,9 @@
+created: 20190720064113510
+modified: 20190720064248768
+tags: $:/tags/Macro
+title: $:/didaxy/macros/inline-macros
+type: text/vnd.tiddlywiki
+
+\define kbd(text)
+<kbd>$text$</kbd>
+\end
