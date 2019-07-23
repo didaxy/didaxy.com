@@ -1,15 +1,12 @@
 created: 20190202052246814
-modified: 20190718014115706
+modified: 20190722005301363
 tags: Live
 title: index
 type: text/vnd.tiddlywiki
 
 !Hello
 
-I am learning. Would you like to [[Learn to Program Computers]]? Are you [[me]]?
+Would you like to [[Make Your Own Website]]?
 
-!!Stuff?
 
-* [[Make Your Own Website]]
-
-{{$:/didaxy/content-footer-nav}}
+[[me]]

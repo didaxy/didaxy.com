@@ -1,5 +1,5 @@
 created: 20190718022338100
-modified: 20190718023357754
+modified: 20190722005045459
 tags: WebTutorial Live
 title: Make Your Own Website
 type: text/vnd.tiddlywiki
@@ -8,10 +8,7 @@ type: text/vnd.tiddlywiki
 
 !Make Your Own Website
 
-To make your own website you need a computer with an internet connection, a web browser, an email address and a text-editor.
-
-!!Abstract
-
+To make your own website you will need a [[computer|Computer]] with an [[internet connection]], a [[web browser]], an [[email address]] and a [[text-editor]].
 
 
 <<tutorial_list>>
