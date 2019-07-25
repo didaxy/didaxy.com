@@ -1,5 +1,5 @@
 created: 20190718022451449
-modified: 20190718023042882
+modified: 20190724120241427
 next: [[Make Your Own Website Part 2]]
 part: 1
 partof: Make Your Own Website
@@ -27,10 +27,105 @@ There are different ways that you can learn to write Javascript. For example, yo
 
 !!A Web Browser
 
-Probably Chrome.
+!A Web Browser
+
+<$image source="firefox-logo.svg" class="article-image"/>
+
+You need a web browser. You probably already have one. You will benefit from being able to test using different browsers so you probably want more than one.
+
+You should also start to become aware of issues around browser compatibility and the issues around "keeping the web open" - I personally believe it is important that the web stays an open and accessible paltform for everyone. For that reason I think it is important that as many people as possible use Firefox for as much of their daily browsing as possible,
+
+The current realities of the internet are that the majority of people use a browser designed by Google. This is not an accident - Google intend to use that fact to their commercial advantage. It means that, as a web developer, you //cannot// ignore Google's platform and will need to make sure that all your pages work in Chrome.
+
+Because of its place in iOS, Safari is also a very important target for real-world web sites. 
+
+When you are 'fully fledged' developer, you will want to test your work in all the major browser and there are lots of different solutions for doing so with varying degrees of completeness and automation that you will be able to use.
+
+But for now, you just need a browser.
+
+!!Developer Tools
+
+The web is the most open platform there has ever been. Web pages and the code inside them are typically delivered as plain text that you can "inspect" to see how they work.
+
+If you don't know this, it can be quite a revalation.
+
+The first thing you should make sure you know how to do is "view source" on a webpage.
+
+Next, you should open the developer tools and look at all the stuff that's down there.
+
+Cool, huh?
+
 
 !!The Terminal
 
 The terminal is a CLI or "Command Line Interface"
+
+!A Web Server
+
+You can open your web pages from the local filesystem but some things don't work right that way.
+
+To make sure you're developing pages and apps that are going to work right when they're deployed, you're going to want to 'serve' them to yourself over HTTP, the way a regular web server does.
+
+This means to run a server, but don't panic! This is not nearly as troubling as it might sound if you have some idea of servers as being complicated.
+
+There are lots of ways to run a server and they aren't complicated.
+
+The simplest way, in the context of the tools we already have installed is to use an extension for Atom to do the serving.
+
+If you choose to use a different editor, there will probably be an equivalent tool or you can run a server independent of your editor.
+
+Live servers watch your code for changes and update the browser automatically.
+
+We learn through feedback.
+
+We try something and we find out whether or not it works.
+
+The quicker we can repeat 'cycles' of learning in this way, the faster we learn overall.
+
+It might not seem like a big deal, whether your browser refreshes in half a second or three seconds, but it really can be, especially when you're in unfamiliar territory or you're tweaking lots of little things that need to be just right, so you're going backwards and forwards to your code a lot.
+
+https://www.browsersync.io/#install
+
+Browser-sync is awesome. It makes it funner to try things out.
+
+
+
+https://atom.io/packages/atom-live-server
+
+You can use Atom live server to serve the code live to a browser
+
+Install a live server
+
+
+```
+npm install -g live-server
+```
+
+Make a directory
+
+Touch an index.html
+
+start the server on a port and your default browser should open at a blank page
+
+```
+live-server --port=8777
+```
+
+Open that index file in a text editor
+
+For live reload to work, you need a minimum amount of page structure with tags, so that live-server can insert it's own code into the document, in order to reload it.
+
+```
+<html>
+    <head>
+
+    </head>
+    <body>
+        hi there! all good?
+    </body>
+</html>
+```
+
+HOW WAS I DOING CODE? HOW DOES THIS LOOK?
 
 <<tutorial_nav>>
