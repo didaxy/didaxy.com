@@ -1,8 +1,12 @@
 created: 20180509071147815
-modified: 20190724114754460
+modified: 20190725042303112
 tags: Basics
-title: Programming Languages
+title: Basics of Programming Languages
 type: text/vnd.tiddlywiki
+
+!!What is a program?
+
+A program is a set of instructions for the computer to run. One or more programs, along with pictures, text and other 'assets' make up a piece of 'software'. 
 
 So, we invented the first programming language and applied the first abstraction. Assembly language, or just assembler, is a "human readable" programming language that is very closely related to machine code. Writing programs in assembly language is still very difficult, but it's at least practically possible and it's still done for a few things, even today, when we want to write code that will run really, really quickly - particularly when we want to optimise behaviour for a particular computer. Before the assembly language program could be run, it would first need to be "assembled" into a "binary" = machine code program, which could then be executed.
 

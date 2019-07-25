@@ -1,22 +1,8 @@
-created: 20190716234502050
-modified: 20190716235154147
-tags: Live
-title: Learn To Program Computers
+created: 20190725042217370
+modified: 20190725050358411
+tags: Basics
+title: Basics of the Internet and Web
 type: text/vnd.tiddlywiki
-
-!Learn to Program Computers
-
-You'd like to learn to program computers? Awesome.
-
-!!What is a computer?
-
-A computer is device that takes inputs and produces outputs based on sets of instructions called Programs.
-
-Most of the computers in the world are electronic, binary computers which means they are powered by electricity and their inputs and outputs carry information encoded in electrical signals using only "1s and 0s". 
-
-!!What is a program?
-
-A program is a set of instructions for the computer to run. One or more programs, along with pictures, text and other 'assets' make up a piece of 'software'. 
 
 !!What is the internet?
 
@@ -53,10 +39,3 @@ We're going to start with a simple way, using an online service called Neocities
 Then we'll explore other ways you can do the same things that offer you more control.
 
 First things first though, let's start right at the beginning and get you a computer and an internet connection, followed closely by an email address.
-
-[[A Computer for Programming]]
-
-
-Make an app to help you [[learn to tell the time]].
-
-{{$:/didaxy/content-footer-nav}}

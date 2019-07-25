@@ -1,10 +1,18 @@
-created: 20170903091804909
-modified: 20190725012920451
-scripts: adsense.js
-tags: StaticSites Live
-title: Adding Google Adsense to a Static Site
+created: 20190725063527232
+modified: 20190725063644164
+part: 10
+partof: Exporting Static Sites From Tiddlywiki
+previous: [[Exporting Static Sites From Tiddlywiki Part 9]]
+subtitle: Bonus: Adding Google Adsense
+tags: Tiddlywiki Live noindex TutorialPart
+title: Exporting Static Sites From Tiddlywiki Part 10
 type: text/vnd.tiddlywiki
 
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!Summary
 NB: I have since decided to remove Google's widgets from this site, you can read about why I made the change here.
 
 ...because I'd like to keep my page source as clean as possible and I don't really see any benefit from the ads themselves. I'm also removing the Google analytics code.
@@ -97,3 +105,5 @@ It seems that only one instance of a particular ad is allowed on each page - com
 Anyway, it seems to work, so I expect the money will come rolling in now.
 
 <<extimg 'https://didaxy.neocities.org/images/adsense-code.png'>>
+
+<<tutorial_nav>>

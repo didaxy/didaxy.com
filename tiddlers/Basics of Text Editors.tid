@@ -1,0 +1,31 @@
+created: 20190725023109423
+modified: 20190725032005018
+tags: Live Basics
+title: Basics of Text Editors
+type: text/vnd.tiddlywiki
+
+!Text Editors
+
+!!What is a Text Editor?
+
+A text editor is a program/app/application for editing text files.
+
+A text editor is //not// a word-processor. The files that word-processors produce (for example ``.docx`` files) are //not// text files.
+
+!!Text Files
+
+([[Read about Computer Files|Basics of Files]] first if you don't already understand them)
+
+Word-processor files have specific file formats that allow them to store much more information than just the text of the document. This is why, if you make a file in Word and try to open it in Pages, the formatting looks wrong or is missing altogether. Because Word and Pages use different file-formats and support different features.
+
+Text editors all use a "plain text" file format.
+
+Some plain text files have the extension ``.txt``. 
+
+Other file extensions that you will come across are ``.html`` for HTML (web page) files, ``.css`` for CSS (styling) files and ``.js`` for Javascript (programming) files. All of these types of files are plain text files.
+
+!!Get a Text Editor
+
+To write programs we need a text editor. Which one should you use?
+
+Your Operating System already has some text editors built into it, and you could use one of those, but if you're free to install your own software on the computer that you're using, it's best by far to install Visual Studio Code from Microsoft.

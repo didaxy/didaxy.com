@@ -1,17 +1,11 @@
 created: 20180904115712585
-modified: 20190127070712100
-tags: Live
+modified: 20190725063825745
+tags: noindex Live
 title: now
 type: text/vnd.tiddlywiki
 
 !What Are You Working On Right Now?
 
-!!Javascript
+!!HTML
 
-!!Swift
-
-I am also picking up iOS programming. [[Swift]] is a bit different from the other languages I've learned so far, and I have to use X-Code.
-
-My motivation is honestly just to make things that my son thinks are cool, which means they have to run on an iPad.
-
-He's learning to read at the moment, so I figure it's a pretty good excuse to learn some app-programming and make some things that he might think are cool //and// that might help him to learn some things for school.
+Right now I am putting together my course on HTML - [[Make Your Own Website]]

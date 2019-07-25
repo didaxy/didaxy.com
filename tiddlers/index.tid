@@ -1,39 +1,9 @@
 created: 20190202052246814
-modified: 20190725001508935
-tags: Live
+modified: 20190725063433640
+tags: noindex Live
 title: index
 type: text/vnd.tiddlywiki
 
 !Hello
 
 Would you like to [[Make Your Own Website]]?
-
-!!Temporary Text
-
-!!Hello
-
-Would you like to learn to program? Awesome. High five. We're starting with web browsers - I'll show you how to make web pages and how to write programs using Javascript and I'll show you how to turn them into real web pages, on the internet for everyone to see.
-
-!!What You Need
-
-You need a computer running a 'desktop' operating system, meaning Windows, MacOS or Linux.
-
-You need to know basically what the operating system is and does and you should know how to use your computer for basic tasks like running programs, downloading, saving and copying files. If you're not sure what the Operating System is, which one you're using or how to complete basic tasks, click here and I'll talk you through it.
-
-You should also know a little bit about the filing system, for example, do you know what a 'file path' is and how to write one for your operating system? Also, you should know what the command line is and where to find it. If you're using Windows, you may want to install the "Windows Subsystem for Linux" to make your system more compatible. You can learn more about these topics here.
-
-You're also going to need to know the basics of the web and browsers, both for finding information and because we're going to write pages and programs that will run in yours and other people's web browsers. You're probably reading this on the web, so it's likely you already know enough to get you stated, but click here and we'll go over the basics. We'll cover more about using the 'developer tools' built into your web browser soon.
-
-If you're familiar with the basics of your system and comfortable installing and running programs, and you're comfortable using the web to find information, then you're probably also used to downloading and installing software. The only thing you need to begin with, that you might not have experience of using is a text editor. A text editor is NOT a word-processor. If you don't already have a favourite text editor, I'd recommend VS Code from Microsoft because it's very commonly used, available for free and has a lot of additional tools available as extensions. If you would like to know more about text editors, click here.
-
-So, if you've got a computer and you know what it is; if you basically understand your operating system and how your filing system works; you've chosen and installed a text editor and you know what a web page is and why you might want one, you're ready to get started with your first project.
-
-!!What We're Going To Do
-
-The full track will go from first principles in web design, but I'm itching to write about Javascript right now, so there's a second track that starts with that.
-
-*If you want to write web pages, click here.
-*If you would prefer to learn about Javascript programs, click here.
-
-
-[[me]]

@@ -1,5 +1,5 @@
 created: 20171031002219981
-modified: 20190725014559513
+modified: 20190725061753536
 tags: Tutorial
 title: Congratulations On Choosing Javascript
 type: text/vnd.tiddlywiki
@@ -10,10 +10,9 @@ Congratulations on choosing Javascript(tm), the world's most popular web scripti
 
 Javascript, also known as ECMAScript, is what makes the web interactive. It's also now used to script many other systems - the Node.js runtime, MongoDB databases and the latest versions of Minecraft, for example.
 
-Javascript programs are written and sent from computer to computer in plain text files, created with a text editor. 
-
-
 !!Where to Write Javascript
+
+Javascript programs are written and sent from computer to computer in plain text files, created with a text editor. 
 
 We write Javascript programs, like those in most other languages, using a text editor that saves plain-text files (ie; not a word-processor). There are many popular text editors and any will do. If you don't already have a favourite, we'll recommend VS Code.
 

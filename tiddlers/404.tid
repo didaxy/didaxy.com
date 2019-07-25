@@ -1,11 +1,12 @@
 created: 20170527071451039
-modified: 20190127071206107
+modified: 20190725062834447
 tags: Plumbing noindex Live
 title: 404
 type: text/vnd.tiddlywiki
 
-!!Hmmm....
+!!Page Not Found
 
 """
-We couldn't find the page you're looking for, sorry about that.
-[[Start Again|index]].
+I recently renovated the site and removed a bunch of content that was out of date or incomplete. Maybe that's why the page is no longer here. Sorry.
+
+[[Home Page|index]].

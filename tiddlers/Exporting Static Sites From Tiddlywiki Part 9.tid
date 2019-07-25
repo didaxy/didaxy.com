@@ -1,5 +1,6 @@
 created: 20170930064136518
-modified: 20171101080611444
+modified: 20190725063718975
+next: [[Exporting Static Sites From Tiddlywiki Part 10]]
 part: 9
 partof: Exporting Static Sites From Tiddlywiki
 previous: [[Exporting Static Sites From Tiddlywiki Part 8]]
@@ -42,8 +43,7 @@ I found that by adding the css back to the head of the static template, I was ab
 
 I assume my css still has the other set of styles in it too, which is perhaps a bit wasteful, but it works.
 
-
-~~I did this using highlight.js https://highlightjs.org/usage/
+I did this using highlight.js https://highlightjs.org/usage/
 
 The only thing remotely difficult about doing it is mashing together the two sets of instructions, so that you can load the script right from the cdn and run it, without installing anything else.
 

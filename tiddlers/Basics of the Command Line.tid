@@ -1,0 +1,19 @@
+created: 20190427085313122
+modified: 20190725055008304
+tags: Live Basics
+title: Basics of the Command Line
+type: text/vnd.tiddlywiki
+
+!The Command Line
+
+The way we are most likely to interact with computers today is through a touch interface or through a graphical interface in which we use a mouse to point to things and click them.
+
+Before these kinds of interfaces existed, the only way to communicate with the computer was by typing commands with the keyboard.
+
+A single command would be entered as a series of key presses and would be entered when you hit the return key.
+
+An interface like this is called a "command line" interface or CLI. Many tasks that we perform with computers are much easier in a graphical interface, or much easier that way and, likewise, there are still some tasks that are much easier in a CLI.
+
+Every desktop operating system has a CLI of some kind built into it. Indeed, the existence of such an interface is one of the things that sets them apart from mobile and table operating systems which are generally much more "locked down". You see, whilst the command line gives you great power if you know the right commands, it also makes it much easier to "shoot yourself in the foot".
+
+For example, there are commands that you can type at the command line that will delete all of your files (wrecking your operating system in the process). The infamous ``rm -rf /`` is one such command. Do not type it in.

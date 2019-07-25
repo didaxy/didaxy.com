@@ -1,6 +1,6 @@
 created: 20170824080725711
-modified: 20171101080612881
-tags: Plumbing Live
+modified: 20190725063137944
+tags: noindex Plumbing Live
 title: Search
 type: text/vnd.tiddlywiki
 
@@ -13,3 +13,5 @@ type: text/vnd.tiddlywiki
   <input type="text" name="q" maxlength="255" placeholder="Search didaxy.com"/>
   <input type="submit" value="DuckDuckGo Search" style="visibility: hidden;" />
 </form>
+
+(opens in new page, powered by [[DuckDuckGo|http://www.duckduckgo.com]])

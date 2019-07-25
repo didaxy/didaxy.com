@@ -1,0 +1,30 @@
+created: 20190725024215004
+modified: 20190725041213805
+tags: Basics Live
+title: Basics of Files
+type: text/vnd.tiddlywiki
+
+!Basics of Files
+Files are one of the basic parts of a computer system.
+
+A file is a set of data with a name.
+
+Files are stored in the "filing system" of your computer. (You can [[read more about filing systems here|Basics of Filing Systems]]).
+
+Files hold programs and data.
+
+Program and applications on your computer, including most of your operating system are made up of files.
+
+When you "save" your work from an application such as a word-processor, you do so by "saving" a file to some location on your filing system.
+
+When you "open" that same file to do more work on it, you are "opening" or "loading" the file and it is being "read" by your word-processor.
+
+To read a file, the computer needs to know how it is encoded and what kind of information it has in it. This information is called the "file format". Different types of files have different file formats and different programs are used to open files of different types.
+
+The name of a file has two parts separated by a ``.`` - the first part is the name of the file and the second is its "extension". The extension tells your Operating System what type of file it is.
+
+Some example of file types you will see are ``.jpg`` for JPEG pictures, ``.mp4`` for MP4 encoded videos, ``.docx`` for Microsoft Word documents.
+
+The filename extension is just a clue to the computer about what to expect in the file. You can change the file extensions of a file, but if the extension doesn't make sense for whatever data is inside it, you will get strange results.
+
+When you use a [[text editor]] to create text files, they will have exactly the same content if they are opened in a different editor.
