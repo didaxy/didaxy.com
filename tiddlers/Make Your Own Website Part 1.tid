@@ -1,5 +1,5 @@
 created: 20190718022451449
-modified: 20190725062116176
+modified: 20190726044416198
 next: [[Make Your Own Website Part 2]]
 part: 1
 partof: Make Your Own Website
@@ -14,136 +14,37 @@ type: text/vnd.tiddlywiki
 
 <$macrocall $name="tutorial_parts" name={{!!partof}}/>
 
-!Tools
-
-!!What You Need
+!!What You Need Before You Start
 
 You need a computer running a 'desktop' operating system, meaning Windows, MacOS or Linux.
 
-You need to know basically what the operating system is and does and you should know how to use your computer for basic tasks like running programs, downloading, saving and copying files. If you're not sure what the Operating System is, which one you're using or how to complete basic tasks, click here and I'll talk you through it.
+You need to know basically what the operating system is and does and you should know how to use your computer for basic tasks like running programs, downloading, saving and copying files. 
 
-You should also know a little bit about the filing system, for example, do you know what a 'file path' is and how to write one for your operating system? Also, you should know what the command line is and where to find it. If you're using Windows, you may want to install the "Windows Subsystem for Linux" to make your system more compatible. You can learn more about these topics here.
+If you're not sure what an Operating System is, or which one you're using, you can read about the [[Basics of Operating Systems]] here.
 
-You're also going to need to know the basics of the web and browsers, both for finding information and because we're going to write pages and programs that will run in yours and other people's web browsers. You're probably reading this on the web, so it's likely you already know enough to get you stated, but click here and we'll go over the basics. We'll cover more about using the 'developer tools' built into your web browser soon.
+You should also know a little bit about the filing system, for example, do you know what a 'file path' is and how to write one for your operating system? 
 
-If you're familiar with the basics of your system and comfortable installing and running programs, and you're comfortable using the web to find information, then you're probably also used to downloading and installing software. The only thing you need to begin with, that you might not have experience of using is a text editor. A text editor is NOT a word-processor. If you don't already have a favourite text editor, I'd recommend VS Code from Microsoft because it's very commonly used, available for free and has a lot of additional tools available as extensions. If you would like to know more about text editors, click here.
+You're also going to need to know the basics of the web and browsers, both for finding information and because we're going to write pages and programs that will run in yours and other people's web browsers. You're probably reading this on the web, so it's likely you already know enough to get you started, but if you like, you can read more about the [[Basics of Browsers]] here.
 
-So, if you've got a computer and you know what it is; if you basically understand your operating system and how your filing system works; you've chosen and installed a text editor and you know what a web page is and why you might want one, you're ready to get started with your first project.
+!!Text Editor
 
-!!What We're Going To Do
+The only thing you need to begin with, that you might not have, is a text editor.
 
-The full track will go from first principles in web design, but I'm itching to write about Javascript right now, so there's a second track that starts with that.
-
-*If you want to write web pages, click here.
-*If you would prefer to learn about Javascript programs, click here.
-
-!!An Operating System
-
-!!A Text Editor
-
-There are different ways that you can learn to write Javascript. For example, you can use an online editor, like real.it. Most professional programmers will write javascript in a text editor, installed in their operating system.
-
-!!A Web Browser
-
-!A Web Browser
-
-<$image source="firefox-logo.svg" class="article-image"/>
-
-You need a web browser. You probably already have one. You will benefit from being able to test using different browsers so you probably want more than one.
-
-You should also start to become aware of issues around browser compatibility and the issues around "keeping the web open" - I personally believe it is important that the web stays an open and accessible paltform for everyone. For that reason I think it is important that as many people as possible use Firefox for as much of their daily browsing as possible,
-
-The current realities of the internet are that the majority of people use a browser designed by Google. This is not an accident - Google intend to use that fact to their commercial advantage. It means that, as a web developer, you //cannot// ignore Google's platform and will need to make sure that all your pages work in Chrome.
-
-Because of its place in iOS, Safari is also a very important target for real-world web sites. 
-
-When you are 'fully fledged' developer, you will want to test your work in all the major browser and there are lots of different solutions for doing so with varying degrees of completeness and automation that you will be able to use.
-
-But for now, you just need a browser.
-
-!!Developer Tools
-
-The web is the most open platform there has ever been. Web pages and the code inside them are typically delivered as plain text that you can "inspect" to see how they work.
-
-If you don't know this, it can be quite a revalation.
-
-The first thing you should make sure you know how to do is "view source" on a webpage.
-
-Next, you should open the developer tools and look at all the stuff that's down there.
-
-Cool, huh?
+A text editor is NOT a word-processor. 
 
 
-!!The Terminal
+If you don't already have a favourite text editor, I'd recommend VS Code from Microsoft because it's very commonly used, available for free and has a lot of additional tools available as extensions. 
 
-The terminal is a CLI or "Command Line Interface"
+You can read more about the [[Basics of Text Editors]] here.
 
-!A Web Server
+!!The Command Line
 
-You can open your web pages from the local filesystem but some things don't work right that way.
+The most advanced tool that you'll need in this course??
 
-To make sure you're developing pages and apps that are going to work right when they're deployed, you're going to want to 'serve' them to yourself over HTTP, the way a regular web server does.
+There's no app to download, every operating system has a command line interface (CLI) built in. On Linux its called a "shell", on MacOS its called the "terminal" but its also actually a shell.
 
-This means to run a server, but don't panic! This is not nearly as troubling as it might sound if you have some idea of servers as being complicated.
-
-There are lots of ways to run a server and they aren't complicated.
-
-The simplest way, in the context of the tools we already have installed is to use an extension for Atom to do the serving.
-
-If you choose to use a different editor, there will probably be an equivalent tool or you can run a server independent of your editor.
-
-Live servers watch your code for changes and update the browser automatically.
-
-We learn through feedback.
-
-We try something and we find out whether or not it works.
-
-The quicker we can repeat 'cycles' of learning in this way, the faster we learn overall.
-
-It might not seem like a big deal, whether your browser refreshes in half a second or three seconds, but it really can be, especially when you're in unfamiliar territory or you're tweaking lots of little things that need to be just right, so you're going backwards and forwards to your code a lot.
-
-https://www.browsersync.io/#install
-
-Browser-sync is awesome. It makes it funner to try things out.
+The Linux and Mac CLIs are basically the same and commands that work in one will work in the other but on Windows things are a bit more tricky.
 
 
-
-https://atom.io/packages/atom-live-server
-
-You can use Atom live server to serve the code live to a browser
-
-Install a live server
-
-
-```
-npm install -g live-server
-```
-
-Make a directory
-
-Touch an index.html
-
-start the server on a port and your default browser should open at a blank page
-
-```
-live-server --port=8777
-```
-
-Open that index file in a text editor
-
-For live reload to work, you need a minimum amount of page structure with tags, so that live-server can insert it's own code into the document, in order to reload it.
-
-```
-<html>
-    <head>
-
-    </head>
-    <body>
-        hi there! all good?
-    </body>
-</html>
-```
-
-HOW WAS I DOING CODE? HOW DOES THIS LOOK?
 
 <<tutorial_nav>>

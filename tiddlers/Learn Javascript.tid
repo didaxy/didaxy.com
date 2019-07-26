@@ -1,0 +1,39 @@
+created: 20190726044450584
+modified: 20190726053910409
+tags: Live Tutorial
+title: Learn Javascript
+type: text/vnd.tiddlywiki
+
+!Thank you for Choosing Javascript!
+!!The World's Most Popular Web Scripting Language
+Javascript is a computer programming language, originally designed for adding interactivity to web pages.
+
+Its main role is still as the "language of web browsers" although Javascript programs can also be run outside of a web browser using Node JS and lots of other programs, such as MongoDB database and Minecraft Bedrock edition are "scripted" using it.
+
+Javascript is one of three languages that make up a typical web page.
+
+The other two - HTML and CSS - deal with the layout and styling of the content on the page. 
+
+Javascript adds interactivity but it also allows you to write any kind of program at all and have it run when someone accesses your web page. 
+
+It was javascript that allowed the web to go from a gigantic collection of static documents to a platform for dynamic applications.
+
+!!Who Is this Course For?
+
+This course is a (very early beta of a) course for complete beginners to computer programming who want to start with Javascript and gain an understanding of all its major features and how they relate to being able to program.
+
+It will take you from zero to "pretty good" if you put in the necessary effort.
+
+It will cover pure javascript and also enough of the Web APIs for you to learn how to do some interesting things when writing code for browsers.
+
+We'll use Node JS right from the start as well. As you'll see, it's suitable for some types of programs and not for others, but Node JS isn't an advanced topic, as it's sometimes made out to be, just an application that can run Javascript programs but isn't a web browser.
+
+The course won't teach you to make web-pages and it might be more fun if you already know how to do that (or are prepared to learn both at the same time). I'll provide any HTML and CSS that you need to work on the Javascript exercises and I have a course (also in very early beta) that will teach you to [[Make Your Own Website]]. 
+
+!!What Will You Be Able To Do When You've Finished?
+
+If you put in the necessary effort and learn everything contained in this course, you'll be able to write any kind of program at all using Javascript.
+
+You'll be able to write and deploy your own web applications, and to use a number of the most important and useful web APIs.
+
+<<tutorial_list>>

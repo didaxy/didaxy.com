@@ -1,5 +1,5 @@
 created: 20170914090508658
-modified: 20190725041508030
+modified: 20190726024450200
 next: 
 part: 5
 partof: So, You Want To Make A Website?
@@ -8,6 +8,10 @@ subtitle: Github
 tags: Crash
 title: A Crash Course in Git and Github
 type: text/vnd.tiddlywiki
+
+https://www.reddit.com/r/learnprogramming/comments/chqjo1/making_sense_of_git_and_github/
+
+
 
 !Introduction to Git
 

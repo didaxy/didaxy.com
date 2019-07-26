@@ -1,9 +1,11 @@
 created: 20190202052246814
-modified: 20190725063433640
+modified: 20190726053653163
 tags: noindex Live
 title: index
 type: text/vnd.tiddlywiki
 
 !Hello
 
-Would you like to [[Make Your Own Website]]?
+Would you like to [[Make Your Own Website]] or [[Learn Javascript]]?
+
+Here are [[some of the basics of Computers|Computer Basics]].

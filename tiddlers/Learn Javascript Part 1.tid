@@ -1,0 +1,33 @@
+created: 20190726044418917
+modified: 20190726053443382
+next: [[Learn Javascript Part 2]]
+part: 1
+partof: Learn Javascript
+subtitle: Tools
+tags: Live TutorialPart noindex
+title: Learn Javascript Part 1
+type: text/vnd.tiddlywiki
+
+!Tools
+!!A Web Browser
+
+!!A Text Editor
+
+!!The Command Line/Shell/Terminal
+
+The terminal is a CLI or "Command Line Interface"
+
+!!Node JS
+
+!!A Web Server
+
+You can open your web pages from the local filesystem but some things don't work right that way.
+
+To make sure you're developing pages and apps that are going to work right when they're deployed, you're going to want to 'serve' them to yourself over HTTP, the way a regular web server does.
+
+There are lots of ways you can install and run a server. Your computer almost certainly has a server already built in somewhere, but since we just installed Node, we'll use a server that we can install and manage using NPM, the Node Package Manager.
+
+Learn the [[Basics of NPM]].
+
+
+
