@@ -185,6 +185,10 @@ code {
 
 @media (max-width: 520px) { 
   .header {
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -ms-sticky;
+    position: -o-sticky;
     position: sticky;
     top:0px;
     background-color: white;

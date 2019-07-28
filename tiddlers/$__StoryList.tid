@@ -1,3 +1,6 @@
-list: index
+created: 20190728040159625
+list: $:/didaxy/styles/static-styles.css $:/didaxy/static-header index
+modified: 20190728050057102
 title: $:/StoryList
+type: text/vnd.tiddlywiki
 
