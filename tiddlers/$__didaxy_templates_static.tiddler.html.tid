@@ -1,8 +1,7 @@
 created: 20170815071157183
-modified: 20190720060157974
+modified: 20190728034607812
 remote_scripts: 
 scripts: pagescript.js
-styles: yellowsubmarine.css
 tags: 
 title: $:/didaxy/templates/static.tiddler.html
 type: text/vnd.tiddlywiki
@@ -36,19 +35,10 @@ type: text/vnd.tiddlywiki
 
 `<title>`<$view field="caption"><$view field="title"/></$view>: {{$:/core/wiki/title}}`</title>
 </head>
-<body>`
-{{$:/didaxy/static-header||$:/core/templates/html-tiddler}}`<section class="page-content"><div class="container">`<$importvariables filter="[[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]">
+<body>`{{$:/didaxy/static-header||$:/core/templates/html-tiddler}}`<section class="page-content">`<$importvariables filter="[[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]">
 <$view tiddler="$:/didaxy/template/static-view-template" format="htmlwikified"/>
 </$importvariables>`
-</div>
-</section>
-
-
-`{{$:/didaxy/static-footer||$:/core/templates/html-tiddler}}`
-
-
-
-`<$list filter="[list[!!remote_scripts]]">
+</section>`{{$:/didaxy/static-footer||$:/core/templates/html-tiddler}}<$list filter="[list[!!remote_scripts]]">
 `<script src="`{{!!title}}`"  type="text/javascript"></script>`
 </$list>
 <$list filter="[list[!!scripts]]">
