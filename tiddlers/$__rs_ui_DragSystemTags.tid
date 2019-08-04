@@ -1,12 +1,15 @@
 caption: Drag System Tags
 created: 20170813070923511
-modified: 20171101080610638
+modified: 20190804033414883
 tags: $:/tags/SideBar $:/tags/MoreSideBar
 title: $:/rs/ui/DragSystemTags
 type: text/vnd.tiddlywiki
 
 \define setStateTid()
 $:/state/systemtags/$(currentTiddler)$
+\end
+\define innerFilter()
+<<list-tagged-draggable tag:"$(currentTiddler)$">>
 \end
 
 <$list filter="[all[shadows+tiddlers]tags[]prefix[$]]">
@@ -21,9 +24,7 @@ $:/state/systemtags/$(currentTiddler)$
 <$button set=<<setStateTid>> setTo="hide" class="tc-btn-invisible">{{$:/core/images/down-arrow}}</$button><$link>{{!!title}}</$link>
 <ol class="tc-toc">
 
-
-<<list-tagged-draggable tag:"$(currentTiddler)$">>
-
+<<innerFilter>>
 
 </ol>
 </$reveal>

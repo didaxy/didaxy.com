@@ -1,5 +1,5 @@
 created: 20170806064450194
-modified: 20190720062010246
+modified: 20190804045538925
 tags: $:/tags/Macro
 title: $:/didaxy/macros/tutorial_macros
 type: text/vnd.tiddlywiki
@@ -10,6 +10,18 @@ type: text/vnd.tiddlywiki
 <li><$link to={{!!title}}>Part {{!!part}}</$link>: {{!!subtitle}}</li>
 </$list>
 </ul>
+\end
+
+\define new-tutorial-list()
+<ol>
+<$list filter="[tag[$(currentTiddler)$]]">
+<$link><li>{{!!title}}</li></$link>
+</$list>
+</ol>
+\end
+
+\define new-tutorial-draggable-list()
+<<list-tagged-draggable tag:"$(currentTiddler)$">>
 \end
 
 \define tutorial_details($name$)
