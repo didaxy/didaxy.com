@@ -1,0 +1,143 @@
+created: 20191025041802876
+modified: 20191025111833309
+title: Setting Up Your Mac
+type: text/vnd.tiddlywiki
+
+Setting up my mac
+
+I love my macbook air. One of the things i like best about it is that it isnt a macbook pro. Its cheaper.
+
+The majot trade off i make by having the air is the low storage space, which i manage bynot having any important files on my machine. This means that if i do get low on space i can just delete whatever i need to without worrying too much about it.
+
+It also means that periodically I like to refresh my setup from scratch.
+
+About once a year.
+
+
+I ai. Tomake this process as pain free as possible
+
+
+Trackpad settings - Tap to click and tracking speed
+
+My dock has small icons with maximum magnification and I set it to automatically hide and show because the other limiting factor of my MacBook Air is that all important screen real estate.
+
+Finder address bar
+
+Xcode
+
+Dl GitHub desktop (won’t run because of permission, can over-ride, but try running Xcode first - to get the cli tools )
+
+I read a suggestion on the internet that maybe installing the command line tools for Xcode would overcome this issue, but it didn’t seem to. I have also read a lot recently about Mac OS Catalina being a “permission hell” and I think this is part of that.
+
+It’s not great because the OS is telling me it doesn’t trust this software but I’m going to install it anyway. This isn’t a good habit to get into - you should be very sure that you actually do trust any software installed in this way.
+
+Go to settings, find the security and privacy section and you should see a message near the bottom of the window that says  “x was blacked from use because it is not from an identified developer” and a button that says “open anyway”. Click the button.
+
+You’ll get one last scare warning that the app can’t be scanned for malicious code, click open again and it should run.
+
+
+Put applications folder down on the bottom
+
+My dock has small icons with maximum magnification and I set it to automatically hide and show because the other limiting factor of my MacBook Air is that all important screen real estate.
+
+Talking of which, the other feature of Mac OS that I “couldn’t live without” is the virtual desktops.
+
+You turn on the virtual desktops from “mission control”
+
+You can get to mission control by pressing f3 (which, depending on your keyboard might also have an icon on it, representing mission control), or by swiping up on the trackpad with 3 fingers.
+
+Hot corners are one of those features that apple added ages ago and I get the impression not everybody uses them and that maybe some people think they’re a bit lame, but I use them all the time.
+
+I like to have the top right hot corner set to mission control, because I find it convenient to be able to open mission control and then immediately open a new virtual desktop by clicking the + button that appears in the top-right corner. Along the top of the screen is a row of virtual desktops.
+
+I find it really useful to be able to spread my work out across multiple desktops and I regularly have 6-10 of them in use at one time.
+
+From mission control, you can drag windows from the current desktop to another one.
+
+I have the top left hot corner set to “application windows”. This shows me all the open windows for the current application, even if they are on different virtual desktops.
+
+I have the bottom-left hot corner, which I don’t use very often, set to show the “launch centre”. This shows all the installed apps and gives a convenient place from which to launch apps that I don’t use very often.
+
+Since I have my applications folder in the dock, though, pretty much the only thing I ever use this for is to check the progress of downloading apps.
+ The last hot corner, in the bottom-right, I have set to show the desktop. This is useful if, for example, you have an app in full screen and you want to drag a file into it from the desktop. You can reveal the desktop by hitting the corner, grab and drag the file you want, hit the corner again and your application comes back into view.
+
+Getting Github desktop has allowed me to download my iOS projects, so I can get to work right away in Xcode.
+
+I also need to grab a copy of VS Code.
+
+Then the next thing I need, because I use it to build my website, is Node.js
+
+Now we need to go through the same steps that we went through to get Github desktop to work.
+
+NB: this stuff is really not very good. Please be very careful downloading and running software in this way - only do it for sources that you trust and check that you are downloading from the right place.
+
+Now I can get the terminal app from applications - utilities, pop it on the dock and run it, and check that Node and NPM got installed correctly
+
+Arrghh@
+
+I forgot about the permissions problem with Node.
+
+I should have done this instead
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
+
+But I think I can just do it now with no harm.
+
+It did work but it complained about not being able to write lines into a bash profile file because I don’t appear to have one here.
+
+I can make one easily enough by touch bash profile, then re-run the script as it suggests.
+
+But I also have one here that I copied to an external drive before I reset my machine.
+
+I can get it back, but at the moment I can’t even see it because I need to set finder to show hidden files.
+
+The easiest way to do this is to select a finder window and press ctrl-shift-dot
+
+I don’t know why there isn’t an easier way to do this but whatever.
+
+Now I can see all the hidden files.
+
+Now - actually what I need is a .zprofile file, because this is z shell now.
+
+I wonder what all the implications of that are?
+
+What are the differences between shell and bash?
+
+OK. Once I’ve put the things in the zprofile...
+
+Then I can use nvm - I want to nvm ls-remote to see all the available versions and then nvm install v12.13.0 to get the latest stable release.
+
+Then I can issue my command to install a package globally and it should just work.
+
+npm install -g tiddlywiki
+
+And does
+
+The package is tiddlywiki and I use it to manage my website.
+
+Then there’s the issue of the batch file that I use to run it.
+ That needs to go in usr/local/bin and have execute permission to run
+
+Hmmm
+
+It’s doing stuff to prevent things in the icloud folder in a way it didn’t before - it keeps renaming the important config files and stuff.
+
+There’s some deeper mystery going on too about the way that z shell gets arguments from the command line.
+
+I don’t want to waste any time messing with this operating system because there’s a fair chance that something important is broken and will get fixed in an update. I can move my personal repo out of iCloud now anyway and use a private GitHub repo (you used to have to pay for these, so I was using iCloud…)
+
+Its also possible this problem was because nothing had triggered iCloud to start syncing the drive
+
+Yes, that bit’s fixed, but not the argument substitution in the script
+
+Download VS Code
+
+https://code.visualstudio.com/docs/?dv=osx
+
+Hmm... the zshell thing turned out to be weird - even though bash is supposed to be working like normal it seems like the arguments are all moved on one ($0 now needs to be $1) this might be because there is some indirection in the call?
+
+Anyway, it was very useful to be able to add "#!/bin/bash -xv" to be able to see what bash was actually trying to run.
+
+And I got it fixed.
+
+So, I think this is more or less back to how I had it?

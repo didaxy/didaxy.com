@@ -1,0 +1,94 @@
+created: 20191031021733872
+modified: 20191031033631128
+tags: Live
+title: Getting User Input
+type: text/vnd.tiddlywiki
+
+This comes after functions in the whirlwind introduction.
+
+*hello world
+*Variables 1
+*scope
+*types - strings
+*operations of numbers
+*operations on strings
+*finding the built in methods(of numbers, strings etc.).
+*Functions
+*Getting User Input
+*arrays
+*loops
+*objects
+*for... in loops
+*functional operators?
+
+
+One of the tricky things about learning Javascript is that it relies on other technologies to do input and output for it.
+
+Some other programming languages give you a simple way to interact with a "user" of the program - by printing out text and allowing the user to type text in.
+
+Javascript doesn't have such a thing by default. 
+
+We could add such a thing to Node js  - if you just accepted the 'magic' of it, it might make it possible to write some fun little programs. But realistically, you're going to be the only person who ever runs those programs.
+
+Javascript on a web page can have all sorts of complicated user interactions, even to the level of a full game, but it relies on the browser to achieve it and at least two other computer programming languages to do that.
+
+I guess if you're learning Javascript, you're probably also interested in making web pages in general, so you should probably learn a bit of HTML.
+
+[[Enough HTML to write Javascript]]
+
+Let's look how we can make an adding app for a webpage.
+
+Here is a web page
+
+```
+<html>...
+
+<text input>
+<calculate>
+```
+
+As you can see, there are two text input fields where the user can enter two numbers and a button. When the button is clicked we want to calculate the sum and display the result in a box labelled "Result".
+
+You'll notice that all these page elements have also been given 'ids' so that they are easy to reference from Javascript.
+
+The way we do this is by using a method from the 'document' API.
+
+let number1 = document.getElementById('number-1');
+
+let calculateButton = document.getElementById('button')
+
+The first one of these that we want to use is the button. We want to attach a method to the button to tell it what to do when it gets clicked.
+
+calculateButton.onclick = calculate()
+
+here we're telling it that when it gets clicked, it should call the calculate function.
+
+What we want the calculate function to do is read the values from the two text inputs, add them together, and produce a result.
+
+We can get the content of the two text boxes like so
+
+But we need to be careful here, because these values are both strings.
+
+Look what happens when we try to add them together.
+
+```
+see?
+```
+
+Instead, we need to convert them to numbers before we add them together.
+
+We can do this like so...
+
+let numberOne = Number(inputOne. <get text>);
+let numberTwo = Number(inputTwo);
+
+Now we can do our calculation and to print out the result, we can set the value of the text in the output box.
+
+!!Summary
+
+In this section we saw how to use some basic methods from the Document API to read and write text from a web page.
+
+We used
+
+*document.getElementById
+*

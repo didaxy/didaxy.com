@@ -1,0 +1,48 @@
+created: 20191101004626282
+modified: 20191101052141717
+tags: 
+title: Making an Online Course
+type: text/vnd.tiddlywiki
+
+The thing that seems the hardest to me about making an online course is that you have "no idea" who your students are going to be.
+
+I was a high-school teacher for 12 years and I went on a journey with it. When I started I thought what I was doing was passing on expertise in "Science" but what I quickly found out was that the most important part of being a classroom teacher is to know and respond to the students in your class.
+
+Of course, it's very highfalutin'  to suggest that I actually //did// know the majority of my students. The reality of many teachers' schedule is that they will spend only a few hours a week with each of over a hundred students, grouped into classes of, in some cases, 30 or more. There's practically only so much you can learn about an individual student.
+
+The very best experience I had as a high school teacher was as "home group" teacher for a class of students that I also got to teach Maths and Science to. I got to know the students very well and was able to differentiate their learning goals individually.
+
+With an online course, I'm at the opposite end of the spectrum.
+
+I have to, in some sense, prepare and deliver the //same exact// course to every student.
+
+Then, how can differentiation happen?
+
+Eventually, I might get to the place where, even if I can't personally know you as a learner, my systems will have enough information about you to help tailor a curriculum that's going to work for you.
+
+To begin with I have to offer you ways to self-differentiate
+
+Different people are going to want different things from the course and are going to bring different skills, experiences and assumptions with them.
+
+But the course is also //about// something - it isn't (yet) a free-form learning support structure for your whole life.
+
+A course on building iOS apps can assume that what you want to do is learn to program iOS apps. What it can't do is make assumptions about what you already know, unless it's explicit about those assumptions up front.
+
+Are you self-learning at home or as part of a course of study at an institution?
+
+Do you already have other programming experience?
+
+Do you know how to use your computer to achieve 'basic' operating system management tasks?
+
+Do you want to be a professional programmer? Or do you just have this one app you want to get made? Do you only want to program iOS apps? Or will you also need an Android version? Where else do you want your app to be available eventually?
+
+I think that iOS programming with Swift and SwiftUI is a great place to start learning to program and get the excitement of seeing your work available.
+
+Of //course// if you're trying to launch a "for real" app that you think has a chance of being the next big thing, then you're going to want an Android version. But it might also be that, even then, the iOS version, even if you have to write it yourself, might be a sufficient proof-of-concept to get you funding and collaborators.
+
+Who knows, right?
+
+But what we can say is that, for whatever reason, you want to learn to write an app and put it in the App Store in the easiest way possible, from scratch, in 2019.
+
+You've got a clean Mac, a copy of Xcode 11, a reason to learn and some time.
+
