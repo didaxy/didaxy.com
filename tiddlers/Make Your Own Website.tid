@@ -1,10 +1,8 @@
 created: 20190718022338100
-modified: 20200824064707412
+modified: 20201018113604842
 tags: HTML Tutorial Live
 title: Make Your Own Website
 type: text/vnd.tiddlywiki
-
-<$image class="article-image" alt="a tutorial logo/image" source="html5-logo.svg"/>
 
 !Make Your Own Website
 The basic way that we make websites is to type code into files using a text editor. 
