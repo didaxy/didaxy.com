@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="generator" content="TiddlyWiki" />
+<meta name="tiddlywiki-version" content="5.2.3" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no">
+<link id="faviconLink" rel="shortcut icon" href="./favicon.png">
+<link rel="stylesheet" href="static.css">
+<title>Let's Learn React Part 4: Didaxy.com — Computers and Learning, Tutorials, index, Configurator</title>
+</head>
+<body><p><nav class="header">
+<ul class="header-nav header-nav-left">
+<li class="header-item header-site-logo">
+<a class="header-nav-link" href="./index.html">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22400%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%3C!--%20Created%20with%20SVG-edit%20-%20http%3A%2F%2Fsvg-edit.googlecode.com%2F%20--%3E%0A%0A%20%3Cg%20display%3D%22inline%22%3E%0A%20%20%20%20%3Cpath%20fill%3D%22%23000%22%20fill-rule%3D%22evenodd%22%20stroke%3D%22%23000%22%20stroke-width%3D%226%22%20d%3D%22m158.5%2C150l42%2C-130c0%2C0%2049%2C131%2049%2C131c0%2C0%20135%2C3%20135%2C3c0%2C0%20-109%2C80%20-109%2C80c0%2C0%2041%2C132%2041%2C132c0%2C0%20-93%2C-64%20-93%2C-64c0%2C0%200%2C-73%20-2%2C-74c-2%2C-1%20-32%2C-7%20-34%2C-5c-2%2C2%20-2%2C79%20-2%2C79c0%2C0%20-96%2C66%20-96%2C66c0%2C0%2040%2C-131%2040%2C-131c0%2C0%20-110%2C-86%20-110%2C-86c0%2C0%20139%2C-1%20139%2C-1%0A%0AM179.0278%2C185c0%2C-14.07304%2011.39915%2C-25.4722%2025.4722%2C-25.4722c14.07304%2C0%2025.4722%2C11.39915%2025.4722%2C25.4722c0%2C14.07304%20-11.39915%2C25.4722%20-25.4722%2C25.4722c-14.07304%2C0%20-25.4722%2C-11.39915%20-25.4722%2C-25.4722%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E" width="48px"></a>
+</li>
+<li class="header-item header-site-home">
+<a class="header-nav-link" href="./index.html">Didaxy</a>
+</li>
+<div id="header-toggle">🍔</div>
+</ul>
+<ul class="header-nav header-nav-right">
+
+
+<li class="header-item header-collapsable dropdown">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./recent.html">Recent</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./tutorials.html">Tutorials</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./contact.html">Contact</a>
+</li>
+
+
+</ul>
+</nav></p><section class="page-content">
+<p><div class="frame"><div class="tc-tiddler-body tc-reveal"><h1 class="">Let's Learn React</h1><h2 class="">Part 4: Lifting State (Again)</h2><p><h3 class="tutorial-parts">Part: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react.html">0</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-1.html">  1</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-2.html">  2</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-3.html">  3</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-4.html">  4</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-5.html">  5</a>
+
+</h3></p><h2 class="">Summary</h2><p>In the <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-3.html">previous section</a> we lifted the game state out of the individual Squares and into the Board.</p><p>If we want to keep a history of the states of the board, we should lift it again, so that the Game component can be responsible for the total state of the game, including the history of moves.</p><p>We'll have the Game tell the Board what state it should be in, and Game will handle the input and output.</p><p>Board won't <em>quite</em> become a functional component, because it will still contain an additional method for rendering the Square components, but it will no longer be storing state, so it won't need its own constructor.</p><p>First we add a constructor to Game and set up the new state.</p><p>The state is now going to be an array of "board-state objects", each of which has a single property, 'squares' which is itself an array.</p><p>We also put xIsNext here, because we'll soon remove the constructor from Board altogether.</p><p>Then we pass the current state of the board into the Board component.</p><pre><code>&lt;Board
+            squares={current.squares}
+            onClick={(i) =&gt; this.handleClick(i)}
+          /&gt;</code></pre><p>HandleClick moves up into the Game component and the Board no longer needs a constructor.</p><p>They're creating the list of moves by <em>mapping</em> over the history object like this;</p><pre><code>    const moves = history.map((step, move) =&gt; {
+      const desc = move ?
+        'Move #' + move :
+        'Game start';
+      return (
+        &lt;li&gt;
+          &lt;a href="#" onClick={() =&gt; this.jumpTo(move)}&gt;{desc}&lt;/a&gt;
+        &lt;/li&gt;
+      );
+    });</code></pre><pre><code>array.map((acc, arr) =&gt; {return();}</code></pre><p>Is this how it works? I should check.</p><blockquote class="tc-quote"><p>With this code, you should see a list of the moves that have been made in the game, along with a warning that says:</p><p>Warning: Each child in an array or iterator should have a unique "key" prop. Check the render method of "Game".</p></blockquote><p>The warning that they're talking about is in the console, not in the react developer tools, so I guess we need both of those open at once.</p><h2 class="">Keys</h2><pre><code>key is a special property that’s reserved by React (along with ref, a more advanced feature). When an element is created, React pulls off the key property and stores the key directly on the returned element. Even though it may look like it is part of props, it cannot be referenced with this.props.key. React uses the key automatically while deciding which children to update; there is no way for a component to inquire about its own key.</code></pre><p><div class="tutorial-nav">
+<div class="tutorial-next-nav"><p>
+Next: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-5.html">Extensions</a>
+</p></div>
+</div>
+<div class="content-footer-navigation">
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react.html">Start</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tutorials.html">Tutorials</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./contact.html">Contact</a>
+</div></p></div>
+</div>
+</p>
+
+</section><p><footer class="footer">
+<div><div class="content-footer-navigation"><p><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./about.html">About</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tutorials.html">Tutorials</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./contact.html">Contact</a>
+</p></div><p><a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" style="border-width:0"></a></p></div><div>This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank">Creative Commons Attribution 4.0 International License</a>.</div>
+<div>Made with Love in Melbourne, Australia</div>
+
+</footer>
+</p>
+
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 16px;
+  position: relative;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.5em;
+}
+
+
+body {
+  /* line-height: 1.5em; */
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+body>p {
+  margin: 0px;
+}
+
+
+.page-content {
+  display: block;
+  margin: auto;
+  max-width: 800px;
+}
+
+.header {
+  margin: 0px;
+}
+
+.header ul {
+  display: inline-block;
+}
+
+.header-nav {
+  padding: 0px;
+  margin: 0px;
+}
+
+.header-item {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.header-nav-link {
+  display: inline-block;
+  vertical-align: middle;
+  /* padding: 0.5rem; */
+  /* we want this padding back once our menus collapse */
+}
+
+.header a:hover {
+  text-decoration: none;
+}
+
+.header a {
+  color: blue;
+  text-decoration: none;
+  padding-left: 0.4rem;
+}
+
+.header a:visited {
+color: blue;
+}
+
+#header-toggle {
+  display: none;
+}
+
+/* STYLES FOR THE BODY CONTENT */
+
+.page-content {
+  margin-bottom: 15rem;
+  /* this keeps the footer clear of body content */
+  padding: 0.7rem;
+}
+
+.tc-tiddler-body {
+  padding-top: 2em;
+  padding-bottom: 4em;
+}
+
+/* STYLES FOR THE FOOTER */
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.footer .container-fluid {
+}
+
+.footer div {
+  padding-top: 10px;
+}  
+
+.footer a {
+}  
+
+.content-footer-navigation {
+  text-align: center;
+  clear: both;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+/* STYLES FOR INDIVIDUAL ELEMENTS */
+
+ul {
+  padding-inline-start: 0px;
+}
+
+h2 {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+pre {
+  font-size: 90%;
+  line-height: 1.2em;
+  font-family: "Courier 10 Pitch", Courier, monospace;
+  white-space: pre;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+    width: auto;
+    display: block;
+    clear: both;
+    padding: 1em;
+    margin: auto;
+    border: solid 1px #e1e1e1;
+    background-color: hsl(277, 50%, 98%);
+    margin-bottom: 2em;
+}    
+
+code {
+    font-size: 90%;
+    display: inline;
+    padding: .1rem .2rem;
+    background-color: hsl(277, 50%, 96%);
+    color: inherit;
+}    
+
+
+/* STYLES FOR CUSTOM ELEMENTS */
+
+.article-image {
+  display:block;
+  margin: auto;
+  max-width: 80%;
+}  
+
+.tutorial-part-image {
+  display:block;
+  margin: auto;
+  width: 50%;
+}  
+
+.tutorial-next-nav {
+  float: right;
+  font-size: larger; 
+}
+
+.giphy-gif {
+  display: block;
+ margin: auto;
+ border: 1px solid;
+}
+
+/* .header-collapsable {
+  /* display: none; */
+
+
+
+/* responsive styles */
+
+@media (max-width: 520px) { 
+  .header {
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -ms-sticky;
+    position: -o-sticky;
+    position: sticky;
+    top:0px;
+    background-color: white;
+    border-bottom: 1px solid red;
+  }
+  .header-nav-left {
+    width: 100%;
+  }
+  #header-toggle {
+    /* display: inline-block;
+    position: absolute;
+    right:1rem;;
+    top:1rem;
+    vertical-align: middle; */
+  }
+  .header-collapsable {
+    /* display: block; */
+    /* display: none; */
+  }
+  .header-collapsable {
+  }
+}

@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="generator" content="TiddlyWiki" />
+<meta name="tiddlywiki-version" content="5.2.3" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no">
+<link id="faviconLink" rel="shortcut icon" href="./favicon.png">
+<link rel="stylesheet" href="static.css">
+<title>Let's Learn React Part 5: Didaxy.com — Computers and Learning, Tutorials, index, Configurator</title>
+</head>
+<body><p><nav class="header">
+<ul class="header-nav header-nav-left">
+<li class="header-item header-site-logo">
+<a class="header-nav-link" href="./index.html">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22400%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%3C!--%20Created%20with%20SVG-edit%20-%20http%3A%2F%2Fsvg-edit.googlecode.com%2F%20--%3E%0A%0A%20%3Cg%20display%3D%22inline%22%3E%0A%20%20%20%20%3Cpath%20fill%3D%22%23000%22%20fill-rule%3D%22evenodd%22%20stroke%3D%22%23000%22%20stroke-width%3D%226%22%20d%3D%22m158.5%2C150l42%2C-130c0%2C0%2049%2C131%2049%2C131c0%2C0%20135%2C3%20135%2C3c0%2C0%20-109%2C80%20-109%2C80c0%2C0%2041%2C132%2041%2C132c0%2C0%20-93%2C-64%20-93%2C-64c0%2C0%200%2C-73%20-2%2C-74c-2%2C-1%20-32%2C-7%20-34%2C-5c-2%2C2%20-2%2C79%20-2%2C79c0%2C0%20-96%2C66%20-96%2C66c0%2C0%2040%2C-131%2040%2C-131c0%2C0%20-110%2C-86%20-110%2C-86c0%2C0%20139%2C-1%20139%2C-1%0A%0AM179.0278%2C185c0%2C-14.07304%2011.39915%2C-25.4722%2025.4722%2C-25.4722c14.07304%2C0%2025.4722%2C11.39915%2025.4722%2C25.4722c0%2C14.07304%20-11.39915%2C25.4722%20-25.4722%2C25.4722c-14.07304%2C0%20-25.4722%2C-11.39915%20-25.4722%2C-25.4722%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E" width="48px"></a>
+</li>
+<li class="header-item header-site-home">
+<a class="header-nav-link" href="./index.html">Didaxy</a>
+</li>
+<div id="header-toggle">🍔</div>
+</ul>
+<ul class="header-nav header-nav-right">
+
+
+<li class="header-item header-collapsable dropdown">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./recent.html">Recent</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./tutorials.html">Tutorials</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./contact.html">Contact</a>
+</li>
+
+
+</ul>
+</nav></p><section class="page-content">
+<p><div class="frame"><div class="tc-tiddler-body tc-reveal"><h1 class="">Let's Learn React</h1><h2 class="">Part 5: Extensions</h2><p><h3 class="tutorial-parts">Part: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react.html">0</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-1.html">  1</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-2.html">  2</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-3.html">  3</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-4.html">  4</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-5.html">  5</a>
+
+</h3></p><p>The extensions to the tutorial.</p><p>(consult the git history for details)</p><p>Go over these to remind myself of what I did.</p><h2 class="">Part 0</h2><p>Display the move locations.</p><p>To do this, we need to store new information.</p><p>We need to expand our history to store not only the state of the board at each step, but also which player moved (though this <em>could</em> be inferred, it's easier imo to store it) and the move that they made - the number of the square that they moved to.</p><p>History is currently an array of objects, each with one element 'squares', which is itself an array.</p><p>Alongside 'squares' we add another element, called 'move' and make it an object with the properties 'square' and 'player'.</p><p>Though there is some chance of getting confused, this naming keeps things simple.</p><p>Now, when we render the list of moves, by mapping over the history, we can also extract these other pieces of information.</p><pre><code> `Move # ${move} (player ${step.move.player} to square ${step.move.square})` :  'Game start';</code></pre><p>Note that we are using a template literal.</p><h2 class="">Part 1</h2><p>What if we wanted to display the moves in coordinate format? </p><p>We could re-write the whole thing to use a 2d array, but imo this is overkill - all of our logic works and the location is only displayed in this one place.</p><p>All we really want to do is change the displayed number to coordinates and there's a simple algorithm for mapping from what we have to what we want.</p><p>At first I thought I would play with tagged template literals, but in fact, we don't need a function at all, we can write the mapping expressions inline in the template literal.</p><p>et voila.</p><pre><code>const desc = move ? `Move # ${move} (player ${step.move.player} to square (${step.move.square % 3 + 1}, ${Math.floor(step.move.square/3) + 1}) `:
+         'Game start';</code></pre><p>I liked this one, I thought it was a neat solution.</p><h2 class="">Part 2</h2><p>The obvious way to bold an entry is to give it an extra css class if it is the active link.</p><pre><code>.active {
+  font-weight: bold;
+}</code></pre><p>What dictates whether the link being currently rendered is the active one?</p><p>The 'move' variable is the one that's being used to iterate over the history in the render method.</p><p>In the render method, then, we'll set a variable to read either 'active' or be blank</p><pre><code>const active = move == this.state.stepNumber? "active" : "";</code></pre><p>an assign that as a class on the click (remembering that we need to use className instead of class)</p><pre><code>&lt;a href="#" className={active} onClick={() =&gt; this.jumpTo(move)}&gt;{desc}&lt;/a&gt;</code></pre><h2 class="">Part 3</h2><p>Replace the current render method</p><pre><code>   render() {
+-    return (
+-      &lt;div&gt;
+-        &lt;div className="board-row"&gt;
+-          {this.renderSquare(0)}
+-          {this.renderSquare(1)}
+-          {this.renderSquare(2)}
+-        &lt;/div&gt;
+-        &lt;div className="board-row"&gt;
+-          {this.renderSquare(3)}
+-          {this.renderSquare(4)}
+-          {this.renderSquare(5)}
+-        &lt;/div&gt;
+-        &lt;div className="board-row"&gt;
+-          {this.renderSquare(6)}
+-          {this.renderSquare(7)}
+-          {this.renderSquare(8)}
+-        &lt;/div&gt;
+-      &lt;/div&gt;
+-    );</code></pre><p>with one that loops.</p><pre><code>   render() {
++    let cells = [],
++        rows = [];
++
++    for (var i = 0; i &lt; 3; i++) {
++      for (var j = 0; j &lt; 3; j++) {
++        cells.push(this.renderSquare((3*i)+j))
++      }
++      rows.push(&lt;div className="board-row" key={i}&gt;{cells}&lt;/div&gt;)
++      cells = [];
++    }
++    return (&lt;div&gt;{rows}&lt;/div&gt;)
++
+   }</code></pre><p>My first attempt to do this badly misunderstood how to compose the pieces of JSX.</p><p>You can assign JSX to a variable, but you have to assign a complete structure - with closing tag.</p><p>Inside the JSX, you can nest arrays that get rendered out element by element.</p><h2 class="">Part 3a </h2><p>I wanted to see if the same thing could be written with maps.</p><p>It can, and you could do it like this.</p><pre><code>+    return (
++      &lt;div&gt;
++        {
++          [0,0,0].map((a,i) =&gt; (
++            &lt;div className="board-row" key={i}&gt;{
++              [0,0,0].map((b,j) =&gt; {
++                return this.renderSquare((3*i)+j);
++              })
++            }&lt;/div&gt;
++          ))
++        }
++      &lt;/div&gt;
++    )</code></pre><p>Q: what's the "best" way to generate a throwaway three-element array to do the mapping over? </p><p>I suppose this would be more natural if I had the data <em>stored</em> as a three by three array because then I could loop over the data itself (at the moment it is a single 9 element array that doesn't 'know' it represents a grid)</p><p>Where the indentation is just my best attempt to make it look readable (and failing).</p><p>Whilst this is possible, I find the looping variant much easier to reason about.</p><h2 class="">part 4</h2><p>The temptation here was to 'just' reverse the history, but of course, the ordering of the history is being used by other parts of logic - to jump between the states.</p><p>If you reverse the history, the program will still work, but you'll see weird effects and moves jumping around randomly all over the place.</p><p>What we want to do instead is just flip the <strong>display</strong> order of the history list elements <em>after</em> they've been created.</p><p>So, we want to reverse our 'moves' variable, before including it into the JSX.</p><p>If we rename the existing one to "imoves"</p><pre><code>-    const moves = history.map((step, move) =&gt; {</code></pre><pre><code>+    const imoves = history.map((step, move) =&gt; {
+       const desc = move ?
+         `Move # ${move} (player ${step.move.player} to square (${step.move.square % 3 + 1}, ${Math.floor(step.move.square/3) + 1}) `:
+         'Game start';
+
+class Game extends React.Component {
+         &lt;/li&gt;
+       );
+     });
+-</code></pre><p>then we can set 'moves' based on the value of our flag. By keeping the original name of the resulting variable, we don't have to worry about the effect of the change on any other part of the code.</p><pre><code>+    const moves = this.state.ascending? imoves : imoves.reverse();
+</code></pre><p>Then, after the status in the game display, we can render a 'toggle' button that invokes a click handler.</p><pre><code> &lt;button onClick = {() =&gt; this.toggleAscending()}&gt;Toggle&lt;/button&gt;
+           &lt;ol&gt;{moves}&lt;/ol&gt;</code></pre><p>...and have the click handler toggle the state variable.</p><p>Because we're using 'setState' as we're supposed to, it will trigger a refresh for all the components that depend on this state variable and the list will be reversed.</p><pre><code>+  toggleAscending() {
++    this.setState({
++      ascending: !this.state.ascending
++    });
++  }</code></pre><h2 class="">part 5</h2><p>I want to mark the winning line.</p><p>When the calculatewinner fn gets called, I have it safely returning the winning line in the 1th position of an array, but how to neatly add a class to the winning squares only?</p><p>It's if their 'index' matches one of the three numbers in the returned array (and if there <em>is</em> a returned array to begin with) that we want to do the do.</p><p>This is complicated because it's the square that draws itself, but the information about whether it should draw itself as a 'winning' square is all the way up at the Game level, so we need to bolt our new mechanism to the side of the existing chain, meaning we have to change code in a few different places.</p><p>So, we need to think carefully (at least <em>I</em> do) about what we're going to do before we do it, so that we don't get into a tangle.</p><p>[IMO: it's these bits of tutorials that usually end up seeming like magic, because you can't follow the thought process]</p><p>What we need is a way to know whether a square is in the winning line.</p><p>We have our calculateWinner function returning an array with the inidices of the winning squares.</p><p>When this comes back (as the result of a click) we want to set the state for it.</p><p>... no, that's wrong. Not as the result of a click?</p><p>The handleclick is only dealing with the immediate effect of a click - it doesn't calculate whether someone has won or not - that gets done in the render method...</p><p>In this way, adding a display of the squares involved in the winning line is pretty easy.</p><p>(git commit)</p><p>then, to get the whole board to light up.</p><p>then,  to apply the style only to the specific squares in question.</p><h2 class="">Next?</h2><p>You could re-write the whole thing using a 3x3 array to store the state instead of a 9 element, 1d array.</p><p>That will/would kind of test that you know what's going on - especially if you make yourself do it from memory and only look at the other one if you really need to.</p><h2 class="">Then?</h2><p>Then, build another, related app - perhaps a little bit more complicated.</p><p>I suggest a pair-matching game.</p><p>So, I'll go and read about flip animations</p><p><div class="tutorial-nav">
+<div class="tutorial-next-nav"><p></p></div>
+</div>
+<div class="content-footer-navigation">
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react.html">Start</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tutorials.html">Tutorials</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./contact.html">Contact</a>
+</div></p></div>
+</div>
+</p>
+
+</section><p><footer class="footer">
+<div><div class="content-footer-navigation"><p><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./about.html">About</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tutorials.html">Tutorials</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./contact.html">Contact</a>
+</p></div><p><a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" style="border-width:0"></a></p></div><div>This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank">Creative Commons Attribution 4.0 International License</a>.</div>
+<div>Made with Love in Melbourne, Australia</div>
+
+</footer>
+</p>
+
+
+</body>
+</html>

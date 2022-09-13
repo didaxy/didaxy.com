@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="generator" content="TiddlyWiki" />
+<meta name="tiddlywiki-version" content="5.2.3" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no">
+<link id="faviconLink" rel="shortcut icon" href="./favicon.png">
+<link rel="stylesheet" href="static.css">
+<title>React Notes Part 4: Didaxy.com — Computers and Learning, Tutorials, index, Configurator</title>
+</head>
+<body><p><nav class="header">
+<ul class="header-nav header-nav-left">
+<li class="header-item header-site-logo">
+<a class="header-nav-link" href="./index.html">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22400%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%3C!--%20Created%20with%20SVG-edit%20-%20http%3A%2F%2Fsvg-edit.googlecode.com%2F%20--%3E%0A%0A%20%3Cg%20display%3D%22inline%22%3E%0A%20%20%20%20%3Cpath%20fill%3D%22%23000%22%20fill-rule%3D%22evenodd%22%20stroke%3D%22%23000%22%20stroke-width%3D%226%22%20d%3D%22m158.5%2C150l42%2C-130c0%2C0%2049%2C131%2049%2C131c0%2C0%20135%2C3%20135%2C3c0%2C0%20-109%2C80%20-109%2C80c0%2C0%2041%2C132%2041%2C132c0%2C0%20-93%2C-64%20-93%2C-64c0%2C0%200%2C-73%20-2%2C-74c-2%2C-1%20-32%2C-7%20-34%2C-5c-2%2C2%20-2%2C79%20-2%2C79c0%2C0%20-96%2C66%20-96%2C66c0%2C0%2040%2C-131%2040%2C-131c0%2C0%20-110%2C-86%20-110%2C-86c0%2C0%20139%2C-1%20139%2C-1%0A%0AM179.0278%2C185c0%2C-14.07304%2011.39915%2C-25.4722%2025.4722%2C-25.4722c14.07304%2C0%2025.4722%2C11.39915%2025.4722%2C25.4722c0%2C14.07304%20-11.39915%2C25.4722%20-25.4722%2C25.4722c-14.07304%2C0%20-25.4722%2C-11.39915%20-25.4722%2C-25.4722%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E" width="48px"></a>
+</li>
+<li class="header-item header-site-home">
+<a class="header-nav-link" href="./index.html">Didaxy</a>
+</li>
+<div id="header-toggle">🍔</div>
+</ul>
+<ul class="header-nav header-nav-right">
+
+
+<li class="header-item header-collapsable dropdown">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./recent.html">Recent</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./tutorials.html">Tutorials</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./contact.html">Contact</a>
+</li>
+
+
+</ul>
+</nav></p><section class="page-content">
+<p><div class="frame"><div class="tc-tiddler-body tc-reveal"><h1 class="">React Notes</h1><h2 class="">Part 4: Conditionals</h2><p><h3 class="tutorial-parts">Part: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes.html">0</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-1.html">  1</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-2.html">  2</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-3.html">  3</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-4.html">  4</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-5.html">  5</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-6.html">  6</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-7.html">  7</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-8.html">  8</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-9.html">  9</a>
+
+</h3></p><h2 class="">Conditional Rendering</h2><h2 class="">Inline If with Logical &amp;&amp; Operator</h2><p>"You may embed any expressions in JSX by wrapping them in curly braces. This includes the JavaScript logical &amp;&amp; operator. It can be handy for conditionally including an element:"</p><pre><code>function Mailbox(props) {
+  const unreadMessages = props.unreadMessages;
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Hello!&lt;/h1&gt;
+      {unreadMessages.length &gt; 0 &amp;&amp;
+        &lt;h2&gt;
+          You have {unreadMessages.length} unread messages.
+        &lt;/h2&gt;
+      }
+    &lt;/div&gt;
+  );
+}
+
+const messages = ['React', 'Re: React', 'Re:Re: React'];
+ReactDOM.render(
+  &lt;Mailbox unreadMessages={messages} /&gt;,
+  document.getElementById('root')
+);</code></pre><p>Or, you can use the ternary operator.</p><h2 class="">Hiding Components</h2><p>A component can <strong>hide itself</strong> by returning <code>null</code> from its render method. It won't appear, even if another component tries to render it.</p><h2 class="">Lists and Keys</h2><pre><code>function NumberList(props) {
+  const numbers = props.numbers;
+  const listItems = numbers.map((number) =&gt;
+    &lt;li&gt;{number}&lt;/li&gt;
+  );
+  return (
+    &lt;ul&gt;{listItems}&lt;/ul&gt;
+  );
+}
+
+const numbers = [1, 2, 3, 4, 5];
+ReactDOM.render(
+  &lt;NumberList numbers={numbers} /&gt;,
+  document.getElementById('root')
+);</code></pre><p>When you run this code, you’ll be given a warning that a key should be provided for list items. A “key” is a special string attribute you need to include when creating lists of elements. We’ll discuss why it’s important in the next section.
+Let’s assign a key to our list items inside numbers.map() and fix the missing key issue.</p><pre><code>function NumberList(props) {
+  const numbers = props.numbers;
+  const listItems = numbers.map((number) =&gt;
+    &lt;li key={number.toString()}&gt;
+      {number}
+    &lt;/li&gt;
+  );
+  return (
+    &lt;ul&gt;{listItems}&lt;/ul&gt;
+  );
+}
+
+const numbers = [1, 2, 3, 4, 5];
+ReactDOM.render(
+  &lt;NumberList numbers={numbers} /&gt;,
+  document.getElementById('root')
+);</code></pre><p>Keys are strings that are unique amongst the members of an array or list. </p><p>They don't need to be globally unique.</p><p>You can use the index if you need to, but it's better to use a stable key that comes directly from your data.</p><p>If the items can reorder, it's a mistake to use the index as the key.</p><p>The keys should be on the items directly inside the array, not the elements they return.</p><p>In general, elements inside a map call must have keys.</p><p>Keys DO NOT get passed in to the components. If you need the same value for a different purpose, you need to pass it separately.</p><h2 class="">Javascript in HTML in Javascript</h2><pre><code>function NumberList(props) {
+  const numbers = props.numbers;
+  return (
+    &lt;ul&gt;
+      {numbers.map((number) =&gt;
+        &lt;ListItem key={number.toString()}
+                  value={number} /&gt;
+
+      )}
+    &lt;/ul&gt;
+  );
+}</code></pre><p>You can do the mapping like a psycho, inside the JSX, wrapped in curly braces.</p><p><div class="tutorial-nav">
+<div class="tutorial-next-nav"><p>
+Next: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-5.html">Forms (Controlled Components)</a>
+</p></div>
+</div>
+<div class="content-footer-navigation">
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes.html">Start</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tutorials.html">Tutorials</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./contact.html">Contact</a>
+</div></p></div>
+</div>
+</p>
+
+</section><p><footer class="footer">
+<div><div class="content-footer-navigation"><p><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./about.html">About</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tutorials.html">Tutorials</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./contact.html">Contact</a>
+</p></div><p><a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" style="border-width:0"></a></p></div><div>This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank">Creative Commons Attribution 4.0 International License</a>.</div>
+<div>Made with Love in Melbourne, Australia</div>
+
+</footer>
+</p>
+
+
+</body>
+</html>

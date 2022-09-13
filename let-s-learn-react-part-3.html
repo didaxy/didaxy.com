@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="generator" content="TiddlyWiki" />
+<meta name="tiddlywiki-version" content="5.2.3" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no">
+<link id="faviconLink" rel="shortcut icon" href="./favicon.png">
+<link rel="stylesheet" href="static.css">
+<title>Let's Learn React Part 3: Didaxy.com — Computers and Learning, Tutorials, index, Configurator</title>
+</head>
+<body><p><nav class="header">
+<ul class="header-nav header-nav-left">
+<li class="header-item header-site-logo">
+<a class="header-nav-link" href="./index.html">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22400%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%3C!--%20Created%20with%20SVG-edit%20-%20http%3A%2F%2Fsvg-edit.googlecode.com%2F%20--%3E%0A%0A%20%3Cg%20display%3D%22inline%22%3E%0A%20%20%20%20%3Cpath%20fill%3D%22%23000%22%20fill-rule%3D%22evenodd%22%20stroke%3D%22%23000%22%20stroke-width%3D%226%22%20d%3D%22m158.5%2C150l42%2C-130c0%2C0%2049%2C131%2049%2C131c0%2C0%20135%2C3%20135%2C3c0%2C0%20-109%2C80%20-109%2C80c0%2C0%2041%2C132%2041%2C132c0%2C0%20-93%2C-64%20-93%2C-64c0%2C0%200%2C-73%20-2%2C-74c-2%2C-1%20-32%2C-7%20-34%2C-5c-2%2C2%20-2%2C79%20-2%2C79c0%2C0%20-96%2C66%20-96%2C66c0%2C0%2040%2C-131%2040%2C-131c0%2C0%20-110%2C-86%20-110%2C-86c0%2C0%20139%2C-1%20139%2C-1%0A%0AM179.0278%2C185c0%2C-14.07304%2011.39915%2C-25.4722%2025.4722%2C-25.4722c14.07304%2C0%2025.4722%2C11.39915%2025.4722%2C25.4722c0%2C14.07304%20-11.39915%2C25.4722%20-25.4722%2C25.4722c-14.07304%2C0%20-25.4722%2C-11.39915%20-25.4722%2C-25.4722%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E" width="48px"></a>
+</li>
+<li class="header-item header-site-home">
+<a class="header-nav-link" href="./index.html">Didaxy</a>
+</li>
+<div id="header-toggle">🍔</div>
+</ul>
+<ul class="header-nav header-nav-right">
+
+
+<li class="header-item header-collapsable dropdown">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./recent.html">Recent</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./tutorials.html">Tutorials</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./contact.html">Contact</a>
+</li>
+
+
+</ul>
+</nav></p><section class="page-content">
+<p><div class="frame"><div class="tc-tiddler-body tc-reveal"><h1 class="">Let's Learn React</h1><h2 class="">Part 3: Lifting State</h2><p><h3 class="tutorial-parts">Part: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react.html">0</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-1.html">  1</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-2.html">  2</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-3.html">  3</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-4.html">  4</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-5.html">  5</a>
+
+</h3></p><h2 class="">Summary</h2><p>In the <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-2.html">previous section</a> we saw how we store data in state and manipulate it via the 'setState' function.</p><p>At the moment, the tic-tac-toe game is storing state the state of each square <em>in</em> the Square component itself.</p><p>If the game wanted to decide whether someone has won, it would need to get the state from each square, but that's not the preferred way to do things in React.</p><p>The React way of handling this is to 'lift' the state out of individual components to a place where all relevant data can be stored together.</p><p>In this case we want to lift the state up out of the Square and into the Board. That way, the Board will know the contents of every square and will be able to decide whether someone has won.</p><p>We basically revert the changes we made before, then. We want the Square to render the value it's passed in <code>props</code> again.</p><pre><code>
+
+class Square extends React.Component {
+  render() {
+    return (
+      &lt;button className="square" onClick={() =&gt; this.props.onClick()}&gt;
+        {this.props.value}
+      &lt;/button&gt;
+    );
+  }
+}
+
+</code></pre><p>Note that we've deleted the constructor because now Square doesn't have any state that needs to be initialised.</p><p>Notice that now the Square component expects its props to include "value" and also "onClick", which it expects to be a function.</p><p>We provide it these props in the renderSquare method of Board</p><pre><code>renderSquare(i) {
+    return &lt;Square value={this.state.squares[i]}
+                 onClick={() =&gt; this.handleClick(i)}/&gt;;
+  }</code></pre><p>Notice that we're free to format the return statement by breaking it across lines, hence we can make it easy to see what props we're passing by putting each on its own line.</p><p>Here we're associating the Square's onClick handler with this new function 'handleClick' which we now need to add to the Board class.</p><p>To begin with, it's enough to register that it's working.</p><pre><code>  handleClick() {
+    console.log("click!")
+  }</code></pre><p>At this point in the React tutorial, we get this handy checklist</p><ol><li>The onClick prop on the built-in DOM &lt;button&gt; component tells React to set up a click event listener.</li><li>When the button is clicked, React will call the onClick event handler defined in Square’s render() method.</li><li>This event handler calls this.props.onClick(). Square’s props were specified by the Board.</li><li>Board passed onClick={() =&gt; this.handleClick(i)} to Square, so, when called, it runs this.handleClick(i) on the Board.</li><li>We have not defined the handleClick() method on the Board yet, so the code crashes.</li></ol><p>Except our code doesn't crash, because we have defined 'handleClick', it just doesn't do anything yet.</p><p>There's also this note on naming</p><pre><code>Note that DOM &lt;button&gt; element’s onClick attribute has a special meaning to React, but we could have named Square’s onClick prop or Board’s handleClick method differently. It is, however, conventional in React apps to use on* names for the attributes and handle* for the handler methods.</code></pre><p>ie; the button method has a particular name but the others only have their names by convention.</p><p>This is what they suggest the handleClick method should look like</p><pre><code>  handleClick(i) {
+    const squares = this.state.squares.slice();
+    squares[i] = 'X';
+    this.setState({squares: squares});
+  }</code></pre><p>At this point, you should have back the functionality we had at the end of the <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-2.html">previous section</a>, but now our state is being stored at the board level. The Square component is a dumb compnent that doesn't have any state of it's own.</p><h2 class="">Functional Components</h2><p>Instead of calling the Square 'dumb' (sorry, Square) let me use its proper name and call it a "functional component". Components that don't store their own state can be written re-written in the following manner</p><pre><code>
+
+function Square(props) {
+  return (
+    &lt;button className="square" onClick={props.onClick}&gt;
+      {props.value}
+    &lt;/button&gt;
+  );
+}
+</code></pre><p>Notice they've also simplified the way the onClick function gets passed to the button.</p><h2 class="">Immutablity</h2><p>The way the handleClick function updates the state is as follows</p><ol><li>it copies the current state into a local variable</li><li>it changes (mutates) the copy</li><li>it calls setState to update the state</li></ol><p>The original state is never mutated and we can say that it is "immutable". React has immutable state. </p><p>They're using 'slice' to copy the old array</p><pre><code>    const squares = this.state.squares.slice();</code></pre><p>You can also use the spread operator</p><pre><code>    const squares = [...this.state.squares]</code></pre><p>which I think is a bit nicer.</p><p>The most important aspect of this immutable behaviour, as far as React is concerned, is it allows React itself to manage all the updates and do so in the most efficient manner.</p><p>They then go on to add a little bit of cut and paste code to make the actual game work, but it's not very relevant to seeing how React actually works.</p><p><div class="tutorial-nav">
+<div class="tutorial-next-nav"><p>
+Next: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-4.html">Lifting State (Again)</a>
+</p></div>
+</div>
+<div class="content-footer-navigation">
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react.html">Start</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tutorials.html">Tutorials</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./contact.html">Contact</a>
+</div></p></div>
+</div>
+</p>
+
+</section><p><footer class="footer">
+<div><div class="content-footer-navigation"><p><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./about.html">About</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tutorials.html">Tutorials</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./contact.html">Contact</a>
+</p></div><p><a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" style="border-width:0"></a></p></div><div>This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank">Creative Commons Attribution 4.0 International License</a>.</div>
+<div>Made with Love in Melbourne, Australia</div>
+
+</footer>
+</p>
+
+
+</body>
+</html>

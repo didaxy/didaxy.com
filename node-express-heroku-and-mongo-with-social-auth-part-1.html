@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="generator" content="TiddlyWiki" />
+<meta name="tiddlywiki-version" content="5.2.3" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no">
+<link id="faviconLink" rel="shortcut icon" href="./favicon.png">
+<link rel="stylesheet" href="static.css">
+<title>Node, Express, Heroku and Mongo with Social Auth Part 1: Didaxy.com — Computers and Learning, Tutorials, index, Configurator</title>
+</head>
+<body><p><nav class="header">
+<ul class="header-nav header-nav-left">
+<li class="header-item header-site-logo">
+<a class="header-nav-link" href="./index.html">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22400%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%3C!--%20Created%20with%20SVG-edit%20-%20http%3A%2F%2Fsvg-edit.googlecode.com%2F%20--%3E%0A%0A%20%3Cg%20display%3D%22inline%22%3E%0A%20%20%20%20%3Cpath%20fill%3D%22%23000%22%20fill-rule%3D%22evenodd%22%20stroke%3D%22%23000%22%20stroke-width%3D%226%22%20d%3D%22m158.5%2C150l42%2C-130c0%2C0%2049%2C131%2049%2C131c0%2C0%20135%2C3%20135%2C3c0%2C0%20-109%2C80%20-109%2C80c0%2C0%2041%2C132%2041%2C132c0%2C0%20-93%2C-64%20-93%2C-64c0%2C0%200%2C-73%20-2%2C-74c-2%2C-1%20-32%2C-7%20-34%2C-5c-2%2C2%20-2%2C79%20-2%2C79c0%2C0%20-96%2C66%20-96%2C66c0%2C0%2040%2C-131%2040%2C-131c0%2C0%20-110%2C-86%20-110%2C-86c0%2C0%20139%2C-1%20139%2C-1%0A%0AM179.0278%2C185c0%2C-14.07304%2011.39915%2C-25.4722%2025.4722%2C-25.4722c14.07304%2C0%2025.4722%2C11.39915%2025.4722%2C25.4722c0%2C14.07304%20-11.39915%2C25.4722%20-25.4722%2C25.4722c-14.07304%2C0%20-25.4722%2C-11.39915%20-25.4722%2C-25.4722%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E" width="48px"></a>
+</li>
+<li class="header-item header-site-home">
+<a class="header-nav-link" href="./index.html">Didaxy</a>
+</li>
+<div id="header-toggle">🍔</div>
+</ul>
+<ul class="header-nav header-nav-right">
+
+
+<li class="header-item header-collapsable dropdown">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./recent.html">Recent</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./tutorials.html">Tutorials</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./contact.html">Contact</a>
+</li>
+
+
+</ul>
+</nav></p><section class="page-content">
+<p><div class="frame"><div class="tc-tiddler-body tc-reveal"><h1 class="">Node, Express, Heroku and Mongo with Social Auth</h1><h2 class="">Part 1: Creating a Project, Version Control and Deployment Workflow</h2><p><h3 class="tutorial-parts">Part: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./node-express-heroku-and-mongo-with-social-auth.html">0</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./node-express-heroku-and-mongo-with-social-auth-part-1.html">  1</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./node-express-heroku-and-mongo-with-social-auth-part-2.html">  2</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./node-express-heroku-and-mongo-with-social-auth-part-3.html">  3</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./node-express-heroku-and-mongo-with-social-auth-part-5.html">  5</a>
+
+</h3></p><h2 class="">Initialising the Project and Installing Packages</h2><p>First thing we need to do it make a directory for our project and initialise a git repo there.</p><pre><code>mkdir authbase
+  505  cd authbase
+  506  git init
+  507  npm init --yes
+  508  ls
+  509  npm install express --save
+  516  npm install ejs --save
+npm install dotenv --save</code></pre><p>The last package, dotenv, is used to set environment variables from a local file called <code>.env</code>. We'll see how it's used later, but for now we want to create <code>.env</code> because we need to make sure that it <em>doesn't</em> get copied to githib.</p><h2 class="">Keeping Secrets</h2><p>Go ahead and create a new file in your directory called <code>.env</code>. How you do this depends on what editor/workflow you prefer. I use ATOM, so at this point I go to ATOM and I open the folder I just created as a project folder. I create a new file, give it the content,</p><pre><code>TEST="this is a secret file!"</code></pre><p>and save it as <code>.env</code>. (you may get a warning about filenames that start with a period, but that really is what we want)</p><p>I find that the tree-view in ATOM helps me to keep my projects organised.</p><p>This is going to contain secret information about our database logins (and eventually our twitter keys) that we don't want to store on github for everyone to see. For now, we just put a placeholder there.</p><p>Alongside our <code>.env</code> file, you should also see a file called <code>package.json</code>, which was created by our <code>npm init</code> command, and the <code>node_modules</code> directory. </p><p>The <code>node_modules</code> directory is also something that we want to exclude from our git archive - it contains all the code for the modules that we loaded above - express, ejs and dotenv - and these files can be recreated whenever we need them by re-running the <code>npm install</code> command (because we did <code>--save</code>, references to them got saved in our package.json).</p><p>So, we need to include both npm_modules and .env in our <code>.gitignore</code> file</p><p>The way we tell git to ignore this file is by including it in a file called <code>.gitignore</code></p><pre><code>/node_modules
+npm-debug.log
+.DS_Store
+*.env</code></pre><p>Now we should be able to add the files to git and push them up to github and our secret file will remain secret.</p><h2 class="">Publishing to Github</h2><p>If you're using github from the command line, presumably you know what you're doing but the instructions are here - <a class="tc-tiddlylink-external" href="https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/" rel="noopener noreferrer" target="_blank">https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/</a>.</p><p>Using Github desktop, the process is a breeze - just select 'add a repository' and browse to the directory you just created. Click add and it should show up in the list of repos on the left. Then click publish. (We could also have created the git repository from here, instead of doing <code>git init</code>).</p><p>Once your directory is in the list of github desktop repos, you can select it and you should see two files listed as 'uncommited changes'. If you see your node_modules directory or your secret <code>.env</code> file, then something is wrong with your <code>.gitignore</code> file.</p><p>Because our .env file is nowhere to be seen, so it should be safe to publish this to github without giving away our secrets.</p><p>To do this, we write a commit message and optionally a longer comment and hit commit and then publish. We don't have much to say at this point, so we can just write 'initial commit' and press commit. Then we can hit publish (top right).</p><p>Each time you commit and push changes here, your history will update - going back to examine old files is really easy from this interface, but be careful you don't do it by accident.</p><h2 class="">Pushing to Heroku</h2><p>If you haven't already, you need to install the heroku cli</p><p><a class="tc-tiddlylink-external" href="https://devcenter.heroku.com/articles/heroku-cli" rel="noopener noreferrer" target="_blank">https://devcenter.heroku.com/articles/heroku-cli</a></p><p>It's very simple. You do 'heroku login' and then it remembers who you are.</p><p>You do heroku create once to set up your app - if you <em>haven't</em> provided your credentials, it will ask for them, then you'll get</p><pre><code>Enter your Heroku credentials.
+Email: richardwilliamsmith@gmail.com
+Password (typing will be hidden): 
+Logged in as richardwilliamsmith@gmail.com
+Creating app... done, ⬢ polar-wildwood-26214
+https://polar-wildwood-26214.herokuapp.com/ | https://git.heroku.com/polar-wildwood-26214.git
+Richards-MacBook-Air:authbase richardsmith$ https://git.heroku.com/polar-wildwood-26214.git[B
+Richards-MacBook-Air:authbase richardsmith$ </code></pre><pre><code>Creating app... done, ⬢ shielded-hollows-37077
+https://shielded-hollows-37077.herokuapp.com/ | https://git.heroku.com/shielded-hollows-37077.git</code></pre><p>On a Mac, you can control click that link to open the url or you can type 'heroku open' and you should see a page displaying "Heroku | Welcome to your new app!" -  that's your app running in the real world! Except it isn't. It's just a place holder. Your app doesn't do anything yet.</p><h2 class="">Adding Some Content.</h2><p>Now let's add some content and re-publish to check everything's working.</p></div>
+</div>
+</p>
+
+</section><p><footer class="footer">
+<div><div class="content-footer-navigation"><p><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./about.html">About</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tutorials.html">Tutorials</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./contact.html">Contact</a>
+</p></div><p><a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" style="border-width:0"></a></p></div><div>This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank">Creative Commons Attribution 4.0 International License</a>.</div>
+<div>Made with Love in Melbourne, Australia</div>
+
+</footer>
+</p>
+
+
+</body>
+</html>

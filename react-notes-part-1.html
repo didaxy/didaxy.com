@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="generator" content="TiddlyWiki" />
+<meta name="tiddlywiki-version" content="5.2.3" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no">
+<link id="faviconLink" rel="shortcut icon" href="./favicon.png">
+<link rel="stylesheet" href="static.css">
+<title>React Notes Part 1: Didaxy.com — Computers and Learning, Tutorials, index, Configurator</title>
+</head>
+<body><p><nav class="header">
+<ul class="header-nav header-nav-left">
+<li class="header-item header-site-logo">
+<a class="header-nav-link" href="./index.html">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22400%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%3C!--%20Created%20with%20SVG-edit%20-%20http%3A%2F%2Fsvg-edit.googlecode.com%2F%20--%3E%0A%0A%20%3Cg%20display%3D%22inline%22%3E%0A%20%20%20%20%3Cpath%20fill%3D%22%23000%22%20fill-rule%3D%22evenodd%22%20stroke%3D%22%23000%22%20stroke-width%3D%226%22%20d%3D%22m158.5%2C150l42%2C-130c0%2C0%2049%2C131%2049%2C131c0%2C0%20135%2C3%20135%2C3c0%2C0%20-109%2C80%20-109%2C80c0%2C0%2041%2C132%2041%2C132c0%2C0%20-93%2C-64%20-93%2C-64c0%2C0%200%2C-73%20-2%2C-74c-2%2C-1%20-32%2C-7%20-34%2C-5c-2%2C2%20-2%2C79%20-2%2C79c0%2C0%20-96%2C66%20-96%2C66c0%2C0%2040%2C-131%2040%2C-131c0%2C0%20-110%2C-86%20-110%2C-86c0%2C0%20139%2C-1%20139%2C-1%0A%0AM179.0278%2C185c0%2C-14.07304%2011.39915%2C-25.4722%2025.4722%2C-25.4722c14.07304%2C0%2025.4722%2C11.39915%2025.4722%2C25.4722c0%2C14.07304%20-11.39915%2C25.4722%20-25.4722%2C25.4722c-14.07304%2C0%20-25.4722%2C-11.39915%20-25.4722%2C-25.4722%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E" width="48px"></a>
+</li>
+<li class="header-item header-site-home">
+<a class="header-nav-link" href="./index.html">Didaxy</a>
+</li>
+<div id="header-toggle">🍔</div>
+</ul>
+<ul class="header-nav header-nav-right">
+
+
+<li class="header-item header-collapsable dropdown">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./recent.html">Recent</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./tutorials.html">Tutorials</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./contact.html">Contact</a>
+</li>
+
+
+</ul>
+</nav></p><section class="page-content">
+<p><div class="frame"><div class="tc-tiddler-body tc-reveal"><h1 class="">React Notes</h1><h2 class="">Part 1: Hello World</h2><p><h3 class="tutorial-parts">Part: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes.html">0</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-1.html">  1</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-2.html">  2</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-3.html">  3</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-4.html">  4</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-5.html">  5</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-6.html">  6</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-7.html">  7</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-8.html">  8</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-9.html">  9</a>
+
+</h3></p><h2 class="">Hello World</h2><p>We're starting with the docs here: <a class="tc-tiddlylink-external" href="https://reactjs.org/docs/hello-world.html" rel="noopener noreferrer" target="_blank">https://reactjs.org/docs/hello-world.html</a> and working through them, pretty much in order to begin with.</p><pre><code>import React from 'react';
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(
+  &lt;h1&gt;Hello, world!&lt;/h1&gt;,
+  document.getElementById('root')
+);</code></pre><p>Language babel in Atom for syntax highlighting.</p><p>We wrap multi-line JSX in parens to avoid semi-colon insertion.</p><p>JSX for component attribute names uses camelCase, ie; className, tabIndex and not css-style attributes, ie; class, tabindex.</p><p>NB: Create-react-app is somehow working without needing an HTML file, but it expects you to use 'root' as the place to attach your app, so there must be an html file somewhere....</p><p>"In our experience, thinking about how the UI should look at any given moment rather than how to change it over time eliminates a whole class of bugs."</p><h2 class="">Components</h2><p>Components accept props and return React elements "describing what should appear on the screen".</p><p>The simplest way to make a component is as a javascript function that takes props and returns a JSX element, possibly with children.</p><pre><code>function Welcome(props) {
+  return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+}</code></pre><p>This is a 'functional component'.</p><p>The same function, written as a component class looks like this</p><pre><code>class Welcome extends React.Component {
+  render() {
+    return &lt;h1&gt;Hello, {this.props.name}&lt;/h1&gt;;
+  }
+}</code></pre><p>The element returned by a component can be an HTML element, or it can be another component.</p><h2 class="">Props</h2><p>"When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single object. We call this object “props”."</p><p>"Caveat:
+Components must return a single root element. This is why we added a &lt;div&gt; to contain all the &lt;Welcome /&gt; elements."</p><h2 class="">Splitting Components</h2><p>They next show us how we can split a component into sub-components. Before doing the example given, I wanted to make it render (much more satisfying) so I added these bits</p><pre><code>import React from 'react';
+import ReactDOM from 'react-dom';
+
+function formatDate(date) {
+  return date.toLocaleTimeString()
+}
+
+function Comment(props) {
+  return (
+    &lt;div className="Comment"&gt;
+      &lt;div className="UserInfo"&gt;
+        &lt;img width={props.width} className="Avatar"
+          src={props.author.avatarUrl}
+          alt={props.author.name}
+        /&gt;
+        &lt;div className="UserInfo-name"&gt;
+          {props.author.name}
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div className="Comment-text"&gt;
+        {props.text}
+      &lt;/div&gt;
+      &lt;div className="Comment-date"&gt;
+        {formatDate(props.date)}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}
+
+
+
+let author = {
+  avatarUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Sir_Tim_Berners-Lee_%28cropped%29.jpg",
+  name: "Tim"
+}
+
+let text = "The father of the internet."
+
+
+ReactDOM.render(
+  &lt;Comment width="100" author={author} date={new Date()} text={text}/&gt;,
+  document.getElementById('root')
+);</code></pre><h2 class="">Pure Components</h2><p>"All React components must act like pure functions with respect to their props."</p><p><div class="tutorial-nav">
+<div class="tutorial-next-nav"><p>
+Next: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-2.html">State</a>
+</p></div>
+</div>
+<div class="content-footer-navigation">
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes.html">Start</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tutorials.html">Tutorials</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./contact.html">Contact</a>
+</div></p></div>
+</div>
+</p>
+
+</section><p><footer class="footer">
+<div><div class="content-footer-navigation"><p><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./about.html">About</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tutorials.html">Tutorials</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./contact.html">Contact</a>
+</p></div><p><a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" style="border-width:0"></a></p></div><div>This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank">Creative Commons Attribution 4.0 International License</a>.</div>
+<div>Made with Love in Melbourne, Australia</div>
+
+</footer>
+</p>
+
+
+</body>
+</html>

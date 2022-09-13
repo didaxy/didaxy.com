@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="generator" content="TiddlyWiki" />
+<meta name="tiddlywiki-version" content="5.2.3" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no">
+<link id="faviconLink" rel="shortcut icon" href="./favicon.png">
+<link rel="stylesheet" href="static.css">
+<title>React Notes Part 5: Didaxy.com — Computers and Learning, Tutorials, index, Configurator</title>
+</head>
+<body><p><nav class="header">
+<ul class="header-nav header-nav-left">
+<li class="header-item header-site-logo">
+<a class="header-nav-link" href="./index.html">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22400%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%3C!--%20Created%20with%20SVG-edit%20-%20http%3A%2F%2Fsvg-edit.googlecode.com%2F%20--%3E%0A%0A%20%3Cg%20display%3D%22inline%22%3E%0A%20%20%20%20%3Cpath%20fill%3D%22%23000%22%20fill-rule%3D%22evenodd%22%20stroke%3D%22%23000%22%20stroke-width%3D%226%22%20d%3D%22m158.5%2C150l42%2C-130c0%2C0%2049%2C131%2049%2C131c0%2C0%20135%2C3%20135%2C3c0%2C0%20-109%2C80%20-109%2C80c0%2C0%2041%2C132%2041%2C132c0%2C0%20-93%2C-64%20-93%2C-64c0%2C0%200%2C-73%20-2%2C-74c-2%2C-1%20-32%2C-7%20-34%2C-5c-2%2C2%20-2%2C79%20-2%2C79c0%2C0%20-96%2C66%20-96%2C66c0%2C0%2040%2C-131%2040%2C-131c0%2C0%20-110%2C-86%20-110%2C-86c0%2C0%20139%2C-1%20139%2C-1%0A%0AM179.0278%2C185c0%2C-14.07304%2011.39915%2C-25.4722%2025.4722%2C-25.4722c14.07304%2C0%2025.4722%2C11.39915%2025.4722%2C25.4722c0%2C14.07304%20-11.39915%2C25.4722%20-25.4722%2C25.4722c-14.07304%2C0%20-25.4722%2C-11.39915%20-25.4722%2C-25.4722%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E" width="48px"></a>
+</li>
+<li class="header-item header-site-home">
+<a class="header-nav-link" href="./index.html">Didaxy</a>
+</li>
+<div id="header-toggle">🍔</div>
+</ul>
+<ul class="header-nav header-nav-right">
+
+
+<li class="header-item header-collapsable dropdown">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./recent.html">Recent</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./tutorials.html">Tutorials</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./contact.html">Contact</a>
+</li>
+
+
+</ul>
+</nav></p><section class="page-content">
+<p><div class="frame"><div class="tc-tiddler-body tc-reveal"><h1 class="">React Notes</h1><h2 class="">Part 5: Forms (Controlled Components)</h2><p><h3 class="tutorial-parts">Part: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes.html">0</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-1.html">  1</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-2.html">  2</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-3.html">  3</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-4.html">  4</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-5.html">  5</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-6.html">  6</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-7.html">  7</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-8.html">  8</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-9.html">  9</a>
+
+</h3></p><h2 class="">Forms</h2><p>Forms are one of the few HTML elements that routinely store state, so they need to be handled differently in React to avoid confusion.</p><p>If you leave them as regular elements, your React app won't have access to them.</p><p>You instead need to put them under control, which over-rides their default behaviour.</p><p>When you do this, you become responsible for updating their state <em>on every keypress</em>.</p><pre><code>class NameForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      &lt;form onSubmit={this.handleSubmit}&gt;
+        &lt;label&gt;
+          Name:
+          &lt;input type="text" value={this.state.value} onChange={this.handleChange} /&gt;
+        &lt;/label&gt;
+        &lt;input type="submit" value="Submit" /&gt;
+      &lt;/form&gt;
+    );
+  }
+}</code></pre><p>Every possible change to the state of the UI needs a handler.</p><h2 class="">Textarea</h2><p>Regular HTML &lt;textarea&gt; tags don't store their value in attributes, but in their children.</p><p>ie;</p><pre><code>&lt;textarea&gt;
+  Hello there, this is some text in a text area
+&lt;/textarea&gt;</code></pre><p>But in React, it uses a value attribute (in state) instead, so it behaves just like a form input.</p><h2 class="">Select Tag</h2><p>Instead of using the <code>selected</code> attribute, React uses <code>value</code> in state to track the currently selected item.</p><p>Note
+You can pass an array into the value attribute, allowing you to select multiple options in a select tag:</p><pre><code>&lt;select multiple={true} value={['B', 'C']}&gt;</code></pre><p>"Note
+You can pass an array into the value attribute, allowing you to select multiple options in a select tag:"</p><pre><code>&lt;select multiple={true} value={['B', 'C']}&gt;</code></pre><p>To get to grips with this form stuff I clearly need to implement some examples of actual use.</p><p>The rest of the sections in this guide are actually a bit the same in this regard.</p><p>The next section is about 'Lifting State Up', which I think is pretty well covered in <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react.html">my first tutorial</a>. </p><p>The section after that talks about 'Composition vs. Inheritance' and that's a topic I'm already sold on - trying to do classical inheritance in jS is a fools errand.</p><p>So, we use composition as a matter of course. There are some features of React that are specifically helpful in this regard and the first is the 'children' prop.</p><h2 class="">Children</h2><p>If you render a React component in JSX and use opening and closing tags (rather than self-closing the first tag), any elements that you put inside it will be passed to it as <code>children</code> in the <code>prop</code> object.</p><pre><code>const listStyles = {
+  color: 'blue',
+  fontSize: '24px'
+}
+
+function CustomList(props) {
+  return (
+    &lt;ul style={listStyles}&gt;
+      {props.children}
+    &lt;/ul&gt;
+  )
+}
+
+ReactDOM.render(
+  &lt;CustomList&gt;
+    &lt;li&gt;One&lt;/li&gt;
+    &lt;li&gt;Two&lt;/li&gt;
+  &lt;/CustomList&gt;,
+  document.getElementById('root')
+)</code></pre><p>See how the two &lt;li&gt; items are nested inside the &lt;CustomList&gt; ? That means they get passed as its 'children' in the prop object.</p><p>NB: This is what is referred to as 'containment'.</p><h2 class="">Multiple 'holes'</h2><p>While <code>children</code> is built in, if you need to pass more than one grouping of elements in to the parent, then you can define your own props.</p><pre><code>ReactDOM.render(
+  &lt;SplitPane
+    left = {&lt;p&gt;One&lt;/p&gt;}
+    right = {&lt;p&gt;Two&lt;/p&gt;}
+  /&gt;,
+  document.getElementById('root')
+)</code></pre><p>Note that the two <code>p</code> elements being passed in could just as easily be React components, which are themselves just objects and can be passed as props in this way.</p><h2 class="">Specialisation</h2><p>If you have a generic element, like a modal, and you want a more specific version of it, like say a 'login modal', classical inheritance would tell you to have the login modal inherit from the modal.</p><p>That way madness lies. Instead, just have the login modal render the modal and <strong>configure</strong> it using props.</p><pre><code>function Dialog(props) {
+  return (
+    &lt;FancyBorder color="blue"&gt;
+      &lt;h1 className="Dialog-title"&gt;
+        {props.title}
+      &lt;/h1&gt;
+      &lt;p className="Dialog-message"&gt;
+        {props.message}
+      &lt;/p&gt;
+    &lt;/FancyBorder&gt;
+  );
+}
+
+function WelcomeDialog() {
+  return (
+    &lt;Dialog
+      title="Welcome"
+      message="Thank you for visiting our spacecraft!" /&gt;
+
+  );
+}</code></pre><p>"At Facebook, we use React in thousands of components, and we haven’t found any use cases where we would recommend creating component inheritance hierarchies."</p><p><div class="tutorial-nav">
+<div class="tutorial-next-nav"><p>
+Next: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-6.html">Thinking in React</a>
+</p></div>
+</div>
+<div class="content-footer-navigation">
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes.html">Start</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tutorials.html">Tutorials</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./contact.html">Contact</a>
+</div></p></div>
+</div>
+</p>
+
+</section><p><footer class="footer">
+<div><div class="content-footer-navigation"><p><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./about.html">About</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tutorials.html">Tutorials</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./contact.html">Contact</a>
+</p></div><p><a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" style="border-width:0"></a></p></div><div>This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank">Creative Commons Attribution 4.0 International License</a>.</div>
+<div>Made with Love in Melbourne, Australia</div>
+
+</footer>
+</p>
+
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="generator" content="TiddlyWiki" />
+<meta name="tiddlywiki-version" content="5.2.3" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no">
+<link id="faviconLink" rel="shortcut icon" href="./favicon.png">
+<link rel="stylesheet" href="static.css">
+<title>Let's Learn React Part 1: Didaxy.com — Computers and Learning, Tutorials, index, Configurator</title>
+</head>
+<body><p><nav class="header">
+<ul class="header-nav header-nav-left">
+<li class="header-item header-site-logo">
+<a class="header-nav-link" href="./index.html">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22400%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%3C!--%20Created%20with%20SVG-edit%20-%20http%3A%2F%2Fsvg-edit.googlecode.com%2F%20--%3E%0A%0A%20%3Cg%20display%3D%22inline%22%3E%0A%20%20%20%20%3Cpath%20fill%3D%22%23000%22%20fill-rule%3D%22evenodd%22%20stroke%3D%22%23000%22%20stroke-width%3D%226%22%20d%3D%22m158.5%2C150l42%2C-130c0%2C0%2049%2C131%2049%2C131c0%2C0%20135%2C3%20135%2C3c0%2C0%20-109%2C80%20-109%2C80c0%2C0%2041%2C132%2041%2C132c0%2C0%20-93%2C-64%20-93%2C-64c0%2C0%200%2C-73%20-2%2C-74c-2%2C-1%20-32%2C-7%20-34%2C-5c-2%2C2%20-2%2C79%20-2%2C79c0%2C0%20-96%2C66%20-96%2C66c0%2C0%2040%2C-131%2040%2C-131c0%2C0%20-110%2C-86%20-110%2C-86c0%2C0%20139%2C-1%20139%2C-1%0A%0AM179.0278%2C185c0%2C-14.07304%2011.39915%2C-25.4722%2025.4722%2C-25.4722c14.07304%2C0%2025.4722%2C11.39915%2025.4722%2C25.4722c0%2C14.07304%20-11.39915%2C25.4722%20-25.4722%2C25.4722c-14.07304%2C0%20-25.4722%2C-11.39915%20-25.4722%2C-25.4722%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E" width="48px"></a>
+</li>
+<li class="header-item header-site-home">
+<a class="header-nav-link" href="./index.html">Didaxy</a>
+</li>
+<div id="header-toggle">🍔</div>
+</ul>
+<ul class="header-nav header-nav-right">
+
+
+<li class="header-item header-collapsable dropdown">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./recent.html">Recent</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./tutorials.html">Tutorials</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./contact.html">Contact</a>
+</li>
+
+
+</ul>
+</nav></p><section class="page-content">
+<p><div class="frame"><div class="tc-tiddler-body tc-reveal"><h1 class="">Let's Learn React</h1><h2 class="">Part 1: Creating Our First App</h2><p><h3 class="tutorial-parts">Part: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react.html">0</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-1.html">  1</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-2.html">  2</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-3.html">  3</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-4.html">  4</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-5.html">  5</a>
+
+</h3></p><h2 class="">Create-React-App</h2><p>Provided you're familiar with <a class="tc-tiddlylink tc-tiddlylink-missing" href="./getting-started-with-node-and-npm.html">Node and NPM</a>, getting a React app up and running couldn't be easier.</p><p>"Create React App" is an NPM package that, unsurprisingly, creates React apps. Most importantly, it creates everything we need to get a working app up and running right away, without needing to configure Webpack.</p><p>Whilst Webpack is a bridge we're going to have to cross eventually, we'd rather not do so at the same time as learning the principles of React itself.</p><p>To install create react app, all we need to do is </p><pre><code>npm install -g create-react-app</code></pre><p>and then, in a suitable place, we can do</p><pre><code>create-react-app myapp
+cd myapp
+npm run start</code></pre><p>Which should start the development server and launch the app in a browser.</p><p>To stop the server, you can press <code>ctrl-c</code>.</p><h2 class="">Building the App</h2><p>To build your app in a way that can be deployed to a real server, you can run the command</p><pre><code>npm run build</code></pre><p>which will create a set of files </p><p>To view the app, we need to run a static server.</p><p>Create-react-app suggests we use <code>serve</code></p><pre><code>npm install -g serve
+  serve -s build</code></pre><p>If you already have a server installed, you can use that instead.</p><p>Note that create-react-app is also using the production build: <a class="tc-tiddlylink-external" href="https://reactjs.org/docs/optimizing-performance.html#use-the-production-build" rel="noopener noreferrer" target="_blank">https://reactjs.org/docs/optimizing-performance.html#use-the-production-build</a></p><h2 class="">Adding as a Github Repo</h2><p>The easiest way to do that is with Github desktop.</p><p>Create react app also tells us, when we build it...</p><pre><code>The project was built assuming it is hosted at the server root.
+To override this, specify the homepage in your package.json.
+For example, add this to build it for GitHub Pages:
+
+  "homepage" : "http://myname.github.io/myapp",</code></pre><p>Let's do that and see if we can get it to deploy as a github pages site right off the bat.</p><p>Once we've added the hompage info, running <code>npm run build</code> gives us this additional information.</p><pre><code>To publish it at https://r1chard5mith.github.io/default_react_app, run:
+
+  npm install --save-dev gh-pages
+
+Add the following script in your package.json.
+
+    // ...
+    "scripts": {
+      // ...
+      "predeploy": "npm run build",
+      "deploy": "gh-pages -d build"
+    }
+
+Then run:
+
+  npm run deploy</code></pre><p>This will fail if you haven't already created the Github repo.</p><p>It may also ask for permission to access a Github token from your keychain.</p><p>The page should go live and you should see the spinning react app.</p><p>Note that the repo needs to be set to use the <code>gh-pages</code> branch (create-react-app is managing this for us)</p><p><a class="tc-tiddlylink-external" href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#github-pages" rel="noopener noreferrer" target="_blank">https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#github-pages</a></p><p>There are also instructions for deploying to Heroku, Netlify, S3, Now and Surge....</p><p>Once we have all that working, we can go back to the original code and start to make our own app from scratch, knowing that it's already configured to be deployed when we're done.</p><p><div class="tutorial-nav">
+<div class="tutorial-next-nav"><p>
+Next: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-2.html">Starting an App from Scratch</a>
+</p></div>
+</div>
+<div class="content-footer-navigation">
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react.html">Start</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tutorials.html">Tutorials</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./contact.html">Contact</a>
+</div></p></div>
+</div>
+</p>
+
+</section><p><footer class="footer">
+<div><div class="content-footer-navigation"><p><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./about.html">About</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tutorials.html">Tutorials</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./contact.html">Contact</a>
+</p></div><p><a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" style="border-width:0"></a></p></div><div>This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank">Creative Commons Attribution 4.0 International License</a>.</div>
+<div>Made with Love in Melbourne, Australia</div>
+
+</footer>
+</p>
+
+
+</body>
+</html>

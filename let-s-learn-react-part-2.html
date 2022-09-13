@@ -1,0 +1,213 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="generator" content="TiddlyWiki" />
+<meta name="tiddlywiki-version" content="5.2.3" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no">
+<link id="faviconLink" rel="shortcut icon" href="./favicon.png">
+<link rel="stylesheet" href="static.css">
+<title>Let's Learn React Part 2: Didaxy.com — Computers and Learning, Tutorials, index, Configurator</title>
+</head>
+<body><p><nav class="header">
+<ul class="header-nav header-nav-left">
+<li class="header-item header-site-logo">
+<a class="header-nav-link" href="./index.html">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22400%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%3C!--%20Created%20with%20SVG-edit%20-%20http%3A%2F%2Fsvg-edit.googlecode.com%2F%20--%3E%0A%0A%20%3Cg%20display%3D%22inline%22%3E%0A%20%20%20%20%3Cpath%20fill%3D%22%23000%22%20fill-rule%3D%22evenodd%22%20stroke%3D%22%23000%22%20stroke-width%3D%226%22%20d%3D%22m158.5%2C150l42%2C-130c0%2C0%2049%2C131%2049%2C131c0%2C0%20135%2C3%20135%2C3c0%2C0%20-109%2C80%20-109%2C80c0%2C0%2041%2C132%2041%2C132c0%2C0%20-93%2C-64%20-93%2C-64c0%2C0%200%2C-73%20-2%2C-74c-2%2C-1%20-32%2C-7%20-34%2C-5c-2%2C2%20-2%2C79%20-2%2C79c0%2C0%20-96%2C66%20-96%2C66c0%2C0%2040%2C-131%2040%2C-131c0%2C0%20-110%2C-86%20-110%2C-86c0%2C0%20139%2C-1%20139%2C-1%0A%0AM179.0278%2C185c0%2C-14.07304%2011.39915%2C-25.4722%2025.4722%2C-25.4722c14.07304%2C0%2025.4722%2C11.39915%2025.4722%2C25.4722c0%2C14.07304%20-11.39915%2C25.4722%20-25.4722%2C25.4722c-14.07304%2C0%20-25.4722%2C-11.39915%20-25.4722%2C-25.4722%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E" width="48px"></a>
+</li>
+<li class="header-item header-site-home">
+<a class="header-nav-link" href="./index.html">Didaxy</a>
+</li>
+<div id="header-toggle">🍔</div>
+</ul>
+<ul class="header-nav header-nav-right">
+
+
+<li class="header-item header-collapsable dropdown">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./recent.html">Recent</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./tutorials.html">Tutorials</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./contact.html">Contact</a>
+</li>
+
+
+</ul>
+</nav></p><section class="page-content">
+<p><div class="frame"><div class="tc-tiddler-body tc-reveal"><h1 class="">Let's Learn React</h1><h2 class="">Part 2: Starting an App from Scratch</h2><p><h3 class="tutorial-parts">Part: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react.html">0</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-1.html">  1</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-2.html">  2</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-3.html">  3</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-4.html">  4</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-5.html">  5</a>
+
+</h3></p><p>Now that we have the default app working, we can follow the React tutorial, which is very good.</p><p>The first thing we do is delete everything in the <code>src</code> folder and add two new files called <code>index.js</code> and <code>index.css</code>.</p><p>The css code we are told to add is</p><pre><code>body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+}
+
+ol, ul {
+  padding-left: 30px;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.square {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-left: 20px;
+}
+</code></pre><p>Note that you can make the elements of the board bigger by altering the CSS. I made the squares bigger by setting their width and height to 100px.</p><p>Th js code looks like this</p><pre><code>import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+
+class Square extends React.Component {
+  render() {
+    return (
+      &lt;button className="square"&gt;
+        {/* TODO */}
+      &lt;/button&gt;
+    );
+  }
+}
+
+class Board extends React.Component {
+  renderSquare(i) {
+    return &lt;Square /&gt;;
+  }
+
+  render() {
+    const status = 'Next player: X';
+
+    return (
+      &lt;div&gt;
+        &lt;div className="status"&gt;{status}&lt;/div&gt;
+        &lt;div className="board-row"&gt;
+          {this.renderSquare(0)}
+          {this.renderSquare(1)}
+          {this.renderSquare(2)}
+        &lt;/div&gt;
+        &lt;div className="board-row"&gt;
+          {this.renderSquare(3)}
+          {this.renderSquare(4)}
+          {this.renderSquare(5)}
+        &lt;/div&gt;
+        &lt;div className="board-row"&gt;
+          {this.renderSquare(6)}
+          {this.renderSquare(7)}
+          {this.renderSquare(8)}
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+class Game extends React.Component {
+  render() {
+    return (
+      &lt;div className="game"&gt;
+        &lt;div className="game-board"&gt;
+          &lt;Board /&gt;
+        &lt;/div&gt;
+        &lt;div className="game-info"&gt;
+          &lt;div&gt;{/* status */}&lt;/div&gt;
+          &lt;ol&gt;{/* TODO */}&lt;/ol&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+// ========================================
+
+ReactDOM.render(
+  &lt;Game /&gt;,
+  document.getElementById('root')
+);
+</code></pre><p>We can see that there are three different components. </p><p>The Square component returns a Button, the Board component returns a Div containing three Divs, each containing 3 Squares.</p><p>The Game component returns a Div with 2 Divs in it, the first has class 'game-board' and contains a single instance of Board.</p><p>The second one contains a 'status' div and an ordered list, both currently empty.</p><p>Note that HTML elements start with a lower-case letter and React elements start with a Capital Letter and are otherwise interchangeable.</p><p>Note that we have to use the attribute "className" instead of "class" - why? (I think because class is reserved and this is not official usage?)</p><p>When trying to understand this, don't be too worried about how it's actually working - remember that React is sitting behind all this running like a black-box and we don't know how it works.</p><h2 class="">Adding Props</h2><p>The two kinds of data that are important in React are "state" which components have and "props" which are given to them.</p><p>First, we're going to pass props into components.</p><p>If we look at the code that we have to begin with, we can see that the Board is rendering itself (in it's all-important 'render' method) by calling another of it's own methods, called "renderSquare" a total of 9 times, each time passing a different value (0-8).</p><p>Render square takes this value as an argument called <code>i</code> but currently doesn't do anything with it. At the moment, all it does is return an instance of "Square", which is another of the classes that we have been given.</p><p>We can pass data from the Board component "down into" the Square component as "props" (properties). To do so, we change the return statement of <code>renderSquare</code> so that it now returns a Square component and passes a prop to it - the value, <code>i</code>.</p><pre><code>    return &lt;Square value={i} /&gt;;
+</code></pre><p>Each Square component renders itself using the Square render method. To begin with, the method returns an empty button element.</p><pre><code>      &lt;button className="square"&gt;
+        {/* TODO */}
+      &lt;/button&gt;</code></pre><p>Note that /* TO DO */ is a comment, and it needs to be wrapped in the braces, otherwise it will break the JSX syntax.</p><p>We can replace it with some content. To render the value of a variable, all we need to do is wrap it in curly braces.</p><pre><code>{this.props.value}</code></pre><p>"this" means, this Square object, "props" is the React-given name for values that we pass down in this way. The props object is created automatically. "value" is the name we just gave to the prop we passed down.</p><h2 class="">Adding State</h2><p>The next type of data we'll add is state.</p><p>State belongs to the component and is internal to it. Components can't access the state of other components.</p><p>State should store information that's relevant only to individual components.</p><p>You could set up this game so that each square knows it's own value.</p><p>In this case, each square would hold state.</p><p>When components have state, it needs to be initialised in a "constructor".</p><p>In general the state constructor will have access to the <code>props</code>.</p><p>In general, we also want to call <code>super()</code> on the class and pass that the props, too.</p><p>To understand this better, we need to learn more about the new Javascript class mechanism (which is just the old class mechanism with shiny new shoes)</p><p>To add a constructor to any class then, we generally always want to do the following:</p><pre><code>constructor(props) {
+  super(props)
+
+}</code></pre><h2 class="">Constructor Snippet in Atom</h2><p>Adding snippets: <a class="tc-tiddlylink-external" href="http://flight-manual.atom.io/using-atom/sections/snippets/" rel="noopener noreferrer" target="_blank">http://flight-manual.atom.io/using-atom/sections/snippets/</a></p><p>We can add our own, to create the constructor 'boilerplate' that we will need each time we declare a new class.</p><p>Choose 'snippets' from the Atom menu, which will open <code>snippets.cson</code>, to which we can add</p><pre><code>'.source.js':
+  'constructor':
+    'prefix': 'construct'
+    'body': 'constructor(props) {\n
+               super(props);\n
+               this.state = {$1,};\n
+             }\n'</code></pre><p>which will then insert the code we want, whenever we complete the word 'constructor', which is sweet.</p><p><a href="https://media.giphy.com/media/l378Bd71EMTaCHvVK/giphy.gif" target="_blank"><img class="giphy-gif" src="https://media.giphy.com/media/l378Bd71EMTaCHvVK/giphy.gif"></a><p class="giphy-caption"></p></p><p>Note: that the 'prefix' you assign to the snippet shouldn't match any existing keywords ('constructor') because, if it does, it appears to over-ride all the existing autocomplete snippets. Not sure.</p><p>The important thing you need to know about state is you can't just change it yourself, you need to change it using the set state method.</p><h2 class="">Click handlers</h2><p>The Square component renders a regular HTML button element as it's only child. We can attach a click handler to that, just as we would in regular HTML.</p><pre><code>      &lt;button className="square" onClick={() =&gt; alert("yo")}&gt;</code></pre><h2 class="">Set State</h2><p>Instead of having it just alert the word "yo", though, we could instead have it call the <code>setState</code> method.</p><p>Instead of having the value rendered from our 'props' object, we render it from our 'state' object. When the button gets clicked, we call setState and change the value from 'null' to 'X'.</p><pre><code>      &lt;button className="square" onClick={() =&gt; this.setState({value: 'X'})}&gt;
+        {this.state.value}
+      &lt;/button&gt;</code></pre><p>Now you should see a blank grid, but whenever you click on one of the squares, an X appears in it.</p><p><div class="tutorial-nav">
+<div class="tutorial-next-nav"><p>
+Next: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react-part-3.html">Lifting State</a>
+</p></div>
+</div>
+<div class="content-footer-navigation">
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./let-s-learn-react.html">Start</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tutorials.html">Tutorials</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./contact.html">Contact</a>
+</div></p></div>
+</div>
+</p>
+
+</section><p><footer class="footer">
+<div><div class="content-footer-navigation"><p><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./about.html">About</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tutorials.html">Tutorials</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./contact.html">Contact</a>
+</p></div><p><a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" style="border-width:0"></a></p></div><div>This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank">Creative Commons Attribution 4.0 International License</a>.</div>
+<div>Made with Love in Melbourne, Australia</div>
+
+</footer>
+</p>
+
+
+</body>
+</html>

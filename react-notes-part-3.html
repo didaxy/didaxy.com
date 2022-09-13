@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="generator" content="TiddlyWiki" />
+<meta name="tiddlywiki-version" content="5.2.3" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no">
+<link id="faviconLink" rel="shortcut icon" href="./favicon.png">
+<link rel="stylesheet" href="static.css">
+<title>React Notes Part 3: Didaxy.com — Computers and Learning, Tutorials, index, Configurator</title>
+</head>
+<body><p><nav class="header">
+<ul class="header-nav header-nav-left">
+<li class="header-item header-site-logo">
+<a class="header-nav-link" href="./index.html">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22400%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%3C!--%20Created%20with%20SVG-edit%20-%20http%3A%2F%2Fsvg-edit.googlecode.com%2F%20--%3E%0A%0A%20%3Cg%20display%3D%22inline%22%3E%0A%20%20%20%20%3Cpath%20fill%3D%22%23000%22%20fill-rule%3D%22evenodd%22%20stroke%3D%22%23000%22%20stroke-width%3D%226%22%20d%3D%22m158.5%2C150l42%2C-130c0%2C0%2049%2C131%2049%2C131c0%2C0%20135%2C3%20135%2C3c0%2C0%20-109%2C80%20-109%2C80c0%2C0%2041%2C132%2041%2C132c0%2C0%20-93%2C-64%20-93%2C-64c0%2C0%200%2C-73%20-2%2C-74c-2%2C-1%20-32%2C-7%20-34%2C-5c-2%2C2%20-2%2C79%20-2%2C79c0%2C0%20-96%2C66%20-96%2C66c0%2C0%2040%2C-131%2040%2C-131c0%2C0%20-110%2C-86%20-110%2C-86c0%2C0%20139%2C-1%20139%2C-1%0A%0AM179.0278%2C185c0%2C-14.07304%2011.39915%2C-25.4722%2025.4722%2C-25.4722c14.07304%2C0%2025.4722%2C11.39915%2025.4722%2C25.4722c0%2C14.07304%20-11.39915%2C25.4722%20-25.4722%2C25.4722c-14.07304%2C0%20-25.4722%2C-11.39915%20-25.4722%2C-25.4722%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E" width="48px"></a>
+</li>
+<li class="header-item header-site-home">
+<a class="header-nav-link" href="./index.html">Didaxy</a>
+</li>
+<div id="header-toggle">🍔</div>
+</ul>
+<ul class="header-nav header-nav-right">
+
+
+<li class="header-item header-collapsable dropdown">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./recent.html">Recent</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./tutorials.html">Tutorials</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./contact.html">Contact</a>
+</li>
+
+
+</ul>
+</nav></p><section class="page-content">
+<p><div class="frame"><div class="tc-tiddler-body tc-reveal"><h1 class="">React Notes</h1><h2 class="">Part 3: Events</h2><p><h3 class="tutorial-parts">Part: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes.html">0</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-1.html">  1</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-2.html">  2</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-3.html">  3</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-4.html">  4</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-5.html">  5</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-6.html">  6</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-7.html">  7</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-8.html">  8</a>
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-9.html">  9</a>
+
+</h3></p><ul><li>React events are named using camelCase, rather than lowercase.</li><li>With JSX you pass a function as the event handler, rather than a string.</li></ul><p>For example, the HTML:</p><pre><code>&lt;button onclick="activateLasers()"&gt;
+  Activate Lasers
+&lt;/button&gt;</code></pre><p>is slightly different in React:</p><pre><code>&lt;button onClick={activateLasers}&gt;
+  Activate Lasers
+&lt;/button&gt;</code></pre><h2 class="">Prevent Default</h2><p>Did you know that you can prevent the default click behaviour in a regular javascript event by returning <code>false</code> from your handler?</p><p>You can't do that in React. You need to call <code>preventDefault</code> explicitly.</p><h2 class="">Synthetic Events</h2><p>React is wrapping the browser events in its own wrapper so that they are identical, regardless of which browser you are using.</p><p>You won't generally need to <code>addEventListener</code> because you will add the handler when you create the component.</p><p>It is common for the handler functions to be methods on the class that defines the component.</p><p>It is common for the handler methods to follow a standard naming pattern. ie; <code>this.handleClick</code> etc.</p><h2 class="">Binding</h2><p>By default, in Javascript, class methods are not bound.</p><p>This means that they don't have their <code>this</code> value set to the instance that you are working with, unless you explicitly bind it.</p><p>The commonest way to do this is to bind it by default in the constructor.</p><pre><code>    this.handleClick = this.handleClick.bind(this);</code></pre><p>"Generally, if you refer to a method without () after it, such as onClick={this.handleClick}, you should bind that method."</p><p>NB: I would like to learn more about this. <a class="tc-tiddlylink-external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind" rel="noopener noreferrer" target="_blank">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind</a></p><h2 class="">Binding</h2><p>This example from the MDN link above shows pretty well what's going on.</p><pre><code>this.x = 9;    // this refers to global "window" object here in the browser
+var module = {
+  x: 81,
+  getX: function() { return this.x; }
+};
+
+module.getX(); // 81
+
+var retrieveX = module.getX;
+retrieveX();   
+// returns 9 - The function gets invoked at the global scope
+
+// Create a new function with 'this' bound to module
+// New programmers might confuse the
+// global var x with module's property x
+var boundGetX = retrieveX.bind(module);
+boundGetX(); // 81</code></pre><h2 class="">Other Ways</h2><p>We could also use the "public class fields" syntax, which looks like this</p><pre><code>class LoggingButton extends React.Component {
+  // This syntax ensures `this` is bound within handleClick.
+  // Warning: this is *experimental* syntax.
+  handleClick = () =&gt; {
+    console.log('this is:', this);
+  }
+...</code></pre><p>This is experimental, and you can read more about it here: <a class="tc-tiddlylink-external" href="https://babeljs.io/docs/plugins/transform-class-properties/" rel="noopener noreferrer" target="_blank">https://babeljs.io/docs/plugins/transform-class-properties/</a></p><p>It seems to only be available in Babel. It is included in create-react-app.</p><p>The other way to solve this is using arrow functions in the callback,</p><pre><code>      &lt;button onClick={(e) =&gt; this.handleClick(e)}&gt;</code></pre><p>"The problem with this syntax is that a different callback is created each time the LoggingButton renders. In most cases, this is fine. However, if this callback is passed as a prop to lower components, those components might do an extra re-rendering. We generally recommend binding in the constructor or using the class fields syntax, to avoid this sort of performance problem."</p><h2 class="">Passing Additional Parameters</h2><pre><code>&lt;button onClick={(e) =&gt; this.deleteRow(id, e)}&gt;Delete Row&lt;/button&gt;
+&lt;button onClick={this.deleteRow.bind(this, id)}&gt;Delete Row&lt;/button&gt;</code></pre><p>The above two lines are equivalent, and use arrow functions and Function.prototype.bind respectively.</p><p><div class="tutorial-nav">
+<div class="tutorial-next-nav"><p>
+Next: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes-part-4.html">Conditionals</a>
+</p></div>
+</div>
+<div class="content-footer-navigation">
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="./react-notes.html">Start</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tutorials.html">Tutorials</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./contact.html">Contact</a>
+</div></p></div>
+</div>
+</p>
+
+</section><p><footer class="footer">
+<div><div class="content-footer-navigation"><p><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./about.html">About</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tutorials.html">Tutorials</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./contact.html">Contact</a>
+</p></div><p><a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" style="border-width:0"></a></p></div><div>This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank">Creative Commons Attribution 4.0 International License</a>.</div>
+<div>Made with Love in Melbourne, Australia</div>
+
+</footer>
+</p>
+
+
+</body>
+</html>

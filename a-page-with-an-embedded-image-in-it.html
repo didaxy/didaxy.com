@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="generator" content="TiddlyWiki" />
+<meta name="tiddlywiki-version" content="5.2.3" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no">
+<link id="faviconLink" rel="shortcut icon" href="./favicon.png">
+<link rel="stylesheet" href="static.css">
+<title>A Page With An Embedded Image In It: Didaxy.com — Computers and Learning, Tutorials, index, Configurator</title>
+</head>
+<body><p><nav class="header">
+<ul class="header-nav header-nav-left">
+<li class="header-item header-site-logo">
+<a class="header-nav-link" href="./index.html">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22400%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%3C!--%20Created%20with%20SVG-edit%20-%20http%3A%2F%2Fsvg-edit.googlecode.com%2F%20--%3E%0A%0A%20%3Cg%20display%3D%22inline%22%3E%0A%20%20%20%20%3Cpath%20fill%3D%22%23000%22%20fill-rule%3D%22evenodd%22%20stroke%3D%22%23000%22%20stroke-width%3D%226%22%20d%3D%22m158.5%2C150l42%2C-130c0%2C0%2049%2C131%2049%2C131c0%2C0%20135%2C3%20135%2C3c0%2C0%20-109%2C80%20-109%2C80c0%2C0%2041%2C132%2041%2C132c0%2C0%20-93%2C-64%20-93%2C-64c0%2C0%200%2C-73%20-2%2C-74c-2%2C-1%20-32%2C-7%20-34%2C-5c-2%2C2%20-2%2C79%20-2%2C79c0%2C0%20-96%2C66%20-96%2C66c0%2C0%2040%2C-131%2040%2C-131c0%2C0%20-110%2C-86%20-110%2C-86c0%2C0%20139%2C-1%20139%2C-1%0A%0AM179.0278%2C185c0%2C-14.07304%2011.39915%2C-25.4722%2025.4722%2C-25.4722c14.07304%2C0%2025.4722%2C11.39915%2025.4722%2C25.4722c0%2C14.07304%20-11.39915%2C25.4722%20-25.4722%2C25.4722c-14.07304%2C0%20-25.4722%2C-11.39915%20-25.4722%2C-25.4722%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E" width="48px"></a>
+</li>
+<li class="header-item header-site-home">
+<a class="header-nav-link" href="./index.html">Didaxy</a>
+</li>
+<div id="header-toggle">🍔</div>
+</ul>
+<ul class="header-nav header-nav-right">
+
+
+<li class="header-item header-collapsable dropdown">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./recent.html">Recent</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./tutorials.html">Tutorials</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./contact.html">Contact</a>
+</li>
+
+
+</ul>
+</nav></p><section class="page-content">
+<p><div class="frame"><div class="tc-tiddler-body tc-reveal"><h2 class="">Smaller Images</h2><p>SVGs are really cool and I'm personally nerdy enough to consider whether I might be able to make a site with jsut svgs but the reality is they can't do everything.</p><h2 class="">Embedding an Image From Elsewhere</h2><p>Embedding an image from somewhere on the internet is easy</p><h2 class="">Serving Your Own Images and Embedding Them</h2><p>Put your images somewhere that they get served in the same way that other images on the net are and it's equally easy to embed them.</p><p>I'm going to show you how to put your static site on Neocities and I'm using it as my image host at the moment but note that they advertise "hotlinking" (embedding) as being available only on the ($5/mo) supporter plan. It does <em>seem</em> to work on the free plan (for now).</p><p>There are about a million different places you could host your images and they all have pros and cons. Some are free and some are very expensive. Good luck.</p><p>All I need to do is make a folder at neocities called images and put my image into it. I can get it's full URL (<a class="tc-tiddlylink-external" href="https://didaxy.neocities.org/images/noah2.png" rel="noopener noreferrer" target="_blank">https://didaxy.neocities.org/images/noah2.png</a>) by clicking through to it and then I can embed it as an image, like this</p><p><center>
+<img class="article-image" src="https://didaxy.neocities.org/images/noah2.png" width="60%">
+</center></p><h2 class="">Images In Tiddlywiki</h2><p>So far we've seen how to embed an image tiddler and have it inlined into our static page and how to link to an external image by URL.</p><p>The latter method is better, and we can get by using it if we have to but it would be better if we could still use Tiddlywiki to manage our images as tiddlers whilst referring to them as external resources. There is a way!</p><p>We can create the image tiddler as normal by importing an image. But then we set the <code>_canonical_uri</code> field of the tiddler and, instead of loading it's own content, it points the url we gave it.</p><p>There is documentation about external images at <a class="tc-tiddlylink-external" href="http://tiddlywiki.com/#ExternalImages" rel="noopener noreferrer" target="_blank">http://tiddlywiki.com/#ExternalImages</a> that explains how to export all of your images.</p><p>I made a plugin available that can help you to manage the 'root' of the <code>_canonical_uri</code> field for all of your tiddlers, as well as providing an interface for exporting the images, which I personally prefer over running bulk operations. </p><p>The plugin aims to provide a graphical interface for the steps outlines in the Tiddlywiki documentation and crucially allows you to check that the <code>_canonical_uri</code> field is pointing to a live image before deleting the body of the tiddler. </p><p>Once an image tiddler is "fully external" you can still change the relative path of all your images to <code>some/new/url</code> meaning you can develop locally with your images on a simple http server and then copy them to your host of choice, provided they remain in the same relationship and can still be referred to by the scheme <code>"some/new/url/" + filename.ext</code></p><h2 class="">A Word Of Warning</h2><p>I suspect that there might be a way to make sure that the static site generator doesn't allow inlined images like we discussed above, and I'll update this when I get a chance to do some research. For now, you need to make sure you don't accidentally leave any inlined images. The giveaway will be unusually huge html files.</p><p>If you're deploying your static site to a host manually, by a web interface eg; neocities or by ftp, you should keep an on the size of your html files, ensuring there are no big ones. Of course, if you find one, the problem is easy to fix using the methods outlined above.</p><p>If you decide to use Git as part of your deploy pipeline, as we will detail for deployment to Github and Netlify, you need to be especially vigilant, because if you accidentally commit images to your Git repository, whether they're embedded or not, it will quickly balloon in size.</p><p>Not only that but, because Git is supposed to remember the state of your project at all points in time, even if you take the images out again, the repo won't get any smalller. </p><p>If you do accidentally commit big resources to Git then Google may be your friend, but the intricacies of Git have reduced grown adults to tears so you may be better off starting a new Git repo and losing the history.</p></div>
+</div>
+</p>
+
+</section><p><footer class="footer">
+<div><div class="content-footer-navigation"><p><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./about.html">About</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tutorials.html">Tutorials</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./contact.html">Contact</a>
+</p></div><p><a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" style="border-width:0"></a></p></div><div>This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank">Creative Commons Attribution 4.0 International License</a>.</div>
+<div>Made with Love in Melbourne, Australia</div>
+
+</footer>
+</p>
+
+
+</body>
+</html>

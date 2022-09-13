@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="generator" content="TiddlyWiki" />
+<meta name="tiddlywiki-version" content="5.2.3" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no">
+<link id="faviconLink" rel="shortcut icon" href="./favicon.png">
+<link rel="stylesheet" href="static.css">
+<title>Introduction to Tiddlyserver: Didaxy.com — Computers and Learning, Tutorials, index, Configurator</title>
+</head>
+<body><p><nav class="header">
+<ul class="header-nav header-nav-left">
+<li class="header-item header-site-logo">
+<a class="header-nav-link" href="./index.html">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22400%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%3C!--%20Created%20with%20SVG-edit%20-%20http%3A%2F%2Fsvg-edit.googlecode.com%2F%20--%3E%0A%0A%20%3Cg%20display%3D%22inline%22%3E%0A%20%20%20%20%3Cpath%20fill%3D%22%23000%22%20fill-rule%3D%22evenodd%22%20stroke%3D%22%23000%22%20stroke-width%3D%226%22%20d%3D%22m158.5%2C150l42%2C-130c0%2C0%2049%2C131%2049%2C131c0%2C0%20135%2C3%20135%2C3c0%2C0%20-109%2C80%20-109%2C80c0%2C0%2041%2C132%2041%2C132c0%2C0%20-93%2C-64%20-93%2C-64c0%2C0%200%2C-73%20-2%2C-74c-2%2C-1%20-32%2C-7%20-34%2C-5c-2%2C2%20-2%2C79%20-2%2C79c0%2C0%20-96%2C66%20-96%2C66c0%2C0%2040%2C-131%2040%2C-131c0%2C0%20-110%2C-86%20-110%2C-86c0%2C0%20139%2C-1%20139%2C-1%0A%0AM179.0278%2C185c0%2C-14.07304%2011.39915%2C-25.4722%2025.4722%2C-25.4722c14.07304%2C0%2025.4722%2C11.39915%2025.4722%2C25.4722c0%2C14.07304%20-11.39915%2C25.4722%20-25.4722%2C25.4722c-14.07304%2C0%20-25.4722%2C-11.39915%20-25.4722%2C-25.4722%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E" width="48px"></a>
+</li>
+<li class="header-item header-site-home">
+<a class="header-nav-link" href="./index.html">Didaxy</a>
+</li>
+<div id="header-toggle">🍔</div>
+</ul>
+<ul class="header-nav header-nav-right">
+
+
+<li class="header-item header-collapsable dropdown">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./recent.html">Recent</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./tutorials.html">Tutorials</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./contact.html">Contact</a>
+</li>
+
+
+</ul>
+</nav></p><section class="page-content">
+<p><div class="frame"><div class="tc-tiddler-body tc-reveal"><h1 class="">Tiddlyserver</h1><h2 class="">Introduction</h2><p>The impending <a class="tc-tiddlylink-external" href="https://support.mozilla.org/en-US/kb/firefox-add-technology-modernizing" rel="noopener noreferrer" target="_blank">extension-pocalypse that is Firefox 57</a> will mean the end of the Tiddlyfox saver add-on for Tiddlywiki. Goodnight sweet prince.</p><p>Fortunately, we already have a replacement, thanks to the awesome work of Arlen Beiler, who has given us <a class="tc-tiddlylink-external" href="https://github.com/Arlen22/TiddlyServer" rel="noopener noreferrer" target="_blank">Tiddlyserver</a>.</p><p>The unfortunate thing is that, for now at least, we probably still need a command-line/terminal (though maybe not!).</p><p>At the moment, we also need to use a text editor to edit and rename a configuration file. This is sub-optimal, but we can do it!</p><p>The instructions given by Arlen are very thorough, but still quite technical. I'd like to try and boil it down a little bit.</p><p>The basic steps are as follows</p><ol><li>Install Node.js</li><li>Download and Unzip Tiddlyserver</li><li>Edit the settings file</li><li>Run the Server </li></ol><h2 class="">What You'll Get</h2><p>What you get for the trouble of setting up and running Tiddlyserver is an in-browser file-explorer that lets you navigate to your single file wikis and use them with auto-save. You can also navigate to directories that contain <code>Tiddlywiki.info</code> files and the Node.js server will start.</p><p>This is a big win for both those who wish to keep using the single-files for convenience and also for those who prefer the Node configuration, because now they won't need a separate instance/port for each wiki.</p><p>If you use Tiddlywiki on a machine connected to a local network, another potential benefit is that you can allow access to the server from other machines on the network, meaning for example that you will be able to edit your wikis on a phone or tablet.</p><h2 class="">What You Need</h2><p>You need to install Node.js, which you can do just like any other app, from here: <a class="tc-tiddlylink-external" href="https://nodejs.org" rel="noopener noreferrer" target="_blank">https://nodejs.org</a> (the LTS, "Long Term Support" version will be best for most people)</p><p>Then you need to download and install Tiddlyserver itself. To do so, go here: <a class="tc-tiddlylink-external" href="https://github.com/Arlen22/TiddlyServer/releases" rel="noopener noreferrer" target="_blank">https://github.com/Arlen22/TiddlyServer/releases</a> and download the most recent <strong>bundled zip</strong> file (currently TiddlyServer-2.0.6-bundled.zip). Once you have the file, unzip it.</p><p><a href="https://media.giphy.com/media/3ov9k1qxcwDgMzVPOM/giphy.gif" target="_blank"><img class="giphy-gif" src="https://media.giphy.com/media/3ov9k1qxcwDgMzVPOM/giphy.gif"></a><p class="giphy-caption"></p></p><h2 class="">Settings</h2><p>Now we need to create a file called <code>settings.json</code> in the directory we just downlaoded.</p><p>You can either follow the steps and reasoning outlined below, or skip to the next section to see what the final contents of <code>settings.json</code> might be.</p><p>In the folder you just created, you can find the file <code>example-settings.json</code> and open it in an editor. </p><p>If you don't normally use an editor, you probably nevertheless have one installed and 'double-clicking' the file may well open it in a suitable app that shouldn't be too hard to use.</p><p>We need to change a lot of things in this file. To begin with, it looks like this:</p><pre><code>{
+    // all comments need to be removed from this file
+    "tree": {
+        "dropbox": "C:\\Users\\Someone\\Dropbox\\TiddlyWiki",
+        "tiddlywiki": "C:\\TiddlyWiki5-5.1.14",
+        "relative": "../relative_to_settings_file",
+        "branch": {
+            "twig1": "C:/Some Folder",
+            "twig2": "C:/Some Other Folder"
+        }
+    },
+    //this is the default value if types is not specified
+    //this only applies to the directory listing
+    //specifies file extensions for each icon in the files folder
+    "types":{
+        "htmlfile": ["htm", "html"]
+    },
+    "username": "",
+    "password": "",
+    //127.0.0.1 (the default) serves on localhost, 0.0.0.0 serves on all network connections.
+    "host": "127.0.0.1",
+    "port": 8080,
+    //remove or set to an empty string to disable backups when saving single-file wikis
+    "backupDirectory": "backup"
+}</code></pre><p><a href="https://media.giphy.com/media/xT9IgvdT4fN78Nw1vG/giphy.gif" target="_blank"><img class="giphy-gif" src="https://media.giphy.com/media/xT9IgvdT4fN78Nw1vG/giphy.gif"></a><p class="giphy-caption"></p></p><p>As it says, we need to remove all the comments. </p><p>We also need to change the entries in the 'tree' at the top to match the places on our filing system we want to serve files from.</p><p>If we want to serve files to the whole network, we should change <code>127.0.0.1</code> to <code>0.0.0.0</code> (we've done this below but you can leave it as <code>127.0.0.1</code> if you want to restrict access to just your own machine).</p><p>If we want to, we can change the port number to something else (if you don't know what this means, there's very little chance you would need to change it).</p><p><strong>Important:</strong> We also need to make sure that the <code>backupDirectory</code> entry points to a directory that actually exists, or we'll get a silent error.</p><p>If you don't want a backup directory at all leave the value blank, as shown in the listing below, otherwise you can enter an absolute path (such as /Users/didaxy/backups) or a path relative to the Tiddlyserver folder you downloaded (eg; if there's a folder inside the Tiddlyserver folder called 'backups', the value would be "./backups" or just "backups".</p><p>Once we've made the changes we need to save this file with a different name (usually 'save as' or similar'). It needs to be called <code>settings.json</code>.</p><p>The result should look like this looks like this:</p><h2 class="">settings.json</h2><pre><code>{
+    "tree": {
+        "mac_everybody": "/Users",
+        "windows_everybody": "C:\\Users"
+    },
+    "types":{
+        "htmlfile": ["htm", "html"]
+    },
+    "username": "",
+    "password": "",
+    "host": "0.0.0.0",
+    "port": 8080,
+    "backupDirectory": ""
+}</code></pre><p>Note that the only difference between Windows and Unix/Mac is the style of the paths. I've included an example of each here, you should delete the one that doesn't apply.</p><p>You can add as many entries as you like and they can be nested too, as shown in <code>example-settings.json</code>, but they don't need to be. The simplest configuration is a single entry.</p><h2 class="">Running Tiddlyserver</h2><p>Now we can run Tiddlyserver. </p><p>I <em>think</em> that if you're using Windows(tm), you should be able to double-click <code>start.cmd</code> and the process should run. (is that right?)</p><p>If you're using a Mac, a similar mechanism is also possible, but the file you need isn't included yet (I sent a pull request: Hi Arlen!)</p><h2 class="">Using the Command Line</h2><p>To run the app from the command line, you need to open the terminal and navigate to the directory you downloaded. If you're not used to using the command line at all, this is where it could all get a bit tricky. I'm trying to write <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./a-crash-course-in-the-mac-terminal.html">A Crash Course in the Mac Terminal</a> to try and help people get to grips with it, but it's currently incomplete.</p><p>You don't need to know much but you need to figure out how to get to wherever the folder is that you downloaded.</p><p>When you open the terminal, you will probably be in your own home directory. You can check by typing <code>pwd</code>. If you downloaded Tiddlyserver into your Downloads folder, you could get there by typing <code>cd /Downloads</code> where you could <code>ls</code> the contents of the folder and you should see the Tiddlyserver folder in the listing. Then you can <code>cd Tiddlyserver</code> to get into Tiddlyserver folder. To change directories back to your home directory, you could do just <code>cd</code>. To jump straight back to the Tiddlyserver folder, from anywhere, you could type <code>cd ~/Downloads/Tiddlyserver</code>, where <code>~</code> is a special character that always means "your home directory".</p><p>Once you're in the Tiddlyserver folder, to start your server, you can type;</p><pre><code>node server</code></pre><p><a href="https://media.giphy.com/media/3ohhwuu1SpXqwP9vaM/giphy.gif" target="_blank"><img class="giphy-gif" src="https://media.giphy.com/media/3ohhwuu1SpXqwP9vaM/giphy.gif"></a><p class="giphy-caption"></p></p><p>You should see a message in your terminal, telling you that Tiddlyserver has started. It will give you the ip address and port that it's running on, which you can enter in the address bar of your browser to see the main file-explorer view. </p><h2 class="">Using Tiddlyserver</h2><p>You should see each of the entry points that you defined in <code>settings.json</code> listed as clickable links that will let you navigate just like in the regular explorer/finder.</p><p>Note that you can now open this address in as many different browser tabs as you like (and in any browser).</p><p>Opening a folder that contains a <code>Tiddlywiki.info</code> file (ie; one that has been previously initialised using <code>tiddlywiki --init server</code>) will launch the Node server.</p><p>Opening a single-file Tiddlywiki instance will open it as you would expect. When you open one for the first time, you should check that you're able to save changes.</p><h2 class="">The 'Bookmarklet'</h2><p>You only need the bookmarklet if the path to your files contains spaces or the % sign. It's patching a bug in Tiddlywiki's 'put saver' that will be patched in the next release.</p><p>You can drag the link from the bottom of the file-explorer view of Tiddlyserver to your bookmarks bar and then, when you open a wiki that has spaces in the path, click that bookmark and a snippet of Javascript that fixes the problem will run</p><p>It's better, in general, avoid having file paths that contain spaces :-)</p><p><a href="https://media.giphy.com/media/xT9IgEkE3EP8A7Auhq/giphy.gif" target="_blank"><img class="giphy-gif" src="https://media.giphy.com/media/xT9IgEkE3EP8A7Auhq/giphy.gif"></a><p class="giphy-caption"></p></p><h2 class="">Stopping and Restarting</h2><p>To stop Tiddlyserver, you can press 'ctrl-c' in the terminal. If you want to start it again, you can retype the command, or press the up arrow key to go back through the history to find it again and press return.</p><p>The server is running as a process in your terminal 'session' and if you close the terminal, Tiddlyserver will end. This is generally the easiest behaviour to manage but if need the server to run with the terminal closed, you can add a " &amp;" to the command (ie; <code>node server &amp;</code> which will run it in the background (and give you a process number which identifies it). You'll then need to manually stop it when you need to, using <code>sudo kill #</code>, where # is the number of the process (find it in the listing from <code>pas aux | grep server</code> if you forgot it).</p><h2 class="">Summary</h2><p>Tiddlyserver isn't very difficult to install today. It's really useful and so far seems very stable.</p><p>For most people looking for a solution to the end of Tiddlyfox, this is probably the best option.</p><p>Having said that, it isn't yet the perfect solution for everyone and we can still make it easier to use.</p><h2 class="">Future Developments</h2><p>These are just my thoughts on what might make this better.</p><ul><li>An app launcher for Mac, a 'better' launcher for Windows (icons etc.)</li><li>Maybe pack the whole thing along with node as a single downloadable? - (<a class="tc-tiddlylink-external" href="https://github.com/nexe/nexe" rel="noopener noreferrer" target="_blank">https://github.com/nexe/nexe</a> ?)</li><li>Add a default 'settings.json' to the repo that works so that it can be launched without needing to create it first.</li><li>Ability to change configuration (and reboot, which is probably the hard part?) from inside the interface</li><li>Ability to add new files and folders from within the interface - bonus points if it can instantiate server editions too</li></ul><h2 class="">Congratulations</h2><p>Congratulations must go to <a class="tc-tiddlylink-external" href="https://github.com/Arlen22" rel="noopener noreferrer" target="_blank">Arlen Beiler</a> for what I really feel is a very good piece of work, which will become an important part of the Tiddlywiki ecosystem.</p><h2 class="">Credits</h2><p>With thanks to Arlen for further clarifications and patient explanations, and to @JWHoneycutt and @Birthe C for their <a class="tc-tiddlylink-external" href="https://groups.google.com/forum/#!topic/tiddlywiki/smqQEGcvsYY" rel="noopener noreferrer" target="_blank">feedback</a>. Any further suggestions will be gratefully received. </p></div>
+</div>
+</p>
+
+</section><p><footer class="footer">
+<div><div class="content-footer-navigation"><p><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./about.html">About</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tutorials.html">Tutorials</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./contact.html">Contact</a>
+</p></div><p><a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" style="border-width:0"></a></p></div><div>This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank">Creative Commons Attribution 4.0 International License</a>.</div>
+<div>Made with Love in Melbourne, Australia</div>
+
+</footer>
+</p>
+
+
+</body>
+</html>

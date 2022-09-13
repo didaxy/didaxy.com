@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="generator" content="TiddlyWiki" />
+<meta name="tiddlywiki-version" content="5.2.3" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no">
+<link id="faviconLink" rel="shortcut icon" href="./favicon.png">
+<link rel="stylesheet" href="static.css">
+<title>Node, Express, Heroku and Mongo with Social Auth Part 2: Didaxy.com — Computers and Learning, Tutorials, index, Configurator</title>
+</head>
+<body><p><nav class="header">
+<ul class="header-nav header-nav-left">
+<li class="header-item header-site-logo">
+<a class="header-nav-link" href="./index.html">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22400%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%3C!--%20Created%20with%20SVG-edit%20-%20http%3A%2F%2Fsvg-edit.googlecode.com%2F%20--%3E%0A%0A%20%3Cg%20display%3D%22inline%22%3E%0A%20%20%20%20%3Cpath%20fill%3D%22%23000%22%20fill-rule%3D%22evenodd%22%20stroke%3D%22%23000%22%20stroke-width%3D%226%22%20d%3D%22m158.5%2C150l42%2C-130c0%2C0%2049%2C131%2049%2C131c0%2C0%20135%2C3%20135%2C3c0%2C0%20-109%2C80%20-109%2C80c0%2C0%2041%2C132%2041%2C132c0%2C0%20-93%2C-64%20-93%2C-64c0%2C0%200%2C-73%20-2%2C-74c-2%2C-1%20-32%2C-7%20-34%2C-5c-2%2C2%20-2%2C79%20-2%2C79c0%2C0%20-96%2C66%20-96%2C66c0%2C0%2040%2C-131%2040%2C-131c0%2C0%20-110%2C-86%20-110%2C-86c0%2C0%20139%2C-1%20139%2C-1%0A%0AM179.0278%2C185c0%2C-14.07304%2011.39915%2C-25.4722%2025.4722%2C-25.4722c14.07304%2C0%2025.4722%2C11.39915%2025.4722%2C25.4722c0%2C14.07304%20-11.39915%2C25.4722%20-25.4722%2C25.4722c-14.07304%2C0%20-25.4722%2C-11.39915%20-25.4722%2C-25.4722%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E" width="48px"></a>
+</li>
+<li class="header-item header-site-home">
+<a class="header-nav-link" href="./index.html">Didaxy</a>
+</li>
+<div id="header-toggle">🍔</div>
+</ul>
+<ul class="header-nav header-nav-right">
+
+
+<li class="header-item header-collapsable dropdown">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./recent.html">Recent</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./tutorials.html">Tutorials</a>
+</li>
+
+
+
+<li class="header-item header-collapsable ">
+<a class="tc-tiddlylink tc-tiddlylink-resolves header-nav-link" href="./contact.html">Contact</a>
+</li>
+
+
+</ul>
+</nav></p><section class="page-content">
+<p><div class="frame"><div class="tc-tiddler-body tc-reveal"><p>This is the actual app, mine is called <code>authbase.js</code>, yours can be anything you like (some tutorials stick to a convention of calling this <code>app.js</code> or <code>server.js</code> but I prefer it to be descriptive):</p><pre><code>//authbase.js
+require('dotenv').config()
+
+var express = require('express');
+
+var app = express();
+
+//view engine
+app.set('view engine', 'ejs');
+
+app.listen(process.env.PORT ||3000, () =&gt; {
+  console.log('listening on 3000')
+})
+
+app.get('/', (req, res) =&gt; {
+  res.render('index.ejs', {host: req.headers.host, envtest: process.env.TEST})
+})
+</code></pre><p>This is the <code>index.ejs</code> template - it goes in a folder called <code>views</code>, which should be alongside <code>authbase.js</code>. </p><p>You could serve a plain HTML page instead of a template but I'm going to use them later and doing this allows a simple check that everything is working (I find it satisfying to see some kind of result come back, so I'm getting the page to tell us what it's url is - when we get it on Heroku, that will be satisfying)</p><p>There are two pieces of data rendered through this template - the address of the server hosting the page and the content of our secret TEST variable. Obviously, when we have real secrets in our .env file, we won't be rendering them at all, but doing this allows us to check that everything is working as expected.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Node app on Heroku with Mongo Backend and Twitter-auth&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;h1&gt;Authentication Demonstration&lt;/h2&gt;
+  &lt;p&gt;This will be a Heroku app backed by mongoDB on mLab, with Twitter authentication.&lt;/p&gt;
+  &lt;p&gt;The url of this page is &lt;span&gt;&lt;%= host %&gt;&lt;/span&gt;&lt;/p&gt;
+  &lt;p&gt;dotEnv says: &lt;%= envtest %&gt;&lt;/p&gt;
+
+
+  &lt;div&gt;
+    &lt;h3&gt;Credits&lt;/h3&gt;
+    &lt;p&gt;Made with love by &lt;a href="www.r1chard5mith.com" title="link to my personal home page"&gt;Richard Smith&lt;/a&gt; as part of &lt;a href="https://www.freecodecamp.com" title="link to free code camp home page"&gt;Free Code Camp&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;See the code on &lt;a href="https://github.com/r1chard5mith/authbase"&gt;Github&lt;/a&gt;.&lt;/p&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre><p>Notice that I can already include a link back to the project on Github. I do this mostly so it's easy for me to retrace my own steps in the future.</p><p>You should now be able to do <code>node newtodos.js</code> and see your app running at <code>http://localhost:3000</code>.</p><p>NB: I clearly need to go into more detail here about how to run the app locally and actually develop this code.</p><h2 class="">Push to Heroku</h2><p>If our app works, we can push it to Heroku, right.</p><p>Yes. But first, we need one more file. Heroku uses a file called <code>Procfile</code> to tell it how to run your app. This is what <code>Procfile</code> should look like.</p><pre><code>web: node ./authbase.js</code></pre><p><code>Procfile</code> should be alongside <code>authbase.js</code> (note - swap authbase.js for your app name wherever applicable)</p><p>Now we can commit our changes to git, push them to github and deploy to heroku. This is good.</p><p>If we use Github desktop it does steps one and two for us and we only need to worry about Github.</p><p>Using the command line to update is also simple assuming github is already added as a remote (it's already in github desktop) just do</p><pre><code>git add *
+git commit -m "your message goes here"
+git push
+
+</code></pre><p>for the heroku part, do</p><pre><code>git push heroku master
+heroku open
+</code></pre><p>You should hopefully now see your app running live on Heroku, including displaying it's own URL, which shows us that the internals of our Node app are working right.</p><p>What you won't see is the message from Dotenv telling us that it's working - because it isn't. Just as we wanted, our .env file is being excluded from our git workflow, so Heroku doesn't have access to it. Happily, however, nothing breaks because of this lack - dotenv just gets ignored.</p><p>To tell heroku about our secrets, we need to use the CLI</p><pre><code>  532  git push heroku master
+  533  heroku open
+  534  git push heroku master
+  535  heroku config:set TEST="hello"
+  536  heroku config:set TEST="hello from heroku"
+  537  history</code></pre><p>now run your app again and you should see "dotEnv says: hello from heroku"</p></div>
+</div>
+</p>
+
+</section><p><footer class="footer">
+<div><div class="content-footer-navigation"><p><a class="tc-tiddlylink tc-tiddlylink-resolves" href="./about.html">About</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./tutorials.html">Tutorials</a> | <a class="tc-tiddlylink tc-tiddlylink-resolves" href="./contact.html">Contact</a>
+</p></div><p><a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" style="border-width:0"></a></p></div><div>This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license" target="_blank">Creative Commons Attribution 4.0 International License</a>.</div>
+<div>Made with Love in Melbourne, Australia</div>
+
+</footer>
+</p>
+
+
+</body>
+</html>
