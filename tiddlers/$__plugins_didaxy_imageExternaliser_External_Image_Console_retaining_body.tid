@@ -1,0 +1,63 @@
+caption: Retaining Body
+created: 20151019103329083
+modified: 20171101080610717
+tags: $:/plugins/didaxy/imageExternaliser/External_Image_Console
+title: $:/plugins/didaxy/imageExternaliser/External_Image_Console_retaining_body
+type: text/vnd.tiddlywiki
+
+<$set variable="canonicalRoot" value={{$:/plugins/didaxy/imageExternaliser/External_Image_Console!!_canonical_root}}>
+
+!!Images 
+<<removeCanonicalUrisImagesButton>><<addCanonicalUrisRetainingBodyImagesButton>> <<deleteBodyTexImages>>
+<table>
+<$list filter={{$:/plugins/didaxy/imageExternaliser/filters/retaining_body_images}}>
+<tr>
+<td valign="top">
+<<revealCanonicalInline>>
+</td>
+<td>
+<$link>{{!!title}}</$link><br>{{!!_canonical_uri}}
+</td>
+<td>
+<<externaliseImageButton>>
+</td>
+<td>
+<<removeCanonicalUriButton>>
+</td>
+<td>
+<<addCanonicalUriImageButton>>
+</td>
+<td>
+<<deleteBodyText>>
+</td>
+</tr>
+
+</$list>
+</table>
+
+!!PDFs
+<<addCanonicalUrisRetainingBodyPdfButton>> <<removeCanonicalUrisPdfsButton>> <<addCanonicalUrisRetainingBodyPdfsButton>>
+<<deleteBodyTextPdfs>>
+<table>
+<$list filter={{$:/plugins/didaxy/imageExternaliser/filters/retaining_body_pdfs}}>
+<tr>
+<td valign="top">
+<<revealInline>>
+</td>
+<td>
+<$link>{{!!title}}</$link>
+</td>
+<td>
+<<removeCanonicalUriButton>>
+</td>
+<td>
+<<addCanonicalUriPdfButton>>
+</td>
+<td>
+<<deleteBodyText>>
+</td>
+</tr>
+
+</$list>
+</table>
+</$set>

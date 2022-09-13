@@ -1,0 +1,126 @@
+created: 20171023002550680
+modified: 20171208034249464
+next: [[React Notes Part 5]]
+part: 4
+partof: React Notes
+previous: [[React Notes Part 3]]
+subtitle: Conditionals
+tags: TutorialPart Live noindex
+title: React Notes Part 4
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!Conditional Rendering
+
+!!Inline If with Logical && Operator
+
+"You may embed any expressions in JSX by wrapping them in curly braces. This includes the JavaScript logical && operator. It can be handy for conditionally including an element:"
+
+```
+function Mailbox(props) {
+  const unreadMessages = props.unreadMessages;
+  return (
+    <div>
+      <h1>Hello!</h1>
+      {unreadMessages.length > 0 &&
+        <h2>
+          You have {unreadMessages.length} unread messages.
+        </h2>
+      }
+    </div>
+  );
+}
+
+const messages = ['React', 'Re: React', 'Re:Re: React'];
+ReactDOM.render(
+  <Mailbox unreadMessages={messages} />,
+  document.getElementById('root')
+);
+```
+
+Or, you can use the ternary operator.
+
+!!Hiding Components
+
+A component can ''hide itself'' by returning ``null`` from its render method. It won't appear, even if another component tries to render it.
+
+!!Lists and Keys
+
+```
+function NumberList(props) {
+  const numbers = props.numbers;
+  const listItems = numbers.map((number) =>
+    <li>{number}</li>
+  );
+  return (
+    <ul>{listItems}</ul>
+  );
+}
+
+const numbers = [1, 2, 3, 4, 5];
+ReactDOM.render(
+  <NumberList numbers={numbers} />,
+  document.getElementById('root')
+);
+```
+When you run this code, you’ll be given a warning that a key should be provided for list items. A “key” is a special string attribute you need to include when creating lists of elements. We’ll discuss why it’s important in the next section.
+Let’s assign a key to our list items inside numbers.map() and fix the missing key issue.
+
+```
+function NumberList(props) {
+  const numbers = props.numbers;
+  const listItems = numbers.map((number) =>
+    <li key={number.toString()}>
+      {number}
+    </li>
+  );
+  return (
+    <ul>{listItems}</ul>
+  );
+}
+
+const numbers = [1, 2, 3, 4, 5];
+ReactDOM.render(
+  <NumberList numbers={numbers} />,
+  document.getElementById('root')
+);
+```
+
+Keys are strings that are unique amongst the members of an array or list. 
+
+They don't need to be globally unique.
+
+You can use the index if you need to, but it's better to use a stable key that comes directly from your data.
+
+If the items can reorder, it's a mistake to use the index as the key.
+
+The keys should be on the items directly inside the array, not the elements they return.
+
+In general, elements inside a map call must have keys.
+
+Keys DO NOT get passed in to the components. If you need the same value for a different purpose, you need to pass it separately.
+
+!!Javascript in HTML in Javascript
+
+```
+function NumberList(props) {
+  const numbers = props.numbers;
+  return (
+    <ul>
+      {numbers.map((number) =>
+        <ListItem key={number.toString()}
+                  value={number} />
+
+      )}
+    </ul>
+  );
+}
+```
+
+You can do the mapping like a psycho, inside the JSX, wrapped in curly braces.
+
+
+<<tutorial_nav>>

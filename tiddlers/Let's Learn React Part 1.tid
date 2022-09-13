@@ -1,0 +1,114 @@
+created: 20171017081207640
+modified: 20171203034248631
+next: [[Let's Learn React Part 2]]
+part: 1
+partof: Let's Learn React
+subtitle: Creating Our First App
+tags: TutorialPart Live noindex
+title: Let's Learn React Part 1
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!Create-React-App
+
+Provided you're familiar with [[Node and NPM|Getting Started with Node and NPM]], getting a React app up and running couldn't be easier.
+
+"Create React App" is an NPM package that, unsurprisingly, creates React apps. Most importantly, it creates everything we need to get a working app up and running right away, without needing to configure Webpack.
+
+Whilst Webpack is a bridge we're going to have to cross eventually, we'd rather not do so at the same time as learning the principles of React itself.
+
+To install create react app, all we need to do is 
+
+```
+npm install -g create-react-app
+```
+
+and then, in a suitable place, we can do
+
+```
+create-react-app myapp
+cd myapp
+npm run start
+```
+
+Which should start the development server and launch the app in a browser.
+
+To stop the server, you can press ``ctrl-c``.
+
+!!Building the App
+
+To build your app in a way that can be deployed to a real server, you can run the command
+
+```
+npm run build
+```
+which will create a set of files 
+
+To view the app, we need to run a static server.
+
+Create-react-app suggests we use ``serve``
+
+```
+npm install -g serve
+  serve -s build
+```
+
+If you already have a server installed, you can use that instead.
+
+Note that create-react-app is also using the production build: https://reactjs.org/docs/optimizing-performance.html#use-the-production-build
+
+!!Adding as a Github Repo
+
+The easiest way to do that is with Github desktop.
+
+Create react app also tells us, when we build it...
+
+```
+The project was built assuming it is hosted at the server root.
+To override this, specify the homepage in your package.json.
+For example, add this to build it for GitHub Pages:
+
+  "homepage" : "http://myname.github.io/myapp",
+```
+
+Let's do that and see if we can get it to deploy as a github pages site right off the bat.
+
+Once we've added the hompage info, running ``npm run build`` gives us this additional information.
+
+```
+To publish it at https://r1chard5mith.github.io/default_react_app, run:
+
+  npm install --save-dev gh-pages
+
+Add the following script in your package.json.
+
+    // ...
+    "scripts": {
+      // ...
+      "predeploy": "npm run build",
+      "deploy": "gh-pages -d build"
+    }
+
+Then run:
+
+  npm run deploy
+```
+
+This will fail if you haven't already created the Github repo.
+
+It may also ask for permission to access a Github token from your keychain.
+
+The page should go live and you should see the spinning react app.
+
+Note that the repo needs to be set to use the ``gh-pages`` branch (create-react-app is managing this for us)
+
+https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#github-pages
+
+There are also instructions for deploying to Heroku, Netlify, S3, Now and Surge....
+
+Once we have all that working, we can go back to the original code and start to make our own app from scratch, knowing that it's already configured to be deployed when we're done.
+
+<<tutorial_nav>>

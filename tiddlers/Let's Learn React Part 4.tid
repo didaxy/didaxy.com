@@ -1,0 +1,83 @@
+created: 20171018074235302
+modified: 20171101080612355
+next: [[Let's Learn React Part 5]]
+part: 4
+partof: Let's Learn React
+previous: [[Let's Learn React Part 3]]
+subtitle: Lifting State (Again)
+tags: TutorialPart Live noindex
+title: Let's Learn React Part 4
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!Summary
+
+In the [[previous section|Let's Learn React Part 3]] we lifted the game state out of the individual Squares and into the Board.
+
+If we want to keep a history of the states of the board, we should lift it again, so that the Game component can be responsible for the total state of the game, including the history of moves.
+
+We'll have the Game tell the Board what state it should be in, and Game will handle the input and output.
+
+Board won't //quite// become a functional component, because it will still contain an additional method for rendering the Square components, but it will no longer be storing state, so it won't need its own constructor.
+
+First we add a constructor to Game and set up the new state.
+
+The state is now going to be an array of "board-state objects", each of which has a single property, 'squares' which is itself an array.
+
+We also put xIsNext here, because we'll soon remove the constructor from Board altogether.
+
+Then we pass the current state of the board into the Board component.
+
+
+
+```
+<Board
+            squares={current.squares}
+            onClick={(i) => this.handleClick(i)}
+          />
+```
+
+HandleClick moves up into the Game component and the Board no longer needs a constructor.
+
+They're creating the list of moves by //mapping// over the history object like this;
+
+```
+    const moves = history.map((step, move) => {
+      const desc = move ?
+        'Move #' + move :
+        'Game start';
+      return (
+        <li>
+          <a href="#" onClick={() => this.jumpTo(move)}>{desc}</a>
+        </li>
+      );
+    });
+```
+
+```
+array.map((acc, arr) => {return();}
+```
+
+Is this how it works? I should check.
+
+<<<
+With this code, you should see a list of the moves that have been made in the game, along with a warning that says:
+
+    Warning: Each child in an array or iterator should have a unique "key" prop. Check the render method of "Game".
+
+<<<
+
+The warning that they're talking about is in the console, not in the react developer tools, so I guess we need both of those open at once.
+
+!!Keys
+
+```
+key is a special property that’s reserved by React (along with ref, a more advanced feature). When an element is created, React pulls off the key property and stores the key directly on the returned element. Even though it may look like it is part of props, it cannot be referenced with this.props.key. React uses the key automatically while deciding which children to update; there is no way for a component to inquire about its own key.
+```
+
+
+
+<<tutorial_nav>>

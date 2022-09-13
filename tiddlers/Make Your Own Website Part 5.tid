@@ -1,0 +1,60 @@
+created: 20190720060312601
+modified: 20190725063326488
+next: [[Make Your Own Website Part 6]]
+part: 5
+partof: Make Your Own Website
+previous: [[Make Your Own Website Part 4]]
+subtitle: Hosting Your First Page
+tags: TutorialPart Live
+title: Make Your Own Website Part 5
+type: text/vnd.tiddlywiki
+
+<$image class="tutorial-part-image" alt="a tutorial logo/image" source="Motovun Jack.svg"/>
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+NOte tO sElf: Figure out how to re-order these pieces to be more pleasing. ie; add some elements, learn something about development, do a part of 'actually hosting' your site.
+
+Consider specifically highlighting the fact that you are interleaving these distinct aspects.
+
+!Website Online Now
+
+There's a lot to understand about the way that web pages are served - how your browser finds the site you're looking for and how.
+
+The basic idea is that you will upload your files to a different computer somewhere that is always on.
+
+That computer - the server - will wait for anyone to "request" a page from your site and, when they do, it will transfer it to them using HTTP.
+
+!!D.I.Y
+
+In the earliest days of the internet, putting up your own website meant buying and running your own server. You can still host sites this way, but it's far from being the easiest option.
+
+The easiest option for anyone starting out with a small site today - even one that might grow to be quite bit - is to pick a platform where just about everything is taken care of for you.
+
+There are lots of services like this, but the easiest and friendliest one I've found so far is Neocities.
+
+Putting a site up at Neocities couldn't be easier and all you're going to need before you do is an email address.
+
+!!Neocities
+
+!!
+
+
+!Other Options
+
+(for other articles)
+
+Over time many companies sprang up offering various levels of managed hosting. Most of the options are still available in one form or another. For example, you can rent a real computer and use it as your server. A more popular option is to rent a " 
+
+!!Simple, Friendly Hosting
+
+
+!Uploading Your Page To a Server
+
+When we talk about a web server, we either mean a computer or we mean a particular piece of software that's running on it.
+
+!!Build Your Own Server
+
+In the earliest days of the internet, the way you got a web-site online was to buy a computer and connect it to the network, install server software on it and configure it to respond to 'requests'.

@@ -1,0 +1,73 @@
+created: 20170806064450194
+modified: 20190804045538925
+tags: $:/tags/Macro
+title: $:/didaxy/macros/tutorial_macros
+type: text/vnd.tiddlywiki
+
+\define tutorial_list($name$)
+<ul>
+<$list filter="[prefix[$(currentTiddler)$]nsort[part]] -[[$(currentTiddler)$]]">
+<li><$link to={{!!title}}>Part {{!!part}}</$link>: {{!!subtitle}}</li>
+</$list>
+</ul>
+\end
+
+\define new-tutorial-list()
+<ol>
+<$list filter="[tag[$(currentTiddler)$]]">
+<$link><li>{{!!title}}</li></$link>
+</$list>
+</ol>
+\end
+
+\define new-tutorial-draggable-list()
+<<list-tagged-draggable tag:"$(currentTiddler)$">>
+\end
+
+\define tutorial_details($name$)
+<ul>
+<$list filter="[prefix[$(currentTiddler)$]nsort[part]] -[[$(currentTiddler)$]]">
+<li><$link>{{!!title}}</$link> : <$edit-text field="part"/> : <$edit-text field="subtitle"/> : <$edit-text field="summary" tag=textarea/></li>
+</$list>
+</ul>
+\end
+
+\define tutorial_parts($name$)
+<h3 class="tutorial-parts">Part: <$link to="$name$">0</$link>
+<$list filter="[prefix[$name$]nsort[part]] -[[$name$]]">
+<$link to={{!!title}}>  {{!!part}}</$link>
+</$list>
+</h3>
+\end
+
+\define tutorial_partof_parts($name$)
+<h3 class="tutorial-parts">Part: <$link to="$name$">0 </$link>
+<$list filter="[partof[$name$]nsort[part]] -[[$name$]]">
+<$link to={{!!title}}>  {{!!part}}</$link>
+</$list>
+</h3>
+\end
+
+\define tutorial_header()
+!{{!!partof}}
+!!Part {{!!part}}: {{!!subtitle}}
+\end
+
+\define tutorial_nav()
+<div class="tutorial-nav">
+<div class="tutorial-next-nav">
+
+<$list filter="[!has:next[]list[!!next]]">
+Next: <$link>{{!!subtitle}}</$link>
+</$list>
+
+</div>
+</div>
+{{||$:/didaxy/tutorial-footer-nav}}
+\end
+
+\define tutorial-partof-list()
+<$list filter="[!is[system]field:partof[$(currentTiddler)$]sort[part]]">
+<li><$link to={{!!title}}>Part {{!!part}}</$link>: {{!!subtitle}}</li>
+</$list>
+\end

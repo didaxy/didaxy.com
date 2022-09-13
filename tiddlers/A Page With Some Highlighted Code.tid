@@ -1,0 +1,74 @@
+created: 20170824073934988
+modified: 20171101080611214
+tags: TutorialPart Live noindex
+title: A Page With Some Highlighted Code
+type: text/vnd.tiddlywiki
+
+This is some HTML
+
+```xml
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <style>
+      .flex {
+        display: flex;
+        flex-direction: row;
+      }
+      .flex > div {
+        flex: 1 1 auto;
+        padding: 2%;
+        /*border: 1px solid #555;*/
+      }
+    </style>
+  </head>
+
+  <body>
+    <marquee>Hello world</marquee>
+    <h1>Flexbox Examples</h1>
+
+    <div class="flex">
+      <div> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra justo sit amet laoreet molestie. Nulla quis consectetur diam, ac fermentum neque. Nulla in augue ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dui turpis, venenatis ut tincidunt ut, interdum eu risus. Maecenas ornare tempus neque a lobortis. Nullam dapibus orci sed nisl laoreet, et sollicitudin libero tempor. Etiam ornare dui neque, sed volutpat ante molestie vitae. Integer sit amet sem ipsum. Donec pulvinar, justo id dignissim tempor, tellus massa tempor nulla, id tempor orci orci et lacus. Nunc maximus justo ut est interdum pulvinar. </div>
+      <div> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra justo sit amet laoreet molestie. Nulla quis consectetur diam, ac fermentum neque. Nulla in augue ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dui turpis, venenatis ut tincidunt ut, interdum eu risus. Maecenas ornare tempus neque a lobortis. Nullam dapibus orci sed nisl laoreet, et sollicitudin libero tempor. Etiam ornare dui neque, sed volutpat ante molestie vitae. Integer sit amet sem ipsum. Donec pulvinar, justo id dignissim tempor, tellus massa tempor nulla, id tempor orci orci et lacus. Nunc maximus justo ut est interdum pulvinar. </div>
+      <div> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra justo sit amet laoreet molestie. Nulla quis consectetur diam, ac fermentum neque. Nulla in augue ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dui turpis, venenatis ut tincidunt ut, interdum eu risus. Maecenas ornare tempus neque a lobortis. Nullam dapibus orci sed nisl laoreet, et sollicitudin libero tempor. Etiam ornare dui neque, sed volutpat ante molestie vitae. Integer sit amet sem ipsum. Donec pulvinar, justo id dignissim tempor, tellus massa tempor nulla, id tempor orci orci et lacus. Nunc maximus justo ut est interdum pulvinar. </div>
+    </div>
+
+    <h1>Some SVG images</h1>
+
+
+  </body>
+</html>
+```
+
+
+And this is some javascript
+
+```javascript
+  function pairwise(arr, arg) {
+      var result = 0;
+      arr = arr.map(function(val,index) {
+        return [val,index];
+      });
+      console.log(arr.join('\n'));
+      while (arr.length > 1) {
+        var curr = arr.shift('');
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i][0] + curr[0] == arg) {
+            var also = arr.splice(i,1);
+            console.log(curr + " " + also);
+            console.log(curr[1]);
+            console.log(also[0]);
+            var indexSum = curr[1] + also[0][1];
+            console.log(indexSum);
+            result += indexSum;
+          }
+        }
+      }
+      return result;
+  }
+  console.log(pairwise([], 100));
+```

@@ -1,0 +1,62 @@
+created: 20170528061633054
+modified: 20171101080611453
+next: [[Exporting Static Sites From Tiddlywiki Part 9]]
+part: 8
+partof: Exporting Static Sites From Tiddlywiki
+previous: [[Exporting Static Sites From Tiddlywiki Part 7]]
+subtitle: Summary, Plugin and Workflow
+tags: Tiddlywiki Live noindex TutorialPart
+title: Exporting Static Sites From Tiddlywiki Part 8
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!Summary
+
+In the [[previous section|Exporting Static Sites From Tiddlywiki Part 7]], we learned how to host our static site in a number of different ways.
+
+In this section we present a plugin containing the fruits of our labour, summarise our workflow and present some brief thoughts on possible future developments.
+
+!!Plugin
+
+The plugin is available from [[this wiki|https://didaxy.neocities.org/tiddlywiki/static_site_plugins_v001.html]] along with the "Image Externaliser" Plugin, mentioned in [[section 6|Exporting Static Sites From Tiddlywiki Part 6]].
+
+To use it, all you need to do is drag it in to a running instance of Tiddlywiki server. It will add all the templates and helpers that we developed throughout the course of the tutorial.
+
+It's still a work-in-progress. Please let us know if you find anything wrong.
+
+!!Clone the Repo
+
+If you would rather get everything you need to get started in one package, you can now clone the starter repo from Github, here: https://github.com/didaxy/static-sites-template
+
+If you use this repo as a template, everything should be set up so that you can run ``./build.sh`` right away and see the site get built for the first time.
+
+
+!!Workflow
+Now we can use our 'system' to write something.
+
+The things we want to publish we tag "Live" and when we're ready to update the site, we go to Github Desktop, review the changes, commit and push to Github. That's it.
+
+Notice that we don't need to run the ``build.sh`` script locally at all now, unless we want to, it will all happen in the cloud and our site will be re-deployed, reflecting the changes.
+
+The way we develop the tool from here depends on exactly how we want to use it and we can only really figure that out over time. The biggest mistake we could make would be to over-engineer our tools before we've actually spent some time with them. 
+
+The great thing about Tiddlywiki is that we can customise it a little at a time, gradually developing something that matches the way we find ourselves wanting to work.
+
+!!Future Developments
+
+There are lots of potential developments we can imagine for Tiddlywiki in the future, with respect to static sites.
+
+Jeremy Ruston (Tiddlywiki's creator) has expressed a desire to see increased interoperability between 'full' Tiddlywiki implementations (the engine) and their static representations.
+
+```
+In terms of static export, I'm increasingly moving to the idea of an official TiddlyWiki read-only static format that works as a static HTML file (and optionally can use JavaScript-based progressive enhancement) that also contains a snapshot of the raw tiddlers that can be imported into a full TiddlyWiki. Having a standard base format would enable us to grow an ecosystem of interchangeable palettes, themes, and behavioural enhancements.
+```
+
+We intend to use our writing system to write about using web technologies, including but not limited to Tiddlywiki, and to develop a more robust system of creating content as we do so.
+
+For example, we have already developed a number of macros and templates to make the construction of multi-part tutorials easier. We will revisit the topic with further updates once we have had some time to use the system and evaluate how well it meets our needs.
+
+<<tutorial_nav>>

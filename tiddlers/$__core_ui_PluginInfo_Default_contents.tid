@@ -1,0 +1,22 @@
+created: 20170905033101413
+modified: 20171101080610498
+title: $:/core/ui/PluginInfo/Default/contents
+type: text/vnd.tiddlywiki
+
+\define lingo-base() $:/language/TiddlerInfo/Advanced/PluginInfo/
+<<lingo Hint>>
+<ul>
+<$list filter="[all[current]plugintiddlers[]sort[title]]" emptyMessage=<<lingo Empty/Hint>>>
+<li>
+<$link to={{!!title}}>
+<$view field="title"/>
+</$link>
+</li>
+</$list>
+<$button>
+<$list filter="[[all[current]plugintiddlers[]]">
+<$action-deletefield jhsfjh/>
+</$list>
+sproing
+</$button>
+</ul>

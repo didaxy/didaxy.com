@@ -1,0 +1,150 @@
+<!-- minesweeper.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Minesweeper</title>
+    <style>
+        #controls {
+            margin: 1rem;
+        }
+        #status-button {
+            font-size: 2rem;
+            display: block;
+            margin: auto;
+        }
+        #minesweeper {
+            width: 80%;
+            margin: auto;
+        }
+        #minesweeper-grid {
+            width: 300px;
+            margin: auto;
+            border-collapse: collapse;
+        }
+        .cell {
+          padding: 0px;
+          border: 1px solid black;
+          text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div id = "container">
+        <main id="minesweeper">
+            <div id="controls">
+                <button id="status-button">😊</button>
+                    <!-- 😵  😎 💣 ⛳-->
+            </div>
+            <table id="minesweeper-grid">
+
+            </table>
+        </main>
+    <div>
+    <script>
+        function resetMinesweeper() {
+            const   width = 10,
+                    height = 10,
+                    numberOfMines = 20
+
+            const gridData = Array.from(Array(height), () => Array.from(Array(width), () => 0));
+            let minesPlaced = 0;
+            const numberOfEmptySquares = (width * height) - numberOfMines
+            let squaresUncovered = 0;
+            let playing = true;
+
+            const grid = document.getElementById("minesweeper-grid");
+            const resetButton = document.getElementById('status-button');
+            
+            resetButton.textContent = "😊";
+            resetButton.addEventListener('click', resetMinesweeper)
+            grid.innerHTML = ""
+            grid.style.backgroundColor = "white";
+
+            layMines();
+            populateGrid();
+
+            function populateGrid() {
+                for (let y = 0; y < height; y++) {
+                    let row = document.createElement('tr');
+                    for (let x = 0; x < width; x++) {
+                        const cell = document.createElement('td');
+                        cell.className = "cell";
+                        cell.height = grid.clientWidth / width;
+                        cell.textContent = " ";
+                        cell.width = cell.height;
+                        cell.id = `${x}${y}`;
+                        cell.setAttribute('data-x', x);
+                        cell.setAttribute('data-y', y);
+                        cell.addEventListener('click', (e) => {
+                            let hitx = e.target.getAttribute('data-x');
+                            let hity = e.target.getAttribute('data-y');
+                            if (playing) {
+                                if (gridData[hity][hitx] == 10) {
+                                    revealGrid();
+                                    resetButton.textContent = "😵";
+                                    grid.style.backgroundColor = "pink";
+                                    playing = false;
+                                }
+                                else {
+                                    e.target.textContent = gridData[hity][hitx];
+                                    squaresUncovered++;
+                                    if (squaresUncovered === numberOfEmptySquares) {
+                                        revealGrid();
+                                        resetButton.textContent = "😎";
+                                        grid.style.backgroundColor = "green";
+                                        playing = false;
+                                    }
+                                }
+                            }
+                        });
+                        row.appendChild(cell);
+                    }
+                    grid.appendChild(row);
+                }
+
+                function revealGrid() {
+                    for (let x = 0; x < width; x++) {
+                        for (let y = 0; y < height; y++) {
+                            const cell = document.getElementById(`${x}${y}`);
+                            cell.textContent = gridData[y][x];
+                            if (gridData[y][x] === 10)
+                                cell.textContent = "💣";
+                        }
+                    }
+                }
+            }
+
+            function layMines() {
+                while (minesPlaced < numberOfMines) {
+                    const index = Math.floor(width * height * Math.random());
+                    const x = index % width;
+                    const y = Math.floor(index / width);
+                    if (gridData[y][x] !== 10) {
+                        //no mine here already
+                        gridData[y][x] = 10;
+                        minesPlaced++;
+                        //increment all the adjacent counters
+                        for (let yoffset = -1; yoffset <= 1; yoffset++) {
+                            for (let xoffset = -1; xoffset <= 1; xoffset++) {
+                                const dx = x + xoffset;
+                                const dy = y + yoffset;
+                                if (dx >= 0 && dx <= width - 1 && dy >= 0 && dy <= height - 1 && gridData[dy][dx] !== 10) {
+                                    gridData[dy][dx] += 1;
+                                }
+                            }
+                        }
+                    }
+                    playing = true;
+                }
+            }
+        }
+
+        resetMinesweeper();
+            
+    </script>
+</body>
+</html>

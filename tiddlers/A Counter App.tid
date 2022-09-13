@@ -1,0 +1,289 @@
+created: 20180103093455675
+modified: 20190725062009273
+tags: Tutorial
+title: A Counter App
+type: text/vnd.tiddlywiki
+
+!!Introduction
+
+This tutorial will show you how I made a simple web-sockets app, hosted on Heroku with a Mongo database at mLab.
+
+The 'app' is just a single page with a button on it. It uses Mongo to store a 'hit count' for the page and a 'click count' for the button and it uses web-sockets to broadcast clicks from one client to all the others.
+
+There is a demo running here: https://websockets-counter.herokuapp.com/
+
+If you open the app in two different browsers, you should see the 'click count' update in both of them when you click either. If someone else is on the site at the same time as you, you will also see the counter update when they click.
+
+Even though this is obviously a stupid-simple app, it has all the 'plumbing' necessary for much more complicated things. I'll show you how to store secrets in 'dotenv', how to store the code on Github and deploy to Heroku, how to connect to a remote database and how to test it with a local one, as well as setting up a web-socket server and passing messages. Amongst other things, you could use this set up as the basis for a instant messaging/chat server.
+
+
+!!Install Things
+
+If you don't have them, you need to install Node (and npm, which comes with it) and Git.
+
+We're going to use npm to install packages for our project but we can also use it to install packages globally, meaning they become generally available from the command line.
+
+Nodemon is an npm package that re-runs your node app whenever you make changes to your code, which makes debugging much quicker. If you don't already have it, install "nodemon" globally by doing
+
+```
+npm install -g nodemon
+```
+
+!!Make a new Repo
+
+Make a new Github repo and link it to a folder on you computer.
+
+How you do this depends on your preferences. Personally, I like to manage all of Git and Github through Github desktop as much as possible. If that's your preference, all you have to do is choose 'create a new repository' from the appropriate menu and it will give you a local folder that's linked to a new repo on Github, ready for you to publish into. Changed files will show up in the default view, which lets you inspect the changes. You commit changes into the history, which you can also inspect in full, and you Publish the changes whenever you want to with one click.
+
+Using Git from the command line isn't difficult, if that's what you prefer. You just need to add your Github repo as a remote and then 'push remote'. You'll see below that we still need to do this step manually for Heroku (which will also be a remote for our repo)
+
+!!A Note On Workflow
+
+Whatever workflow works best for you is fine. Once I have a folder/repo set up, I like to open that folder in my text editor. I used Atom happily for a long time and now I use VS-code. I like to be able to see a list of all the files in the repo at once. 
+
+I also go to the same folder in the terminal. I might open a second terminal tab/window if I have the server running in one of them. 
+
+Make sure you can see hidden files in both the terminal and your text editor (but .git might not show up in your editor, because it knows you don't want to edit that)
+
+!!npm init your repo and install express
+
+npm is the "Node Package Manager" and it handles the dependencies of your project.
+
+npm init will run through a set of questions and generate a file called "package.json". This file tells npm about your app. You can just answer yes to every question. You can easily change your answers later by editing package.json, as we'll see below.
+
+If you add entries to package.json under 'dependencies' and then run 'npm install', they get installed into the Node_modules folder. Editing JSON by hand is a bit fiddly so the easier way to add dependencies is to install them //and then// add them, as we'll do with express now.
+
+```
+npm install express --save
+```
+You should see npm install express and add a line to your package.json file, listing express as a dependency.
+
+While we're at it, we'll install dotenv, too.
+
+```
+npm install dotenv --save
+```
+
+!!Add a .gitignore file and commit to Github
+
+The '.gitignore' file is a list of directives, telling git which files to ignore. There are two important things that you definitely want in this file
+
+#Node Modules - this folder stores all your dependencies and can get pretty big. The whole point of NPM is that it can re-build your dependencies whenever it needs to, so you definitely don't want to commit this folder. Once something is in your git history, it's a real pain to get it out again.
+#secret stuff - like the username and password for your database, which your app is going to need to know, but that you don't want other people to see. We're going to put this stuff in a file called ".env" as you'll see below.
+
+If you don't have one, you can make a .gitignore file in your text editor and give it this content.
+
+```
+Node_modules
+.env
+```
+
+How you make new files depends on your workflow too. You'll see tutorials that tell you to do, for example "touch .env" at the command line. That makes a blank file of that name in your folder, which you can then open in your editor. You can also just make a new file in your editor and save it with the right name. 
+
+As well as a ".gitignore" file, make yourself a ".env" file and give it this content, which we'll explain shortly.
+
+```
+SECRET_SQUIRREL="a secret message from your local host"
+```
+
+Also, make a file called "counter.js" and give it a tiny bit of content
+
+```
+console.log('hello wörld')
+```
+
+
+
+Now, in Github Desktop, check that you can see ".gitignore" and "counter.js". Check that you //can't// see ".env" or the Node_modules folder.
+
+You might also see a .gitattributes file.
+
+
+add ejs and make a views folder, with index.ejs in it
+
+!!heroku create
+
+and git push heroku master, don't forget to make a Procfile for Heroku, pointing at counter.js
+
+
+
+!!Add a mongo connection.
+
+Go to mLab and make a new database.
+
+Add a user for the database and give them a password.
+
+Work out what the connection string should be.
+
+Take the connection string and put it into your .env file, because it's a secret.
+
+Now connect to the database from your app.
+
+Try this at Heroku and it should fail, because you need to tell Heroku your secret too.
+
+Remember that Heroku can't see out env file - we give it the secret it needs using
+
+
+```
+heroku config:set TEST="heroku secret"
+heroku config:set MONGO_CONNECT_STRING="mongodb://<username>:<password>@server.mlab.com:37707/dbname"
+```
+
+And your app should restart with this new knowledge in place.
+
+(Now do heroku logs again)
+
+
+!!Now write the app
+
+For now I'm going to use the 'find or create' npm module again, because I've used it before, but I should really look how it works and do that bit myself, instead.
+
+We could just set up the database manually with an initial record, but doing it this way means it's easy to re-deploy in the future.
+
+Then I have it update the counter by doing the same thing when it gets a web-socket command (the only one)
+
+---
+
+!!Handle disconnections
+
+I'm not sure how important this is. I was getting some errors from my local version when trying to refresh the page sometimes, which I suspect is because the original connection is still open when they're trying to reconnect, so this might help
+
+wss.on('connection', (ws) => {
+  console.log('Client connected');
+  ws.on('close', () => console.log('Client disconnected'));
+});
+
+Then I hit a problem where the server is crashing when the connection //closes// = I was thinking this was me not understanding something but it seems as though it is a recent change that has confused other people too: https://github.com/websockets/ws/issues/1256
+
+So, I'm going to fix that by putting an error handler in there, too
+
+(I'm glad I caught this because at first, I thought it wasn't allowing the second connection for some reason, but
+
+Turns out the only problem I had was I needed a
+
+        ws.on('error', () => console.log('errored'));
+
+It turns out that closing the client isn't a close event, it's an error (abrupt disconnection)
+
+!!Fire up a local database, for testing...
+
+While debugging the crashing problem, we keep having to wait for the app to re-establish a connection to mLab, which is a bit tedious, even though it's only 1 or two seconds each time.
+
+That's why we set up and use a local mongo install.
+
+Traditionally, these have basically no security, so they're really easy to set up.
+
+change the mongo connect string and relaunch the app.
+
+
+```
+MONGO_CONNECT_STRING =mongodb://localhost:27017/counter 
+ 
+```
+
+
+The counter still isn't updating in real-time. If you click it, you won't see it change but if you refresh the page, you should see the new value of the counter.
+
+At this point, we can put test it on Heroku again and expect the same behaviour, but we'll leave the local version pointing to the local mongo for ease.
+
+
+should see
+
+
+```
+Setting MONGO_CONNECT_STRING and restarting ⬢ <yourserver>... done, v14
+
+```
+
+---
+
+and ws
+
+https://hackernoon.com/nodejs-web-socket-example-tutorial-send-message-connect-express-set-up-easy-step-30347a2c5535
+
+https://github.com/websockets/ws
+
+---
+
+https://devcenter.heroku.com/articles/node-websockets
+
+By looking at the Heroku tutorial, we can see that they are doing this;
+
+
+```
+var HOST = location.origin.replace(/^http/, 'ws')
+
+```
+
+Assuming that location.origin works, this is pretty neat because instead of needing to test for http/s it just swaps out the characters 'http' for 'ws', meaning that 'https' also goes to 'wss'.
+
+!!Ports
+
+The people at Heroku probably know how Heroku works, and they don't seem to be explicity setting a port at all here? I assume web-sockets has a default port....
+
+!!Creating the server 'properly'
+
+Even though I have something working, I'm paying close attention to the way that they are starting their server.
+
+
+```
+const server = express()
+  .use((req, res) => res.sendFile(INDEX) )
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
+
+const wss = new SocketServer({ server });
+
+```
+
+I think that's just a mono-route for everything (in express) and the port is being got as an environment variable too.
+
+About the socket server, they say this: "The WebSocket server takes an HTTP server as an argument so that it can listen for ‘upgrade’ events"
+
+
+
+
+!!Broadcasting
+
+About broadcasting updates, the Heroku people say this:
+
+setInterval(() => {
+  wss.clients.forEach((client) => {
+    client.send(new Date().toTimeString());
+  });
+}, 1000);
+
+separate broadcast example at the main ws docs....
+
+
+const WebSocket = require('ws');
+
+const wss = new WebSocket.Server({ port: 8080 });
+
+
+```
+// Broadcast to all.
+wss.broadcast = function broadcast(data) {
+  wss.clients.forEach(function each(client) {
+    if (client.readyState === WebSocket.OPEN) {
+      client.send(data);
+    }
+  });
+};
+
+wss.on('connection', function connection(ws) {
+  ws.on('message', function incoming(data) {
+    // Broadcast to everyone else.
+    wss.clients.forEach(function each(client) {
+      if (client !== ws && client.readyState === WebSocket.OPEN) {
+        client.send(data);
+      }
+    });
+  });
+});
+```
+
+
+
+Turns out you can deploy the ws server on the same port as the http server = the server object to pass is the RESULT of calling app.listen (I was thinking that was 'app' itself)
+
+

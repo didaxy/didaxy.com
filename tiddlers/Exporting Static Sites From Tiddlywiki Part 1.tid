@@ -1,0 +1,161 @@
+created: 20170517142545857
+modified: 20190718012706668
+next: [[Exporting Static Sites From Tiddlywiki Part 2]]
+part: 1
+partof: Exporting Static Sites From Tiddlywiki
+subtitle: Installation, Set-up and Basic Commands
+tags: Live TutorialPart noindex
+title: Exporting Static Sites From Tiddlywiki Part 1
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!Summary
+In the first section, we're going to install all the software needed to run the tiddlywiki server and then run a basic export with the built-in templates. 
+
+What we'll get is a static site that contains all of our tiddlers, styled just like they are when viewed in a vanilla Tiddlywiki.
+
+!!Installing Node, NPM and Tiddlywiki
+
+If you don't already have it, download and install [[Node.js|https://nodejs.org]], which comes with the Node Package Manager ([[NPM|https://www.npmjs.com/]]) included.
+
+If you're not sure, you can check by typing.
+
+```
+node -v
+npm -v
+```
+
+Tiddlywiki can then be installed as a package from the NPM library, like so.
+
+```
+npm install -g tiddlywiki
+```
+where the ``-g`` flag makes it available globally. You can check it worked by getting the version
+
+```
+tiddlywiki --version
+```
+
+''nb:''It's a fairly common problem to have ``npm`` installed with the wrong permissions, meaning one or more of these commands could fail. If it does, you can probably just add ``sudo`` to the start of the command, although it's probably better to fix the permissions if you know how.
+
+!!Running the Tiddlywiki server
+
+Now we can use the ``tiddlywiki`` command at the command line.
+
+First we need to initialise a directory for working with tiddlywiki. Make a directory with a suitable name and ``cd`` into it.
+
+```
+mkdir myWiki
+cd myWiki
+```
+We can then run tiddlywiki, passing it the ``--init server`` argument, and have it generate the basic files that need to exist for a properly formatted wiki to be served from here. If you miss this step you'll get a wiki that 'works' but doesn't have either formatting or the ability to save itself (ie; not a very useful wiki).
+
+```
+tiddlywiki --init server
+```
+
+You should now see a ``tiddlywiki.info`` file in your current directory.
+
+Now, from the same directory, run the server.
+
+```
+tiddlywiki --server
+```
+And you should see
+
+```
+Serving on 127.0.0.1:8080
+(press ctrl-C to exit)
+```
+Visit that url in your browser (``127.0.0.1:8080`` where ``127.0.0.1`` is the address and ``8080`` is the port).
+
+If you want to specify a port number, do the following, swapping ``8888`` for the number of your choice
+
+```
+tiddlywiki --server port 8888
+```
+
+There's no magic to the port number - they're just unique identifiers used for each different service that wants to connect at the same time. The only requirement is that you choose an integer in the range 1025 to 65536 that isn't being used by another service.
+
+If you want to run multiple Tiddlywiki servers at the same time, you need to put them on different ports.
+
+!!Creating Some Content
+
+A Tiddlywiki server wiki starts out completely empty. So that we can see our pages get generated, go ahead and create a few tiddlers. 
+
+Be sure that to create a tiddler called ``index`` - when your site gets built, this will become ``index.html`` and it will be your landing page.
+
+!!Exporting static pages
+
+Now we want to export our tiddlers to static files and see what happens. To do this, we'll open another terminal window or tab (because we still have our server running in the other one) and, after making sure that we're in the top level directory of our server (the one that contains the tiddlers folder) type
+
+```
+tiddlywiki --rendertiddlers [!is[system]] $:/core/templates/static.tiddler.html static text/plain
+```
+
+List the contents of the directory and you should see that a new folder has been created, called ``output``, and in it, another directory called ``static``. 
+
+And in that directory, we'll find our files, one for each tiddler you created above. Open one up in a browser and you should see your content, but it will look pretty plain.
+
+``Note`` that from now on you shouldn't ever be tempted to edit these html files directly, because they're going to get blown away and re-made every time we build our site.
+
+---
+!!Adding Styling
+
+Now (make sure you navigate back to the same directory as before) type this command.
+
+```
+tiddlywiki --rendertiddler $:/core/templates/static.template.css static/static.css text/plain
+```
+
+This generates a ``css`` file alongside your static pages in ``output/static``. Go and look at one of them again and you should see that now they are styled, as close to the original wiki as possible.
+
+
+!!Simplfiying the Build Process
+
+Instead of running each of these two commands separately each time, we could join them together using the Unix ``&&`` operator, like so
+
+```
+tiddlywiki --rendertiddlers [!is[system]tag[Live]] $:/core/templates/static.tiddler.html static text/plain && tiddlywiki --rendertiddler $:/core/templates/static.template.css static/static.css text/plain
+```
+
+but we can actually do better and pass them as sequential commands to tiddlywiki, like this.
+
+```
+tiddlywiki --rendertiddlers [!is[system]] $:/core/templates/static.tiddler.html static text/plain --rendertiddler $:/core/templates/static.template.css static/static.css text/plain
+```
+
+Better still, we can put this in a script file and run it each time we want to rebuild our site. If we name the file ``build.sh`` we run it by typing ``./build.sh`` from the directory that contains it.
+
+``note:`` if you have the finder open next to the terminal, with the output folder in view, you should be able to see this script file destroying the ``static`` directory and rebuilding it. If it ever appears that your site hasn't been rebuilt, refresh your browser.
+
+!!Running a local web server
+
+Up til now you may have just been accessing your static pages through the file api (by double clicking them and having them open). 
+
+Eventually, you will want to run an actual web server to view these files over HTTP, even though they are local, because some things don't work right over the file api (for example, images may not embed correctly)
+
+You could use any old http server - you probably have a couple installed on your machine without even realising it - but since we're already using ``npm`` I'll suggest that you use the Node.js ``http-server``.
+
+Install it just as we did Tiddlywiki
+
+```
+npm install -g http-server
+```
+and run it using 
+
+```
+http-server
+```
+To specify a port, add the ``-p`` flag
+
+```
+http-server -p 7777
+```
+
+Now you can run a static server from the ``output/static`` folder, view it in a separate browser window/tab and refresh it each time you build your site to see the new result.
+
+<<tutorial_nav>>

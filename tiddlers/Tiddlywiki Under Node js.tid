@@ -1,0 +1,181 @@
+created: 20170729023419860
+modified: 20190725015139193
+partof: Introduction to TiddlyWiki
+subtitle: Installing and Running Tiddlywiki Under Node.js
+tags: Tiddlywiki
+title: Tiddlywiki Under Node js
+type: text/vnd.tiddlywiki
+
+!Tiddlywiki Under Node.js
+
+<small>~~If you currently rely on Tiddlyfox for automatic saving, but you generally only have one or twoTiddlywikis open at a time then switching to the Node server edition might be the best way for you to modify your use when Tiddlyfox ceases to work (probably in Firefox 57).~~ 
+
+If you're looking for a solution to the disappearance of Tiddlyfox, I'd advise you to look at [[Tiddlyserver|Introduction to Tiddlyserver]] instead of the single Node server described her. If you use MacOS, you can [[download it as a self-contained 'app folder'|Tiddlyserver as a Mac App]]</small>
+
+!!Beyond the Browser
+
+What made the original tiddlywiki inherently fascinating was the fact that the whole app was packed into a single "web page", a single HTML file. When you created new content it was added to the DOM of the page. Save a copy of the modified file and you had everything involved, right there in one file.
+
+This made it easy to archive things, to send them, copy them etc.
+
+The format of having lots of little notes wrapped up in a secure package is fantastic and this is all before you even get into the ways in which it can be customised.
+
+The convenience of having individual files with, for example, notes about different topics, or modified user interfaces (ie; for displaying as a web site) was really cool. But, as Tiddlywiki evolved, the limitations have crept in.
+
+The browser is necessarily a restricted environment and has become increasingly so over the years - we can't allow web-pages access to the actual resources of our computers or unethical people will use them to do mischief.
+
+Thanks to Node.js, however, we can run javascript in an environment that has access to our system. If we just run Node locally (and don't expose it to the network) we don't create any security problems and now we have full access to the filing system.
+
+Running Tiddlywiki this way lets us work in different and more interesting ways.
+
+---
+
+While you are using tw on node, you can make single-page snapshots by clicking the save icon.
+
+This can be useful for keeping a record of your changes, making back ups or sending copies of a wiki to other people (along with all the editing tools needed for them to make changes).
+
+
+Whilst the single file config is what originally made tiddlywiki such an interesting application, there's a lot to recommend running it as a node application.
+
+I think that running it this way might be much more appealing for a large group of users who aren't aware of its potential.
+
+
+Running Tiddlywiki under Node.js lets you use any browser with auto-saving. You can connect to the Node server from any computer that can see it (eg; a phone or tablet that you use at home on the same wifi network). You can generate single page snapshots whenever you like.
+
+
+---
+
+
+
+Installing Tiddlywiki.
+
+To install tiddlywiki, first make sure you have npm and node installed, then type npm install tiddlywiki -g to install it globally.
+
+(try sudo if necessary)
+
+now make a directory to work in and init it. Now run the server.
+
+OK - this is Tiddlywiki, running.
+
+
+!!Tiddlywiki under node js.
+
+Go to https://nodejs.org and download the software installer for your OS - you want the version that's "recommended for most users".
+
+
+ sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
+
+This unfortunate bit of witchcraft will give your user account permission to write global node packages to the appropriate directory.
+
+The alternatives to this method (on a Mac) are to install either Homebrew or the Node Version Manager but installing either of these tools requires its own bit of witchcraft and otherwise serves only to add complexity for our purposes.
+
+If you //don't// run this line, the next line (``npm install -g tiddlywiki``) will fail because "youruseraccount" doesn't have permissions to write to the global library. The alternative fix would be to put ``sudo`` in front of the command (``sudo npm install -g tiddlywiki``) to execute the command as if you were the 'superuser', which should ask for your system password. Running commands as superuser is frowned upon from a security perspective, from a practical perspective it's just repetitive and annoying when you inevitably forget and have to do it over).
+
+Assuming that all went well, you should now be able to type 
+
+```
+node -v
+npm -v
+```
+
+If you haven't corrected the permissions, it's possible the second command may also need to be run as su (``sudo npm -v``).
+
+And now we can install Tiddlywiki.
+
+```
+npm install -g tiddlywiki
+```
+
+This command installs Tiddlywiki as a Node package and makes the ``tiddlywiki`` command available at the command line.
+
+Now we have everything we need to run a Tiddlywiki server. 
+
+
+Make a directory for your wiki and cd into it (you can put it anywhere you like and call it whatever you prefer), then ``init`` the folder as a server and start the server.
+
+```
+mkdir mywiki
+cd mywiki
+tiddlywiki --init server
+tiddlywiki --server
+```
+
+If you pause and issue an ``ls`` comman before starting the server, you should see that the ``--init server`` command creates a file called ``tiddlywiki.info`` which is used to configure the server.
+
+Now open a browser and enter the URL shown on the command line (127.0.0.1:8080) and you should see an empty Tiddlywiki.
+
+If you're used to using the single-file configuration of Tiddlywiki then at this point everything is basically as you would expect it to be, only now all the saving is done "automagically" without the need for any browser extensions.
+
+New tiddlers are created as individual files back in your wiki directory, as we will see in a moment, and the "save" button in Tiddlywiki now functions as a snapshot/download button which will download the wiki as a "traditional" single-file Tiddlywiki. This is great for making manual backups and for sending/storing/hosting the wiki.
+
+Create a new tiddler with some clever variant of the traditional "hello world" text and when you save it, you should see the red "dirty" indicator, fade back to grey to indicate the wiki has been successfully saved.
+
+
+!!Differentiate Basic Usage From Advanced
+
+Stopping, restarting, choosing the port. Then "how to treat it (more or less) like the single-file version".
+
+!!Stopping and Starting
+
+Return to the terminal and you'll see that it's "tied up" running the Tiddlywiki server process. To stop it, press control-c. 
+
+To start it again, you should be able to use the up-arrow on your keyboard to quickly find the command in your "bash history" so that you don't need to retype it.
+
+Instead of stopping the server, we can just open a new terminal tab or window and leave it running.
+
+!!The Filing System
+
+With the server running in one tab, in a second tab navigate to the newly created 'tiddlers' folder and type ``ls`` to see a list of the tiddlers.
+
+```
+cd tiddlers
+ls
+```
+
+Now switch back to your browser and make some new tiddlers, then return to your console and type ``ls`` again and you should see the new tiddlers listed too. This is all the 'magic' that's actually happening under the hood - instead of all the tiddlers being packed fiendishly into a single html file, they're individual files in this folder.
+
+Although some people, especially those who are used to particular ways of working with them, might prefer the convenience of "single file" Tiddlywikis, in my opinion the Node.js option is actually much better for anyone who is able to use it.
+
+Having the tiddlers split out into separate files lets us work on them with any kind of tool for working with files and of course, there are lots of those.
+
+When you're doing 'advanced' things with Tiddlywiki it's possible to accidentally get the wiki into broken states - for example you might try listing all the tiddlers in your wiki and putting a list of all the tiddlers inside each tiddler (a very, very big list) or accidentally transclude tiddler A into tiddler B and tiddler B into tiddler A (infinite recursion). Having access to the tiddlers from the filing system makes it really easy to delete or rename the offending tiddler and restart the wiki. You can also potentially fix things in another editor.
+
+!!A Text Editor
+
+Although it's not necessary, it's very useful to have a text editor to be able to edit tiddler content when using the Node server.
+
+As long as you're careful (remember the First Rule!) there are some powerful features in most text editors that can sometimes help you out. 
+
+For example, you will be able to do "search and replace" across all of your tiddlers in a way that isn't easy from inside Tiddlywiki itself. But, please, be careful to make sure you don't accidentally replace anything in any of the system tiddlers or you might break your wiki and have no idea why.
+
+There are several free, open-source text editors to choose from, the most popular of which is Atom by Github. Atom is also written in javascript and uses Node js.
+
+!!Choosing the Port
+
+When you start the Tiddlywiki server you can specify the port you want to use by passing a valid port number right after the ``server`` flag.
+
+```
+tiddlywiki --server 8088
+```
+
+This can be useful to avoid clashing with other web services that also use port 8080 by default or for serving multiple Tiddlywikis, with port number as unique identifier. Most port numbers don't have any particular significance - pick a 4 digit number bigger than 1024 and you should be fine. If there's a conflict, you should get a message telling you so, or maybe just weird behaviour. See how you go.
+
+!!Local Area Wiki
+
+We mentioned that one of the best things about running Tiddlywiki as a server is that you get the same default automatic saving behaviour from any browser. This is because your wiki is being 'served' onto "the network" by a server, of course. The address "127.0.0.1" is a special address that means "this computer".
+
+Your computer also has a real ip address on your local network, assuming it connects to one by either wifi or ethernet. You can find this address by typing ``ifconfig`` at the terminal and scouring the output for a likely candidate - local ip address tend to start either with ``192.168.`` or ``10.0.`` and are made up of four blocks of numbers separated by periods. For example ``10.0.1.2`` or ``192.168.0.4``.
+
+I mention this because there's a really good chance that you can also now connect to your Tiddlywiki server, not only from multiple browsers on the same computer but also from other computers and devices on the network. All you need to do is replace ``127.0.0.1`` with your real, local ip address.
+
+What this means is that, at least while your computer is on and the server is running, you should be able to access your tiddlywiki from an iPad or smartphone, or from another computer and use it just like you do now. For some people, this ability to enter content from a tablet alone could be a massive productivity boon.
+
+If you'd like to be able to access your wikis, even when your main computer is off, you should consider setting up a Raspberry Pi and running it from there. You can set up a regular Tiddlywiki Node server in this way by following the first half of the instructions in my [[Tiddlyserver on the Raspberry Pi]] tutorial.
+
+!!The Wild Wild Web?
+
+In theory you could expose your Tiddlywiki Node server to the real internet and then access it from "anywhere".
+
+In practise, this is a terrible idea because it hasn't been sufficiently tested for security. There is absolutely no guarantee that a bad (but clever) person won't find a way to exploit it and pwn your life. 
+
+{{$:/didaxy/content-footer-nav}}

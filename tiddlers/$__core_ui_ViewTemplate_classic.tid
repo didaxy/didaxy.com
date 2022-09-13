@@ -1,0 +1,16 @@
+created: 20170815080557152
+modified: 20171101080610485
+tags: $:/tags/ViewTemplate $:/tags/EditTemplate $:/tags/StaticViewTemplate
+title: $:/core/ui/ViewTemplate/classic
+type: text/vnd.tiddlywiki
+
+\define lingo-base() $:/language/ClassicWarning/
+<$list filter="[all[current]type[text/x-tiddlywiki]]">
+<div class="tc-message-box">
+
+<<lingo Hint>>
+
+<$button set="!!type" setTo="text/vnd.tiddlywiki"><<lingo Upgrade/Caption>></$button>
+
+</div>
+</$list>

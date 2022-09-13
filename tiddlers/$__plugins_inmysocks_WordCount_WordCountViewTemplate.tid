@@ -1,0 +1,11 @@
+created: 20151207175800518
+modified: 20171101080610667
+tags: $:/tags/ViewTemplate
+title: $:/plugins/inmysocks/WordCount/WordCountViewTemplate
+type: text/vnd.tiddlywiki
+
+<$reveal type='match' state='$:/settings/inmysocks/WordCount!!enable_view_mode' text=true>
+<$list filter='[is[current]has[text]]' emptyMessage="Word Count: 0">
+Word Count: <$word-count tiddler=<<currentTiddler>> field='text' mode=word/>
+</$list>
+</$reveal>

@@ -1,0 +1,18 @@
+created: 20171031015919447
+modified: 20190725061841932
+tags: Tiddlywiki
+title: Introduction to Tiddlywiki
+type: text/vnd.tiddlywiki
+
+!!Introduction to Tiddlywiki
+
+Tiddlywiki is an awesome open-source wiki engine written in javascript. It can be run in your browser or under Node js
+
+!!A Short Introduction
+
+<<youtube 2UlCL2HCc_Y>>
+
+!!Node JS
+
+*[[Tiddlywiki Under Node js]]
+

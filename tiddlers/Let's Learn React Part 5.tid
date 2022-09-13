@@ -1,0 +1,268 @@
+created: 20171018084852977
+modified: 20171101080612332
+part: 5
+partof: Let's Learn React
+previous: [[Let's Learn React Part 4]]
+subtitle: Extensions
+tags: TutorialPart Live noindex
+title: Let's Learn React Part 5
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+The extensions to the tutorial.
+
+(consult the git history for details)
+
+Go over these to remind myself of what I did.
+
+!!Part 0
+
+Display the move locations.
+
+To do this, we need to store new information.
+
+We need to expand our history to store not only the state of the board at each step, but also which player moved (though this //could// be inferred, it's easier imo to store it) and the move that they made - the number of the square that they moved to.
+
+History is currently an array of objects, each with one element 'squares', which is itself an array.
+
+Alongside 'squares' we add another element, called 'move' and make it an object with the properties 'square' and 'player'.
+
+Though there is some chance of getting confused, this naming keeps things simple.
+
+Now, when we render the list of moves, by mapping over the history, we can also extract these other pieces of information.
+
+```
+ `Move # ${move} (player ${step.move.player} to square ${step.move.square})` :  'Game start';
+```
+Note that we are using a template literal.
+
+
+!!Part 1
+
+What if we wanted to display the moves in coordinate format? 
+
+We could re-write the whole thing to use a 2d array, but imo this is overkill - all of our logic works and the location is only displayed in this one place.
+
+All we really want to do is change the displayed number to coordinates and there's a simple algorithm for mapping from what we have to what we want.
+
+At first I thought I would play with tagged template literals, but in fact, we don't need a function at all, we can write the mapping expressions inline in the template literal.
+
+et voila.
+
+```
+const desc = move ? `Move # ${move} (player ${step.move.player} to square (${step.move.square % 3 + 1}, ${Math.floor(step.move.square/3) + 1}) `:
+         'Game start';
+```
+
+I liked this one, I thought it was a neat solution.
+
+!!Part 2
+
+The obvious way to bold an entry is to give it an extra css class if it is the active link.
+
+```
+.active {
+  font-weight: bold;
+}
+```
+
+What dictates whether the link being currently rendered is the active one?
+
+The 'move' variable is the one that's being used to iterate over the history in the render method.
+
+In the render method, then, we'll set a variable to read either 'active' or be blank
+
+```
+const active = move == this.state.stepNumber? "active" : "";
+```
+an assign that as a class on the click (remembering that we need to use className instead of class)
+
+```
+<a href="#" className={active} onClick={() => this.jumpTo(move)}>{desc}</a>
+```
+
+
+!!Part 3
+
+Replace the current render method
+
+```
+   render() {
+-    return (
+-      <div>
+-        <div className="board-row">
+-          {this.renderSquare(0)}
+-          {this.renderSquare(1)}
+-          {this.renderSquare(2)}
+-        </div>
+-        <div className="board-row">
+-          {this.renderSquare(3)}
+-          {this.renderSquare(4)}
+-          {this.renderSquare(5)}
+-        </div>
+-        <div className="board-row">
+-          {this.renderSquare(6)}
+-          {this.renderSquare(7)}
+-          {this.renderSquare(8)}
+-        </div>
+-      </div>
+-    );
+```
+with one that loops.
+
+```
+   render() {
++    let cells = [],
++        rows = [];
++
++    for (var i = 0; i < 3; i++) {
++      for (var j = 0; j < 3; j++) {
++        cells.push(this.renderSquare((3*i)+j))
++      }
++      rows.push(<div className="board-row" key={i}>{cells}</div>)
++      cells = [];
++    }
++    return (<div>{rows}</div>)
++
+   }
+```
+
+My first attempt to do this badly misunderstood how to compose the pieces of JSX.
+
+You can assign JSX to a variable, but you have to assign a complete structure - with closing tag.
+
+Inside the JSX, you can nest arrays that get rendered out element by element.
+
+!!Part 3a 
+
+I wanted to see if the same thing could be written with maps.
+
+It can, and you could do it like this.
+
+```
++    return (
++      <div>
++        {
++          [0,0,0].map((a,i) => (
++            <div className="board-row" key={i}>{
++              [0,0,0].map((b,j) => {
++                return this.renderSquare((3*i)+j);
++              })
++            }</div>
++          ))
++        }
++      </div>
++    )
+```
+
+Q: what's the "best" way to generate a throwaway three-element array to do the mapping over? 
+
+I suppose this would be more natural if I had the data //stored// as a three by three array because then I could loop over the data itself (at the moment it is a single 9 element array that doesn't 'know' it represents a grid)
+
+Where the indentation is just my best attempt to make it look readable (and failing).
+
+Whilst this is possible, I find the looping variant much easier to reason about.
+
+!!part 4
+
+The temptation here was to 'just' reverse the history, but of course, the ordering of the history is being used by other parts of logic - to jump between the states.
+
+If you reverse the history, the program will still work, but you'll see weird effects and moves jumping around randomly all over the place.
+
+What we want to do instead is just flip the ''display'' order of the history list elements //after// they've been created.
+
+So, we want to reverse our 'moves' variable, before including it into the JSX.
+
+If we rename the existing one to "imoves"
+
+```
+-    const moves = history.map((step, move) => {
+```
+```
++    const imoves = history.map((step, move) => {
+       const desc = move ?
+         `Move # ${move} (player ${step.move.player} to square (${step.move.square % 3 + 1}, ${Math.floor(step.move.square/3) + 1}) `:
+         'Game start';
+
+class Game extends React.Component {
+         </li>
+       );
+     });
+-
+```
+
+then we can set 'moves' based on the value of our flag. By keeping the original name of the resulting variable, we don't have to worry about the effect of the change on any other part of the code.
+
+```
++    const moves = this.state.ascending? imoves : imoves.reverse();
+
+```
+Then, after the status in the game display, we can render a 'toggle' button that invokes a click handler.
+
+```
+ <button onClick = {() => this.toggleAscending()}>Toggle</button>
+           <ol>{moves}</ol>
+```
+
+...and have the click handler toggle the state variable.
+
+Because we're using 'setState' as we're supposed to, it will trigger a refresh for all the components that depend on this state variable and the list will be reversed.
+
+```
++  toggleAscending() {
++    this.setState({
++      ascending: !this.state.ascending
++    });
++  }
+```
+
+!!part 5
+
+I want to mark the winning line.
+
+When the calculatewinner fn gets called, I have it safely returning the winning line in the 1th position of an array, but how to neatly add a class to the winning squares only?
+
+It's if their 'index' matches one of the three numbers in the returned array (and if there //is// a returned array to begin with) that we want to do the do.
+
+This is complicated because it's the square that draws itself, but the information about whether it should draw itself as a 'winning' square is all the way up at the Game level, so we need to bolt our new mechanism to the side of the existing chain, meaning we have to change code in a few different places.
+
+So, we need to think carefully (at least //I// do) about what we're going to do before we do it, so that we don't get into a tangle.
+
+[IMO: it's these bits of tutorials that usually end up seeming like magic, because you can't follow the thought process]
+
+What we need is a way to know whether a square is in the winning line.
+
+We have our calculateWinner function returning an array with the inidices of the winning squares.
+
+When this comes back (as the result of a click) we want to set the state for it.
+
+... no, that's wrong. Not as the result of a click?
+
+The handleclick is only dealing with the immediate effect of a click - it doesn't calculate whether someone has won or not - that gets done in the render method...
+
+In this way, adding a display of the squares involved in the winning line is pretty easy.
+
+(git commit)
+
+then, to get the whole board to light up.
+
+then,  to apply the style only to the specific squares in question.
+
+!!Next?
+
+You could re-write the whole thing using a 3x3 array to store the state instead of a 9 element, 1d array.
+
+That will/would kind of test that you know what's going on - especially if you make yourself do it from memory and only look at the other one if you really need to.
+
+!!Then?
+
+Then, build another, related app - perhaps a little bit more complicated.
+
+I suggest a pair-matching game.
+
+So, I'll go and read about flip animations
+
+<<tutorial_nav>>

@@ -1,0 +1,25 @@
+created: 20170815080549606
+modified: 20171101080610478
+tags: $:/tags/ViewTemplate $:/tags/StaticViewTemplate
+title: $:/core/ui/ViewTemplate/import
+type: text/vnd.tiddlywiki
+
+\define lingo-base() $:/language/Import/
+
+<$list filter="[all[current]field:plugin-type[import]]">
+
+<div class="tc-import">
+
+<<lingo Listing/Hint>>
+
+<$button message="tm-delete-tiddler" param=<<currentTiddler>>><<lingo Listing/Cancel/Caption>></$button>
+<$button message="tm-perform-import" param=<<currentTiddler>>><<lingo Listing/Import/Caption>></$button>
+
+{{||$:/core/ui/ImportListing}}
+
+<$button message="tm-delete-tiddler" param=<<currentTiddler>>><<lingo Listing/Cancel/Caption>></$button>
+<$button message="tm-perform-import" param=<<currentTiddler>>><<lingo Listing/Import/Caption>></$button>
+
+</div>
+
+</$list>

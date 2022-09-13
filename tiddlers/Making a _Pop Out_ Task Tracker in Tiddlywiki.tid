@@ -1,0 +1,181 @@
+created: 20170824033752807
+modified: 20190725015203934
+tags: Tiddlywiki
+title: Making a "Pop Out" Task Tracker in Tiddlywiki
+type: text/vnd.tiddlywiki
+
+!Making a "Pop Out" Task Tracker in Tiddlywiki (v0.1)
+!!Introduction
+
+Building this site and writing the [[tutorial about doing so|Exporting Static Sites From Tiddlywiki]] involved managing lots of little tasks and we wanted a simple system to keep track of them. There are [[lots of solutions|https://zapier.com/blog/best-todo-list-apps/]] and we could have evaluated some to find one that did what we want but we decided, in true //meta// fashion, to build this in Tiddlywiki too.
+
+Tiddlywiki is great for building simple things like a task-tracker; you can quickly get something working usefully and then add functionality as you find you need it. The advantage to building our own tool is that it will do just what we need it to do and won't be cluttered up with features we don't need. By using Tiddlywiki, we also have a guarantee that any data we create will be private and portable.
+
+!!The Goal
+
+The "main view" of our app will be a list of tasks that we'd like to be able to re-order. We also, naturally, need a way to add items to the list and a way to remove them.
+
+There are two reasons to remove items from the list. The first and best reason being because they're complete, in which case we'd like them to appear on a "timeline of achievements" so that we can see what we've accomplished. The other reason is to put the item "on hold" meaning that we don't want to forget about it altogether, but it shouldn't be on our "to do" list for today. The "on hold" list should give us a way to either delete items altogether, or put them back on the "to do" list.
+
+!!Tiddlers and Tags
+
+In Tiddlywiki "everything is a tiddler" so, of course, our tasks will be tiddlers too. Beyond that we'll start by using the simplest mechanism available to us, which is to put the tiddlers into different categories based on the tags that they have.
+
+Tasks on the todo list will have the tag "task", those that have been completed will have the tag "done" and those that are on hold will have the tag "onhold". 
+
+Making our To Do list, then, is as simple as listing all the tiddlers that have the tag "task". Using the ``list-tagged-draggable`` macro makes the list re-orderable.
+
+```
+<<list-tagged-draggable tag:"task" itemTemplate:"toDoListTemplate">>
+```
+
+!!Adding A New Task
+
+To begin with, we can add tasks to the list by creating new tiddlers that already have the tag "task". There are several ways to do this but one neat way is to transclude the ``task`` tiddler through the ``new-here`` template.
+
+```
+{{task||$:/core/ui/Buttons/new-here}}
+```
+You can put this in a tiddler and then "put" that tiddler where you want it, by which we mean you can give it a tag to make it appear somewhere in the UI of your wiki. For example the tag ``$:/tags/PageControls`` will put it alongside the main controls under the title. 
+
+!!Manipulating The List Items
+
+We can change how each draggable row of our list looks using the template we specified above (``toDoListTemplate``). 
+
+When a task changes to "done' we need to add one tag and remove another, we also want to set fields to track //when// it was done (for our "timeline of achievement"). When it goes "on hold", only tags are involved.
+
+We achieve all this using the ``fieldmangler`` widget and ``action-sendmessage`` in addition to the ``button`` widget itself.
+
+```
+<div class="to-do-row">
+  <div class="task">
+    <$link>{{!!title}}</$link>
+  </div>
+  <div class="mark">
+    <$fieldmangler>
+      <$button message="tm-add-tag" param="done">
+        <$action-sendmessage $message="tm-remove-tag" $param="task" />
+        <$action-setfield $field="donedate" $value=<<now YYYY-0MM-0DD>>/>
+        <$action-setfield $field="donetime" $value=<<now hh-mm-ss>>/>
+        {{$:/core/images/save-button}}
+      </$button>
+    </$fieldmangler>
+  </div>
+  <div class="mark later">
+    <$fieldmangler>
+      <$button message="tm-add-tag" param="onhold">
+        <$action-sendmessage $message="tm-remove-tag" $param="task" />
+        {{$:/core/images/chevron-right}}
+      </$button>
+    </$fieldmangler>
+  </div>
+</div>
+```
+
+
+!!A Done List
+
+The list of completed items doesn't need to be re-orderable. Rather, it needs to be sorted according to date, like so. 
+
+```
+<$list filter="[!is[system]each[donedate]get[donedate]!sort[]]" variable="test" >
+
+<<test>>
+<$list filter="[field:donedate<test>]">
+
+</$list>
+
+
+</$list>
+```
+
+!!An "On Hold" List
+
+This doesn't need to be draggable //or// have special formatting. It just needs controls for swapping the tags back to "task" and for deleting the tiddler altogether.
+
+```
+<$list filter="[tag[onhold]sort[created]]">
+
+<$link>{{!!title}}</$link>  <$button><$action-sendmessage $message="tm-delete-tiddler"/> ! </$button><$fieldmangler>
+<$button message="tm-add-tag" param="task"><$action-sendmessage $message="tm-remove-tag" $param="onhold"/><$action-deletefield $field="donedate"/><$action-deletefield $field="donetime"/>{{$:/core/images/save-button}}</$button>
+</$fieldmangler>
+
+</$list>
+
+```
+
+!!Putting It Together
+
+The next logical step is to group all three of these lists into one tiddler. We'll only need to look at one list at a time, so we'll put them on tabs using the ``tabs`` macro, making it easy to switch between them.
+
+```
+<<tabs "[[ToDo List]] DONE [[On Hold]]" [[ToDo List]]>>
+```
+
+!!Input Bar
+
+Since everything else in our app is now grouped into this one tiddler, ideally we'd like to be able to make the new tiddler that represents a task from here too.
+
+In fact, we can create new tiddlers without them ever needing to be rendered (in their own right) to the screen at all, just by setting fields on them.
+
+We can make a pair of controls - an input field and a button - that do just that. We can enter the text (title) of a new task and click the button to see it added immediately to our To Do list.
+
+We add the code above our tabs like so
+
+```
+<$edit-text tiddler="$:/rs/state/new_task" field="new_task"/>
+<$button><$action-setfield $tiddler={{$:/rs/state/new_task!!new_task}} tags="task"/><$action-setfield $tiddler="$:/rs/state/new_task" $field="new_task" $value=""/>Add</$button>
+
+<<tabs "[[ToDo List]] DONE [[On Hold]]" [[ToDo List]]>>
+```
+
+!!Adding Simple CSS
+
+When we wrote the template for our list items in ``toDoListTemplate`` we included class names on some of our divs which allow us to style them using our own stylesheet.
+
+Doing so is as simple as tagging a tiddler with ``$:/tags/Stylesheet`` and giving it some appropriate content.
+
+At the moment, our ``css`` file looks like this; it gives the items a distinctive appearance, makes them a little bigger and aligns them properly.
+
+```
+.task {
+  display: inline-block;
+  width:70%;
+  color: green;
+  font-size: 18px;
+  overflow: scroll;
+  float: left;
+}
+
+.task > a{ 
+  color: green;
+
+}
+
+.mark {
+  display: inline-block;
+  float: right;
+
+}
+
+.to-do-row {
+  position: relative;
+  clear: right;
+
+}
+```
+
+
+!!Popping it Out
+
+Once we've got all three lists and the "new task" input working right, we can "pop out" our task tracker by finding and clicking the "open this tiddler in a new window" control. It's in the tiddler's own menu when in view mode. 
+
+Once the tracker is "popped out" you can move it to anywhere on your desktop that you find most convenient. You need to keep the parent tab/window open (but you can minimise it).
+
+!!Summary
+
+Making a Task Tracker that met our needs was very quick and simple. We've got an interface with no unnecessary features that we can extend in the future if we find new requirements.
+
+As you can hopefully see, the process of building simple apps like this is straightforward, provided you understand the basics of how Tiddlywiki itself works.
+
+{{$:/didaxy/content-footer-nav}}

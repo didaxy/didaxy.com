@@ -1,0 +1,73 @@
+created: 20160718124619450
+modified: 20171101080610788
+tags: Plumbing
+tagtoadd: TutorialPart
+tagtoremove: NodeHerokuMlab
+title: $:/didaxy/tag-retagger
+type: text/vnd.tiddlywiki
+
+A little tool to consolidate tags - lets you select a group of tiddlers by tag and then remove that tag at the same time as applying a new one.
+
+!!!This removes one tag and adds another
+
+Be careful. There is no undo.
+
+<table>
+<tr>
+<td>
+remove
+</td>
+<td>
+<$select tiddler=<<currentTiddler>> field="tagtoremove" default='notset'>
+<$list filter='[all[tiddlers]tags[]sort[]]'>
+<option value=<<currentTiddler>> field="tagtoremove"><$view field='title'/></option>
+</$list>
+</$select>
+</td>
+<td>
+and add
+</td>
+<td>
+<$select tiddler=<<currentTiddler>> field="tagtoadd" default='notset'>
+<$list filter='[all[tiddlers]tags[]sort[]]'>
+<option value=<<currentTiddler>> field="tagtoadd"><$view field='title'/></option>
+</$list>
+</$select>
+</td>
+<td>
+
+<$set name="newTag" value={{!!tagtoadd}}>
+<$set name="oldTag" value={{!!tagtoremove}}>
+<$button>
+<$list filter="[all[shadows+tiddlers]tag{!!tagtoremove}]">
+<$fieldmangler>
+<$action-sendmessage $message="tm-add-tag" $param=<<newTag>>/>
+<$action-sendmessage $message="tm-remove-tag" $param=<<oldTag>>/>
+</$fieldmangler>
+</$list>
+Click me!
+</$button>
+</$set>
+</$set>
+
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<$list filter="[all[shadows+tiddlers]tag{!!tagtoremove}]">
+<$link>{{!!title}}</$link>
+</$list>
+</td>
+<td>
+</td>
+<td>
+<$list filter="[all[shadows+tiddlers]tag{!!tagtoadd}]">
+<$link>{{!!title}}</$link>
+</$list>
+</td>
+<td>
+</td>
+</tr>
+</table>

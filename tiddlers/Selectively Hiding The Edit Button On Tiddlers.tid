@@ -1,0 +1,309 @@
+created: 20170905034515866
+modified: 20190725015157046
+tags: Tiddlywiki
+title: Selectively Hiding The Edit Button On Tiddlers
+type: text/vnd.tiddlywiki
+
+!Selectively Hiding The Edit Button On Tiddlers
+
+!!Introduction
+
+A [[recent question on the Tiddlywiki Google Group|https://groups.google.com/forum/#!topic/tiddlywiki/5bu8ZuVzINA]] gives us an early opportunity to dip into one of the more "advanced intermediate" topics that we hope to eventually include as part of a more systematic set of tutorials.
+
+The question is as follows: 
+
+<<<
+I would like to hide the edit button, or simply move it into "more" for individual tiddlers with a particular tag or field setting... Ideally I would be able to be selective rather than impact all tiddlers."
+<<<
+
+In the thread that follows, a good solution is suggested, but it is one that involves using CSS to hide the edit button on Tiddlers that have a certain tag.
+The original poster then follows up by saying this.... 
+
+<<<
+
+"would be fine, except I use the Edit Image in the "locked" tiddlers to allow edit of its sub-tiddlers. Can someone please help me take the final step here, to somehow only hide or move to more, the edit button in the tool bar, and not in its other uses within my tiddler?"
+<<<
+
+The topic, then, is "How to Conditionally Modify the View Template" and doing so, like everything in Tiddly-land, is easy when you know how.
+
+!!A Fish
+
+If you're impatient and just want it to work, find ``$:/core/ui/ViewTemplate/title`` and swap this chunk
+
+```
+<$list filter="[all[shadows+tiddlers]tag[~$:/tags/ViewToolbar]!has[draft.of]]" variable="listItem"><$reveal type="nomatch" state=<<config-title>> text="hide"><$transclude tiddler=<<listItem>>/></$reveal></$list>
+```
+
+for this chunk
+
+```
+<$list filter="[all[current]tag[noedit]]">
+<$list filter="[all[shadows+tiddlers]tag[$:/tags/ViewToolbar]!has[draft.of]] -[[$:/core/ui/Buttons/edit]]" variable="listItem"><$reveal type="nomatch" state=<<config-title>> text="hide"><$transclude tiddler=<<listItem>>/></$reveal></$list>
+</$list>
+<$list filter="[all[current]!tag[noedit]]">
+<$list filter="[all[shadows+tiddlers]tag[$:/tags/ViewToolbar]!has[draft.of]]" variable="listItem"><$reveal type="nomatch" state=<<config-title>> text="hide"><$transclude tiddler=<<listItem>>/></$reveal></$list>
+</$list>
+```
+
+And then tag tiddlers "noedit" to hide their edit control. Obviously, make sure you back up your work first.
+
+!!A Fishing Rod
+
+The UI of Tiddlywiki is built from lists of Tiddlers, identified by tags.
+
+What we'd like is an easy way to see those tags and the tiddlers that have each one. The great thing about Tiddlywiki is that we can build a tool that lets us do just that and then use it to make our actual task easier.
+
+We make a Tiddler called "DragSystemTags" (or whatever) and give it the tag ``$:/tags/SideBar`` and the following content.
+
+```
+\define setStateTid()
+$:/state/systemtags/$(currentTiddler)$
+\end
+
+<$list filter="[all[shadows+tiddlers]tags[]prefix[$]]">
+
+<$reveal type="nomatch" state=<<setStateTid>> text="show">
+<$button set=<<setStateTid>> setTo="show" class="tc-btn-invisible">{{$:/core/images/right-arrow}}</$button><$link>{{!!title}}</$link>
+</$reveal>
+
+<$reveal type="match" state=<<setStateTid>> text="show">
+<$button set=<<setStateTid>> setTo="hide" class="tc-btn-invisible">{{$:/core/images/down-arrow}}</$button><$link>{{!!title}}</$link>
+<ol class="tc-toc">
+<<list-tagged-draggable tag:"$(currentTiddler)$">>
+</ol>
+</$reveal>
+
+</$list>
+```
+
+This new tool then gives us a list of all the system tags, each in a dropdown which shows us a list of the tiddlers that have that tag.
+
+The lists are also drag-reorderable, meaning that you can re-order major pieces of the UI. For now, unless you want to just play, be sure not to drag any of them by accident - the results can be quite unpredictable.
+
+!!Catching the Right Tiddlers
+
+Now what we need to do is use our new tool to find the tag we're looking for. To begin with, you're going to need to familiarise yourself somewhat with the whole list. In most cases, it isn't too difficult to figure out which one you need.
+
+In this case, the tag we're looking for is ``$:/tags/ViewTemplate`` and these are the tiddlers that initially have that tag.
+
+```
+$:/core/ui/ViewTemplate/title
+$:/core/ui/ViewTemplate/unfold
+$:/core/ui/ViewTemplate/subtitle
+$:/core/ui/ViewTemplate/tags
+$:/core/ui/ViewTemplate/classic
+$:/core/ui/ViewTemplate/body
+$:/core/ui/ViewTemplate/import
+$:/core/ui/ViewTemplate/plugin
+```
+
+This is also the order they are being rendered in, which makes it easy to figure out that ``$:/core/ui/ViewTemplate/title`` is the one that's rendering the controls.
+
+You can see the effects of changing the ordering of these tiddlers on the tag by dragging the list. For example, if you drag ``$:/core/ui/ViewTemplate/subtitle`` to the top, the subtitle of each tiddler will now precede the title.
+
+!!core/ui/ViewTemplate/title
+
+Let's look at what ``$:/core/ui/ViewTemplate/title`` actually does.
+
+```
+\define title-styles()
+fill:$(foregroundColor)$;
+\end
+\define config-title()
+$:/config/ViewToolbarButtons/Visibility/$(listItem)$
+\end
+<div class="tc-tiddler-title">
+<div class="tc-titlebar">
+<span class="tc-tiddler-controls">
+<$list filter="[all[shadows+tiddlers]tag[$:/tags/ViewToolbar]!has[draft.of]]" variable="listItem"><$reveal type="nomatch" state=<<config-title>> text="hide"><$transclude tiddler=<<listItem>>/></$reveal></$list>
+</span>
+<$set name="tv-wikilinks" value={{$:/config/Tiddlers/TitleLinks}}>
+<$link>
+<$set name="foregroundColor" value={{!!color}}>
+<span class="tc-tiddler-title-icon" style=<<title-styles>>>
+<$transclude tiddler={{!!icon}}/>
+</span>
+</$set>
+<$list filter="[all[current]removeprefix[$:/]]">
+<h2 class="tc-title" title={{$:/language/SystemTiddler/Tooltip}}>
+<span class="tc-system-title-prefix">$:/</span><$text text=<<currentTiddler>>/>
+</h2>
+</$list>
+<$list filter="[all[current]!prefix[$:/]]">
+<h2 class="tc-title">
+<$view field="title"/>
+</h2>
+</$list>
+</$link>
+</$set>
+</div>
+
+<$reveal type="nomatch" text="" default="" state=<<tiddlerInfoState>> class="tc-tiddler-info tc-popup-handle" animate="yes" retain="yes">
+
+<$transclude tiddler="$:/core/ui/TiddlerInfo"/>
+
+</$reveal>
+</div>
+```
+
+The part that's transcluding the controls is here
+
+```
+<$list filter="[all[shadows+tiddlers]tag[$:/tags/ViewToolbar]!has[draft.of]]" variable="listItem"><$reveal type="nomatch" state=<<config-title>> text="hide"><$transclude tiddler=<<listItem>>/></$reveal></$list>
+```
+
+and it's getting them with this filter ``[all[shadows+tiddlers]tag[$:/tags/ViewToolbar]!has[draft.of]]``
+
+!!Clone it!
+
+Instead of messing with this tiddler at all, we can close it without making a change and clone it instead, giving the new one a suitable name, such as ``$:/core/ui/ViewTemplate/conditional-title``.
+
+Things might get a bit confusing now, because you'll have two title bars and two sets of controls on every tiddler, but doing this ensures that you won't accidentally delete //all// the controls from your tiddlers and have to start from scratch.
+
+You can use "DragSystemTags" to re-order the UI elements, to put both titles at the top, or in any order you like.
+
+The tricky part of what we want to do is having the visibility of the edit button depend on a tag on the enclosing tiddler, not the UI element itself.
+
+!!Experiments
+
+1. First let's check that we can add content to our new title-bar. Of course, we won't leave this in, we're just convincing ourselves that we can add stuff to the template and see it get rendered. Underneath the div that's transcluding the controls, add a tiny bit of text (just one word in this example, the closing tags are included to show you where it should go)
+
+```
+</$link>
+</$set>
+</div>
+
+yo
+```
+You should now be able to see your tiny bit of text, displayed after the toolbar controls.
+
+2. Now make the content conditional on whether a tag exists on the tiddler or not.
+
+Replace your tiny fragment of content with this construct.
+
+```
+<$list filter="[all[current]tag[noedit]]">
+has the noedit tag
+</$list>
+<$list filter="[all[current]!tag[noedit]]">
+doesn't have the noedit tag
+</$list>
+```
+
+You should see now that the text changes for each individual tiddler depending on whether it carries the tag "noedit" (which you can obviously change for whatever tag you like).
+
+
+!!Making the Toolbar Buttons Conditional
+
+Now we know how to make content appear and disappear based on the existence of a tag. 
+
+The thing we'd actually like to make conditional are the buttons themselves, so we delete the text we added and instead put the original ``<$list>`` construct inside our conditional statement instead.
+
+If we wanted to  hide //all// of the toolbar buttons, we could do it like this;
+
+```
+<$list filter="[all[current]tag[noedit]]">
+</$list>
+<$list filter="[all[current]!tag[noedit]]">
+<$list filter="[all[shadows+tiddlers]tag[$:/tags/ViewToolbar]!has[draft.of]]" variable="listItem"><$reveal type="nomatch" state=<<config-title>> text="hide"><$transclude tiddler=<<listItem>>/></$reveal></$list>
+</$list>
+```
+In this case, as you can see, the first conditional is completely empty.
+
+But, if we only want to suppress ``$:/core/ui/Buttons/edit`` we can do this;
+
+```
+<$list filter="[all[current]tag[noedit]]">
+<$list filter="[all[shadows+tiddlers]tag[$:/tags/ViewToolbar]!has[draft.of]] -[[$:/core/ui/Buttons/edit]]" variable="listItem"><$reveal type="nomatch" state=<<config-title>> text="hide"><$transclude tiddler=<<listItem>>/></$reveal></$list>
+</$list>
+<$list filter="[all[current]!tag[noedit]]">
+<$list filter="[all[shadows+tiddlers]tag[$:/tags/ViewToolbar]!has[draft.of]]" variable="listItem"><$reveal type="nomatch" state=<<config-title>> text="hide"><$transclude tiddler=<<listItem>>/></$reveal></$list>
+</$list>
+```
+Here the controls are transcluded in either case, but the first case - occurring when the tag is present - explicitly removes the edit button by appending ``-[[$:/core/ui/Buttons/edit]]`` to the filter it uses.
+
+!!Getting Rid of the Other Title Bar
+
+You should have two title bars on every tiddler but if you give a tiddler the tag "noedit", the edit control should disappear from one of them.
+
+Now you can find the original title tiddler, ``$:/core/ui/ViewTemplate/title`` and remove it's tag, or alternatively you could swap the new one for the old altogether, now that you know it's working.
+
+!!What About Moving to the 'More' Menu?
+
+The original poster's question said;
+
+<<<
+I would like to hide the edit button, or simply move it into "more"
+<<<
+
+We've seen how to hide it altogether, but how would we "simply" move it into "more"?
+
+``$:/core/ui/Buttons/more-tiddler-actions`` is the drop down control. It transcludes a list of all the toolbar buttons, but it suppresses them if they have the "hide" variable set
+
+```
+\define config-title()
+$:/config/ViewToolbarButtons/Visibility/$(listItem)$
+\end
+<$button popup=<<qualify "$:/state/popup/more">> tooltip={{$:/language/Buttons/More/Hint}} aria-label={{$:/language/Buttons/More/Caption}} class=<<tv-config-toolbar-class>> selectedClass="tc-selected">
+<$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
+{{$:/core/images/down-arrow}}
+</$list>
+<$list filter="[<tv-config-toolbar-text>prefix[yes]]">
+<span class="tc-btn-text"><$text text={{$:/language/Buttons/More/Caption}}/></span>
+</$list>
+</$button><$reveal state=<<qualify "$:/state/popup/more">> type="popup" position="below" animate="yes">
+
+<div class="tc-drop-down">
+
+<$set name="tv-config-toolbar-icons" value="yes">
+
+<$set name="tv-config-toolbar-text" value="yes">
+
+<$set name="tv-config-toolbar-class" value="tc-btn-invisible">
+
+<$list filter="[all[shadows+tiddlers]tag[$:/tags/ViewToolbar]!has[draft.of]] -[[$:/core/ui/Buttons/more-tiddler-actions]]" variable="listItem">
+
+<$reveal type="match" state=<<config-title>> text="hide">
+
+<$transclude tiddler=<<listItem>> mode="inline"/>
+
+</$reveal>
+
+</$list>
+
+</$set>
+
+</$set>
+
+</$set>
+
+</div>
+
+</$reveal>
+```
+
+Combing through it, we find this part
+
+```
+<$list filter="[all[shadows+tiddlers]tag[$:/tags/ViewToolbar]!has[draft.of]] -[[$:/core/ui/Buttons/more-tiddler-actions]]" variable="listItem">
+
+<$reveal type="match" state=<<config-title>> text="hide">
+
+<$transclude tiddler=<<listItem>> mode="inline"/>
+
+</$reveal>
+
+</$list>
+```
+
+This is what's making the list and ``<<config-title>>`` is just picking which config tiddler (``$:/config/ViewToolbarButtons/Visibility/$(listItem)$``) to check to see if the item is set to "hide". By default, this list only shows items which are //hidden// from the main toolbar (in the usual way, not using the mechanism we just made).
+
+Adding the "edit" control back into the list selectively would be a bit tricky but much easier is to make sure none of the items are ever excluded from the list (thus ensuring the edit control is always available but meaning it will sometimes appear twice)
+
+To do this, we can just remove the ``<$reveal>`` clause from around the ``<$transclude>`` widget altogether. 
+
+The cleanest way to do this, without getting into a pickle, is to repeat the general procedure outlined above, ie; clone the tiddler, make the changes we need to make and then remove the relevant tag from the original. An appropriate name for our new tiddler would be ``$:/core/ui/Buttons/all-tiddler-actions``
+
+In this case you might be happy to keep both versions, since they do slightly different things, in which case you would probably want to change the icon for one of them and we leave this, for the moment, as an exercise for the reader.
+
+As you've probably already realised, you can use "DragSystemTags", under ``$:/tags/ViewToolbar``, to re-order the controls in the view toolbar and the "more" lists, if you want to.

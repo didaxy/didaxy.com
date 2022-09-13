@@ -1,0 +1,7 @@
+created: 20151024024512857
+modified: 20171101080610697
+tags: 
+title: $:/plugins/didaxy/imageExternaliser/filters/non_externalised_images
+type: text/vnd.tiddlywiki
+
+[!is[system]is[image]field:_canonical_uri[]!field:Type[application/pdf]!field:Type[image/svg+xml]]

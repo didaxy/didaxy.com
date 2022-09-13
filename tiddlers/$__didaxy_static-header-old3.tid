@@ -1,0 +1,33 @@
+created: 20170815074447863
+modified: 20190202062044434
+navbar-entries: About Tutorials Contact
+navbar_fixed_yes_no: no
+optclass: 
+site-logo: $:/didaxy/didaxy-logo-white.svg
+site-name: Didaxy
+tags: 
+title: $:/didaxy/static-header-old3
+type: text/vnd.tiddlywiki
+
+<nav class="navbar navbar-expand-lg navbar-light">
+<div class="container-fluid">
+<div class="navbar-brand"> <$link to="index"><$image source={{$:/didaxy/static-header!!site-logo}} width="48px"/>&nbsp;{{$:/didaxy/static-header!!site-name}}</$link></div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+       <$list filter="[list[$:/didaxy/static-header!!navbar-entries]]">
+           <$wikify name="list_classes" text="nav-item {{!!optclass}}">
+           <li class=<<list_classes>>>
+              <div class="nav-link">
+                  <$link>{{!!title}}</$link>
+               </div>
+            </li>
+            </$wikify>
+       </$list>
+       
+    </ul>
+  </div>
+</div>
+</nav>

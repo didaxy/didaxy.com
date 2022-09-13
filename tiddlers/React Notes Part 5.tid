@@ -1,0 +1,182 @@
+created: 20171023022423789
+modified: 20171208034224353
+next: [[React Notes Part 6]]
+part: 5
+partof: React Notes
+previous: [[React Notes Part 4]]
+subtitle: Forms (Controlled Components)
+tags: TutorialPart Live noindex
+title: React Notes Part 5
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!Forms
+
+Forms are one of the few HTML elements that routinely store state, so they need to be handled differently in React to avoid confusion.
+
+If you leave them as regular elements, your React app won't have access to them.
+
+You instead need to put them under control, which over-rides their default behaviour.
+
+When you do this, you become responsible for updating their state //on every keypress//.
+
+```
+class NameForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Name:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
+```
+
+Every possible change to the state of the UI needs a handler.
+
+!!Textarea
+
+Regular HTML &lt;textarea> tags don't store their value in attributes, but in their children.
+
+ie;
+
+```
+<textarea>
+  Hello there, this is some text in a text area
+</textarea>
+```
+
+But in React, it uses a value attribute (in state) instead, so it behaves just like a form input.
+
+!!Select Tag
+
+Instead of using the ``selected`` attribute, React uses ``value`` in state to track the currently selected item.
+
+Note
+You can pass an array into the value attribute, allowing you to select multiple options in a select tag:
+
+```
+<select multiple={true} value={['B', 'C']}>
+```
+
+"Note
+You can pass an array into the value attribute, allowing you to select multiple options in a select tag:"
+
+```
+<select multiple={true} value={['B', 'C']}>
+```
+
+To get to grips with this form stuff I clearly need to implement some examples of actual use.
+
+The rest of the sections in this guide are actually a bit the same in this regard.
+
+The next section is about 'Lifting State Up', which I think is pretty well covered in [[my first tutorial|Let's Learn React]]. 
+
+The section after that talks about 'Composition vs. Inheritance' and that's a topic I'm already sold on - trying to do classical inheritance in jS is a fools errand.
+
+So, we use composition as a matter of course. There are some features of React that are specifically helpful in this regard and the first is the 'children' prop.
+
+!!Children
+
+If you render a React component in JSX and use opening and closing tags (rather than self-closing the first tag), any elements that you put inside it will be passed to it as ``children`` in the ``prop`` object.
+
+```
+const listStyles = {
+  color: 'blue',
+  fontSize: '24px'
+}
+
+function CustomList(props) {
+  return (
+    <ul style={listStyles}>
+      {props.children}
+    </ul>
+  )
+}
+
+ReactDOM.render(
+  <CustomList>
+    <li>One</li>
+    <li>Two</li>
+  </CustomList>,
+  document.getElementById('root')
+)
+```
+
+See how the two &lt;li> items are nested inside the &lt;CustomList> ? That means they get passed as its 'children' in the prop object.
+
+NB: This is what is referred to as 'containment'.
+
+!!Multiple 'holes'
+
+While ``children`` is built in, if you need to pass more than one grouping of elements in to the parent, then you can define your own props.
+
+```
+ReactDOM.render(
+  <SplitPane
+    left = {<p>One</p>}
+    right = {<p>Two</p>}
+  />,
+  document.getElementById('root')
+)
+```
+
+Note that the two ``p`` elements being passed in could just as easily be React components, which are themselves just objects and can be passed as props in this way.
+
+!!Specialisation
+
+If you have a generic element, like a modal, and you want a more specific version of it, like say a 'login modal', classical inheritance would tell you to have the login modal inherit from the modal.
+
+That way madness lies. Instead, just have the login modal render the modal and ''configure'' it using props.
+
+```
+function Dialog(props) {
+  return (
+    <FancyBorder color="blue">
+      <h1 className="Dialog-title">
+        {props.title}
+      </h1>
+      <p className="Dialog-message">
+        {props.message}
+      </p>
+    </FancyBorder>
+  );
+}
+
+function WelcomeDialog() {
+  return (
+    <Dialog
+      title="Welcome"
+      message="Thank you for visiting our spacecraft!" />
+
+  );
+}
+```
+
+"At Facebook, we use React in thousands of components, and we haven’t found any use cases where we would recommend creating component inheritance hierarchies."
+
+<<tutorial_nav>>

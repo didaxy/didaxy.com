@@ -1,0 +1,13 @@
+created: 20171017081101449
+modified: 20190725061920605
+tags: Tutorial React
+title: Let's Learn React
+type: text/vnd.tiddlywiki
+
+<$image class="article-image" alt="React Logo" source="react-logo.svg"/>
+
+React is the most popular frontend framework at the moment. It's virtually becoming a standard for building interfaces and is likely to be around for some time, so we need to become familiar with it.
+
+In this first series of articles, I'm going to cover the basics of getting a simple app up and running, deployed to Github and available as a live app through Github pages.
+
+<<tutorial_list>>

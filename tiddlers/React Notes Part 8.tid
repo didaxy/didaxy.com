@@ -1,0 +1,35 @@
+created: 20171026025300189
+modified: 20171208035342111
+next: [[React Notes Part 9]]
+part: 8
+partof: React Notes
+previous: [[React Notes Part 7]]
+subtitle: Prop Types
+tags: TutorialPart Live noindex
+title: React Notes Part 8
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!propTypes
+
+All I'm going to say about this for now is;
+
+There is a way to do type-checking on the props of your React classes.
+
+There's also a way to pass default props to them and to enforce a single children (child) prop.
+
+The reason I'm circumspect on this is because, as the note on the [[relevant page|https://reactjs.org/docs/typechecking-with-proptypes.html]] says: 
+
+
+<<<
+React.PropTypes has moved into a different package since React v15.5. Please use the prop-types library instead.
+<<<
+
+I'm also aware that Facebook themselves use a type-checker called Flow and that TypeScript is also popular and I'd like to approach the subject of type-checking in javascript along the most canonical route.
+
+(I'm actually really curious about both Clojure and Elm in this respect also, having quite a strong hunch that, in fact, they may be the better places to start with type-systems for web front end)
+
+<<tutorial_nav>>

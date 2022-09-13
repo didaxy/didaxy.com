@@ -1,0 +1,18 @@
+created: 20190718011649397
+modified: 20190726052636073
+tags: Plumbing
+title: A Multi Part Tutorial
+type: text/vnd.tiddlywiki
+
+<$image class="article-image" alt="a tutorial logo/image" source="Motovun Jack.svg"/>
+
+!A Sample Multi-part Tutorial
+!!Introduction
+
+This tutorial will show you how to format tutorials by example.
+
+!!Abstract
+
+
+
+<<tutorial_list>>

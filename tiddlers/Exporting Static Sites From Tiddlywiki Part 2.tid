@@ -1,0 +1,213 @@
+created: 20170518054222581
+modified: 20171101080611499
+next: [[Exporting Static Sites From Tiddlywiki Part 3]]
+part: 2
+partof: Exporting Static Sites From Tiddlywiki
+previous: [[Exporting Static Sites From Tiddlywiki Part 1]]
+subtitle: Formatting and Styling the Static Output
+tags: Live Tiddlywiki noindex TutorialPart
+title: Exporting Static Sites From Tiddlywiki Part 2
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!Summary
+
+In the [[first section of this tutorial|Exporting Static Sites From Tiddlywiki Part 1]], we set-up a Tiddlywiki server, created some content, and exported it as a static site.
+
+In this section, we're going to be more selective about what gets included in the site. Then we're going to change which templates get used for the static build, so as to separate the format and styling of our site from that of Tiddlywiki itself.
+
+!!Changing the Output Filter
+
+The command that we used previously to generate our static pages is applying a simple filter to select which pages to output. At the moment, it just says ``[!is[system]]``, meaning all the "non system" tiddlers, ie; any content at all, gets output - each tiddler gets a page.
+
+We can change this rule to whatever we like. For now, we're going to keep it simple and just require tiddlers to have a tag, ``Live`` in order to get output, but the rule could be as complicated as you like.
+
+The filter we need to use is ``[!is[system]tag[Live]]`` and now our ``build.sh`` file looks like this
+
+```
+tiddlywiki --rendertiddlers [!is[system]tag[Live]] $:/core/templates/static.tiddler.html static text/plain --rendertiddler $:/core/templates/static.template.css static/static.css text/plain
+```
+
+!!Finding and Cloning the Templates
+
+We can also see that the commands we are currently running in ``build.sh`` use the tiddlers ``$:/core/templates/static.tiddler.html`` and ``$:/core/templates/static.template.css`` as templates for everything they output.
+
+We could make changes by over-writing these templates, but that's likely to get messy later and it's better to keep what we're doing separate from anything that comes in the core.
+
+Instead we'll find them, clone them, give them names that indicate they're part of our project, and change the references to them in ``build.sh`` so that it now looks like this
+
+```
+tiddlywiki --rendertiddlers [!is[system]tag[Live]] $:/didaxy/templates/static.tiddler.html static text/plain --rendertiddler $:/didaxy/templates/static.template.css static/static.css text/plain
+```
+
+And the relevant tiddlers are called ``$:/didaxy/templates/static.tiddler.html`` and ``$:/didaxy/templates/static.template.css``.
+
+Running ``build.sh`` produces the same output we had previously, only now using our new templates.
+
+!!Examining the HTML
+
+Now lets take a look at those templates to see what's going on, starting with the HTML.
+
+```
+\define tv-wikilink-template() $uri_doubleencoded$.html
+\define tv-config-toolbar-icons() no
+\define tv-config-toolbar-text() no
+\define tv-config-toolbar-class() tc-btn-invisible
+`<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="generator" content="TiddlyWiki" />
+<meta name="tiddlywiki-version" content="`{{$:/core/templates/version}}`" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no">
+<link id="faviconLink" rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" href="static.css">
+<title>`<$view field="caption"><$view field="title"/></$view>: {{$:/core/wiki/title}}`</title>
+</head>
+<body class="tc-body">
+`{{$:/StaticBanner||$:/core/templates/html-tiddler}}`
+<section class="tc-story-river">
+`<$importvariables filter="[[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]">
+<$view tiddler="$:/core/ui/ViewTemplate" format="htmlwikified"/>
+</$importvariables>`
+</section>
+</body>
+</html>
+```
+Note the use of backticks to distinguish regular html from wikitext syntax. That's important.
+
+Everything in this code between ``<body...`` and ``</body>`` is the content of the page and we can see that really, the core business of this template is to wrap another tiddler called ``$:/core/ui/ViewTemplate``.
+
+There's probably a lot of stuff in here that we don't need, but as a rule of thumb we're going to only delete what we have to, so that we don't inadvertently break things we don't understand.
+
+All we're going to do for now, then, is repeat the procedure of cloning ``$:/core/ui/ViewTemplate``, renaming it ``$:/didaxy/template/static-view-template`` and changing the reference in the HTML template accordingly.
+
+!!Adding header and footer content
+
+In addition to the main content, represented now by ``$:/didaxy/template/static-view-template``, which we'll get to in a moment, we also find reference (near the top) to a tiddler called ``$:/StaticBanner``.
+
+``$:/StaticBanner`` doesn't exist right now, but it does give us a pretty good clue as to how we might be able to include a header into our pages. What we'll do is change the reference to point to a tiddler of our own, called ``$:/didaxy/static-header``, into which we'll put a bit of content to test it ("this is some header content" will do for now).
+
+By analogy, we're also going to add our own footer, unsurprisingly called ``$:/didaxy/static-footer`` with some equally witty content.
+
+Now our template looks like this
+
+```
+...
+<body class="tc-body">
+
+`{{$:/didaxy/static-header||$:/core/templates/html-tiddler}}`
+
+<section class="tc-story-river">
+`<$importvariables filter="[[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]">
+<$view tiddler="$:/didaxy/template/static-view-template" format="htmlwikified"/>
+</$importvariables>`
+</section>
+
+
+`{{$:/didaxy/static-footer||$:/core/templates/html-tiddler}}`
+</body>
+</html>
+`
+
+```
+
+If we rebuild our site now we should see that in deed our header and footer content, drab though it may be, is being inserted into the right places at the head and the foot of each page.
+
+!!Modifying the view template filters
+
+Next, we want to get rid of the extraneous information from the page - we don't want the tiddler title to be there, or the tags or the date, though your preference may vary. The tiddler title will still be the title of page, but we want to be able to decide whether or not to include it a part of the content of the page.
+
+Above, we cloned the view-template into ``$:/didaxy/template/static-view-template`` which initially looks like this
+
+```
+\define frame-classes()
+tc-tiddler-frame tc-tiddler-view-frame $(missingTiddlerClass)$ $(shadowTiddlerClass)$ $(systemTiddlerClass)$ $(tiddlerTagClasses)$
+\end
+\define folded-state()
+$:/state/folded/$(currentTiddler)$
+\end
+<$set name="storyTiddler" value=<<currentTiddler>>><$set name="tiddlerInfoState" value=<<qualify "$:/state/popup/tiddler-info">>><$tiddler tiddler=<<currentTiddler>>><div class=<<frame-classes>>><$list filter="[all[shadows+tiddlers]tag[$:/tags/ViewTemplate]!has[draft.of]]" variable="listItem"><$transclude tiddler=<<listItem>>/></$list>
+</div>
+</$tiddler></$set></$set>
+```
+
+Again, we're not going to change anything we don't need to, lest we break something.
+
+Upon inspection, we can see that all this is doing is including all the tiddlers that have the tag ``$:/tags/ViewTemplate``, just as it does when rendering a regular Tiddlywiki. The tiddlers that carry this tag to begin with are;
+
+```
+$:/core/ui/ViewTemplate/title
+$:/core/ui/ViewTemplate/unfold
+$:/core/ui/ViewTemplate/subtitle
+$:/core/ui/ViewTemplate/tags
+$:/core/ui/ViewTemplate/classic
+$:/core/ui/ViewTemplate/body
+$:/core/ui/ViewTemplate/import
+$:/core/ui/ViewTemplate/plugin
+```
+
+In theory, all we need to do to exclude those tiddlers from our static site is remove the tag ''but'' if we do that, they'll also disappear from the wiki itself, which is going to make it pretty hard to use.
+
+Instead we need to change the tag that's being used in the filter and add that tag to the ones that we ''do'' want to include. We'll use the tag ``$:/tags/StaticViewTemplate`` in a bid to be somewhat consistent and because we're not 100% sure what all of those tiddlers do, we'll give our new tag to all of them to start with.
+
+Rebuild the site and everything should still be working. Now we can go back and remove our new tag from the templates that we want to remove from the output, which ends up being these ones.
+
+```
+$:/core/ui/ViewTemplate/title
+$:/core/ui/ViewTemplate/subtitle
+$:/core/ui/ViewTemplate/tags
+```
+
+Which gives us, rebuilding again, a nice clean output, consisting of only the content of our tiddlers and none of their 'metadata'.
+
+''NB:'' we could probably have been much more aggressive in removing stuff from the lists and templates here and may be able to come back and do a better job when we have everything else working.
+
+!!Examining the CSS
+
+Now let's look at the css in ``$:/didaxy/templates/static.template.css``
+
+```
+{{$:/boot/boot.css||$:/core/templates/plain-text-tiddler}}
+
+{{$:/core/ui/PageStylesheet||$:/core/templates/wikified-tiddler}}
+```
+
+All it's doing is transcluding content from two other places. One of them is the ``boot.css`` file which is written as a regular text file and so transcluded through the plain-text template and the other is the ``PageStyleSheet`` which is itself written in wikitext and so transcluded through the wikified-tiddler template.
+
+Given that our goal is to separate the styling of our site from that of Tiddlywiki, the simplest thing to do here is to start from scratch so let's just delete everything in ``$:/didaxy/templates/static.template.css``, rebuild again, and see what we get.
+
+A naked website! This is good. 
+
+Now let's go back to ``$:/didaxy/templates/static.template.css`` and add a reference to a new stylesheet of our own, like so 
+
+```
+{{$:/didaxy/styles/static-styles.css||$:/core/templates/plain-text-tiddler}}
+```
+and into ``$:/didaxy/styles/static-styles.css``, put some css. (We'll choose something that makes it obvious our code is working)
+
+```
+body {
+  background-color: red;
+}
+```
+
+Now rebuild again and you should see that all our awfully formatted pages have a terrible red background. Success!
+
+!!A Note On Viewing The Output and Refreshing CSS
+
+It's particularly useful, when debugging this and similar processes, to know how to easily view the source code of a web page in your browser. On Firefox for Mac, for example, you can press command-U. Find "view source" or similar in the menus of your browser and take note of the keyboard shortcut for next time.
+
+The Source should open in a new tab for you to examine. Also, links in the source code to other resources - such as a link to the ``static.css`` file that our site is using - should be clickable. If you click the link now you should see the css that we entered above, in a new tab again.
+
+Sometimes, when updating css styles you might not see your changes reflected when you refresh the page. This is because browsers sometimes keep a cache of the css file and don't update it automatically. By keeping the 'view-source' of your css open in a different tab and refreshing that page too, you can force the browser to refresh your css.
+
+
+<<tutorial_nav>>

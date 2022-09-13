@@ -1,0 +1,86 @@
+created: 20180430011549761
+modified: 20190725015125622
+tags: Tiddlywiki
+title: Using Tiddlywiki With Github and iCloud
+type: text/vnd.tiddlywiki
+
+npm upgrade -g tiddlywiki
+
+As part of my spring-clean, I reset my laptop (~MacBook Air) to factory settings and tried to organise things a bit better than they were before. 
+
+What I'd like, ideally, is to have back-ups of my wikis without any effort, so I'll make them in my iCloud Drive and have them sync automatically. This will have the additional benefit of making the individual toddlers that make up my site available to edit elsewhere... more on that later.
+
+To get to the iCloud library, you can do 
+
+```
+cd ~/Library/Mobile\ Documents/com~apple~CloudDocs
+```
+
+Once there I can make a new tiddlywiki by doing
+
+```
+tiddlywiki --init server myDirectory
+cd myDirectory
+```
+
+which is equivalent to doing:
+
+```
+mkdir myDirectory
+cd myDirectory
+tiddlywiki --init server
+```
+
+Once you've initialised the server or if, like me, you already have a directory ready to go, you can run it using
+
+```
+tiddlywiki --server
+```
+
+Once the server's running, all I need is my browser. I point it at 127.0.0.1:8080 and I've got a 'wiki'. What can I do with it?
+
+Well, for one thing, I can make a new Tiddler and start typing this.
+
+---
+
+If I'm working away at something and I need to make a note, Tiddlywiki is always my first choice. It only takes a few seconds to fire up the server if it's not already running and I can make a new tiddler, with a name and that gets created as a file in the right folder.
+
+The best thing about tiddlywiki is that I can just put everything in the one place and know that I'll be able to find it again later.
+
+So, that's use case one - make some notes and find them again later.
+
+Use case number two is 'process' a bunch of bits of information that you thought at the time were important enough to make and keep but which you now need to decide what to do with.
+
+This is the problem that I'm about right now and the reason I thought to start the series of notes in the first place.
+
+The situation is this - I have a bunch of notes that I made, pieces of text and links copied from the internet and longer pieces of writing that I made in pages and notes on my Mac and iPhone, and a load of code snippets and notes.
+
+---
+
+Beware Tool-Procrastination!!
+
+Now I'm not only using Tiddlywiki to 'sort out my life', I'm also using it to make notes on the process - should I really be using the same wiki to do both of those things?
+
+Issues like this tend to plague me when I'm procrastinating - another great thing about Tiddlywiki is that I know I will be able to move the data in the future. Portability the maximum because it's all 'just web stuff'.
+
+
+---
+
+I know that I will be able to extract any parts of it that I want to and import them into new wikis or other programs altogether. It's these assurances that keep me coming back to Tiddlywiki. It's just so darn useful.
+
+I also know that I'll be able to publish to the web without any hassle - after all, outside of some corporate environments, the web and not paper, is the preferred target. And yet most people are still using some sort of word-processor that's optimised for print-media. To get their document back to HTML, they need to export it. Easier to just work with everything 'web native'.
+
+
+
+---
+
+Tiddlywiki hasn't got a market valuation. It doesn't even keep track of how many users it has.
+
+It's an open source project, the brain-child of a single, unassuming English programmer and supported by a small but enthusiastic community of developers and power-users.
+
+Even if development stops tomorrow, there's no company to go out of business, no assets to be seized, no danger of the software or my right to use it disappearing over-night.
+
+---
+
+
+((Tiddlywiki is coded in javascript, renders HTML and contains it's own mark-up language called WikiText, so there's a lot to learn about it. All I really know about it's internals is that it's very complicated yet based on simple principles. Tiddlywiki is, in a sense, 'written in Tiddlywiki' - this is not basic)))

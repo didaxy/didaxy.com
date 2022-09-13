@@ -1,0 +1,79 @@
+created: 20170930064136518
+modified: 20190725063718975
+next: [[Exporting Static Sites From Tiddlywiki Part 10]]
+part: 9
+partof: Exporting Static Sites From Tiddlywiki
+previous: [[Exporting Static Sites From Tiddlywiki Part 8]]
+subtitle: Things I Learned
+tags: Tiddlywiki Live noindex TutorialPart
+title: Exporting Static Sites From Tiddlywiki Part 9
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!Summary
+Some things that I learned along the way, including potential 'gotchas'
+
+!!Check Yo Lists
+
+I just noticed that some of my lists weren't rendering in the right order. I hadn't noticed before.
+
+It seems to be that the ``list-tagged-draggable`` macro is falling back to making a list, using the right tag, but for some reason it isn't in the order specified by the tag.
+
+I'm working around this problem by just not using that macro for the presentational list and instead putting it in a separate tiddler that's just for control.
+
+I was pretty dumb about this.
+
+I researched code highlighters, decided on highlight.js as the obvious choice, wired it into my templates, loading it all from a cdn and it all worked, except that it was messing up the formatting of tiddlywikis own code because it didn't recognise the specific format. So I went hunting for a way to add classes to code blocks in tiddlywiki so that I could add a "no highlight" class (never did figure out whether it was ``nohighlight`` or ``no-highlight``) and stumbled across the fact that tiddlywiki already has highlight.js installed by default. Doh.
+
+So, I ripped out everything I'd just put in and added a simple language tag to the code fomatters 
+
+```
+```javascript
+```
+and the code appeared formatted both in the tiddlywiki itself and in the static output.
+
+The lesson here is that I should never doubt the awesome power of @jermolene. Tiddlywiki continues to amaze.
+
+On the other hand, my tinkering led me to prefer one of the highlihght js styles other than the default, which I found a bit bland.
+
+I found that by adding the css back to the head of the static template, I was able to load a different style for the static output.
+
+I assume my css still has the other set of styles in it too, which is perhaps a bit wasteful, but it works.
+
+I did this using highlight.js https://highlightjs.org/usage/
+
+The only thing remotely difficult about doing it is mashing together the two sets of instructions, so that you can load the script right from the cdn and run it, without installing anything else.
+
+They list
+
+```
+<link rel="stylesheet" href="/path/to/styles/default.css">
+<script src="/path/to/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+```
+
+And
+
+```
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+```
+
+Which gives us
+
+```
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+...
+<script>hljs.initHighlightingOnLoad();</script>
+```
+where the first two lines go in the head and the third one goes at the end of the body.
+
+[[A Page With Some Highlighted Code]]
+
+<<tutorial_nav>>

@@ -1,0 +1,23 @@
+created: 20190718012201050
+modified: 20190725053229624
+next: 
+part: 1
+partof: A Multi Part Tutorial
+subtitle: The first part of the tutorial
+tags: TutorialPart noindex
+title: A Multi Part Tutorial Part 1
+type: text/vnd.tiddlywiki
+
+<$image class="tutorial-part-image" alt="a tutorial logo/image" source="Motovun Jack.svg"/>
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!Summary
+Wintery
+
+!!Section 1.1
+
+etc.
+
+<<tutorial_nav>>

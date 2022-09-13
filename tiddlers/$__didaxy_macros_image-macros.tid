@@ -1,0 +1,25 @@
+created: 20170825015419903
+modified: 20190720064235057
+tags: $:/tags/Macro
+title: $:/didaxy/macros/image-macros
+type: text/vnd.tiddlywiki
+
+\define extimg(url)
+<center>
+<img  width="60%" class="article-image" src="$url$"/>
+</center>
+\end
+
+\define extimg80(url)
+<center>
+<img  width="80%" class="article-image" src="$url$"/>
+</center>
+\end
+
+\define giphy(code caption)
+<a href="https://media.giphy.com/media/$code$/giphy.gif" target="_blank"><img class="giphy-gif" src="https://media.giphy.com/media/$code$/giphy.gif"></a><p class="giphy-caption">$caption$</p>
+\end
+
+\define img(name)
+[img [$name$]]
+\end

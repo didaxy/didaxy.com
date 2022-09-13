@@ -1,0 +1,231 @@
+created: 20170518104508917
+modified: 20171101080611490
+next: [[Exporting Static Sites From Tiddlywiki Part 4]]
+part: 3
+partof: Exporting Static Sites From Tiddlywiki
+previous: [[Exporting Static Sites From Tiddlywiki Part 2]]
+subtitle: Adding External Resources (Bootstrap)
+tags: Live Tiddlywiki noindex TutorialPart
+title: Exporting Static Sites From Tiddlywiki Part 3
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!Summary
+
+In the [[previous section|Exporting Static Sites From Tiddlywiki Part 2]], we saw how to set up templates for our static site and then added header and footer content along with basic CSS.
+
+In this section, we're going to add the Bootstrap CSS framework and use it to give us a nicely styled header and footer. We'll then see how to integrate tiddlywiki lists with the Bootstrap templates to put content into the header dynamically. When we're done, we'll have something that's starting to look like a real website.
+
+!!Using a CSS Framework
+
+You could write all your own CSS, just as you could knit all your own jumpers, but there's an easier way. 
+
+A CSS framework is a collection of ready-made rules and styles that we can use in our own pages by including the necessary files.
+
+Twitter Bootstrap is a popular and well-documented css framework that includes lots of useful components and, crucially, is very good at handling 'responsive' layouts, meaning that it gives us easy ways to make our pages look good on mobile as well as desktop browsers.
+
+!!Downloading Bootstrap
+
+Including [[Bootstrap|https://getbootstrap.com/]] is easy. We can download ``bootstrap.min.css`` and paste it into a tiddler, then include it in our css template just as we did with our own code in the previous section.
+
+The alternative is to just link to the Bootstap file directly from a CDN (content distribution network). 
+
+The first method lets us modify the bootstrap code if we wanted to and it guarantees that anyone who is accessing our site will also be able to access the bootstrap file. With previous versions of Bootstrap, it's been possible to download a streamlined and customised version of the library that includes only the parts you need, which is a good use case for hosting your own copy of the library, but this isn't yet possible with Bootstrap 4.
+
+In practice, of course, the likelihood that one of your users will be unable to load Bootstrap from the CDN is small. When you refer to the CDN version of Bootstrap there is also a chance that your users will already have the files downloaded in their browser cache, because they visited another site using the same resources.
+
+Installing the Bootstrap css from the CDN is as simple as adding the following line (taken straight from the [[Bootstrap website|https://getbootstrap.com/]]) to the  ``<head>`` section of our template.
+
+```
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+```
+(Note that the random string is just the file hash, ``https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css`` is the important part)
+
+If we rebuild our site now, we won't see much change though if you're perceptive you may notice the font changing and things lining up slightly differently to let you know that Bootstrap is getting loaded.
+
+!!Adding a Site Header
+
+Now we've got Bootstrap loaded, we get to use lots of nice UI "for free". You can look at the [[docs for Bootstrap|https://getbootstrap.com/docs/4.0/components]] to see what's available.
+
+We're going to add a ``navbar`` as the header for our pages and to do so, we're going to take an example right from the Bootstrap docs and drop it into our ``$:/didaxy/static-header``
+
+```
+<div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown link
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+</div>
+```
+Rebuild the site and hopefully you'll see the same header from the docs, now displayed on every page of your site. Pretty easy, huh?
+
+Now try re-sizing your browser window - make it narrow like a mobile screen and you should see the navbar menu collapse down into a menu ("hamburger") button and the move over to the right whilst the site-title stays on the left. This responsive behaviour is the real pay-off for using Bootstap. You may notice that the hamburger button doesn't actually //work// as such, but we'll get to that in a moment.
+
+First let's see how we can replace the menu entries with links to pages in our site. 
+
+!!Adding Some Tiddlywiki Magic
+
+What we'd really like to be able to do is have Tiddlywiki manage the links in the header, as well as those in the body of pages. 
+
+We'll spare you the hours of trial and error and just say that some things are possible and others.... are hard.
+
+For example, we can generate the links using the ``<$link>`` widget, which means they'll work like normal internal links, but we can't add our own classes to the link widget, so they lose their default Bootstrap styling.
+
+The easiest solution then depends on just what you're trying to achieve. If you only want a few navbar links and they aren't often going to change, the easiest way is to change the hard-coded links.
+
+If you want the entries to be generated programmatically because they change often, you have to add your own styling back later.
+
+This template shows how to implement a combination of these methods. The main links are hard-coded but there is also a drop-down list of the most recent items which is generated using the list widget. The children of this widget will need to be styled with our own custom css.
+
+The 'About' link shows a wiki alternative way to form them - it retains it's positioning by being wrapped in the ``nav-link`` class, even though it loses it's styling by now being in the wrong place in the hierarchy.
+
+```
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="container-fluid">
+  <a class="navbar-brand" href="./index.html"><$image source="$:/didaxy/didaxy-logo.svg" width="48px"/>&nbsp;Didaxy</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        @@.nav-link
+        <$link to="About">About</$link>
+        @@
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="./tutorials.html">Tutorials</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="./contact.html">Contact</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="./recent.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Recent
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+<$list filter="[tag[Live]!tag[noindex]!sort[modified]limit[10]]">
+<div  class="dropdown-item"><$link to=<<currentTiddler>>>{{!!title}}</$link></div>
+</$list>
+<div  class="dropdown-item"><$link to="Recent"> MORE... </$link></div>
+
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+```
+''note'' that the version of this file included in the plugin (see [[Part 8|Exporting Static Sites From Tiddlywiki Part 8]] is slightly different and uses a list field to generate most entries
+
+We give our footer some simple content, like so.
+
+```
+<footer class="footer">
+<div class="container-fluid">
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.
+
+</div>
+
+</footer>
+```
+
+The key part of this is the ``container-fluid`` class which can also be swapped for ``container``, each of which are key components of Bootstrap-styled pages. 
+
+You can also wrap the navbar in either of the two container classes to get various different effects.
+
+!!Tweaking
+
+Once we've got all that working, we can apply whatever css styles we like to get it looking the way we want it.
+
+The inspector in the browser developer tools is our friend when it comes to doing this. We use it to identify the items that we want to re-position and style and then we target them with appropriate css rules.
+
+''NB:'' "Programming" in CSS can be a frustrating experience. A lot of trial and error may be involved and when you get something 'working' you need to check it also works for different screen sizes and in different browsers. Keeping things as simple as possible is usually the best policy.
+
+This is an example of some css, to give you some ideas, including a tweak for the maximum column width in bootstrap. 
+
+```
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  line-height: 1.5em;
+  margin-bottom: 180px;
+}
+.navbar a:hover {
+  text-decoration: none;
+}
+a:visited {
+  color: #533599
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: 100px;
+  color: #673599;
+  background-color: #f5eff7;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.footer .container-fluid {
+  background-color: #f5eff7;
+  background: linear-gradient(135deg, #f1e7f7, #ba99cf);
+}
+
+.footer div {
+ padding-top: 10px;
+}
+
+/* dropdown menu tweaks */
+
+.dropdown-menu {
+  background-color: #f5eff7;
+  border: none;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.dropdown-item {
+  padding: 0.5rem;
+  color: inherit;
+}
+```
+''note:'' this site has these and some additional styles, which you can also inspect by viewing the page source.
+
+<<tutorial_nav>>

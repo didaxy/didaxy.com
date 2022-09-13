@@ -1,0 +1,116 @@
+created: 20170528060615859
+modified: 20171101080611475
+next: [[Exporting Static Sites From Tiddlywiki Part 6]]
+part: 5
+partof: Exporting Static Sites From Tiddlywiki
+previous: [[Exporting Static Sites From Tiddlywiki Part 4]]
+script: export4.js
+subtitle: Making the URLs web-safe.
+tags: Live Tiddlywiki noindex TutorialPart
+title: Exporting Static Sites From Tiddlywiki Part 5
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!Summary
+
+The [[previous section|Exporting Static Sites From Tiddlywiki Part 4]] saw the culmination of our work to make tiddlywiki generate nicely formatted pages with custom css and javscript resources.
+
+The next thing we're going to do is "fix" all our links, which you probably didn't even realise were broken.
+
+!!WhiteSpace, URL encoding and 'helpful' Web Hosts
+
+URLs - the strings of letters and symbols that we occasionally type into the address bar but much more frequently click on, aren't allowed to have spaces in them.
+
+Up until now, we have been creating tiddlers, and having them turned into pages with matching URLs without worrying about whether the titles had spaces in them. How come?
+
+There's actually been a little bit of magic going on all along, which is that tiddlywiki is turning the links to all our pages, along with the filenames that those pages are getting saved with, into 'safe' URLs by swapping all the spaces for the character sequence ``%20``. This is called ''URL encoding''.
+
+The fact that Tiddlywiki has been doing the same thing to both the names of the files and the links to them means that the links have all 'just worked' and we don't see any problem.
+
+You could go ahead and host your site on a live server and there's a chance you would be fine and not notice a problem. But there's also a chance of it breaking.
+
+The reason is that some web hosts try to be 'helpful' and URL encode all your filenames for you, which leads to them being ''double URL encoded'', meaning that as well as the space being encoded to ``%20``, the ``%`` gets encoded to ``%25``, leading to each space being replaced in the end by ``%2520``. 
+
+If that happens then your links, which are still only single URL encoded, now no longer point to your files.
+
+This whole business of single and double encoding can get surprising difficult to disentangle and to save you the heartache, we propose an alternative scheme.
+
+!!Kebab Case
+
+One way to avoid the problem altogether is just not to use any spaces in our titles, but that's not really a practical solution, it would be easy to forget and it would reduce readability.
+
+A better solution is to change the way Tiddlywiki encodes the links such that once it's been done once, any subsequent encodings, on the server or elsewhere, won't have any effect.
+
+One way to do this is to ''kebab case'' the links, meaning that we swap any whitespace (and in this case any other special characters) for the hyphen ``-`` (making the words of the URL look like they are chunks on a kebab skewer)
+
+!!Modifying Links and Paths
+
+It turns out that to modify the format of the links and paths that we generate, we need to 'export' a variable to control each of them, which we can set inside a javascript macro. 
+
+Great thanks go to "Welford", who pioneered this work and documented it [[here|https://github.com/welford/twstaticblog/tree/master/export]]
+
+Some modifications to the code found there yielded the following results
+
+``$:/didaxy/static/export/get-export-path.js``
+
+```
+(function(){
+"use strict";
+
+exports.name = "tv-get-export-path";
+
+exports.params = [
+    {title: ""}
+];
+
+/*
+Run the macro
+*/
+exports.run = function(title) {
+                       
+    var sanitized_title = title.replace(/([^a-z0-9]+)/gi, '-');
+    return ("./static/"+ sanitized_title).toLocaleLowerCase();
+    console.log("au");
+}
+})();
+```
+
+
+
+``$:/didaxy/static/export/get-export-link.js``
+
+```
+(function(){
+"use strict";
+
+exports.name = "tv-get-export-link";
+
+exports.params = [
+];
+
+exports.run = function() {
+    var title = this.to;
+    var sanitized_title = title.replace(/([^a-z0-9]+)/gi, '-');
+    var attr = this.getVariable("tv-subfolder-links");
+    var path_to_root="./"	
+    var finalLink=path_to_root
+
+    
+    var wikiLinkTemplateMacro = this.getVariable("tv-wikilink-template"),
+        wikiLinkTemplate = wikiLinkTemplateMacro ? wikiLinkTemplateMacro.trim() : "#$uri_encoded$",
+        wikiLinkText = wikiLinkTemplate.replace("$uri_encoded$",encodeURIComponent(sanitized_title));	
+    wikiLinkText = wikiLinkText.replace("$uri_doubleencoded$",encodeURIComponent(sanitized_title));
+    return (finalLink + wikiLinkText).toLocaleLowerCase();
+};
+
+})();
+```
+
+''Note:'' Both macros must have their type set to ``application/javascript`` and their module-type set to ``macro`` (this is important).
+
+Rebuilding the site with these macros in place leaves everything working, only now our urls and the links to them (which still work) won't have any issues with URL encoding, one way or the other, when we come to host our site.
+
+<<tutorial_nav>>

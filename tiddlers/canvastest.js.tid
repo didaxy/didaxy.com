@@ -1,0 +1,10 @@
+created: 20190719073135454
+modified: 20190725060205725
+tags: Plumbing
+title: canvastest.js
+type: text/vnd.tiddlywiki
+
+const can = document.getElementById('test-canvas');
+const ctx = can.getContext('2d');
+
+ctx.fillRect(10,10,30,30);

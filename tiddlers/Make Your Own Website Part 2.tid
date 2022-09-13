@@ -1,0 +1,157 @@
+created: 20190716035939211
+modified: 20201020072419142
+next: [[Make Your Own Website Part 3]]
+part: 2
+partof: Make Your Own Website
+previous: [[Make Your Own Website Part 1]]
+subtitle: Your First HTML Page
+tags: TutorialPart Live
+title: Make Your Own Website Part 2
+type: text/vnd.tiddlywiki
+
+<$image class="tutorial-part-image" alt="a tutorial logo/image" source="Motovun Jack.svg"/>
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!HTML
+
+!!Plainest Possible HTML file
+
+The plainest possible HTML file that will "work" is a text file with some characters of text in it, saved with the [[extension|Filename Extensions]] ``.html``.
+
+```
+hello world
+
+```
+
+<a href="./simplest/simplest.html" target="blank">Example</a>
+
+This should open in a web browser and display the characters that you entered on the screen. Success!
+
+But this is not yet a 'valid' HTML file. The reason it works at all is that your web browser tries really hard to show you //something// when you open a file. It will ignore its own rules about what makes an HTML file valid and show the text anyway.
+
+Really, your browser would prefer you gave it 'proper' HTML and proper HTML is made up of "HTML elements".
+
+!!HTML Elements
+
+An HTML element represents one piece of an HTML document, or some information about it.
+
+The start and end of an element are marked by "tags" - an opening tag at the beginning and a closing tag at the end.
+
+An opening tag is a one or more characters, the tag-name, which might be followed by additional information, called 'attributes'. The start of a tag is marked with a ``<`` (called the left- or opening angle-bracket) and ending with a ``>`` (called the right- or closing angle bracket).
+
+```
+<p>
+```
+( p tag)
+
+```
+<img src="./blah.jpg">
+```
+(img tag with attribute)
+
+In a 'closing tag' the tag name has a ``/`` (usually called a 'backslash') before it. The tag-name should match an opening tag that comes somewhere before it. Closing tags don't have attributes.
+
+```
+</p>
+```
+(a p closing-tag)
+
+```
+</img>
+```
+(an img closing tag)
+
+There are lots of different kinds of elements, each indicated by a different tag. 
+
+Some types of element represent the different kinds of content that make up a web page, such as different kinds of text, pictures, lists, and buttons.
+
+The simplest kind of text element is a "paragraph" element. Its tag-name is ``p``. To create a paragraph element, we can wrap our text in "p tags", like so;
+
+```
+<p>hello world</p>
+```
+
+If you edit your file so it looks like this, save it and (re)load it in a browser, you should see... no change at all, because paragraphs just look like regular text.
+
+Instead we could display it as a heading, by swapping our paragraph element for a 'h1' element (a main, or "level 1" heading), like so;
+
+```
+<h1>hello world!</h1>
+```
+
+Save and re-load again and you should see the difference.
+
+!!The Body, Head and Html Tags
+
+HTML elements like the one we just made are pieces of content - they are meant to be displayed on the page for users to see.
+
+The other kind of elements are those that contain information //about// the document that might not be displayed on the screen at all. This type of data is called "meta-data" and includes things like the title and information about how the document should be styled for display.
+
+Usually these two types of data are separated by grouping all the meta-data together inside an element called the ``head`` and all the content together inside an element called the ``body``. The ``head`` and ``body`` elements are then grouped together inside another element called simply ``html``, like so.
+
+
+```
+<head>
+</head>
+<body>
+  <p>Hello World!</p>
+</body>
+```
+
+If we want to add more elements to our "page body" - the things that will appear on the screen - we can put them 'alongside' the 'p' element, meaning that they are inside the body element, but not inside the 'p' element.
+
+The order we put elements in will be the order they get drawn on the screen.
+
+```
+<html>
+<head>
+</head>
+<body>
+  <h1>Welcome!</h1>
+  <p>Welcome to my website</p>
+  <p>When I grow up I want to be a programmer</p>
+</body>
+</html>
+```
+
+
+The ``html`` element is also called the "root" element because it contains all the others. Usually the //only// things it contains are a single ``head`` element and a single ``body`` element.
+
+!!Adding a Title
+The title of your document is "meta-data", information //about// the document and not something that is necessarily part of the document itself, so it goes in the ``head`` element.
+
+```
+<html>
+<head>
+  <title>My First Webpage</title>
+</head>
+<body>
+  <h1>Welcome!</h1>
+  <p>Welcome to my website</p>
+  <p>When I grow up I want to be a programmer</p>
+</body>
+</html>
+```
+
+!!Wrapping and Nesting
+
+In the same way that we talked about the text being "wrapped in" tags, we might also talk about one //element// wrapping another. 
+
+Here, we might say that " the p element is being wrapped by the body element", meaning that the ``body`` element starts before the ``p`` element and finishes after it.
+
+The other way that we could say the same thing is to say that "the p element is //nested// inside the html element", meaning that it is completely contained inside it (like an egg, in a nest)
+
+!!The Doctype Declaration
+
+The simplest valid HTML page: <a href="./simplest/simplestvalid.html" target="blank">Example</a>
+
+Simplest conventional page: <a href="./simplest/simplestconventional.html" target="blank">Example</a>
+
+
+!!Don't be confused by...
+
+* the difference between 'head' and 'headings'
+* the difference between tags and elements

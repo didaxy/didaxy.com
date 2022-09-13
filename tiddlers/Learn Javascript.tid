@@ -1,0 +1,147 @@
+created: 20191030110545601
+modified: 20191031112323552
+tags: Live
+title: Learn Javascript
+type: text/vnd.tiddlywiki
+
+Javascript is a computer programming language.
+
+It is the language understood by all modern web browsers.
+
+Programs written in javascript form part of web pages to make them interactive.
+
+Programs written in Javascript can also be run by Node.js, which is a piece of software you can download and install.
+
+If you learn to write Javascript, you will be able to write programs as part of web pages, for example to make your own online games or apps. By using Node and other technologies, you will also be able to write apps and servers.
+
+Javascript is called a "scripting language" because it is used to control (write a script for) another piece of technology (a web-browser or another "runtime" such as Node)
+
+Javascript is called an "interpreted language" because Javascript programs are sent to web browsers as "source code".
+
+Source code is the code you write in a text editor and save in a file.
+
+A Javascript project usually exists as one or more files, in the same folder/directory.
+
+A Javascript program is made up of lines of text in a text file containing "statements", referring to "objects".
+
+There are generally two types of objects in a Javascript program. There are those that are part of the language itself and there are those that are part of the technology that is under control - these are called APIs - application programming interfaces.
+
+In the case of the browser, there are many, many APIs available to you to do all sorts of complicated things.
+
+You will need to use an API to do anything at all that the user of your program can see.
+
+The only way for Javascript to interact with the outside world at all is through an API.
+
+The internal parts of the language are "just" what it uses to actually do it's calculations.
+
+All of the calculating powers of Javascript can be demonstrated without the need for input and the need for only minimal output. The resulting set of programs won't be spectacularly interesting, but it will be possible to teach the fundamental working principles of the language, without the confusion of needing to know about the APIs.
+
+The alternative approach, which is the one usually taken by introductory programming tutorials is to mix the two together, in a way that builds experience of both solving programs and making interfaces.
+
+There's nothing at all wrong with that approach. I just want to explore the possibility of teaching only the language.
+
+Although the other approach works, I think it might leave something lacking that you might be able to get at by separating it out.
+
+Also, people might want to learn Javascript but not actually be interested at all in programming browsers.
+
+What is the beginning, then?
+
+The beginning is to set up a workspace and get comfortable with a workflow.
+
+We are really spoiled with options when it comes to doing this now, but it's worth taking the time to get it set up to start with, because the tools are really great.
+
+You can set up VS Code to run your javascript file either as part of a web page, or using Node.js. You can even do both at the same time.
+
+Then you should start.
+
+!!First Program
+
+Our aim is to use only the built in functionality of the core Javascript language, except when we need to use some API to demonstrate how one of those internal features work.
+
+As we mentioned above, the only way that Javascript can communicate with the outside world at all is through those APIs, so if we're going to get any output from our programs at all, we at least need a way to print things out.
+
+Fortunately their is a very simple API that is common to both browsers and Node. It is called the "console" API and it has a method called "log" that we can pass a Javascript string to.
+
+All this means is that we can use this API to print things to the console.
+
+What is the console?
+
+First program is 
+
+```
+console.log("hello console!")';
+```
+
+Now find the output. Once you've found the output, change it in your source code to "hello world!" and watch as it gets updated.
+
+The process of writing a Javascript program is that of structuring statements to produce the desired output and then checking the output to see if you got what you expected.
+
+The basic nature of computer programs is to manipulate representations of information to produce an output.
+
+```
+let a = 4;
+console.log(a);
+```
+
+
+You can store numbers and add them together
+
+```
+let a = 3
+let b = 4
+let c = a + b
+console.log(c)
+```
+
+
+
+```
+let a = 3
+let b = 4
+let c = a + b
+console.log(a + b)
+```
+
+When we say "let a = 3" we are doing two things at once - both "declaring" and "initialising"  the variable.
+
+These can be separated. So, instead, you could do
+
+```
+let a
+let b
+let c
+a = 3
+b = 4
+c = a + b
+```
+
+!!So Far
+
+So far we have seen:
+* the 'let' keyword for declaring a variable you are going to use
+* variable names themselves - these can contain letters and numbers (and other symbols?) but must start with a letter and //usually// start with a lower-case letter.
+* "numbers" - like 3 and 4 in the example above. These are called "number literals" because they are "literally" what they say they are.
+* two "operators" + and =
+* the use of "console.log" to print things out
+
+With these few tools we can use Javascript to work out the answers to sums.
+
+You can probably do 3 + 4 in your head pretty quickly, but you can change the numbers 'a' and 'b' in the example above to anything at all.
+
+NB: this is important/relevant because what we're really trying to do is gain super-powers, right? By learning this thing, we want to be able to do new things.
+
+Now you can add together any numbers you want.
+
+What is the biggest number you can have in Javascript?
+
+What is an integer?
+
+[[Getting User Input]]
+
+[[Other Operators]]
+
+[[Loops]]
+
+- generating times tables
+- adding all the numbers in a sequence
+

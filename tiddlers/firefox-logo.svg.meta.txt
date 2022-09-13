@@ -1,0 +1,7 @@
+about-link: https://www.mozilla.org/en-US/firefox/new/
+about-width: 130
+created: 20170830004403456
+modified: 20170830074914933
+tags: 
+title: firefox-logo.svg
+type: image/svg+xml

@@ -1,0 +1,88 @@
+created: 20170927075558166
+modified: 20190725062321057
+tags: Tiddlywiki
+title: Tiddlyserver as a Mac App
+type: text/vnd.tiddlywiki
+
+!NB: Currently, This __DOES NOT WORK__.
+
+!Tiddlyserver as a Mac App
+
+!!Introduction
+
+I recently wrote a [[tutorial|Introduction to Tiddlyserver]] explaining how to set up [[Tiddlyserver|https://github.com/Arlen22/TiddlyServer]], but I may have now happily made it obsolete for many people.
+
+I was able to pack it as an app that should 'just run' on Macs. It should be possible for Arlen, or someone else, to do the same for Windows computers. I'm writing this down mostly so I don't forget what I did.
+
+Please note that my contribution to this is very small and all credit should go to [[Arlen Beiler|https://github.com/Arlen22]] whose work it is.
+
+!!Get the App
+
+You can read the [[release notes|https://github.com/r1chard5mith/TiddlyServer/releases/tag/2.0.6]] or [[download direct|https://github.com/r1chard5mith/TiddlyServer/releases/download/2.0.6/Tiddlyserver.zip]].
+
+Note that the self-contained app is quite big at ~60 Mb when unzipped (~19 Mb zipped) because it contains the whole Node runtime, but ''please'' don't do a 'hacker news' on me and start complaining that this is too big, because I just checked and our Google Groups web page, in Chrome for Mac, is using 47 Mb. ;-)
+
+
+!!What I Did
+
+!!!Mac Script Launcher
+
+This was just a 'hack' that I came across by Googling, to make a launcher for any script file. https://gist.github.com/mathiasbynens/674099 (and follow the comments)
+
+It's only a hack in that you wouldn't usually make an app file structure manually. It seems to have been stable for a long time, so I assume it will continue to work.
+
+!!!Stuffing Everything Else in the App Container
+
+Turns out we can just shove everything in there, change the paths in the batch file I added and it all still works.
+
+This seems like a really easy win. I bet there's also a fairly easy way to give it an icon.
+
+!!!Nexe
+
+Nexe is just an npm project. https://github.com/nexe/nexe
+
+You run it against your node app and it bundles the executable for Node up with it to make it easily distributable (to people who don't otherwise have node installed).
+
+I ran it against 'server.js' in the Tiddlyserver repo and it sort of seemed to work. By which, I mean it did this sort of thing
+
+```
+ℹ nexe 2.0.0-rc.6
+Acorn error: Invalid number (383:22)
+File: /Users/didaxy/Desktop/ts_nexe/lib/node-static.js
+
+381              fs.createReadStream(file, {
+382                  flags: 'r',
+383                  mode: 0666,
+384                  start: startByte,
+385                  end: startByte + (length ? length - 1 : 0)
+386              }).on('data', function (chunk) {
+387                  // Bounds check the incoming chunk and offset, as copying
+
+
+✔ Downloading Node.js source from: https://nodejs.org/dist/v8.5.0/node-v8.5.0.tar.gz
+✔ Source already downloaded
+✔ Compiling result
+✔ Writing result to file
+✔ Executable written to: nexeserver.bin
+✔ Finsihed in 0.908s
+```
+
+There's an error from something called 'acorn' which might be part of babel? or a different part of the toolchain - but then it seems to work. It 'Finsihed in 0.908s' and it wrote an executable.
+
+But the executable crashes.
+
+I tracked the problem down to ``node-static.js`` and then realised that's what the original error was telling me to begin with.
+
+I think it //might// be related to this issue: https://github.com/steveukx/properties/pull/16 that was recently closed by the nexe developers https://github.com/nexe/nexe/issues/371 and the fact that I'm using Arlen's pre-packaged zip distribution, that may just need to be updated.
+
+I found, anyway, that I was able to just fix that one line by wrapping 0666 in quotes and, amazingly, there were no other issues.
+
+Then I changed the reference to the bash file to run the binary instead and, ta da! It works.
+
+My hope would be that Arlen himself might be able to build a Windows version using similar methods.
+
+!!What's Still Broken?
+
+Lots of things. I ''had'' realised that it wasn't loading the CSS correctly, thanks to the cleverness of Arlen's code, I think, and the fact it isn't getting passed the working directory correctly once it's a binary. And I had realised it needed hacking to make it work right (I was going to butcher the HTML template and put the css in the same folder as everything else, because that was all that seemed to work) but I just noticed it isn't fixed in the version I uploaded. C'est la vie.
+
+I'm assuming Arlen will be able to do a much better job of this than me, now I've given him the idea. Once again, all credit goes to him: https://github.com/Arlen22

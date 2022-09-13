@@ -1,0 +1,24 @@
+$: :
+created: 20160816052058652
+modified: 20171101080610780
+tags: Plumbing
+tagstorylist: 
+tagtoadd: Ch
+tagtoremove: Operator
+temp!!tagtoadd: Ch
+title: $:/didaxy/tag-story-list
+type: text/vnd.tiddlywiki
+
+This adds a tag to all the open tiddlers except itself.
+
+<$edit-text tiddler="$:/tagstorylist/temp" field="tagtoadd"/>
+<$set name="newTag" value={{$:/tagstorylist/temp!!tagtoadd}}>
+<$button>
+<$list filter="[list[$:/StoryList]!is[current]]">
+<$fieldmangler>
+<$action-sendmessage $message="tm-add-tag" $param=<<newTag>>/>
+</$fieldmangler>
+</$list>
+Click me!
+</$button>
+</$set>

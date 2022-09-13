@@ -1,0 +1,11 @@
+created: 20190719073008206
+modified: 20190725063443479
+scripts: canvastest.js
+tags: noindex Live
+title: Canvas Test
+type: text/vnd.tiddlywiki
+
+!Test
+Embedding a canvas and drawing on it from an attached script
+
+<canvas id = "test-canvas"></canvas>

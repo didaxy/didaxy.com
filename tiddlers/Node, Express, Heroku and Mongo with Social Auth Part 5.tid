@@ -1,0 +1,26 @@
+created: 20170130094901071
+modified: 20171208033935994
+part: 5
+subtitle: Iteration and Deployment
+tags: Live TutorialPart
+title: Node, Express, Heroku and Mongo with Social Auth Part 5
+type: text/vnd.tiddlywiki
+
+!!Hasn't this already been covered?
+
+In the first four parts of this tutorial, we set up our project so that we can keep secrets, keep versions-controlled back-ups, deploy a live app with heroku that let's us authenticate users and create sessions backed by a mongo DB - and also allows those users to interact with data in a separate mongo collection.
+
+This was quite a lot of work, but it was worth doing because what we have now is the basis for a number of different apps.
+
+The first app that we're going to make is a simple 'to do' app.
+
+---
+
+Writes to do app...
+
+---
+
+I intend to use these instructions to now build the Free Code Camp back-end projects. I'll report back when I've done that and let you know about any problems I encounter along the way.
+
+I learned a lot from doing this work and writing it up as a tutorial really helped me to consolidate what I learned. I wrote this in January 2017. Beware out of date tutorials!
+

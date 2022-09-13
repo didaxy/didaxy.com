@@ -1,0 +1,27 @@
+created: 20170914012842139
+modified: 20190725023035654
+tags: Ideas
+title: Ideas about Computers: Abstraction
+type: text/vnd.tiddlywiki
+
+!Abstraction
+
+Abstraction is a very simple and powerful idea.
+
+It's the key to how we make and use computers, but you can see it everywhere you look around you at the human world.
+
+Put simply, abstraction means that you don't need to know how a thing works to be able to use it. Instead all you need to know is how to work it's "interface".
+
+Most adults can drive a car, but most of them couldn't make one, or fix their own if it broke. And they don't need to be able to, because to use their car, all they need is to understand the interface to it - the standard arrangement of pedals, switches and the steering-wheel.
+
+There are some other aspects to the overall "interface" of the car, like which side the filler-cap/charger-port is on and which type of fuel you should put in it. But to use one, you don't need to know or care about the details of how it was made or how it functions "under the hood". When you turn the steering wheel left, it goes left, when you turn it right, it goes right. You don't need to know anything about what the steering wheel is connected to.
+
+
+
+Abstraction, whilst useful in lots of places, is //essential// to the way we build and use computers because they are so vastly, wildly complex.
+
+Computers are without comparison the most complex things humans have ever made and the only way we're able to manage that complexity is via layer upon layer of abstraction.
+
+One very obvious layer of abstraction that most people are familiar with is the "operating system" - Windows say, or MacOS or Linux, or Android or iOS - if a computer is running a particular operating system, we expect it to behave in certain ways, regardless of any other details about the computer.
+
+Programming languages are also abstractions. Their published specifications are promises that programs constructed in a particular way will produce particular outputs.

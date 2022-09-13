@@ -1,0 +1,80 @@
+created: 20180430033548796
+modified: 20180905024711734
+tags: Tiddlywiki
+title: Organising Notes With Tiddlywiki
+type: text/vnd.tiddlywiki
+
+I don't really know why, but I feel this persistent need to proselytise for Tiddlywiki. I suppose I just think a lot of people would be much happier if they knew about it. 
+
+If you're unfamiliar with it, let me try to explain why Tiddlywiki is amazing.
+
+You write things down, right? You make notes, maybe you bookmark web pages, maybe you clip experpts of text from different places. Later, you want to //do// something with those notes and other pieces of content. You want to find them, to start with, or you want to join them together, or use them as the basis for a piece of writing, or organise your understanding on a topic. Maybe you aren't even sure quite //what// you're going to do with them yet. Tiddlywiki is your new best friend.
+
+Tiddlywiki is a wiki. It runs in a web-browser and is written in Javascript. It works like a text-editor for web-content, only instead of lots of individual files that you have to organise into folders, everything is wrapped up in a single file, with it's own internal structure.
+
+If you get into advanced features of Tiddlywiki, you can re-script the whole UI of the application itself, meaning that you can do "anything' with your data later. But Tiddlywiki is useful right away, without knowing about any of its advanced features.
+
+Let's suppose you're a writer and you're researching and putting together ideas for your next novel.
+
+Where are you going to write down your idea? Probably in a word-processor. You're going to start different files for different types of notes and put them all in the same directory.
+
+Now I've got a whole bunch of notes - some of them are quotes and web-clippings, some are pieces of writing that I've made - of varying degrees of cogency and 'keepabilty'.
+
+What I'm looking for in this situation is a way to 'go through' them and make decisions about them - whether to keep them or not and, if I'm keeping them, where do they need to be in relation to the other notes.
+
+Some of the notes are seeds for writing that I intend to publish when it's good enough and I need to decide which ones to keep and which ones are awful.
+
+When they're probably awful but just possibly useful, I need a way to keep them but not have to deal with them immediately.
+
+Tiddlywiki has built in features that let me sort and organise them.
+
+Although I'm sure I'm eventually going to want more complicated things that will require WikiText, for now I'm just going to use the built in tools, the simplest of which to use is tags.
+
+!!tags
+
+When a Tiddler is in edit mode, there is a field underneath the title field for adding tags. 
+
+You can type the name of a tag in the box provided or, if tags already exist, you can choose one from a drop-down list, before clicking 'add'. A list of tags that the tiddler already has appears, each one with its own 'x' which you can click to remove it.
+
+!!Managing Tags
+
+Over in the right hand side side-bar (toggled by the '>>' icon in the top right) we find the title, some icons, a search bar and then a series of tabs that let us choose from various lists of the toddlers that make up our wiki.
+
+To learn more about Tiddlywiki, exploring the existing User Interface is a great way to start and I should cover that elsewhere, but for now we can choose the 'More' tab where we'll see another level of tabs, this time vertically arranged. Here we can choose the 'tags' tab and we'll see a vertical list of all the tags our wiki contains. Clicking on one of the tags will drop down a list of all the tiddlers that carry that tag.
+
+At the bottom of this list (or the only item if you haven't yet defined any tags) is the 'untagged' pill in grey. Click this and you'll get a drop-down of all the toddlers that don't have any tag at all.
+
+This might not be the fanciest of sorting hats, but it's enough of a tool to get me started with what I want to do, especially since I don't know exactly how I want to organise any of this stuff.
+
+Tags might be fairly crude but they are quick and quite flexible. I generally find that I can use tags for this preliminary sorting out and that by doing so, I will discover at least some clues about how the information 'wants' to be organised.
+
+!!How I use Tags
+
+The first step in using tags is just to make sure everything has one.
+
+I can do this from the Tags tab of the More tab in the sidebar - the 'untagged' pill right at the bottom is useful here, because it lets me see which one's are missing any of my tags.
+
+In the present case, what I'm doing is taking a bunch of writing and notes that were made elsewhere (mostly in notes and pages on an iPad) and categorising them.
+
+!!Lists
+
+A more generally useful feature is 'lists' - in some sense Tiddlywiki is entirely driven by lists.
+
+Now that I have all my bits and bobs tagged into categories, I'd like to give them some sense of order.
+
+One of the tags that I have is 'iOS' and I have three...
+
+I can make them into an draggable list....
+
+I can also go right ahead and make myself a TOC
+
+
+!!TOC with draggable things
+
+The TOC isn't draggable by default, which is probably a good thing most of the time.
+
+To be able to drag the tiddlers around, we can add this snippet of code to every tiddler that is a tag for which we want to be able to re-order the list.
+
+```
+<$macrocall $name="list-tagged-draggable" tag={{!!title}} />
+```

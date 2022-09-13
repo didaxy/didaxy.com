@@ -1,0 +1,333 @@
+created: 20190718052210651
+modified: 20190725063449844
+next: [[Make Your Own Website Part 5]]
+part: 4
+partof: Make Your Own Website
+previous: [[Make Your Own Website Part 3]]
+subtitle: Basic Page Elements
+tags: TutorialPart Live
+title: Make Your Own Website Part 4
+type: text/vnd.tiddlywiki
+
+<$image class="tutorial-part-image" alt="a tutorial logo/image" source="Motovun Jack.svg"/>
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+NOte tO sElf: Split this up and inter-leave it with the workflow stuff currently in part 3.
+
+!The Basic Elements of HTML
+*Text
+**headings/titles
+**paragraphs
+**lists
+*Images
+*iframes (youtube videos)
+
+The Elements We'll Cover in this Course
+
+*html
+*head
+**DOCTYPE
+**meta
+**link
+**style
+**title
+*body
+*h1 - h6
+*button
+*em
+*strong
+*a
+*br
+*hr
+*span
+*div
+*img
+**area
+**map
+*kbd ???
+*blockquote
+*code
+*var
+*samp <- ???
+*pre
+*table
+**tbody
+**td
+**th
+**tr
+**tfoot
+**thead
+**col
+**colgroup
+*input
+*form
+**fieldset
+**select
+***optgroup
+***option
+**input
+**textarea
+***label
+*frame
+**noframes
+**frameset
+**legend
+**iframe
+
+*ol, ul
+**li
+
+
+*Both Head and Body
+**script
+***noscript
+**comment
+
+*presentational
+**sub
+**sup
+**tt
+**b
+**big
+**small
+**I
+**
+
+Elements we'll mention in passing
+*abbr
+*acronym
+*address
+*caption
+*cite
+*dd
+*del
+*dfn
+*dl
+*dt
+*ins
+*base
+*bdo
+*object <- ???
+**param
+*q <--- how this work?
+
+~~Here is a good reference for me to check this organisation against: http://server2client.com/html4reference/htmltagsfunction.html~~
+
+That reference is for HTML4 and is out of date.
+
+!!Basic Text
+
+The web was originally intended for displaying text documents of the kind that might be produced by a word-processor, so the most basic types of elements are those that add simple formatting to text.
+
+You have already seen that the ``p`` tag is used to mark a paragraph of text. Generally a document is made up of some paragraphs of text broken up into sections, each with its own heading. In HTML, you can mark a section of text as a heading by wrapping it in ``h#`` where n is 1, 2, 3, 4, 5 or 6. 
+
+The first of these, the ``h1`` tag is only supposed to be used once, to give your document a single title, though you will come across lots of pages where it's used more than once.
+
+The other headings are supposed to be used as sub-headings and sub-sub-headings so you can nest an ``h3`` inside an ``h2`` but if you do it the other way around, you might get strange results.
+
+Here is an example of using a page heading and some ``h2`` sub-headings to add structure to a document.
+
+```
+<html example>
+```
+
+!!A Note on Nesting
+
+When you nest things incorrectly, sometimes the browser will still figure out what you meant and other times, it will be obvious that you made a mistake.
+
+```
+mis-nested h elements
+```
+
+
+```
+mis-nested p elements
+```
+
+Paragraphs are what are called "block elements" although they might better be referred to as "default block elements". 
+
+Q: can you make paragraphs inline with CSS?
+
+!!Adding Emphasis
+HTML knows about paragraphs but doesn't have any element for sentences or words. A paragraph can contain a single letter or a whole book (very badly formatted).
+
+Some times you might want to mark a section of a paragraph as standing-out in some way from the text around it. The two main ways to that are ``strong`` and ``em`` (for "emphasis").
+
+In printed writing these will usually be ''bold'' and //italic// respectively, and in other media, such as when your page is read by a screen reader, they will be marked in other ways, such as by a change in intonation.
+
+You can mark a section of a paragraph as ``strong`` like so.
+
+```
+<p>Coding <strong>is</strong> fun.</p>
+```
+
+You can mark a section of a paragraph for emphasis like so
+
+```
+<p>Yes you can! <em>Everybody</em> knows you're the greatest!</p>
+```
+
+<p>Yes you can! <em>Everybody</em> knows you're the greatest!</p>
+
+NB: How should I style this output?
+
+!!Inline Elements
+
+As you just saw, you can nest these elements inside a paragraph without breaking the flow of text by starting a new block. This is because these elements are not block elements, like paragraphs and headings, but instead are what is known as "inline elements". 
+
+Again, the better term is probably "default-inline" because you can change this behaviour with CSS, but their default setting is to nest inside other suitable elements without breaking the flow of the content.
+
+Q: can you nest them inside each other? Can you nest multiple of them inside each other? Is there any effect? Is there a way to style them differently from CSS?
+
+Can you nest them inside the heading elements?
+
+Play around and make your own page design with a title and at least three sections, making use of both strong and em. The text can be anything you like.
+
+!!Don't Underline Things
+
+In books, underlining text is another popular way of drawing attention to it but on the web underlining has a very specific meaning. People expect text that is underlined to be a link that they can click. We'll learn how to include inks in our documents in the next section.
+
+This is one of those rules that it's really best to just follow from the beginning. If it's not a link, don't underline it. Thanks.
+
+!!Links
+
+The thing that makes the web the web is links. The central idea of "hypertext" was that you could link documents together //from within the documents themselves// and the way we do this is to add a link.
+
+The tag for links is ``a`` which stands for anchor. Why anchor? The original idea was that a link extended between two pages and was "anchored" at either end to them. 
+
+Originally, pages contained two kinds of anchor links. One kind was a link //out// to another page, like the ones we still use and the other was a way of marking a place in the document that could be linked to. Anchor makes more sense in the second case, I think, but what we're left with is outgoing links called anchors.
+
+You could think of it, possibly, like an anchor on the end of a harpoon, like a grappling-hook, that you're firing out to latch on to someone else's page. Anyway. Anchor. The ``a`` tag, which means "a link", but is called "a" is for linking to other documents.
+
+In more complicated applications on the modern web it might not link to a document at all in actual fact, but might instead trigger an action from the application which changes the user-interface in some way but doesn't involve navigating to another page.
+
+Nevertheless, the simplest action of a link, and the one that we are concerned with here, is that of navigating to another page.
+
+This is how people "surf the web", by following a chain of links from one place to another.
+
+If you want to turn a piece of text into a link, you wrap it in "anchor tags".
+
+Q: do blank anchor tags create underlining?
+
+The anchor tag needs some more information to work. It needs to know where we want the link to go.
+
+The way we pass additional information to elements is by setting attributes on them.
+
+Here we need to set what is called the ``href`` attribute.
+
+I'd like to take this opportunity to apologise for the fact that the one compulsory attribute on the "a" tag is called "href". In a saner world, we could have had an element called "link" and an attribute names "to", but we live here and we have to deal.
+
+NB: there //is// a link element in HTML, but it isn't for making visible links, it's for linking in style-sheets and we'll see how to use it when we cover basic CSS.
+
+Anyway. Carrying on.
+
+We make a link by wrapping a piece of text in anchor tags - that text will still appear on the screen. To tell the browser what we want to link //to// we add the ``href`` attribute, specifying either a local path or a web address.
+
+For now, we'll link to someone else's page by giving our link its full address.
+
+Add a link to your page linking to your favourite site.
+
+!!Open in new tab
+
+When you add a link and click it, the browser should navigate to the destination address of your link. You can get back to your own page by clicking the "back" button in your browser.
+
+As you will be aware if you have used the web yourself, sometimes your web-browser will instead open a link in a new tab, so that the page you are leaving is still open as well.
+
+You can tell the browser that you want your link to work like that by adding a second attribute.
+
+In keeping with the other aspects of this element, it is impossible to guess the name of this attribute based on what it does, or to guess its function given its name.
+
+The attribute you need is called "target" and if you give it the value "_blank" (just "blank" works most of the time also) the destination page will be opened in a new tab (by default, on most browsers - it's usually possible for users to over-ride behaviours in their settings.*)
+
+* - this last point is always true and worth bearing in mind when you are designing experiences for the web. Ultimately, your pages are not static pictures being transmitted to a screen, they are sets of instructions for each user's browser to re-draw your pages. Ultimately the users are in control and can choose to display them however they like - without images, using a screen-reader, stripped of links, as just links - you get to provide a great default experience, but you don't get to stop anyone from accessing your content and "displaying" it whatever way they want.
+
+!!Lists
+
+Another way that we organise textual information is using lists.
+
+The two types of lists supported by HTML are 'ordered' and 'unordered' lists.
+
+By default, unordered lists are formatted as "bullet lists" with a black circle next to each entry and ordered lists are formatted as a numbered list.
+
+To make a list we use a nested structure made up of several separate elements. The outer element is either ``ul`` for an unordered list or ``ol`` for an ordered one.
+
+Inside this outer element we can nest any number of "list item" elements, with the tag name ``li``. The list items sit alongside each other inside the outer element.
+
+The other common way to refer to this wrapping/nesting relationship is using a parent-child metaphor.
+
+Here we can say that they ``ol`` or ``ul`` element is the parent and it has a number of children, the ``li`` elements.
+
+The ``li`` items are "siblings" to each other. Inside each of them we can put text for a simple list of items, or we can nest other elements, giving them their own children.
+
+We can even nest one list inside another.
+
+!!Whitespace
+
+You will notice when you type HTML that there are lots of places where it doesn't matter how much "whitespace" you add between elements, the way they look on the screen stays the same.
+
+So this
+
+```
+example
+```
+
+looks the same as this 
+
+```
+example
+```
+
+This can be useful, because it lets you add whitespace to your HTML file wherever you need it to make it easier to read.
+
+It can also be a nuisance if you want to format a piece of text in a particular way.
+
+One way to get round this is by using a ``pre`` element, which is for "pre-formatted" text.
+
+This is especially useful for displaying poetry or computer code, where it is important to display the "line-breaks" correctly.
+
+```
+<pre>
+If you can keep your head when all about you,
+Are losing theirs and blaming it on you
+</pre>
+```
+
+<pre>
+If you can keep your head when all about you,
+Are losing theirs and blaming it on you
+</pre>
+
+!!Displaying HTML in HTML
+
+Another problem that you will come across, particularly if you try to write about HTML in your HTML pages is that you can't easily display the HTML tags themselves on a page.
+
+Consider this:
+
+```
+<p> the tag we use to mark text as important is the <strong> tag</p>
+```
+output: 
+
+<p>the tag we use to mark text as important is the <strong>tag</p></strong></p>
+
+
+As you can see, instead of //printing// the ``em`` tag, the browser has interpreted it as markup.
+
+The way we get around this is with a "hack", by which we mean we use something that works, even if it wasn't intended for that purpose. What we do is 'break' the tag by replacing its left-bracket with a different representation of the same thing.
+
+So, instead of writing ``<``, which your browser thinks is the start of a tag, we use ``&lt;`` which is a code ??from where?? for the "less than" symbol. The less than symbol is exactly the same symbol as the left-angle bracket, so it looks exactly how we want it to, and it actually gets printed to the screen.
+
+Q: where do &lt etc. come from?
+
+
+!!A Note on Backwards Compatibility
+
+One reason that 'hacks' like this stick around on the web is that the people who write the standards that keep everything working go to great lengths to avoid breaking web pages that already exist.
+
+This is known as backwards compatibility and it has been a pillar of the success of the web since its beginning.
+
+As well as some positive benefits, backwards compatibility can add drag and bloat.
+

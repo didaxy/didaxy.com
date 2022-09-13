@@ -1,0 +1,7 @@
+about-link: https://www.neocities.org
+about-width: 200
+created: 20170830003847903
+modified: 20170830074812448
+tags: 
+title: neocities-logo.svg
+type: image/svg+xml

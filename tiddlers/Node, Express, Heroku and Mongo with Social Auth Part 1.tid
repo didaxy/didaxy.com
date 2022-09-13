@@ -1,0 +1,108 @@
+created: 20170130093531922
+modified: 20171104015730176
+part: 1
+partof: Node, Express, Heroku and Mongo with Social Auth
+subtitle: Creating a Project, Version Control and Deployment Workflow
+tags: Live TutorialPart
+title: Node, Express, Heroku and Mongo with Social Auth Part 1
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+
+!!Initialising the Project and Installing Packages
+First thing we need to do it make a directory for our project and initialise a git repo there.
+
+```
+mkdir authbase
+  505  cd authbase
+  506  git init
+  507  npm init --yes
+  508  ls
+  509  npm install express --save
+  516  npm install ejs --save
+npm install dotenv --save
+```
+
+The last package, dotenv, is used to set environment variables from a local file called `.env`. We'll see how it's used later, but for now we want to create `.env` because we need to make sure that it //doesn't// get copied to githib.
+
+!!Keeping Secrets
+
+Go ahead and create a new file in your directory called `.env`. How you do this depends on what editor/workflow you prefer. I use ATOM, so at this point I go to ATOM and I open the folder I just created as a project folder. I create a new file, give it the content,
+
+```
+TEST="this is a secret file!"
+```
+
+and save it as `.env`. (you may get a warning about filenames that start with a period, but that really is what we want)
+
+I find that the tree-view in ATOM helps me to keep my projects organised.
+
+This is going to contain secret information about our database logins (and eventually our twitter keys) that we don't want to store on github for everyone to see. For now, we just put a placeholder there.
+
+Alongside our `.env` file, you should also see a file called `package.json`, which was created by our `npm init` command, and the `node_modules` directory. 
+
+The `node_modules` directory is also something that we want to exclude from our git archive - it contains all the code for the modules that we loaded above - express, ejs and dotenv - and these files can be recreated whenever we need them by re-running the `npm install` command (because we did `--save`, references to them got saved in our package.json).
+
+So, we need to include both npm_modules and .env in our `.gitignore` file
+
+The way we tell git to ignore this file is by including it in a file called `.gitignore`
+
+```
+/node_modules
+npm-debug.log
+.DS_Store
+*.env
+```
+
+Now we should be able to add the files to git and push them up to github and our secret file will remain secret.
+
+!!Publishing to Github
+
+If you're using github from the command line, presumably you know what you're doing but the instructions are here - https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/.
+
+Using Github desktop, the process is a breeze - just select 'add a repository' and browse to the directory you just created. Click add and it should show up in the list of repos on the left. Then click publish. (We could also have created the git repository from here, instead of doing `git init`).
+
+Once your directory is in the list of github desktop repos, you can select it and you should see two files listed as 'uncommited changes'. If you see your node_modules directory or your secret `.env` file, then something is wrong with your `.gitignore` file.
+
+Because our .env file is nowhere to be seen, so it should be safe to publish this to github without giving away our secrets.
+
+To do this, we write a commit message and optionally a longer comment and hit commit and then publish. We don't have much to say at this point, so we can just write 'initial commit' and press commit. Then we can hit publish (top right).
+
+Each time you commit and push changes here, your history will update - going back to examine old files is really easy from this interface, but be careful you don't do it by accident.
+
+!!Pushing to Heroku
+
+If you haven't already, you need to install the heroku cli
+
+https://devcenter.heroku.com/articles/heroku-cli
+
+It's very simple. You do 'heroku login' and then it remembers who you are.
+
+You do heroku create once to set up your app - if you //haven't// provided your credentials, it will ask for them, then you'll get
+
+```
+Enter your Heroku credentials.
+Email: richardwilliamsmith@gmail.com
+Password (typing will be hidden): 
+Logged in as richardwilliamsmith@gmail.com
+Creating app... done, ⬢ polar-wildwood-26214
+https://polar-wildwood-26214.herokuapp.com/ | https://git.heroku.com/polar-wildwood-26214.git
+Richards-MacBook-Air:authbase richardsmith$ https://git.heroku.com/polar-wildwood-26214.git[B
+Richards-MacBook-Air:authbase richardsmith$ 
+```
+
+```
+Creating app... done, ⬢ shielded-hollows-37077
+https://shielded-hollows-37077.herokuapp.com/ | https://git.heroku.com/shielded-hollows-37077.git
+```
+
+On a Mac, you can control click that link to open the url or you can type 'heroku open' and you should see a page displaying "Heroku | Welcome to your new app!" -  that's your app running in the real world! Except it isn't. It's just a place holder. Your app doesn't do anything yet.
+
+!!Adding Some Content.
+
+Now let's add some content and re-publish to check everything's working.
+
+

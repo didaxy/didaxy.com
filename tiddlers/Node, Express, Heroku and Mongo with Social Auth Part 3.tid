@@ -1,0 +1,282 @@
+created: 20170130093848429
+modified: 20171208033929862
+part: 3
+subtitle: MongoDB and mLab
+tags: Live TutorialPart
+title: Node, Express, Heroku and Mongo with Social Auth Part 3
+type: text/vnd.tiddlywiki
+
+!!mLab
+
+Now we make an mLab database - a new "deployment" - we want a single-node, sandbox type database which is free and gives us 0.5gb of space, which should be way more than we use.
+
+You'll then need to add a user for this database and give them a password (you should see warnings telling you to do this)
+
+You should see example connection strings like this 
+
+```
+ mongo ds143717.mlab.com:43717/authbase -u <dbuser> -p <dbpassword> 
+```
+and this
+
+```
+mongodb://<dbuser>:<dbpassword>@ds143717.mlab.com:43717/authbase
+```
+Take note of these (they will be different for your database) and remember the username and password that you've given to your database user.
+
+Now we'll change authbase.js so that it connects to our database.
+
+Richards-MacBook-Air:authbase richardsmith$ npm install mongodb --save
+
+```
+TEST="this is a secret file!"
+MONGO_CONNECT_STRING="mongodb://admin:122eoh@ds143717.mlab.com:43717/authbase"
+```
+wrap our app.listen command in a connection to the database
+
+```
+MongoClie       t.connect(mongoUrl, (err, database) => {
+  if (err) return console.log(err)
+  db = database
+  app.listen(process.env.PORT || 3000, () => {
+    console.log('listening on 3000 (with mongo connection)')
+  })})
+```
+then change our index.ejs file so that it lets us get things out of the database and put things into it
+
+```
+<h2>Add Something to the Database</h2>
+  <form action ="/sumbit_database_item" method="POST">
+  <input type="text" name="db_item" placeholder="add something!"></input>
+  <button type="submit">Submit</button>
+  </form>
+
+  <div class = "recent">
+    <h2>Recently</h2>
+    <ul>
+    <% for(var i=0; i<docs.length; i++) {%>
+       <li><a href="<%= docs[i].short_url%>" target="blank">(<%= host%>/<%= docs[i].short_url%>)</a> <%= docs[i].long_url%> (<%= docs[i].ipaddress%>)</li>
+    <% } %>
+    </ul>
+  </div>
+```
+this is the ejs syntax for iterating over the elements of an array. We want to populate this array `docs` with the search results from our database. In this case, we're just pulling out the last ten things that were put in.
+
+```
+app.get('/', (req, res) => {
+  db.collection(col).find({}).sort({_id:-1}).limit(10).toArray(function(err, docs){
+    console.log("retrieved records:");
+    console.log(docs);
+    res.render('index.ejs', {docs, host: req.headers.host, envtest: process.env.TEST})
+  })
+})
+```
+The submission form gives us a very simple way to add things.
+
+This is just an HTML form - when we click submit, it will try to POST it's results to the specified URL - /sumbit_database_item - so we need to tell our express app how to deal with the submission.
+
+authbase.js at this point looks like this;
+
+```
+//authbase.js
+require('dotenv').config()
+
+const MongoClient = require('mongodb').MongoClient;
+const mongoUrl = process.env.MONGO_CONNECT_STRING
+const col = "testItems"; //the name of the mongo collection to use - change for production
+
+
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+
+
+//view engine
+app.set('view engine', 'ejs');
+
+//middleware
+app.use(bodyParser.urlencoded({extended: true}))
+
+MongoClient.connect(mongoUrl, (err, database) => {
+  if (err) return console.log(err)
+  db = database
+  app.listen(process.env.PORT || 3000, () => {
+    console.log('listening on 3000 (with mongo connection)')
+  })})
+
+app.get('/', (req, res) => {
+  db.collection(col).find({}).sort({_id:-1}).limit(10).toArray(function(err, docs){
+    console.log("retrieved records:");
+    console.log(docs);
+    res.render('index.ejs', {docs, host: req.headers.host, envtest: process.env.TEST})
+  })
+})
+
+app.post('/sumbit_database_item', (req,res) => {
+  db.collection(col).insertOne({name:req.body.db_item}, (err, result) => {
+    if (err) return res.send(500, err)
+    res.redirect('/')
+  })
+})
+```
+
+and index.ejs looks like this
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Node app on Heroku with Mongo Backend and Twitter-auth</title>
+</head>
+
+<body>
+  <h1>Authentication Demonstration</h2>
+  <p>This will be a Heroku app backed by mongoDB on mLab, with Twitter authentication.</p>
+  <p>The url of this page is <span><%= host %></span></p>
+  <p>dotEnv says: <%= envtest %></p>
+  <h2>Add Something to the Database</h2>
+  <form action ="/sumbit_database_item" method="POST">
+  <input type="text" name="db_item" placeholder="add something!"></input>
+  <button type="submit">Submit</button>
+  </form>
+
+  <div class = "recent">
+    <h2>Recently</h2>
+    <ul>
+    <% for(var i=0; i<docs.length; i++) {%>
+       <li><%= docs[i].name%></li>
+    <% } %>
+    </ul>
+  </div>
+
+  <div>
+    <h3>Credits</h3>
+    <p>Made with love by <a href="www.r1chard5mith.com" title="link to my personal home page">Richard Smith</a> as part of <a href="https://www.freecodecamp.com" title="link to free code camp home page">Free Code Camp</a></p>
+    <p>See the code on <a href="https://github.com/r1chard5mith/authbase">Github</a>.</p>
+</body>
+
+</html>
+```
+
+Explain how this all works and how to test it.
+
+```
+  544  git push heroku master
+  545  heroku open
+  546  heroku config:set MONGO_CONNECT_STRING="mongodb://admin:122eoh@ds143717.mlab.com:43717/authbase"
+  547  heroku open
+  548  history
+```
+Push the changes to Github.
+Deploy it to heroku... (don't forget to set the environment variable)
+
+And we're able to insert things into our mLab database, which we can see if we visit the web console on mLab - you may need to refresh the page to see the changes. You should see the entries that you made.
+
+So, we're all good to go?
+
+Kinda.
+
+Now that we have our project set up on github and it's a breeze to push it to 'production' on Heroku, we want to get into the meat of making it do what we want it to do.
+
+Unfortunately, we're going to see that if we want to make even a small change to our app, nodemon is going to restart the process and it's going to need to reconnect to mLab before we can test our changes.
+
+Let's see it - change the line 
+
+    console.log('listening on 3000 (with mongo connection)')
+
+    console.log('listening on 3000 (with super mongo connection)')
+
+It takes about 2 seconds for me to get a reconnection. That sort of delay isn't any barrier to people succssfully using your service, but it's going to get really tiring to debug if it takes 2 seconds every time we have to test something.
+
+This is why we need a local Mongo set-up for testing.
+
+That's going to be the second tutorial - how to set up a local mongo installation, point our existing app at it, add functionality with a quicker update loop and then point our app back at our 'production' database when we're ready for it to go live again.
+
+
+[[Installing Mongo Locally]]
+
+We've got an app connecting to an online mongo database, somewhere up in the cloud, but we want our own //local// Mongo to do testing with.
+
+No problem.
+
+It's not at all difficult, but if you've not used the terminal very much before, it might seem a bit daunting. We're going to end up with a bunch of different terminal windows open, with different things running in them.
+
+The first one is going to have mongo itself in it 
+
+Let's just install it, using these instructions - 
+
+
+---
+
+We successfully avoided having to use Homebrew in our previous tutorial, but it looks as though we won't be so lucky with mongo db community edition.
+
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
+
+Installing it requires homebrew and homebrew requires the xcode developer tools (if you're following along, you already have those installed)
+
+Let's install homebrew by pasting these magic words into the terminal as we're told to do.
+
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+now we can
+
+```
+brew install mongodb
+```
+
+You need to do mkdir -p /data/db
+
+and then you need to give yourself permissions to edit this.
+
+I find the whole idea of multiple permissions a bit weird on my one player laptop so I'm quite content to do a `sudo chmod 777 /data/*` and get it over with, then we can do `mongod` and the daemon runs.
+
+when we run it with the mongod (it's the mongo daemon - a process that runs in the background to manage resources for us, in this case, the database.
+
+Now we have our own database running. It's that simple. But we have no way to interact with it.
+
+The first way to do this is using the mongo shell.
+
+Open a new terminal window and this time just type 'mongo' (for windows it's mongo.exe, the instructions are here: https://docs.mongodb.com/getting-started/shell/client/
+
+The docs for the shell are here
+
+https://docs.mongodb.com/manual/reference/mongo-shell/
+
+You can use it to find out about your new database.
+
+---
+
+In a moment we are going to connect our node app to this database and manipulate it with that, but first we can install another node app called adminMongo.
+
+admin Mongo is available here https://github.com/mrvautin/adminMongo
+
+You just need to get a copy of it and install it the same way you install your own node apps - if you're using github desktop, it's very easy to get repos.
+
+Now, in  another terminal window, find the directory you cloned it to and `npm install` it and then do `npm start` (see the docs at the above link)
+
+Now, in your browser, you can visit localhost:1234 and you get an admin console on your local database, just like the one we got to our 'production' database.
+
+Assuming you followed all the defaults when installing mongo, you can give adminMongo the connection url `mongodb://localhost:27017` and a suitable name, then click connect.
+
+The only thing that's missing now is our app itself.
+
+In a fourth terminal window, now, we want to run our app with nodemon
+
+Of course our app is still configured to point to our online database, so before we start it, we need to change that.
+
+Let's rename our production .env file to production.env and change our .env file to look like this
+
+```
+TEST="this is a secret file!"
+MONGO_CONNECT_STRING="mongodb://localhost:27017"
+```
+and start our app using nodemon.js
+
+now it's pointing at our local db and magic starts to happen.
+
+
+

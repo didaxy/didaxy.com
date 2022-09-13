@@ -1,0 +1,359 @@
+created: 20170924020431579
+modified: 20190725035500821
+part: 8
+partof: So, You Want To Make A Website?
+subtitle: The Terminal
+tags: Crash Live
+title: A Crash Course in the Mac Terminal
+type: text/vnd.tiddlywiki
+
+!A Crash Course in the Mac Terminal
+
+!!Introduction
+
+Whilst it isn't difficult to use the terminal, if you haven't done it before it can be somewhat daunting so I thought it would be useful to try and give a short explanation of the main features that you will use.
+
+These instructions should also work on Linux without modification but won't work on Windows unless you're using the [[Linux Subsystem|https://blogs.msdn.microsoft.com/wsl/2016/04/22/windows-subsystem-for-linux-overview/]]. Eventually, I'd like to include a set of companion instructions for Windows
+
+!!Opening the Terminal
+
+The Terminal application is in Applications > Utilities. You can find it quickly using Spotlight search. You can drag its icon the the dock to make it easier to find.
+
+Click to open it like any other application and you should see a small, white window with black text. It will print out a bit of information about the last time you logged in.
+
+The last line it prints out is called the 'prompt' and next to it is a flashing cursor. This is where you can type commands.
+
+!!Where am I and What's Here?
+
+This is a 'terminal window' and it's running a program called a 'shell' that lets you interact with the filing system and run programs.
+
+In the shell, at any given time, you will be 'in' a particular directory, just as with the finder.
+
+To find out which directory you are in type;
+
+```
+pwd
+```
+
+which  will tell you the 'working directory' in a form that looks something like this
+
+```
+/Users/didaxy
+```
+
+which is completely analogous to where you would find this same directory in the finder (this particular folder would be at "Macintosh HD > Users > didaxy")
+
+To see what's in this directory, type 
+
+```
+ls
+```
+
+and you'll see a listing of the files and folders that are here.
+
+To get more information about the files, type 
+
+```
+ls -l
+```
+
+!!Flags
+
+The last part of this command is a 'flag' which modifies the behaviour of the ``ls`` command. This particular flag tells it to give us the 'long' listing, which contains more detail about the files.
+
+If we instead pass the flag ``-a``, we get a regular listing but it also includes and 'hidden' files (usually those whose name begins with a ``.``)
+
+Whenever I want a listing, I basically always want both of these flags set, so I generally run 
+
+```
+ls -la
+```
+
+!!Man Pages
+
+Each of the unix commands is a program in its own right and the documentation for all of them is built in to the shell.
+
+To see a list of available commands, type ``help``.
+
+If, at any time, you'd like to see more information about one of the commands, type ``man`` followed by the name of the command that you're interested in, for example
+
+```
+man ls
+```
+
+Scroll through the man page using the arrow keys or move down a page at a time using the space bar. 
+
+When the man page is open, at the bottom of the window, you should see a colon and a flashing cursor. That's a clue that, to quit, you just press ``q``.
+
+Note that this last 'feature' of the command line is something that I personally still find frustrating. There are several different mechanisms that you might use to 'get out' of something like an editor, which you might sometimes find yourself in, possibly without knowing how you got there.
+
+I take great consolation from the fact that [[many people before me have had the same problem|https://stackoverflow.blog/2017/05/23/stack-overflow-helping-one-million-developers-exit-vim/]].
+
+If you get stuck in something, you can try pressing ``ctrl-c``, the escape key or 'q' (or ``:q`` if you are in the vi editor). If all else fails, you can quit the shell and open a new one. Don't laugh, I've done it.
+
+!!Hopping around
+
+As you probably know, the filing system is a hierarchical tree of files and folders, inside folders.
+
+The main folder that holds everything is called the root and its path is ``/``. It contains files and folders, which contain files and folders etc. Conceptually the root is considered to be at the 'top' of the file tree (it's an upside down tree) and all the folders it contains are on the next level 'below' it.
+
+Each folder within another we might call a sub-folder, a sub-directory or possibly refer to as the 'child' of the root, which we might then say was its 'parent'.
+
+Conceptually, when we move into a sub-folder, we are moving down through the hierarchy. We can also move back 'up' into the parent directory. We can keep going up until we get back to the root.
+
+The path to the folder you're in tells you how to get to it from the root. In the example above, you would go into the ``Users`` directory and then into the ``didaxy`` directory. If we move up from here, we will be in the the Users directory. If we move up again, we'll be back at the root.
+
+If there are folders inside this one, we can move down into them.
+
+To see if there are any directories, look again at the 'long' directory listing with ``ls -l``. The first entry in each row of the listing should look something like this ``drwxr-xr-x+``. Most of this is information about the 'permissions' that the file has (see below) but the first character just tells us if it is a directory (d) or a file (-). 
+
+To move into one of the sub-folders here, we use the ''change directory'' command, ``cd``.
+
+```
+cd myDirectory
+```
+
+(where 'myDirectory' is a sub-folder of the working directory). Then type ``pwd`` again and you should see that you are now in ``/Users/didaxy/myDirectory`` (or your equivalent).
+
+To move back up one folder, we type;
+
+```
+cd ..
+```
+where ``..`` (two full-stops) is a short-hand that always refers to the parent directory of the working directory.
+
+Similarly ``.`` (a single full stop) is shorthand for the working directory itself so ``cd .`` will move you into the working directory but of course this is where you are to begin with, so it's never useful.
+
+!!Teleporting Around
+
+Instead of using ``cd`` to move up and down one hierarchy-level at a time, you can use it to jump to any point in the filesystem that you know the path for.
+
+For example, to move to the root directory, from anywhere, you can type
+
+```
+cd /
+```
+
+Likewise, to move the the config folder of some app in the Downloads folder of a User account, you might type
+
+```
+cd /Users/didaxy/Downloads/thingummy/config
+```
+
+!!Absolute and Relative Paths
+
+A path that starts with a / is an ''absolute path'' meaning that it tells you uniquely how to find a particular file within this filing system. 
+
+A path that starts with the first character of a directory or file name, or starts with a period/full-stop "." is a relative path and the location it points to depends on which directory is the working directory.
+
+If you are in the folder "Users" and there's a directory here called "Applications" that you want to move to, you can type ``cd Applications`` or ``cd ./Applications`` where the "." is the second one explicitly means "start at the directory I'm currently in".
+
+If, on the other hand, you type ``cd /Applications`` you'll move to the folder ``Applications`` which is at the top level of your filesystem, immediately within the root folder, because ``/Applications`` is a absolute path and the place it points to doesn't depend on the current directory.
+
+!!Autocompletion
+
+A really useful feature of the modern shells is filename autocompletion.
+
+When you are issuing any command that contains the name of a file, you don't need to type the whole filename, just enough for the shell to uniquely identify it, and then press the tab key.
+
+For example. If you have three directories, called say 'myDirectory', 'herDirectory' and 'herOtherDirectory', you can type ``cd m``, press the tab key and it will autocomplete to 'myDirectory'.
+
+If you want to get to 'herDirectory' you need to type ``cd herD`` before pressing tab, because if you stop at ``cd her``, it won't be clear which of the two directories you mean.
+
+Actually, if you've not entered enough of the name to uniquely identify it, but you press the tab key a second time, it will print a list of all the files that you could mean. In this example, if we type ``man her`` and press tab twice, it will list
+
+```
+herDirectory/   herOtherDirectory/
+```
+
+and then you can choose the one you want by going on to press either 'D' or 'O' and pressing the tab key again.
+
+!!Opening and Running Things
+
+If you want to view the contents of a file, you use one of the Unix utilities designed for that purpose. The filenames can be relative or absolute. You can use ``more``
+
+```
+more myFile
+more /Applications/Myapp/readme
+```
+
+or less
+
+```
+less myFile
+less ~/.hiddenfile
+```
+
+Some files are programs that can be run from the shell. Some programs, like the ones we've already used (``ls``, ``pwd``, ``more`` etc.) and others that get installed by the system (like ``node`` or ``npm``) are in folders that have already been declared as containing programs. We say that they are 'in your path' and you can run them without knowing the full path to the program.
+
+If you want to run a file that isn't in your path, you need to supply a full path to that file, even if it's in your current directory. This is the only use most people make of the "." current folder shorthand.
+
+For example, to run a shell script, called ``myScript.sh`` in the current directory, you can't use just ``myScript.sh``, you need to enter a full path, like so;
+
+```
+./myScript.sh
+```
+
+!!Creating Things
+
+You can make a new, blank file using the ``touch`` command.
+
+```
+touch myNewFile
+touch anotherfile.sh
+touch aBlankWebPage.html
+```
+
+You can make a new directory/folder using the ``mkdir`` command with the path to the new folder. Usually you'd create folders inside the folder you're already in, so you just pass the name you want.
+
+```
+mkdir mydir
+```
+
+But you can pass an absolute path if you want to, as long as all the folders in the path, except the last one, already exist. ie;
+
+```
+mkdir /NewTopLevelDirectory
+```
+
+will work, followed by
+
+```
+mkdir /NewTopLevelDirectory/NewSubDirectory
+```
+but the second command won't work unless 'NewTopLevelDirectory' already exists.
+
+!!Destroying Things
+
+delete a file, you can use 
+
+!!Moving Things
+
+The command for moving files and folders is ``mv`` and it takes two arguments. The first tells it what you want to move and the second, where you want to move it to.
+
+!!Wildcards
+
+Wildcard characters are a powerful shortcut for working with multiple files. 
+
+You can use the * character to refer to "any number of any characters"
+
+You can use the "+" (??) character to refer to a single instance of any character.
+
+By using wildcards, you can write arguments, to the commands we've already learned and other, which select and process multiple files based on this pattern match.
+
+So, for example, if you have a folder that contains the following files
+
+```
+myfilewithalongnamefornogoodreason.js
+myotherfilewithareallylongbutdifferentname.html
+hisfilewhichalsohasalongname.ts
+```
+
+You can move the first two files to a new location by typing
+
+```
+mv my* /new/location
+```
+
+because the pattern "my" + "any number of any characters" matches them and not the third.
+
+This is often particularly useful when you want to process all the files of a particular //type//.
+
+To delete all the Javascript files from a folder, for example, you could type;
+
+```
+rm *.js
+```
+
+or to move all the HTML files to the web directory, you could type;
+
+```
+mv *.html /var/www/html
+```
+
+!!Permissions
+
+!!Copy and Paste
+
+You can Paste things into the terminal and you can Copy them out but you can't use Cut.
+
+!!Text Editors
+
+vi and nano.
+
+VI is an old text editor, built into every Unix like shell for purposes of backwards compatibility. Old programmers love it because they can edit code very quickly and it's very customisable but it's difficult to learn and not very intuitive.
+
+For simple editing of configuration files and the like, most people are better off using 'nano', a less featureful, but more modern and intuitive editor, which is also built in to most modern Unix shells.
+
+
+!!Aliasing Commands
+
+Commonly used commands can be abbreviated. You can set up an 'alias' between a string you choose and a command that you want to run.
+
+One useful application of this is to always have the ``-l`` and ``-a`` flags added to the ``ls`` command automatically.
+
+To do this, you can type
+
+```
+alias ls="ls -la"
+```
+
+The alias only lasts until the end of your current session, unless you set it up in a configuration file.
+
+!!Configuration Files
+
+The default behaviour of the command line can be controlled by configuration files. Generally your account has a configuration file called ``.bashrc``.
+
+On a Mac, you can edit the ``.bash_profile``, or create it if it doesn't already exist, in your home directory (``nano ~/.bash_profile``).
+
+There are lots of things you can do in the config file, but setting aliases is one useful thing, so that you don't need to reenter them every session.
+
+To set up an alias for ``ls`` to ``ls -la`` just add a line (even if it's the only one) to ``.bash_profile`` that says alias 
+
+```
+ls="ls -la"
+```
+
+You could also add a line to change your shell prompt to anything you want
+
+```
+export PS1=" hello there! $ "
+```
+
+There are lots of other things you might put in here.
+
+!!Running Processes in the Background
+
+When you run a process, such as a server instance or a node application, the default behaviour is for that process to run 'in your shell' until it's finished.
+
+If you need to do something else, you can easily open a new terminal window or tab, but you may also wish to run the process completely 'in the background' meaning that it doesn't rely on your shell session in order to keep running.
+
+To start a process in the background, all you need to do it add a " &" to the end of the command.
+
+When you do this, you should get the prompt back, so that you can continue to use the terminal, after it reports the 'id number' that has been assigned to the process (so that you can subsequently find it and stop it when necessary)
+
+To see a list of all the running processes, type 
+
+```
+ps aux
+```
+
+To list just your own processes, type
+
+```
+ps
+```
+
+To kill a process, use
+
+```
+sudo kill #
+```
+
+Where # is the id of the process.
+
+!!Cheatsheet
+
+| Command | Description |h
+| pwd | Print the path of the current working directory |
+| ls | List the contents of current directory |

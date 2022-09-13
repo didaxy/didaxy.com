@@ -1,0 +1,6 @@
+created: 20170825024023281
+list: $:/core/ui/ViewTemplate/title $:/core/ui/EditTemplate/tags $:/didaxy/ui/conditional/ViewTemplate/tutorials $:/core/ui/ViewTemplate/unfold $:/core/ui/ViewTemplate/subtitle $:/core/ui/ViewTemplate/tags $:/plugins/inmysocks/WordCount/WordCountViewTemplate $:/core/ui/ViewTemplate/classic $:/core/ui/ViewTemplate/body $:/core/ui/ViewTemplate/import $:/core/ui/ViewTemplate/plugin
+modified: 20171101080610609
+title: $:/tags/ViewTemplate
+type: text/vnd.tiddlywiki
+

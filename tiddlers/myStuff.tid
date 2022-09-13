@@ -1,0 +1,23 @@
+created: 20170815064015311
+modified: 20171101080612146
+scripts: say-yo.css
+styles: yellowsubmarine.css
+tags: Plumbing $:/tags/SideBar
+title: myStuff
+type: text/vnd.tiddlywiki
+
+http://www.neocities.org
+
+http://www.netlify.com
+
+
+This will be a list of the things that we add to the wiki, so that we can keep track of things.
+
+<$list filter="[prefix[$:/didaxy]]">
+
+</$list>
+
+
+<$list filter="[prefix[$:/rs]]">
+
+</$list>

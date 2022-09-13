@@ -1,0 +1,148 @@
+created: 20171018015314129
+modified: 20171101080611697
+next: [[Let's Learn React Part 4]]
+part: 3
+partof: Let's Learn React
+previous: [[Let's Learn React Part 2]]
+subtitle: Lifting State
+tags: TutorialPart Live noindex
+title: Let's Learn React Part 3
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!Summary
+
+In the [[previous section|Let's Learn React Part 2]] we saw how we store data in state and manipulate it via the 'setState' function.
+
+At the moment, the tic-tac-toe game is storing state the state of each square //in// the Square component itself.
+
+If the game wanted to decide whether someone has won, it would need to get the state from each square, but that's not the preferred way to do things in React.
+
+The React way of handling this is to 'lift' the state out of individual components to a place where all relevant data can be stored together.
+
+In this case we want to lift the state up out of the Square and into the Board. That way, the Board will know the contents of every square and will be able to decide whether someone has won.
+
+We basically revert the changes we made before, then. We want the Square to render the value it's passed in ``props`` again.
+
+```
+
+
+class Square extends React.Component {
+  render() {
+    return (
+      <button className="square" onClick={() => this.props.onClick()}>
+        {this.props.value}
+      </button>
+    );
+  }
+}
+
+
+```
+
+Note that we've deleted the constructor because now Square doesn't have any state that needs to be initialised.
+
+Notice that now the Square component expects its props to include "value" and also "onClick", which it expects to be a function.
+
+We provide it these props in the renderSquare method of Board
+
+```
+renderSquare(i) {
+    return <Square value={this.state.squares[i]}
+                 onClick={() => this.handleClick(i)}/>;
+  }
+```
+
+Notice that we're free to format the return statement by breaking it across lines, hence we can make it easy to see what props we're passing by putting each on its own line.
+
+Here we're associating the Square's onClick handler with this new function 'handleClick' which we now need to add to the Board class.
+
+To begin with, it's enough to register that it's working.
+
+```
+  handleClick() {
+    console.log("click!")
+  }
+```
+
+At this point in the React tutorial, we get this handy checklist
+
+
+#The onClick prop on the built-in DOM &lt;button> component tells React to set up a click event listener.
+#    When the button is clicked, React will call the onClick event handler defined in Square’s render() method.
+#    This event handler calls this.props.onClick(). Square’s props were specified by the Board.
+#    Board passed onClick={() => this.handleClick(i)} to Square, so, when called, it runs this.handleClick(i) on the Board.
+#    We have not defined the handleClick() method on the Board yet, so the code crashes.
+
+Except our code doesn't crash, because we have defined 'handleClick', it just doesn't do anything yet.
+
+There's also this note on naming
+
+```
+Note that DOM <button> element’s onClick attribute has a special meaning to React, but we could have named Square’s onClick prop or Board’s handleClick method differently. It is, however, conventional in React apps to use on* names for the attributes and handle* for the handler methods.
+```
+
+ie; the button method has a particular name but the others only have their names by convention.
+
+This is what they suggest the handleClick method should look like
+
+```
+  handleClick(i) {
+    const squares = this.state.squares.slice();
+    squares[i] = 'X';
+    this.setState({squares: squares});
+  }
+```
+
+At this point, you should have back the functionality we had at the end of the [[previous section|Let's Learn React Part 2]], but now our state is being stored at the board level. The Square component is a dumb compnent that doesn't have any state of it's own.
+
+!!Functional Components
+
+Instead of calling the Square 'dumb' (sorry, Square) let me use its proper name and call it a "functional component". Components that don't store their own state can be written re-written in the following manner
+
+```
+
+
+function Square(props) {
+  return (
+    <button className="square" onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
+}
+
+```
+
+Notice they've also simplified the way the onClick function gets passed to the button.
+
+!!Immutablity
+
+The way the handleClick function updates the state is as follows
+
+#it copies the current state into a local variable
+#it changes (mutates) the copy
+#it calls setState to update the state
+
+The original state is never mutated and we can say that it is "immutable". React has immutable state. 
+
+They're using 'slice' to copy the old array
+
+```
+    const squares = this.state.squares.slice();
+```
+
+You can also use the spread operator
+
+```
+    const squares = [...this.state.squares]
+```
+which I think is a bit nicer.
+
+The most important aspect of this immutable behaviour, as far as React is concerned, is it allows React itself to manage all the updates and do so in the most efficient manner.
+
+They then go on to add a little bit of cut and paste code to make the actual game work, but it's not very relevant to seeing how React actually works.
+
+<<tutorial_nav>>

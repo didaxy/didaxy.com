@@ -1,0 +1,47 @@
+created: 20190725041150061
+modified: 20191025124958157
+tags: Basics
+title: Basics of Filing Systems
+type: text/vnd.tiddlywiki
+
+!Filing Systems
+
+Most people who use computers regularly are familiar with the idea of 'apps' and 'files'. Apps, or Applications are programs that you can run and use on your computer. Files are pieces of data that can be created or opened using different apps.
+
+You are probably aware that there are different kinds of files. You can't open a video file with a word-processor, or a text document with a painting program. The files themselves are just made up of many, many 1s and 0s but different types of files contain information encoded in different ways.
+
+When you use an app to create and save a file and you give it a name, usually the file is also given an 'extension' to tell the computer what type of file it is.
+
+Sometimes the file extensions are not visible by default.
+
+
+!!The Filing System
+
+One of the most important jobs of the operating system is to organise and keep track of all the different 'files' that it has stored. This is done with a filing system.
+
+The filing system is what you are accessing when you open files on your computer. It is made up of folders with files inside them.
+
+The basic way a filing system works is that there's a main folder (called the 'root' or 'root directory') that has files and folders in it. Each of those folders can have files in it, or it can have more folders and each of those folders can have files and folders in it, and so on.
+
+One important difference between MacOS and Windows is that they have different filing systems.
+
+!!The Command Line
+
+When you use a computer with a mouse and the pointer/cursor that appears on the screen you are using a Graphical User Interface (GUI). This is the way we interact with most computers, most of the time.
+
+Before computers had GUIs, they had only a "Command Line Interface" (CLI) which was just a place that you could type commands and read messages that the computer returned in response. 
+
+In general, GUIs are much more pleasant to use than CLIs, but for many programming tasks, for example setting up and running software tools made by other programmers, are still much easier using a CLI.
+
+For this reason, all the desktop OSs have a CLI built into them. In general, mobile OSs like Android and iOS don't have a CLI and this is one of the main reasons they are not suitable for learning to program.
+
+You will need to know how to find and use the CLI on your system. I will show you how to do this soon.
+
+The CLI is another major difference between Windows and MacOS but the default CLI on MacOS and Linux is the same (it is called the 'bash shell'). This means that you can often type the same commands on Linux and MacOS and get the same results, but on Windows you will need to know different commands.
+
+The majority of tutorials that you find, especially for web development, will assume you are using the bash shell. This used to be a reason given by lots of developers for using Macs over PCs, so that they didn't need to learn and remember two sets of commands which eventually led to Microsoft adding the "Windows Subsystem for Linux" to Windows, which lets you install the bash shell there too. If you are using Windows you should give WSL a try.
+
+
+!!Paths
+
+One reason you need to know about filing systems and command lines is that your programs will need to find files.

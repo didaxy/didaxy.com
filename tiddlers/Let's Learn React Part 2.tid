@@ -1,0 +1,280 @@
+created: 20171017093703404
+modified: 20171214124100354
+next: [[Let's Learn React Part 3]]
+part: 2
+partof: Let's Learn React
+previous: [[Let's Learn React Part 1]]
+subtitle: Starting an App from Scratch
+tags: TutorialPart Live noindex
+title: Let's Learn React Part 2
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+Now that we have the default app working, we can follow the React tutorial, which is very good.
+
+The first thing we do is delete everything in the ``src`` folder and add two new files called ``index.js`` and ``index.css``.
+
+The css code we are told to add is
+
+```
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+}
+
+ol, ul {
+  padding-left: 30px;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.square {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-left: 20px;
+}
+
+```
+
+Note that you can make the elements of the board bigger by altering the CSS. I made the squares bigger by setting their width and height to 100px.
+
+Th js code looks like this
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+
+class Square extends React.Component {
+  render() {
+    return (
+      <button className="square">
+        {/* TODO */}
+      </button>
+    );
+  }
+}
+
+class Board extends React.Component {
+  renderSquare(i) {
+    return <Square />;
+  }
+
+  render() {
+    const status = 'Next player: X';
+
+    return (
+      <div>
+        <div className="status">{status}</div>
+        <div className="board-row">
+          {this.renderSquare(0)}
+          {this.renderSquare(1)}
+          {this.renderSquare(2)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(3)}
+          {this.renderSquare(4)}
+          {this.renderSquare(5)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(6)}
+          {this.renderSquare(7)}
+          {this.renderSquare(8)}
+        </div>
+      </div>
+    );
+  }
+}
+
+class Game extends React.Component {
+  render() {
+    return (
+      <div className="game">
+        <div className="game-board">
+          <Board />
+        </div>
+        <div className="game-info">
+          <div>{/* status */}</div>
+          <ol>{/* TODO */}</ol>
+        </div>
+      </div>
+    );
+  }
+}
+
+// ========================================
+
+ReactDOM.render(
+  <Game />,
+  document.getElementById('root')
+);
+
+```
+
+We can see that there are three different components. 
+
+The Square component returns a Button, the Board component returns a Div containing three Divs, each containing 3 Squares.
+
+The Game component returns a Div with 2 Divs in it, the first has class 'game-board' and contains a single instance of Board.
+
+The second one contains a 'status' div and an ordered list, both currently empty.
+
+Note that HTML elements start with a lower-case letter and React elements start with a Capital Letter and are otherwise interchangeable.
+
+Note that we have to use the attribute "className" instead of "class" - why? (I think because class is reserved and this is not official usage?)
+
+
+When trying to understand this, don't be too worried about how it's actually working - remember that React is sitting behind all this running like a black-box and we don't know how it works.
+
+
+
+!!Adding Props
+
+The two kinds of data that are important in React are "state" which components have and "props" which are given to them.
+
+First, we're going to pass props into components.
+
+If we look at the code that we have to begin with, we can see that the Board is rendering itself (in it's all-important 'render' method) by calling another of it's own methods, called "renderSquare" a total of 9 times, each time passing a different value (0-8).
+
+Render square takes this value as an argument called ``i`` but currently doesn't do anything with it. At the moment, all it does is return an instance of "Square", which is another of the classes that we have been given.
+
+We can pass data from the Board component "down into" the Square component as "props" (properties). To do so, we change the return statement of ``renderSquare`` so that it now returns a Square component and passes a prop to it - the value, ``i``.
+
+```
+    return <Square value={i} />;
+
+```
+
+Each Square component renders itself using the Square render method. To begin with, the method returns an empty button element.
+
+```
+      <button className="square">
+        {/* TODO */}
+      </button>
+```
+
+Note that /* TO DO */ is a comment, and it needs to be wrapped in the braces, otherwise it will break the JSX syntax.
+
+We can replace it with some content. To render the value of a variable, all we need to do is wrap it in curly braces.
+
+```
+{this.props.value}
+```
+
+"this" means, this Square object, "props" is the React-given name for values that we pass down in this way. The props object is created automatically. "value" is the name we just gave to the prop we passed down.
+
+!!Adding State
+
+The next type of data we'll add is state.
+
+State belongs to the component and is internal to it. Components can't access the state of other components.
+
+State should store information that's relevant only to individual components.
+
+You could set up this game so that each square knows it's own value.
+
+In this case, each square would hold state.
+
+When components have state, it needs to be initialised in a "constructor".
+
+In general the state constructor will have access to the ``props``.
+
+In general, we also want to call ``super()`` on the class and pass that the props, too.
+
+To understand this better, we need to learn more about the new Javascript class mechanism (which is just the old class mechanism with shiny new shoes)
+
+To add a constructor to any class then, we generally always want to do the following:
+
+```
+constructor(props) {
+  super(props)
+
+}
+```
+
+!!Constructor Snippet in Atom
+
+Adding snippets: http://flight-manual.atom.io/using-atom/sections/snippets/
+
+We can add our own, to create the constructor 'boilerplate' that we will need each time we declare a new class.
+
+Choose 'snippets' from the Atom menu, which will open ``snippets.cson``, to which we can add
+
+```
+'.source.js':
+  'constructor':
+    'prefix': 'construct'
+    'body': 'constructor(props) {\n
+               super(props);\n
+               this.state = {$1,};\n
+             }\n'
+```
+
+which will then insert the code we want, whenever we complete the word 'constructor', which is sweet.
+
+<<giphy 'l378Bd71EMTaCHvVK'>>
+
+Note: that the 'prefix' you assign to the snippet shouldn't match any existing keywords ('constructor') because, if it does, it appears to over-ride all the existing autocomplete snippets. Not sure.
+
+The important thing you need to know about state is you can't just change it yourself, you need to change it using the set state method.
+
+!!Click handlers
+
+The Square component renders a regular HTML button element as it's only child. We can attach a click handler to that, just as we would in regular HTML.
+
+```
+      <button className="square" onClick={() => alert("yo")}>
+```
+
+!!Set State
+
+Instead of having it just alert the word "yo", though, we could instead have it call the ``setState`` method.
+
+Instead of having the value rendered from our 'props' object, we render it from our 'state' object. When the button gets clicked, we call setState and change the value from 'null' to 'X'.
+
+```
+      <button className="square" onClick={() => this.setState({value: 'X'})}>
+        {this.state.value}
+      </button>
+```
+
+Now you should see a blank grid, but whenever you click on one of the squares, an X appears in it.
+
+<<tutorial_nav>>

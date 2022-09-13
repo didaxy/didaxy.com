@@ -1,0 +1,64 @@
+created: 20171031002219981
+modified: 20201130042250418
+tags: Tutorial
+title: Congratulations On Choosing Javascript
+type: text/vnd.tiddlywiki
+
+!Congratulations On Choosing Javascript
+
+Congratulations on choosing Javascript(tm), the world's most popular web scripting language!
+
+Javascript, also known as ECMAScript, is what makes the web interactive. It's also now used to script many other systems - the Node.js runtime, MongoDB databases and the latest versions of Minecraft, for example.
+
+!!Where to Write Javascript
+
+Javascript programs are written and sent from computer to computer in plain text files, created with a text editor. 
+
+We write Javascript programs, like those in most other languages, using a text editor that saves plain-text files (ie; not a word-processor). There are many popular text editors and any will do. If you don't already have a favourite, we'll recommend VS Code.
+
+VS Code is the latest hotness in text editors, meaning that it has a big community around it, lots of bug fixes and improvements going on all the time and a thriving extension ecosystem, meaning that you will be able to find lots of add-ons to make your life easier in various ways when you become more advanced.
+
+Of course, by the time you're advanced, there will probably be a new hotness, but at least while you're learning, it makes sense to use the most popular tools of right now because it will be easier to find help with anything that goes wrong or you don't understand.
+
+In the simplest use case, there isn't much that can go wrong with a text editor. You use it to open one or more files, you edit them, and you save them.
+
+Do you know about file extensions?
+
+Javascript files generally have the extension '.js'.
+
+If you open a '.js' javascript file with a browser, you should see the text of the file. Is that what you were expecting? Maybe, maybe not, but it is the defined behaviour. The people who make browsers could make it different, but this is the way it works.'
+
+!!Hello World
+
+Web browsers display web pages. They also display other documents, such as pdfs, images and text files.
+
+Javascript programs rely on their 'runtime environment' for their interactions with the outside world. This is the nature of scripting languages. When we write a javascript program as part of a webpage that prints things to the screen, it's really the browser that's doing the printing and our program is just asking/instructing it for what we want (ie; providing the 'script').
+
+For this reason, you see, javascript doesn't have any input/output methods of its own. Instead we 'call' for the functionality we need, using a standard interface - an API, or Application Programming Interface.
+
+So, to write the standard 'hello world' program in Javascript, in the browser, we need to choose one of the methods for printing text to the screen that the browser makes available to us.
+
+
+<<list-tagged-draggable tag:"JavascriptTutorials">>
+
+What are we going to learn?
+
+We're going to learn how to make things with programming for the web.
+
+Why are we using the web? Because it's the most interesting platform available to us - we can make things right away that we can put on the internet and let them be seen and used by anyone in the world.
+
+You can't really do the same thing with Python or Java or any of the Cs 
+
+The whole thing about programming languages is a bit of a red herring and my advice to anyone learning to program would be the same: don't think about it for too long. If you have a good reason to learn one language over another, go with that one. Otherwise, "just pick one"
+
+I think you should pick the web stack as the place to learn from, because it is the most fun - you will get real, tangible results from day one.
+
+You are going to need to know at least some javascript, whichever language you learn, if you want to deploy things to the browser anyway, so you may as well learn Javascript.
+
+Javascript is a very capable language now - you could have a whole career programming in just javascript, but the reality is that once you are comfortable writing things in one language, it will be much easier to learn another.
+
+People will chime in at this point and try to convince you that their language is the one to learn because it has x and doesn't have y. Don't listen, at this point.
+
+Decide for yourself, as a learner, which will be easier to learn. OR ask a "teacher". If you ask me, I will tell you that I think Javascript is probably the easiest fully-capable programming language that you could learn right now.
+
+I would tell you that i think that is true because you can easily read the source code, because there is a huge community of people learning it. All the tools and docs are online for free.

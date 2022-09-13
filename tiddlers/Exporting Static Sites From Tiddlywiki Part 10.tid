@@ -1,0 +1,109 @@
+created: 20190725063527232
+modified: 20190725063644164
+part: 10
+partof: Exporting Static Sites From Tiddlywiki
+previous: [[Exporting Static Sites From Tiddlywiki Part 9]]
+subtitle: Bonus: Adding Google Adsense
+tags: Tiddlywiki Live noindex TutorialPart
+title: Exporting Static Sites From Tiddlywiki Part 10
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!Summary
+NB: I have since decided to remove Google's widgets from this site, you can read about why I made the change here.
+
+...because I'd like to keep my page source as clean as possible and I don't really see any benefit from the ads themselves. I'm also removing the Google analytics code.
+
+!!Ads
+
+Whether or not ads are a good thing, they are a reality of the online world and we should have a way to include them if we choose to.
+
+!!Adsense
+
+The most familiar online advertising platform is Google's Adsense/Adwords platform. We're going to see how we can integrate it into our static site.
+
+!!Sign Up
+
+Even if you already have a Google account, you will need to provide additional information to sign up for an Adsense account.
+
+You also need to make sure your site is already live and that you have your build-process in place (as per our main tutorial on [[Exporting Static Sites From Tiddlywiki]] because they're going to ask you to add some specific code to your pages.
+
+!!Verification
+
+Once you've provided the necessary information, Google will verify your contact details by SMS or voice call.
+
+!!Code
+
+The next thing they ask you to do is paste some code into your website.
+
+<<extimg 'https://didaxy.neocities.org/images/adsense-code.png'>>
+
+
+It isn't immediately obvious if this is supposed to go in every page, or just the ones we want to host ads on (the assumption is probably that we will have ads on every page).
+
+The main point of the code, at this point, would seem to be to prove that we own the website (and are thus able to put it in the source code to begin with).
+
+Because this code specifically needs to go in the head, whereas the other scripts are being loaded at the end of the body, we opt to just hard-code it into ``$:/didaxy/templates/static.tiddler.html`` for now.
+
+!!Review
+
+The last, anticlimactic, step of this process is the notification that your site will be reviewed and they'll get back to you in three days.
+
+<<extimg 'https://didaxy.neocities.org/images/adsense-review.png'>>
+
+!!So Far...
+
+I waited a lot longer than three days, only to receive a rejection email (sad face emoji) 
+
+```
+We did not approve your application for the reasons listed below
+ 
+Insufficient content: To be approved for AdSense and show relevant ads on your site, your pages need to have enough text on them for our specialists to review and for our crawler to be able to determine what your pages are about. 
+```
+
+Which is fair enough, I would say, since there really isn't very much content on the site yet.
+
+On the plus side, 
+
+!!One Month Later
+
+Having completely forgotten about it, a month later I got an email from Google inviting me to re-submit my application and this time it passed.
+
+Whether this is because I added more content in the mean time, or because the site is now old enough, or both, I don't know.
+
+But I got a second email, telling me that I can now put advertising blocks on my site. Lucky you.
+
+
+<<extimg 'https://didaxy.neocities.org/images/adsense_reviewing.png'>>
+
+
+<<extimg 'https://didaxy.neocities.org/images/adsense_approved.png'>>
+
+!!Adding the Ads
+
+The tricky part about adding the ads to my static site built with Tiddlywiki is that I can't easily inline scripts into the page.
+
+The solution is to put the first, asynchronous call in the page template for every page and then add the html, like this
+
+<center>
+<!-- boxAd -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-3085544309069826"
+     data-ad-slot="6256686435"></ins>
+</center>
+
+and then load the last fragment of code as a script to this page.
+
+This adds weight to all the pages, but not ads.
+
+It seems that only one instance of a particular ad is allowed on each page - come to think about it, I guess the identifiers need to be unique in the fragment above.
+
+Anyway, it seems to work, so I expect the money will come rolling in now.
+
+<<extimg 'https://didaxy.neocities.org/images/adsense-code.png'>>
+
+<<tutorial_nav>>

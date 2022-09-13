@@ -1,0 +1,36 @@
+created: 20171027002420538
+modified: 20190725061817682
+tags: Tutorial React
+title: Getting Started With React Native
+type: text/vnd.tiddlywiki
+
+<$image class="article-image" alt="React Logo" source="react-logo.svg"/>
+
+https://facebook.github.io/react-native/docs/getting-started.html
+
+Some little issues gettting create-react-native-app to work.
+
+First, there are big problemos with NPM 5, apparently. 
+
+https://github.com/npm/npm/issues/16991
+
+It seems like they're mostly to do with Windows but I take no chances and roll back to version 4.
+
+https://github.com/expo/expo/issues/297
+Then this,
+
+https://github.com/react-community/create-react-native-app/issues/234
+
+which is to do with 'inotify watches' but I don't know what they are yet, so I just punched in the fix like an 80's kid with a copy of Sinclair Weekly.
+
+Both of these issues were flagged by the installer/packager itself and all I had to do was read the error messages.
+
+!!Simulator
+
+I inadvertently seemed to start 'Expo' from inside Simulator. Tomorrow, I will try again and figure this out for reals.
+
+!!start here
+
+https://facebook.github.io/react-native/docs/tutorial.html#content
+
+<<tutorial_list>>

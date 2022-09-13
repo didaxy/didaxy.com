@@ -1,0 +1,189 @@
+created: 20171022215112468
+modified: 20171208035209234
+next: [[React Notes Part 3]]
+part: 2
+partof: React Notes
+previous: [[React Notes Part 1]]
+subtitle: State
+tags: TutorialPart Live noindex
+title: React Notes Part 2
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!State
+When we use a component, we want to be able to do so just like this
+
+```
+ReactDOM.render(
+  <Clock />,
+  document.getElementById('root')
+);
+```
+which means that the component itself needs to know about and manage its own internal state.
+
+Local state is only available to class components, not functional components (the other thing they have is life-cycle methods)
+
+!!5 Steps (from function to class)
+
+#Create an ES6 class, with the same name, that extends React.Component.
+#Add a single empty method to it called render().
+#Move the body of the function into the render() method.
+#Replace props with this.props in the render() body.
+#Delete the remaining empty function declaration.
+
+
+
+This is the clock component defined as a class, rather than a function.
+
+```
+class Clock extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Hello, world!</h1>
+        <h2>It is {this.props.date.toLocaleTimeString()}.</h2>
+      </div>
+    );
+  }
+}
+```
+
+!!The Constructor
+
+```
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Hello, world!</h1>
+        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+      </div>
+    );
+  }
+}
+```
+
+The props have now become state.
+
+We are calling the base constructor, ``super()`` with props as an argument.
+
+We always need to do this - that's why I made a keyboard snippet for Atom to insert this bit.
+
+ !!3 Steps (to adding local state)
+
+#Replace this.props.date with this.state.date in the render() method:
+#Add a class constructor that assigns the initial this.state:
+#Remove the date prop from the <Clock /> element:
+
+The state-ful component looks like this (it doesn't have an internal clock yet.
+
+```
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Hello, world!</h1>
+        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Clock />,
+  document.getElementById('root')
+);
+```
+
+!!Lifecycle Methods
+
+Implement lifecycle methods to set things up when you need them and to tear them down when you don't.
+
+```
+componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+
+  tick() {
+    this.setState({
+      date: new Date()
+    });
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+```
+
+"Let’s quickly recap what’s going on and the order in which the methods are called:
+
+#When <Clock /> is passed to ReactDOM.render(), React calls the constructor of the Clock component. Since Clock needs to display the current time, it initializes this.state with an object including the current time. We will later update this state.
+
+#React then calls the Clock component’s render() method. This is how React learns what should be displayed on the screen. React then updates the DOM to match the Clock’s render output.
+
+#When the Clock output is inserted in the DOM, React calls the componentDidMount() lifecycle hook. Inside it, the Clock component asks the browser to set up a timer to call the component’s tick() method once a second.
+
+#Every second the browser calls the tick() method. Inside it, the Clock component schedules a UI update by calling setState() with an object containing the current time. 
+
+#Thanks to the setState() call, React knows the state has changed, and calls render() method again to learn what should be on the screen. This time, this.state.date in the render() method will be different, and so the render output will include the updated time. React updates the DOM accordingly.
+
+#If the Clock component is ever removed from the DOM, React calls the componentWillUnmount() lifecycle hook so the timer is stopped."
+
+!!Setting State
+The only place we ever directly set state is in the constructor.
+
+After that, it's always React that sets the state for us, using ``setState`` which has two forms.
+
+The simplest form of ``setState`` takes an object (the other form takes a function)
+
+```
+this.setState({value:42})
+```
+
+!!Functional setState
+
+This used to be considered a little esoteric, but it addresses a class of React bugs that are roughly to do with 'race conditions' on setting state.
+
+When you call setState, nothing happens immediately - React will batch them and decide on the bast time to make the change.
+
+If you call setState multiple times before React gets to making the change, then only the most recent object will be applied (as a patch) but if we use the second form of setState, the updates will be applied one at a time when the update is applied.
+
+The functional version of setState takes a function that itself takes the current state and the props of a component and returns (a patch for) the new state.
+
+```
+// Correct
+this.setState((prevState, props) => ({
+  counter: prevState.counter + props.increment
+}));
+```
+
+Note that the function doesn't need to use the props, but it has them available if it wants to.
+
+Note also that the patch is merged into the existing state, meaning you don't need to mention anything you aren't changing.
+
+!!State Flows Down
+
+Parents can't know whether children have state. It's encapsulated.
+
+All components //could// be purely functional, as far as any other components are concerned.
+
+State can be passed down as props to children.
+
+
+<<tutorial_nav>>

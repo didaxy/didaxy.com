@@ -1,0 +1,8 @@
+{ 
+  "scripts": {
+    "build": "./build.sh"
+  },
+  "devDependencies": {
+    "tiddlywiki": "^5.2.3"
+  }
+}

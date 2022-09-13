@@ -1,0 +1,13 @@
+created: 20190220130821715
+modified: 20190724114438828
+tags: Tiddlywiki
+title: Tiddlywiki Dev
+type: text/vnd.tiddlywiki
+
+https://tiddlywiki.com/dev/
+
+Reading code, collapse all/to level
+
+cmd-k cmd-0
+
+cmd-k cmd-n n = 1,2,3 etc.

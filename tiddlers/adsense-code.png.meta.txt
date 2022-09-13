@@ -1,0 +1,6 @@
+_canonical_uri: https://didaxy.neocities.org/images/adsense-code.png
+created: 20170903091729509
+modified: 20171019022126968
+tags: Plumbing
+title: adsense-code.png
+type: image/png

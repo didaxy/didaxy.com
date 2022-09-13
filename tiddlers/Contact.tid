@@ -1,0 +1,25 @@
+created: 20180528071551397
+modified: 20190725063338716
+remote_scripts: https://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js
+remote_styles: https://cdn-images.mailchimp.com/embedcode/classic-10_7.css
+scripts: mailchimp.js
+styles: mailchimp.css
+tags: noindex Live Plumbing
+title: Contact
+type: text/vnd.tiddlywiki
+
+<center>
+
+!!Personal Site
+
+[[r1chard5mith.com|https://www.r1chard5mith.com]]
+
+!!Email
+
+r1chard5mith@icloud.com
+
+
+!!Social
+
+<a target="_blank" href="https://twitter.com/autodidaxy">Twitter: @autodidaxy</a>
+</center>

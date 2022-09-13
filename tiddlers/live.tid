@@ -1,0 +1,12 @@
+created: 20170824044658411
+modified: 20171101080612299
+tags: Plumbing $:/tags/SideBar
+title: live
+type: text/vnd.tiddlywiki
+
+<table>
+<tr><th>name</th><th>Live</th><th>noindex</th></tr>
+<$list filter="[tag[Live]sort[created]]">
+<tr><td><$link>{{!!title}}</$link></td><td><$checkbox tag="Live"/></td><td><$checkbox tag="noindex"/></td></tr>
+</$list>
+</table>

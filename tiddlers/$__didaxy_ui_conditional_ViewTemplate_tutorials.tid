@@ -1,0 +1,23 @@
+created: 20170813072556713
+modified: 20190804045017762
+title: $:/didaxy/ui/conditional/ViewTemplate/tutorials
+type: text/vnd.tiddlywiki
+
+<$list filter="[is[current]tag[Tutorial]]">
+
+<$reveal tag="div" class="tc-tiddler-body" type="nomatch" state=<<folded-state>> text="hide" retain="yes" animate="yes">
+
+<$list filter="[all[current]!has[plugin-type]!field:hide-body[yes]]">
+
+<table>
+<tr><th>Title</th><th>Prev</th><th>Part</th><th>Next</th></tr>
+<$list filter="[field:partof<currentTiddler>]">
+<tr><td><$link>{{!!title}}</$link></td><td><$edit-text size="5" field="previous"/></td><td><$edit-text size="5" field="part"/></td><td><$edit-text size="5" field="next"/></td></tr>
+</$list>
+</table>
+
+</$list>
+
+</$reveal>
+
+</$list>

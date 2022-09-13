@@ -1,0 +1,96 @@
+created: 20200824064800670
+modified: 20201018104727958
+tags: Live
+title: Web Tutorial
+type: text/vnd.tiddlywiki
+
+!Part 1: Tools
+!!Part 1.1 - computer with internet
+
+Hello, this is the first lesson in our course on making web-pages and programming in Javascript.
+
+The course will teach you the basics of putting together pages and writing simple programs.
+
+''1''. You need a computer with a web browser.
+
+Really, you need a "desktop OS" which means MacOS, Windows or Linux.
+
+[[operating systems|https://en.wikipedia.org/wiki/Operating_system]]
+
+You can learn on other things - a tablet or even maybe a phone - but it's not ideal because really you need to be able to install and run programs and applications.
+
+I'm going to assume that you're using one of these three operating systems.
+
+Every one of the three will come with a web browser already installed. 
+
+[[What is a Browser?|https://www.mozilla.org/en-US/firefox/browsers/what-is-a-browser/]]
+
+You also need to be connected to the internet.
+
+[[The Internet |https://en.wikipedia.org/wiki/Internet]]
+
+All of the browsers have basically the same features but you might want to get chrome if you don't have it. Chrome is by far the most popular browser and it has great tools for  programmers built into it.
+
+''2''. You need an email address.
+
+The next thing you're going to need, if you don't already have one, is an email address.
+
+You mostly just need this so that you can register for other online services.
+
+There are lots of places you can get an email address. It's pretty common to use one of the free, online email services from one of the big tech companies - Google's Gmail, Microsoft's Outlook or Apple's iCloud for example.
+
+With any of these services, you can log in and read your emails through your web browser.
+
+If you don't already have an email address, go ahead and choose any of them.
+
+''3''. Neocities
+
+The next place we're going to go is to Neocities.
+
+If you don't want to use Neocities for some reason, there are other places you can choose (but their logos aren't as good)
+
+''4''. The site works right away.
+
+You can change the code and view the changes.
+
+You can have them on different tabs.
+
+Or next to each other.
+
+It works but it's not the greatest.
+
+The tools available in a "real" editor make it a lot nicer to program. Also, we don't really want to be editing the live version of your site.
+
+''5''. Download VS Code. This is an editor.
+
+Make a folder somewhere to keep stuff in.
+
+Open the folder in VS Code.
+
+Make a new file and copy the code from Neocities into it.
+
+Save it with the extension '.html'
+
+```
+What are Extensions? They tell the OS what kind of file it is.
+
+The extensions in your OS might not show up by default.
+
+You probably want to be able to see them.
+```
+
+Open it in a browser - cool, huh?
+
+''6''. Install Live Server
+
+Pretty cool, we can change something, save it and then refresh the browser and we should see the change.
+
+But we can do better and we should.
+
+If we install Live-server, then we only need to save.
+
+''7''. Make an HTML file from scratch
+
+boilerplate
+
+''8''. Drag the file back onto Neocities and view it.

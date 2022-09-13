@@ -1,0 +1,34 @@
+created: 20191031112333604
+modified: 20191031115113539
+title: Loops
+type: text/vnd.tiddlywiki
+
+!!Boolean values
+
+(should come before loops?)
+
+A Boolean value is one which is either true or false.
+
+!!Loops
+
+As we saw already when doing calculations with big numbers, the real fun of using computers is getting them to do things that we can't do easily for ourselves.
+
+One thing that computers are good at is doing the same things again and again, lots of times, really fast.
+
+Here's a program that never ends
+
+```
+while(true) {
+console.log(`lol`);
+}
+```
+
+This is an "infinite loop"
+
+The while loop has a "condition" in parentheses and a "body" in curly braces. When your program reaches a while statement it checks the condition. If the condition is //false// the body is skipped over altogether and program flow continues with the next statement.
+
+If the condition is true, the code in the body gets executed and then the condition gets checked again.
+
+Because the 'condition' in the above example is just the Boolean literal "true" it is, of course, always 'true' so the code in the body is executed again and again in an infinite loop.
+
+

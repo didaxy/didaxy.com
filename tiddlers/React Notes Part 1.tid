@@ -1,0 +1,127 @@
+created: 20171021011541068
+modified: 20171208035350988
+next: [[React Notes Part 2]]
+part: 1
+partof: React Notes
+subtitle: Hello World
+tags: TutorialPart Live noindex
+title: React Notes Part 1
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!Hello World
+
+We're starting with the docs here: https://reactjs.org/docs/hello-world.html and working through them, pretty much in order to begin with.
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(
+  <h1>Hello, world!</h1>,
+  document.getElementById('root')
+);
+```
+
+Language babel in Atom for syntax highlighting.
+
+We wrap multi-line JSX in parens to avoid semi-colon insertion.
+
+JSX for component attribute names uses camelCase, ie; className, tabIndex and not css-style attributes, ie; class, tabindex.
+
+NB: Create-react-app is somehow working without needing an HTML file, but it expects you to use 'root' as the place to attach your app, so there must be an html file somewhere....
+
+"In our experience, thinking about how the UI should look at any given moment rather than how to change it over time eliminates a whole class of bugs."
+
+!!Components
+
+Components accept props and return React elements "describing what should appear on the screen".
+
+The simplest way to make a component is as a javascript function that takes props and returns a JSX element, possibly with children.
+
+```
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+
+This is a 'functional component'.
+
+The same function, written as a component class looks like this
+
+```
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+```
+
+The element returned by a component can be an HTML element, or it can be another component.
+
+!!Props
+
+"When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single object. We call this object “props”."
+
+"Caveat:
+Components must return a single root element. This is why we added a &lt;div> to contain all the &lt;Welcome /> elements."
+
+!!Splitting Components
+
+They next show us how we can split a component into sub-components. Before doing the example given, I wanted to make it render (much more satisfying) so I added these bits
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+function formatDate(date) {
+  return date.toLocaleTimeString()
+}
+
+function Comment(props) {
+  return (
+    <div className="Comment">
+      <div className="UserInfo">
+        <img width={props.width} className="Avatar"
+          src={props.author.avatarUrl}
+          alt={props.author.name}
+        />
+        <div className="UserInfo-name">
+          {props.author.name}
+        </div>
+      </div>
+      <div className="Comment-text">
+        {props.text}
+      </div>
+      <div className="Comment-date">
+        {formatDate(props.date)}
+      </div>
+    </div>
+  );
+}
+
+
+
+let author = {
+  avatarUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Sir_Tim_Berners-Lee_%28cropped%29.jpg",
+  name: "Tim"
+}
+
+let text = "The father of the internet."
+
+
+ReactDOM.render(
+  <Comment width="100" author={author} date={new Date()} text={text}/>,
+  document.getElementById('root')
+);
+```
+
+!!Pure Components
+
+"All React components must act like pure functions with respect to their props."
+
+
+<<tutorial_nav>>

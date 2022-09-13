@@ -1,0 +1,13 @@
+created: 20170821100900708
+modified: 20171101080611222
+tags: TutorialPart Live noindex
+title: A Page With An SVG In It
+type: text/vnd.tiddlywiki
+
+!!SVGs Rock
+
+SVGs are great - you can do really complicated graphics in a small file. They are really good for the web and it's a shame we don't use them more.
+
+To be fair, they are a bit nerdy.
+
+{{$:/didaxy/didaxy-logo.svg}}

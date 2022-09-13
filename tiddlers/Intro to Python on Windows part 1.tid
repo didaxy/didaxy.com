@@ -1,0 +1,21 @@
+created: 20180728095720585
+modified: 20190725063214094
+part: 1
+partof: Intro to Python on Windows
+subtitle: Installing Software
+tags: TutorialPart
+title: Intro to Python on Windows part 1
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+The biggest hurdle that beginners face is often installing and configuring their environment, before they can even start to write code.
+
+By environment, we mean the collection of other programs that our own code and tools will use.
+
+To write Python programs, we'll need a text editor, we'll also need a python interpreter and we'll need 'pip', which is the python package installer.
+
+Doesn't sound too tricky, but there are lots of little 'gotchas' that can catch you out, which can be particularly frustrating for beginners.
+

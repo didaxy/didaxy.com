@@ -1,0 +1,228 @@
+created: 20170922105616806
+modified: 20190725053424827
+tags: Tiddlywiki
+title: Tiddlyserver on the Raspberry Pi
+type: text/vnd.tiddlywiki
+
+This is not finished.
+
+!Tiddlyserver on the Raspberry Pi
+
+!!Introduction
+I recently wrote a short [[Introduction to Tiddlyserver]] where I showed how to set it up on your local machine.
+
+It's not much harder to set it up on a Raspberry Pi and doing so gives you a server that can be 'always on' without relying on your main computer being on.
+
+!!Installing Raspbian
+
+If you already have a Raspberry Pi, you will have probably downloaded the Raspbian Operating System in the past. These instructions were tested with the latest version, Raspbian Stretch, which you can download from here:  https://www.raspberrypi.org/downloads/ (getting the torrent will be quicker if you know how to do it that way, but direct download should work fine)
+
+Then we need to follow [[the instructions|https://www.raspberrypi.org/learning/software-guide/quickstart/]] and use [[etcher|https://etcher.io/]] to burn our image to the SD card.
+
+!!Add a Flag File to Turn on SSH
+
+Raspbian comes with SSH turned off by default but to turn it on, all we need to do it add a file called ``ssh`` to the root directory of the SD card before we put it in the Pi.
+
+To do this, find the mount point for the drive on your computer  (on a Mac, ''disk utility'' will tell you the mount point) and, in the terminal, run ``touch ssh`` (touch just creates an empty file with the name you give it)
+
+!!Plug in Headless
+
+If you want to, you can set up wi-fi, which will require your credentials, or you can use ethernet, which doesn't require any setup.
+
+Once we connect it, we'll need to figure out what its IP address is and the easiest way to do that is to look at the list of connected addresses before and after you connect it.
+
+Log in to your router and find the list of connected devices. The local ip addresses will most likely be in the address space ``127.0.x.x`` or ``10.0.x.x`` - take note of the current addresses (take a screenshot if it's a long list).
+
+If you're using an Apple airport or Timecapsule, you can run "Network Utility" (instead of Airport Utility) and use 'Netstat' to 'display routing table information' and you should find the list of connected devices in amongst a lot of other information.
+
+Now connect your Pi to the network and look at the list again to figure out what address it got.
+
+!!Log In to the Pi
+
+Now you should be able to connect to it through a 'secure shell'. From the command line, type
+
+```
+ssh pi@10.0.9.9
+```
+and you should be asked for the password which, by default, is ``raspberry``. 
+
+''Note'' that, if you couldn't work out exactly which address was the pi, you can try each ip address until you get one that responds by asking for a password.
+
+Once you've successfully logged in, you'll be prompted to run ``passwd`` to change your password, which you should do.
+
+!!Downloading Node
+
+Now we can download Node just as we did when installing it locally, but we'll need to do it using the command line, not from the website.
+
+I followed the instructions [[here|http://thisdavej.com/beginners-guide-to-installing-node-js-on-a-raspberry-pi/]] and they worked like a charm, as follows.
+
+```
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install nodejs
+
+```
+The first command adds ``nodesource.com`` to the list of sources from which ``apt`` can fetch files. 
+
+The second command then requests ``nodejs``, which it is now able to locate.
+
+!!Installing Tiddlywiki
+
+Now we should have NPM installed along with Node.js, so getting hold of Tiddlywiki is easy. Run this command;
+
+```
+sudo npm install -g tiddlywiki
+```
+
+''NB:'' We really shouldn't need sudo to use npm. Instead, we should change the permissions that always seem to get set wrong, for some reason, but this is good enough given that we don't need to use it very much.
+
+You can check that Tiddlywiki is installed by typing ``tiddlywiki --version`` and checking that it reports the current version number correctly.
+
+!!Add a Tiddlywiki Server Instance
+
+For Tiddlyserver to have something useful to show us, we need to have at least one copy of Tiddlywiki. To start with, we'll make a server instance using the ``--init`` flag which will also let us test that we're able to connect to the Pi over the network.
+
+The "Public" folder seems like the most sensible place to put a server instance, and we'll use it in case there happen to be any permissions set to stop things being opened from elsewhere.
+
+Make a directory inside your Public directory called ``tw`` (or anything you like), ``cd`` into it and type  ``tiddlywiki --init server``
+
+This will write the necessary config files into the directory.
+
+Then type;
+
+```
+tiddlywiki --server 8080 $:/core/save/all text/plain text/html "" "" 0.0.0.0
+```
+
+to launch a single Tiddlywiki server.
+
+The command is so long because we need to fill in all the parameters up to the place where we get to tell it ``0.0.0.0``, which instructs it to serve the page onto the local network, instead of just to the localhost.
+
+Now you should be able to visit the page from your browser, at ``10.0.1.5:8080`` (swapping the numbers before the colon for the ip address of your own Pi). You should be able to create content and see it get saved automatically. If you check the 'tiddlers' folder, back on the Pi, you'll see the tiddlers getting created there as you add them. If you open the browser console, you should see log messages from "syncer-browser-tiddlyweb" telling you that its 'Dispatching' and 'Retrieving' items. Excellent work.
+
+!!Installing Tiddlyserver
+
+Go back to the command prompt and stop the Tiddlywiki server by pressing 'ctrl-c' and you should get the prompt back. Now we're going to install the Tiddlyserver package and run that instead.
+
+We won't put this in the Public folder, because we don't need. Instead make a directory somewhere else, for example in your home directory, and call it something like 'Code'. Then ``cd`` into that directory and do ``git clone https://github.com/Arlen22/TiddlyServer.git``. Sit back and watch the magic happen.
+
+Once it's downloaded, do ``npm install`` and then edit the ``example-settings.json`` file, as explained in my previous tutorial ([[Introduction to Tiddlyserver]]). The Pi is running Linux, so uses Unix style paths. The listing below should work fine to begin with (note that it sets the port to 8888).
+
+```
+{
+    "tree": {
+        "pi_everything": "/",
+        "pi_public": "/Public"
+    },
+    "types":{
+        "htmlfile": ["htm", "html"]
+    },
+    "username": "",
+    "password": "",
+    "host": "0.0.0.0",
+    "port": 8888,
+    "backupDirectory": ""
+}
+```
+
+Then start Tiddlyserver by typing ``node server`` and you should see a message telling you that it's running and you should now be able to visit in your browser. You should see the file-explorer and be able to navigate to the wiki folder that you made before and see tiddlywiki run.
+
+You can visit the server in multiple tabs and browse to different locations. You can access it from multiple devices on your network.
+
+We should remark, probably, that Tiddlywiki (and hence, Tiddlyserver) is not intended for a multi-user scenario and attempts to use it that way may end in sadness. There are no edit locks to stop two people trying to alter the same file at the same time, but you could try to use it that way if you wanted to.
+
+!!Adding More Content
+
+Now you can add as many Tiddlywikis, in which ever configuration you prefer, as your heart desires.
+
+To load single file wikis on there, the easiest method is to use an ftp client of some kind.
+
+On Mac and Linux you can use the 'secure copy' command, [[scp|http://man7.org/linux/man-pages/man1/scp.1.html]]
+
+```
+scp mytiddlywiki.html pi@10.0.1.5:/Public
+```
+
+To create more server editions, you can just create directories where you want them on the Pi and ``tiddlywiki --init`` each one. You can create empty wikis this way and then populate them by dragging content into them, or importing it, in the usual Tiddlywiki way.
+
+
+Alright! Are we done here? Almost...
+
+!!Persistence
+
+"""
+"Nothing in this world can take the place of persistence." - [[Calvin Coolidge|https://www.brainyquote.com/quotes/quotes/c/calvincool414555.html?src=t_persistence]]
+"""
+
+At the moment, Tiddlyserver is a process running as part of your login session on the Pi. If you log out, the process will end.
+
+Even if we fix that, which we'll see is easy, when the power disconnects from the Pi for any reason, you'd still need to restart the server by ssh-ing back in to the Pi and running it manually. Ideally we'd like the server to start itself up again whenever this happens.
+
+!!!Backgrounding the Server Task
+
+To solve the first problem, we need to run Tiddlyserver in the 'background' which we can do by simply appending a ``&`` to the end of the command. 
+
+When you do this, you should see reported the number that's been assigned to the process. If you need to stop it again, you can type ``sudo kill #``, where # is the process number.
+
+If you want to see a list of all the running processes under your account including their numbers, you can type ``ps``. If you want to see all the processes on your machine, you can type ``ps aux``.
+
+!!Restarting the Server
+
+To make the server restart every time the Pi powers on, we can use the 'crontab' which is primarily intended to run jobs on a schedule (ie; at specific times) but can also be used to trigger them in response to particular events, such as a reboot.
+
+To edit the crontab file, we can type ``sudo crontab -e`` which will open the file in an editor (nano by default) and we can add the following line.
+
+```
+@reboot /home/pi/onboot.sh
+```
+
+This will run a shell script called onboot.sh every time the Pi restarts.
+
+Next we make ``onboot.sh`` in the /home/pi directory and give it the following contents
+
+```
+cd /home/pi/Code/TiddlyServer && npm start &
+```
+
+I gave the onboot.sh file maximal permissions (``chmod 777 onboot.sh``) to make sure it doesn't get tripped up by being the wrong user when it logs back in (not sure if this matters).
+
+Now, whenever the Pi reboots, the crontab will run the ``onboot.sh`` script, which will start Tiddlyserver in the background again.
+
+
+!!Cloning the Image
+
+Once you've got everything working to this point, you might want to save yourself the headache of doing all this again if you ever want to start over. 
+
+The easiest way to do that is to power down the Pi (``shutdown -h now``) and put the SD card back in your own machine, then clone it and put the copy somewhere sage. You can do this with Disk Utility on a Mac. If you ever want to restart with the basic configuration in tact, you can restore the image using Etcher and start from this point.
+
+Reinsert the card and power the Pi back on and your server should come up automatically.
+
+!!Accessing Your Pi Remotely
+
+Is hard, and I haven't got a solution I like yet.
+
+In the past, connecting your Pi to be accessible from outside of your home network would mean manually 'opening ports' yourself and 'forwarding' them to the Pi. 
+
+You could still do it that way, but it's not a great option. It puts the onus on you to make sure only secure connections from trusted people (ie; you) are allowed and if you get it wrong you potentially open your home network to invaders.
+
+A popular alternative is to use a managed service, such as 'remote.it', formerly called 'weaved'. I tried it, but the results have been unimpressive.
+
+It makes a secure connection directly to your device, via their systems and they give you an external address that you can use to connect to it from anywhere.
+
+https://remot3it.zendesk.com/hc/en-us/articles/115006015367-Installing-the-remot3-it-weavedconnectd-daemon-on-your-Raspberry-Pi
+
+You need to make sure you add a remote.it service with a port number that matches the one in your settings file.
+
+Setting it up is free and the instructions are easy to follow. You get a unique (long, random) address that you can use to connect to your Pi from anywhere.
+
+Unfortunately the connection seems unreliable. If I can't be sure it's going to work while I'm 'out and about', I can't rely on it and so it's no use at all, basically.
+
+Your use case may vary or you may have better luck with the connection.
+
+Opening the ports to my own router isn't attractive and the use-case I have for wanting to 'tiddle' whilst away from home is pretty tenuous anyway, so for now I'm going to leave this.
+
+The most promising line of approach for "Tiddlywiki Anywhere" is a hosted service, somewhere like [[AWS|Tiddlyserver on AWS]] or Heroku.
+
+!!Add a Username and Password
+
+If you're accessing your Pi from outside your own network, it makes sense to have a password and username enabled, which you can set in ``settings.json`` but you will need to restart Tiddlyserver for the changes to take effect.
+

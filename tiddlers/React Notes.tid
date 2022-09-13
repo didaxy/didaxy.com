@@ -1,0 +1,16 @@
+created: 20171021011100000
+modified: 20190725061957638
+tags: Tutorial React
+title: React Notes
+type: text/vnd.tiddlywiki
+
+<$image class="article-image" alt="React Logo" source="react-logo.svg"/>
+
+!!Summary
+
+Previously, I wrote [[some notes on React|Let's Learn React]] and now I'd like to take a deeper dive through the documentation.
+
+The reason I think this is the best way to learn about React is that the framework has changed quite a lot over time and 'best practise' is not always reflected in the highest ranked tutorials for particular topics when searching for information.
+
+
+<<tutorial_list>>

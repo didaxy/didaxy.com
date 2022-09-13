@@ -1,0 +1,126 @@
+created: 20151022001959101
+modified: 20171101080610680
+tags: $:/tags/Macro
+title: $:/plugins/didaxy/imageExternaliser/macros/addCanonicalUriButtons
+type: text/vnd.tiddlywiki
+
+\define makeImageUri()
+$(canonicalRoot)$/$(currentTiddler)$
+\end
+
+\define makePdfUri()
+$(canonicalRoot)$/pdfs/$(currentTiddler)$
+\end
+
+\define addCanonicalUriImageButton()
+<$button>
+
+<$action-setfield _canonical_uri=<<makeImageUri>>/>
+
+<$image source="$:/plugins/didaxy/imageExternaliser/icons/cannon.svg" width="30px">
+
+</$button>
+\end
+
+\define addCanonicalUriPdfButton()
+<$button>
+
+<$action-setfield _canonical_uri=<<makePdfUri>>/>
+
+<$image source="$:/plugins/didaxy/imageExternaliser/icons/cannon.svg" width="30px">
+
+</$button>
+\end
+
+\define addCanonicalUrisNonExternalImagesButton()
+<$button>
+<$list filter={{$:/plugins/didaxy/imageExternaliser/filters/non_externalised_images}}>
+<$action-setfield _canonical_uri=<<makeImageUri>>/>
+</$list>
+[img width="60px" [$:/plugins/didaxy/imageExternaliser/icons/cannon.svg]]
+</$button>
+\end
+
+\define addCanonicalUrisNonExternalPdfsButton()
+<$button>
+<$list filter={{$:/plugins/didaxy/imageExternaliser/filters/non_externalised_pdfs}}>
+<$action-setfield _canonical_uri=<<makePdfUri>>/>
+</$list>
+[img width="60px" [$:/plugins/didaxy/imageExternaliser/icons/cannon.svg]]
+</$button>
+\end
+
+\define addCanonicalUrisRetainingBodyImagesButton()
+<$button>
+<$list filter={{$:/plugins/didaxy/imageExternaliser/filters/retaining_body_images}}>
+<$action-setfield _canonical_uri=<<makeImageUri>>/>
+</$list>
+[img width="60"[$:/plugins/didaxy/imageExternaliser/icons/cannon.svg]]
+</$button>
+\end
+
+\define addCanonicalUrisRetainingBodyPdfsButton()
+<$button>
+<$list filter={{$:/plugins/didaxy/imageExternaliser/filters/retaining_body_pdfs}}>
+<$action-setfield _canonical_uri=<<makePdfUri>>/>
+</$list>
+[img width="60"[$:/plugins/didaxy/imageExternaliser/icons/cannon.svg]]
+</$button>
+\end
+
+
+\define removeCanonicalUriButton()
+<$button>
+<$action-deletefield _canonical_uri/>
+[img width="30"[$:/plugins/didaxy/imageExternaliser/icons/nocannon.svg]]</$button>
+\end
+
+\define removeCanonicalUrisImagesButton()
+<$button>
+<$list filter={{$:/plugins/didaxy/imageExternaliser/filters/retaining_body_images}}>
+<$action-deletefield _canonical_uri/>
+</$list>
+[img width="60"[$:/plugins/didaxy/imageExternaliser/icons/nocannon.svg]]</$button>
+
+\end
+
+
+\define removeCanonicalUrisPdfsButton()
+<$button>
+<$list filter={{$:/plugins/didaxy/imageExternaliser/filters/retaining_body_pdfs}}>
+<$action-deletefield _canonical_uri/>
+</$list>
+[img width="60"[$:/plugins/didaxy/imageExternaliser/icons/nocannon.svg]]</$button>
+\end
+
+\define addCanonicalUrisFullyExternalImagesButton()
+<$button>
+<$list filter={{$:/plugins/didaxy/imageExternaliser/filters/fully_external_images_plus_lock}}>
+<$action-setfield _canonical_uri=<<makeImageUri>>/>
+</$list>
+[img width="60"[$:/plugins/didaxy/imageExternaliser/icons/cannon.svg]]
+</$button>
+\end
+
+\define addCanonicalUrisFullyExternalPdfsButton()
+<$button>
+<$list filter={{$:/plugins/didaxy/imageExternaliser/filters/fully_external_pdfs_plus_lock}}>
+<$action-setfield _canonical_uri=<<makePdfUri>>/>
+</$list>
+[img width="60"[$:/plugins/didaxy/imageExternaliser/icons/cannon.svg]]
+</$button>
+\end
+
+
+
+<$set name="canonicalRoot" value={{$:/plugins/didaxy/imageExternaliser/External_Image_Console!!_canonical_root}}>
+
+<<addCanonicalUriImageButton>>
+
+<<addCanonicalUriPdfButton>>
+
+<<makeImageUri>>
+
+<<removeCanonicalUriButton>>
+
+</$set>

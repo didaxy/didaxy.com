@@ -1,0 +1,152 @@
+created: 20170528061015751
+modified: 20171101080611460
+next: [[Exporting Static Sites From Tiddlywiki Part 8]]
+part: 7
+partof: Exporting Static Sites From Tiddlywiki
+previous: [[Exporting Static Sites From Tiddlywiki Part 6]]
+script: export4.js
+subtitle: Hosting
+tags: Live Tiddlywiki noindex TutorialPart
+title: Exporting Static Sites From Tiddlywiki Part 7
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!Summary
+
+In the [[previous section|Exporting Static Sites From Tiddlywiki Part 6]], we looked at different strategies for embedding images.
+
+With images, text, links, formatting and styling all in place, we're now ready to host our site. We're going to show you the simplest way and then the 'best' solution.
+
+ [[Travis CI|http://www.travis-ci.org]] [[Netlify CDN|https://www.netlify.com]].
+
+!!Hosting on Neocities
+
+In the olden days, web developers had to put their files on a live host "by hand" using an ``ftp://`` client, but that got boring pretty quickly.
+
+Much better these days to use a simple drag-and-drop web interface, preferably one with a cute cat mascot.
+
+Transferring files to Neocities is very simple - you can just drag and drop them from your desktop, right into the web interface.
+
+The only drawback to this method is a lack of controls for managing multiple files (deleting, moving etc.) once they're uploaded but we can work around this problem by managing our site as a single folder.
+
+To deploy our site, then, all we need to do is drag the ``static`` folder in which we've been developing it into Neocities. Yes, it's that simple. When we want to re-deploy, we can just nuke the ``static`` folder through the web interface and upload a new copy.
+
+The only other slight complication is that Neocities expects us to have an ``index.html`` in the top level of our site and in fact it puts one there by default and you'll notice that you can't delete it.
+
+Unless we specifically want to make that top level ``index.html`` into a landing page, separate from the rest of our static site, we can be cute ourselves and just have it redirect to one of our other pages by replacing its current content with 
+
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0; URL='./static/index.html'" />
+
+  </head>
+  <body>
+   yo
+  </body>
+</html>
+```
+which uses a ``<meta>`` tag to "refresh" the page, sending it to a new url, in this case ``./static/index.html`` which will always be the latest landing page of our static site.
+
+Note that this scheme works works well if we're also using Neocities as our image host, because we can also have an ``images`` folder at the top level without disturbing the deployment of our site.
+
+!!Neocities Supporters
+Supporters of Neocities get a bunch of extras including webDAV mapping which means if you become a supporter, you can mount your site like a drive on your computer and then transfer stuff to and from it like any other folder.
+
+It's also only supporter accounts that have guaranteed hotlinking capacity for images which makes $5/month a reasonable deal.
+
+!!Using Github
+
+<<giphy l1J3UoD1BaiqOsJZ6>>
+
+We can use the Git version control manager to keep track of the changes we make to our site. This gives us two great benefits before we even get to deployment.
+
+1. if we ever make a mistake, we can roll back to before it ever happened (that's the actual point of version control, after all) and 
+
+2. We can use Git to make a copy of our work at Github (or another similar service) meaning we've always got an off-site back up in case things go really wrong.
+
+And then there's deployment. Github, being the smart and friendly people that they are, give us an easy and free way to host a website "for our code", even if our only code is the website itself. The feature is called "Github Pages" and you can read more about it [[here|https://pages.github.com/]] . 
+
+''nb:'' You may never have realised that your favourite website http://www.tiddlywiki.com is hosted on Github Pages, but it's true!
+
+Putting the project under verison control with git is very easy, although git itself can sometimes be very complicated. Easier still, for our purposes, is to use the Github desktop application which provides a graphical interface and protects us from some of the mistakes we could otherwise make with git.
+
+!!Pushing the output directory
+
+The most basic way to use Github Pages would be to put our ``output/static`` folder under version control by making it a git repo, push //that// to Github and make the main branch of the repo be the website. We'd be done right there.
+
+In this scenario, we're just using git as a glorified ftp and not to manage our source code at all. If all our local work got destroyed, for example, we'd only have a copy of the //output//, not the code we used to create it.
+
+That might not be a massive problem if all we want is a quick and dirty way to get a free website up, but it would be much better if we could put our main folder under version control and actually ignore the output instead, since we can always re-generate that when we need to.
+
+!!Pushing the source directory
+
+Before you do this, make sure you have a 'gitignore' file that ignores the output directory (should be as simple as adding the line ``output`` to the file if it already exists, or creating it if not.
+
+Once you've done that, you shouldn't be able to see any of the 'ignored' files in the Github Desktop interface, giving reassurance that it's worked, before you upload.
+
+!!Travis CI
+
+What we want to happen next is some magic - we want our source code to get built into a working static site, the way we've been doing it locally, but we want it to happen "in the cloud".
+
+Fortunately it's 2017 and such magic is child's play, if you know how.
+
+"How" is a tool called Travis, a "continuous integration" suite whose job is to rebuild our site, every time our code changes.
+
+You use your Github account to create a Travis account and then, in Github you create a private access token. You give that token to Travis CI in order to grant it access to your repo (an environment variable called 'GITHUB_TOKEN' in the settings for the repo on Travis.ci.org)
+
+Here are the docs for more details: https://docs.travis-ci.com/user/deployment/pages/
+
+We put a ``.travis.yml`` file in the root of our project that tells Travis how to build the site. It isn't too difficult to cobble together from the docs but to save you some tine,  ours looks like this
+
+```
+language: node_js
+node_js:
+  - "node"
+before_script:
+  - npm install -g tiddlywiki
+script: ./build.sh
+deploy:
+  provider: pages
+  local_dir: output/static
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  on:
+    branch: master
+```
+Now, when we make changes in our wiki, the changes show up in Github desktop and we choose when to push them to Github.
+
+When we do, Travis rebuilds the site and puts the result into our ``gh-pages`` branch.
+
+You can figure out the address of your ``gh-pages`` site from your username and the name of the repo that you're using to create it. 
+
+A copy of our site is available from github pages at this address: https://didaxy.github.io/didaxy.com/
+
+This isn't a bad address at all and you might even be able to use yours, if you've chosen your username and repo name wisely.
+
+Alternatively, you can easily point a domain name at your github pages site. This is a great way to host a simple site for free. The details vary depending on where your domain name is registered, but the instructions are here: https://help.github.com/articles/using-a-custom-domain-with-github-pages/
+
+!!Deploying to Netlify
+
+The crème de la crème of static hosting is Netlify and, unfortunately, their pricing now reflects this, although a free tier remains.
+
+The truth is that web infrastructure really isn't free and some things are worth paying for. Still, $45 US/month is going to be outside most people's budget for a hobby project.
+
+Nevertheless, there are some cool features that Netlify enable and we're keen to test them out, even if we later revert back to Github Pages or some other solution for the long term.
+
+Putting your site onto Netlify is really easy. You just link your Github account, select the repo and choose which branch you want to deploy.
+
+There is a custom build tool, similar to Travis, built into Netlify but for the moment it doesn't appear to be sufficiently customisable for us to load tiddlywiki as part of the build pipeline.
+
+Much easier is to just deploy the ``gh-pages`` branch and leave Travis as part of the pipeline.
+
+With this extra step in place, it's just as easy to point a custom domain at this Netlify deployment but there are also more powerful options if we choose to use them. We can have Netlify manage the DNS for us, for example. The instructions are here: https://www.netlify.com/docs/custom-domains/
+
+Now we have a live website, under our own custom domain, deployed to a global CDN. We build it in a secure desktop environment, using all open-source, web technologies and we deploy it with a commit message and two clicks. This is all kinds of awesome.
+
+<<tutorial_nav>>

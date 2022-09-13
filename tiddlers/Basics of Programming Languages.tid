@@ -1,0 +1,37 @@
+created: 20180509071147815
+modified: 20190725042303112
+tags: Basics
+title: Basics of Programming Languages
+type: text/vnd.tiddlywiki
+
+!!What is a program?
+
+A program is a set of instructions for the computer to run. One or more programs, along with pictures, text and other 'assets' make up a piece of 'software'. 
+
+So, we invented the first programming language and applied the first abstraction. Assembly language, or just assembler, is a "human readable" programming language that is very closely related to machine code. Writing programs in assembly language is still very difficult, but it's at least practically possible and it's still done for a few things, even today, when we want to write code that will run really, really quickly - particularly when we want to optimise behaviour for a particular computer. Before the assembly language program could be run, it would first need to be "assembled" into a "binary" = machine code program, which could then be executed.
+
+There were lots of motivating factors for developing more complicated languages once we had assembly language. One factor was a desire to write programs that could be compiled on different machines, rather than being bound to the instruction set of a particular architecture. Another was the desire to be able to express programs in terms of more abstract concepts.
+
+Particularly, whenever there was some sort of construct that early programmers found coming up again and again in their existing programs, particularly if it was prone to errors, then they would try to better express that concept in the grammar/syntax of a new language.
+
+One example of this is looping structures. A powerful feature when writing algorithms, it turns out, is to be able to perform a given set of steps, and then test whether a particular condition is met and, if not, repeat the steps thus repeating, or looping, until a specified state is reached. In early programming, this behaviour had to be coded manually, by inserting a label at the start of a block of steps, managing a counter or flag variables as appropriate and testing the condition manually at the end of the block before sending control flow back to the start of the block with the infamous "goto" command. This pretty soon got codified into loop structures of different kinds in different languages.
+
+I won't pretend to be smart enough to recapitulate the development of programming languages cogently over time. It should be enough to say that there have been lots of them - and every language has its fans and its detractors. All of them do interesting things but none of them are flawless, or everybody would be using that one.
+
+Take Java, for example, which has nothing to do with Javascript. Java was a solution to the problem of cross-platform incompatibility. The idea was that, regardless of whether you were running Mac or Windows, you could install the "Java Runtime" and programs written in Java would work regardless.
+
+Neat idea, huh? Yeah - it didn't work all that great most of the time. But it got a lot of industry support, lots of people became Java developers, the language developed over time and became used for other things.
+
+So, the way we have been able to build everything we have with computers is by creating abstractions.
+
+A programming language is an abstraction - it is an agreement between the people who write programs in the language and the people who write the interpreter.
+
+The interpreter itself is a program.
+
+Usually the interpreter will be written in another language, but the Go interpreter ?? for example, is written in Go now (but, of course, the very first interpreter had to be written in some other language - it could only be replaced later. 
+
+The javascript programming language is a set of a agreements about what kind of statements are allowed in programs and what should happen when we write certain things.
+
+It's only because javascript is so standardised that we are able to do this - that I am able to tell you what to write and expect you to get the same result that I did.
+
+It's only useful to us for this reason = places where there are differences can be a pain. Fortunately there are very few now - this is a very stable ecosystem now.

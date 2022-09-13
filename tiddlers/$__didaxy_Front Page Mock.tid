@@ -1,0 +1,11 @@
+created: 20170525025804564
+modified: 20171101080610922
+tags: 
+title: $:/didaxy/Front Page Mock
+type: text/vnd.tiddlywiki
+
+{{$:/didaxy/static-header}}
+[[$:/didaxy/static-header]]
+
+{{index}}
+[[index]]

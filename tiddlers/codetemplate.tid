@@ -1,0 +1,18 @@
+created: 20171031031758538
+modified: 20190202024548834
+tags: Plumbing
+title: codetemplate
+type: text/vnd.tiddlywiki
+
+<h1>{{!!title}}</h1>
+
+<pre>
+{{!!text}}
+</pre>
+
+The code is running in this page - open your console to see the results.
+
+This code is maintained in a Github repo at https://github.com/r1chard5mith/fcc_exercises
+
+Made with love by Richard Smith as part of Freecodecamp.
+

@@ -1,0 +1,28 @@
+created: 20170821062546261
+modified: 20171205023738084
+tags: TutorialPart Live noindex
+title: A Page With An Image In It
+type: text/vnd.tiddlywiki
+
+!!A Page With An Image In It
+
+This page has an image in it. It's a beautiful image, to be sure, and here it is.
+
+[img[noah2.png]]
+
+!!So What?
+
+//What's so special about that? I've seen lots of pages with images in them//
+
+Sure. You've seen lots of pages that have //embedded// images. But this images is //inlined// into the HTML code for the page. If you view the source for this page, you should be able to find a very long string of 'random' characters. That's the image.
+
+This is... great? Because the browser only has to make one request and it gets the page, along with all it's images. Everyone should do it this way!
+
+Except, no. The problem with embedded images is that you can't see any of the page until the whole thing has loaded and the image is significantly bigger than the text around it.
+
+This image is only ~200k and  you'll still probably notice a slower load time the first time the page loads (on subsequent loads, the page may be cached by your browser so you may not notice).
+
+The other problem that we're going to run into if we try to inline images is that, if we want to control our page deployment using Git and Github which is one of the solutions we'll look at in the next section, we're going to be rolling an ever-larger ball of code consisting of everything that's been on our site. That's fine for source code, but if we put images in there it runs the risk of getting too big to be manageable. 
+
+<center>
+[[Back to the Tutorial|Exporting Static Sites From Tiddlywiki Part 6]]

@@ -1,0 +1,67 @@
+created: 20170613104514724
+modified: 20180905031834027
+partof: Node, Express, Heroku and Mongo with Social Auth
+tags: TutorialPart
+title: Node Tutorials: Making an old app shiny and new
+type: text/vnd.tiddlywiki
+
+If you're like me, you might find yourself a little apprehensive to go back to some of your older projects, fearing that you have forgotten altogether how they work.
+
+I need to go back to my express apps now and handily, I left myself these tutorials to follow - but it would be nice to know that everything is shiny and new and still works the way it's meant to.
+
+It seems that to update the individual packages, we 
+
+https://github.com/tjunnone/npm-check-updates
+
+Node recently went to 
+
+This is what I did
+
+```
+  522  cd authbase/
+  523  ls
+  524  nom update
+  525  vi package.json 
+  526  npm update
+  527  vi package.json 
+  528  npm outdated
+  529  npm update
+  530  npm outdated
+  531  npm update dot-env
+  532  npm outdated
+  533  npm update dotenv
+  534  npm outdated
+  535  npm outdated -g --depth=0
+  536  npm update npm
+  537  npm outdated -g --depth=0
+  538  npm upgrade
+  539  npm outdated -g --depth=0
+  540  npm update -g
+  541  sudo npm update -g
+  542  sudo npm update --save
+  543  vi package.json 
+  544  sudo npm install -g npm-check-updates
+  545  npm -v
+  546  sudo npm -v
+  547  sudo node -v
+  548  sudo npm cache clean -f
+  549  sudo npm install -g n
+  550  sudo n stable
+  551  sudo npm install -g npm
+  552  npm -v
+  553  sudo npm -v
+  554  node -v
+  555  ncu
+  556  ncu -u
+  557  npm update
+  558  sudo npm update
+  559  npm outdated
+  560  sudo npm outdated
+  561  vi package.json
+  562  history
+```
+
+And I get npm at 5.0.3 and Node at 8.0.0
+
+Not much else changed...
+

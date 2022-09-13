@@ -1,0 +1,179 @@
+created: 20190725035420011
+modified: 20190725042325881
+tags: Basics Live
+title: Basics of Computers
+type: text/vnd.tiddlywiki
+
+!!What is a computer?
+
+A computer is device that takes inputs and produces outputs based on sets of instructions called Programs.
+
+Most of the computers in the world are electronic, binary computers which means they are powered by electricity and their inputs and outputs carry information encoded in electrical signals using only "1s and 0s". 
+
+
+!What is a Computer?
+A computer is an electronic device for storing and processing data (data is coded information). 
+
+A computer is any device that can be programmed and a program is a set of instructions for processing data.
+
+A computer consists of 'hardware' - the parts that you can see and touch - and 'software' - the collection of all its available programs.
+
+Typically, the hardware consists of a 'processor' or CPU (Central Processing Unit) which carries out the instructions in the programs and a 'memory' for storing data.
+
+To be at all useful it also needs a way to get information in and out ('input' and 'output', often shortened to I/O).
+
+!!Is an iPad a Computer?
+Short answer? yes.
+Longer answer? It depends how you look at it. An iPad is either a computer or it's got one inside it.
+
+We think of a laptop as being a computer but most modern TVs have a processor and memory in them and we usually think of them as having a computer inside them.
+What makes an iPad more like a computer is the fact that you can use it to run programs. You can also use it to write programs, but it isn't a popular choice for computer 
+programmers yet because it doesn't have all the tools that a programmer needs.
+
+!!What's Inside a Computer
+!!!Ports (Input and Output)
+A computer is only useful because we can put information into it and get information out of it. The most obvious way we put information into computers is with a mouse and keyboard and the most obvious way we get information out is through the screen (sometimes both of these are done by a touch-screen instead). Other input methods include microphones, joysticks, cameras and the network. The network is also an output method, as are speakers, printers, and disk-drives.
+
+There are many other input and output devices and all of them are either included as part of the computer itself, as in the case of a touch-screen, or they're connected externally (sometimes called peripherals) either via or a port or by a wireless interface such as wi-fi or bluetooth.
+
+Many of the electronic components inside a computer, then, are responsible in one way or another for allowing it to 'talk' to peripherals. For example there will typically be a 'chipset' that is responsible for assembling the data to be sent to a video-output.
+
+!!!Memory
+The memory of the computer is an area of circuits designed to store billions and billions of "1's and 0's" - so called "binary digits" or just "bits". All the data in a computer is encoded in bits that are moved around and stored in chunks called words. Words might be "8 bit", "16 bit", "32 bit" or "64 bit" depending on the 'architecture' of a particular computer.
+
+The first generation of cheap home computers such as the ZX Spectrum and the Commodore 64 were 8 bit machines whereas second-generation home computers such as the Commodore Amiga were 16 bit. Typical modern computers are 64 bit, meaning that they can move around 64 bits at a time. An electronic component for moving words around is called "bus".
+Eight bits is called a "byte", so it's also correct to say that each word in a ZX Spectrum was 1 byte long and each word in a modern machine is 8 bytes long.
+
+The size of a section of memory is usually given in Kilo-bytes, kB meaning "1024 bytes" or 8192 bits. The total amount of memory in a system may be anywhere from several kB, to many Gigabytes. A Gigabyte is 1024 Megabytes and a Megabyte is 1024 Kilobytes, so a Gigabyte is 1,073,741,824 bytes, or 8,589,934,592. So a Gigabyte of memory is about eight-and-a-half billion "1's and 0's" and they are how the computer encodes all the information it is given, including its own instructions.
+!!!Processor
+The processor carries out very simple operations on data. It does things like adding two numbers together, moving a single piece of data from one place in memory to another, or taking the next piece of input data from one of the input devices (a keyboard or the network for example).
+The processor runs really, really fast, constantly switching from one task to another. For example, it has to send information to the screen (if it has one) to update what is displayed. It has to tell the screen what colour and brightness to make each pixel and it has to do this dozens of times each second.
+
+At the same time as updating the screen, it has to send other outputs (networking, sound etc.), check all the inputs for any new data and run whatever programs it's actually running. Usually the processor will be running many, many programs at once and has to switch between them at the right times.
+
+The Operating System is the most important piece of software a computer runs. It allows all of the different functions of the processor to be coordinated and it is through the operating system that most user-facing programs and applications run.
+Programs
+
+Usually, we don't write programs that the processor can run directly, we create them using software and run them through the operating system.
+
+The operating system talks to the hardware and our programs only need to know how to talk to the operating system.
+Software Stacks
+
+When we write a javascript program and run it with Node.js, our program 'talks to' Node in a sequence of Javascript expressions, Node talks to the operating system in 'sys calls' and the operating system talks to the hardware.
+Abstraction
+
+!What is a Computer?
+
+Computers are everywhere. You're probably reading this on a computer right now. It was sent to your computer by another computer. In between those two computers were lots of other computers, running the internet. Smartphones are computers, tablets are computers and lots of other things have computers 'inside them'. Most cars made today have at least one computer in them and increasingly everyday objects like TVs and even toasters have computers inside them. So, what is a computer? What do all these things have in common?
+
+All of these devices are 'connected' to other things, usually with electrical connections, which allow them to interact with the world by receiving 'inputs' and producing 'outputs'. The way they produce outputs, based on a particular set of inputs, is determined by their 'programming' and this is what makes them computers. Simply put, a computer is any device that can be 'programmed'. 
+
+!What Makes Up a Computer?
+
+To be 'programmable' a computer must have some way for us to get information into it and some way for us to get the 'results' out. It also needs some way to store our program, expressed as a series of instructions for the computer to carry out, which it does in a component called its 'memory'.
+
+The last and most important thing every computer has is a 'processor' which is connected to everything else in the computer and carries out the instructions that make up our program. The instructions we can use are determined by the manufacturer of the computer and make up its 'instruction set'.
+
+Basically every computer in the world, then, has input and output methods, memory and a processor. The way these components are arranged together is referred to as 'von Neumann' architecture after the pioneering researcher John von Neumann (date-date).
+
+There are lots and lots of other components inside a computer, but they're all there to facilitate the working of these main elements.
+
+!Input and Output
+
+If a computer wasn't connected to the outside world in any way, there would be no point in it running at all, because we'd never know the result of its work. Computers are //only// useful at all because they can receive input and produce output.
+
+The computer in your toaster may receive input from a thermometer and send output to a heater and a magnet to hold toast in place.
+
+The computer in an iPad is connected to its own screen, to the touch digitiser, to the ports, to the network and to all its sensors such as the accelerometer, compass and camera.
+
+!Memory and Processors
+
+Modern electronic computers all store and transmit information in 'binary', meaning that it is encoded using only two states - the famous "1's and 0's". The size of the memory of the computer is measured in terms of how many ones and zeroes it can store. Typically this is a very large number, measured in the billions.
+
+The 'clock speed' of a processor tells us how many instructions it can carry out each second. A typical number is 2Ghz, meaning it can carry out about two billion instructions each second.
+
+This is an astronomical number, necessarily so. Even when it appears to be doing nothing, a computer has to do very many things each second. As well as running any programs that you or I have given it, it has to update all its outputs and scan all its inputs.
+
+!Operating Systems
+
+In practise, the processor of a computer is always managed by a piece of software called an Operating System or, more specifically, a Kernel which is responsible for parcelling out time to each of the processes that need to run during each tiny slice of time. The two billion instructions per second get divided up so that the screen knows what to show, the music keeps playing, the keyboard keeps responding to presses and the cursor moves with the mouse in addition to the computer running each of the programs that appear to be running 'at the same time'. In a way, it's all just a trick.
+
+!!What is a Program?
+
+The most fundamental kind of program, like we mentioned above, in a computer is one expressed as 'machine code'.
+
+Most programs are not written in machine code. Instead they are written in languages which are easier for humans to use and then one of two things happens to them. They are either 'compiled' or they get 'interpreted'. 
+
+!A Computer For Programming
+
+To learn to program computers you are going to need a computer. 
+
+If all you have is a phone or a tablet, there are ways to learn and program, but they don't usually have all the tools that you will need to learn in the best way possible.
+
+What you really need is a 'full' computer, with a keyboard and a pointing device (a mouse or a trackpad) which is running a 'desktop' operating system - probably Windows, Linux or MacOS.
+
+Windows is the most widely used operating system in the world. Linux is open-source and available legally for free. MacOS is generally considered to provide the best experience of the three, but it can only be legally run on Apple hardware.
+
+If all you have is a Windows PC, use that, at least to begin with.
+
+If you have a Windows PC, especially one with low specs, and you find that you're spending a long time waiting for it to do things, it's worth trying a live-boot version of Linux to see how your computer runs.
+
+The best option is to get a Mac, but they're expensive. Even a used/second-hand Mac, anything from the last 5 years or so, is probably going to give you a much better experience than using a PC with Windows.
+
+The problem with Windows is that it's slow and it often breaks. If you know all about how Windows works and how to tweak and fix things, then it might be fine but for anyone who's not an expert, Windows can be a real time-drain.
+
+Case Study:[[A Cheap Windows Laptop?]]
+
+!!Linux
+
+Linux is a good choice for learning to program, because it's free, gives you lots of control over how your machine works, and runs well on low-spec hardware.
+
+!!MacOS
+
+The advantage that Apple have is being able to tightly integrate their operating system with their hardware, which means they provide a very good 'managed' experience where things rarely go wrong and need fixing. Because MacOS is based on Linux, it gives you access to all the same power-tools if you need to use them. It offers the 'best of both worlds'.
+
+I feel bad recommending a Mac, but the truth is, it's going to by far the smoothest and most efficient experience.
+
+Right now, in Australia the cheapest Mac for sale directly from Apple is $629 for a refurbished Mac mini (You'd need to add a keyboard, mouse and screen). You can buy a refurbished Mac laptop from a 3rd party for about the same or a little less for older models. Anything 2013ish or later should be fine. 
+
+Macs //are// more expensive than PCs in general but the amount of time you save by using one will pay for the difference a hundred times over.
+
+But, like I said, if you have to, you can use whatever you have.
+
+[[Connecting to the Internet]]
+
+!!What is a Computer?
+
+A computer is a device that can store and process information. 
+
+Most of the computers we use today are Programmable, which means that we can give them sets of instructions - called programs or software -  to change their behaviour.
+
+!!Embedded Computers
+
+There are computers in lots of the devices that we use every day - everything from cars to cameras, kitchen appliances and toys - these are sometimes called 'embedded' computers. They all need to be programmed, but you generally can't program them using only the software that they already have running. Many of them are in devices that don't have screens, or keyboards. Instead, they need to be programmed using a more capable computer.
+
+!!Mobile Devices
+
+Phones and Tablets run 'mobile operating systems' which provide lots of functions, but generally speaking aren't designed for writing programs. You can learn to program on an iPad, for example, using an app, but for now at least, you can't write real iPad apps using an iPad. This might change in the near future - I suspect that it will soon be possible to use the iPad Pro to create full apps, but at the moment you still need a Mac computer to do so.
+
+!!Desktop Operating Systems
+
+In general, to do programming, you will need a computer running one of the three major "desktop operating systems". They are Windows, MacOS and Linux and, from the point of view of the user, they are all very similar.
+
+The task of an operating system is to manage access to the physical resources of the computer - it's memory and processor and inputs and outputs - and share them amongst all the programs that are running at the same time.
+
+All of them provide a filing system for files saved onto disk along with many different layers of software  - some programs are always running and some can be started as we need them. They also manage the 'boot' system for powering the computer on and starting up all its systems.
+
+All modern operating systems 'boot' into a graphical user interface from where many of the programs can be run by pointing and clicking, but they also all include a "command line interface" (CLI), which is needed to run some things by typing in instructions, especially some of the sort of tools that programmers tend to use.
+
+Windows is the most popular of the three operating systems by far, but it is also the odd one out because it has a different CLI. MacOS and Linux both include the 'bash shell' and are similar in function to the older Unix OS. Largely due to Line being the standard for web servers, Bash became the standard and Windows eventually provided a way to enable Bash instead of the default command line.
+
+!!Which Computer?
+
+You should use whichever desktop OS you have available. If you already have a Windows machine, you should install the Windows Subsystem for Linux, so that you can follow along with the vast majority of tutorials which will tell you the Bash commands. It isn't hard to figure out the equivalent Windows commands, but then you're going to need to learn both and, at least while you're learning, it's going to be easier to install the software.
+
+Alternatively you can replace windows with Linux, which is completely free and comes in many different varieties. Mostly Linux is very user friendly but it's still true that you're likely to need to know more about how your operating system and computer actually work to get the best out of it.
+
+MacOS is probably the nicest experience, because you get the most useful elements of Linux, but in a slick, managed package so that things rarely go wrong or need fixing. Also, owning a Mac is a nicer experience end-to-end and, in my opinion at least, well worth the extra. Just buy the cheapest Mac that does what you need it to and avoid the expensive upgrades. Apple also leverage their dominant position with iOS to insist that you have a Mac before you can publish apps to the App Store. Macs are a premium product, though, and if you can't afford one, ignore this advice and get started with what you have.
+
+

@@ -1,0 +1,57 @@
+created: 20171026030214326
+modified: 20171208034809953
+part: 9
+partof: React Notes
+previous: [[React Notes Part 8]]
+subtitle: Refs
+tags: TutorialPart Live noindex
+title: React Notes Part 9
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!refs
+
+This is not a good idea, I can just tell.
+
+I think if at all possible, we need to solve problems without using this mechanism.
+
+The mechanism is, though, that you can pass a callback function to any HTML element or React component as the 'ref' attribute and the callback will execute every time the component is mounted (or unmounted).
+
+This way, you can use the callback to set a variable (on this) to store a reference to the actual thing as it sits on the page.
+
+For HTML elements, the thing is the element in the DOM, for React components, the thing is a reference to an instance of a class. You can't do it with functional components.
+
+If you want to get the reference down into the next level, you should pass a prop in that stores the appropriate ref.
+
+!!Thoughts? 
+
+Seems like this breaks the paradigm or React and I hope it's only necessary in extreme edge cases.
+
+!Uncontrolled Components
+
+Maybe this is why the ref stuff is there at all?
+
+This is not recommended, but you can leave the 'source of truth' in the DOM and fetch it when you need it.
+
+Get a ref to the input.
+
+          <input type="text" ref={(input) => this.input = input} />
+
+and access its value attribute when you need to
+
+    alert('A name was submitted: ' + this.input.value);
+
+You can pass a default value using 'defaultValue'
+
+Again, this all feels a bit edge-casey.
+
+
+
+
+
+
+
+<<tutorial_nav>>

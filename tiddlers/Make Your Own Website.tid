@@ -1,0 +1,24 @@
+created: 20190718022338100
+modified: 20201018113604842
+tags: HTML Tutorial Live
+title: Make Your Own Website
+type: text/vnd.tiddlywiki
+
+!Make Your Own Website
+The basic way that we make websites is to type code into files using a text editor. 
+
+When the files are opened in a web browser instead of a text editor, the code is turned into a web page.
+
+We upload files to a [[web server|Basics of Servers]] for other people to access from their computers.
+
+To make your own website you will need a [[computer|Basics of Computers]] with an [[internet connection|Basics of the Internet and Web]], a [[web browser|Basics of Browsers]], an [[email address|Basics of Email]] and a [[text editor|Basics of Text Editors]].
+
+The first section goes through the tools that you'll need and then I'll show you how to make your first page.
+
+After that I'll show you how to put your page online in the simplest way.
+
+After that, I'll cover the rest of what you need to know about HTML and CSS in order to make a professional web site and I'll also show you the other ways that you can put your site online and a number of other tools that you will find useful. You can choose which order you'd like to do these parts of the course in 
+
+
+
+<<tutorial_list>>

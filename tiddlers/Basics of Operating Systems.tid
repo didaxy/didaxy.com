@@ -1,0 +1,44 @@
+created: 20190725042339197
+modified: 20190725050330448
+tags: Live Basics
+title: Basics of Operating Systems
+type: text/vnd.tiddlywiki
+
+Because the hardware of computers is so complicated, we need a set of software to be installed and running before we can even start using it to do anything.
+
+This software is called the Operating System. The Operating System (OS) is responsible for actually operating your computer and for running all the apps and programs that you use. When those apps and programs want to do something with your computer - play sounds or draw graphics for example - they actually ask the operating system to do it for them.
+
+In this way, apps and programs - including the programs that you will learn to write - don't need to know anything about the hardware in your computer. They only need to know which operating system you are using.
+
+This is why Operating Systems are sometimes also referred to as "Platforms" which "Support" certain software and features.
+
+Different types of computing devices have different types of operating systems. Android and iOS are "Mobile Operating Systems" and run on smartphones. iPadOS runs on tablets but is not a "full desktop OS". Likewise other devices, such as games consoles and connected home appliances, run their own operating systems.
+
+A "full desktop OS" runs on either a "desktop" or a "laptop" computer and, for now at least, this is what you need if you want to learn to program computers.
+
+There are some programming apps and environments in Android and iOS that are a lot of fun to play around with and you can teach yourself a lot if that's all you have access to, but the tools that professional programmers use are only really available in a "full" operating system.
+
+There are three major full/desktop operating systems to choose from: Windows, MacOS and Linux and each have pros and cons.
+
+!!Windows
+
+Windows is widely adopted and runs on even the cheapest desktop-class hardware. The very cheapest laptop in your local PC dealership will probably come with Windows already installed.
+
+!!MacOS
+
+MacOS is the most "polished" experience available, meaning that most things "just work" most of the time. You won't need to spend much time tweaking things to get them to work.
+
+What you will need is a Mac because MacOS is only supposed to run on a Mac.
+
+There are ways to run MacOS on non-Apple hardware. This is known as a "Hackintosh" and if you have a good reason to want MacOS and can't afford a real Mac, this is one way to go, but I wouldn't recommend it while you're learning to program.
+
+!!Linux
+
+Linux is the OS of true geeks. It's free and Open Source, which means you can do anything you like with it, including modifying it in whatever ways you like if you know how. Linux gives you the greatest freedom of the three choices, but also expects the most of you.
+
+A lot of the internet is run on Linux, so learning how it works can also be of benefit when you're building and deploying websites.
+
+If you really want to learn a lot about how your operating system works and you have the time, Linux is a good choice.
+
+It can be difficult to set up and get running well, depending on your hardware. There's a lot of choices and support can be patchy.
+

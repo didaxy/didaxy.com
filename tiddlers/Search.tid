@@ -1,0 +1,17 @@
+created: 20170824080725711
+modified: 20190725063137944
+tags: noindex Plumbing Live
+title: Search
+type: text/vnd.tiddlywiki
+
+!!Search Our Site
+<form method="get" id="search" action="http://duckduckgo.com/" target="_blank">
+  <input type="hidden" name="sites" value="didaxy.com"/>
+  <input type="hidden" name="k8" value="#444444"/>
+  <input type="hidden" name="k9" value="#D51920"/>
+  <input type="hidden" name="kt" value="h"/>
+  <input type="text" name="q" maxlength="255" placeholder="Search didaxy.com"/>
+  <input type="submit" value="DuckDuckGo Search" style="visibility: hidden;" />
+</form>
+
+(opens in new page, powered by [[DuckDuckGo|http://www.duckduckgo.com]])

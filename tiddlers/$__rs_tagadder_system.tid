@@ -1,0 +1,67 @@
+created: 20170518075752433
+modified: 20190725013216915
+tags: Plumbing
+tagtoadd: Context
+tagtoremove: $:/tags/ViewTemplate
+title: $:/rs/tagadder_system
+type: text/vnd.tiddlywiki
+
+A little tool to add a tag to every tiddler that has some system tag. Not often useful!
+
+!!!This adds another tag
+
+<table>
+<tr>
+<td>
+select
+</td>
+<td>
+<$select tiddler=<<currentTiddler>> field="tagtoremove" default='notset'>
+<$list filter='[all[shadows]tags[]sort[]]'>
+<option value=<<currentTiddler>> field="tagtoremove"><$view field='title'/></option>
+</$list>
+</$select>
+</td>
+<td>
+and add
+</td>
+<td>
+<$edit-text tiddler="$:/rs/tagadder/temp" field="tagtoadd"/>
+
+</td>
+<td>
+
+<$set name="newTag" value={{$:/rs/tagadder/temp!!tagtoadd}}>
+<$set name="oldTag" value={{!!tagtoremove}}>
+<$button>
+<$list filter="[all[shadows+tiddlers]tag{!!tagtoremove}]">
+<$fieldmangler>
+<$action-sendmessage $message="tm-add-tag" $param=<<newTag>>/>
+</$fieldmangler>
+</$list>
+Click me!
+</$button>
+</$set>
+</$set>
+
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<$list filter="[all[shadows+tiddlers]tag{!!tagtoremove}]">
+<$link>{{!!title}}</$link>
+</$list>
+</td>
+<td>
+</td>
+<td>
+<$list filter="[all[shadows+tiddlers]tag{$:/rs/tagadder/temp!!tagtoadd}]">
+<$link>{{!!title}}</$link>
+</$list>
+</td>
+<td>
+</td>
+</tr>
+</table>

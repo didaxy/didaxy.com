@@ -1,0 +1,22 @@
+created: 20190725053653738
+modified: 20190725054251511
+tags: Live Basics
+title: Basics of Browsers
+type: text/vnd.tiddlywiki
+
+A web browser is the application you use to access the World Wide Web. The World Wide Web is usually just called "the web" and most people think of it as being the same thing as "the internet", although the internet actually carries lots of other types of data that //aren't// web-pages.
+
+The most popular browser is Google Chrome. 
+
+All the major browsers except one are owned by giant technology companies - Google, Apple and Microsoft.
+
+The exception is Firefox, which is owned by Mozilla. Mozilla and Firefox are independent and their main business is their browser. Their mission is to defend the "free and open" web. 
+
+All of the major web browsers are available for free.
+
+If you want to make your own web site, you will need at least one browser and you will probably want to test in at least one or two of the others.
+
+!!How Browsers Work
+
+I'm going to assume that you basically know how web browsers work, since you're using one to read this page.
+

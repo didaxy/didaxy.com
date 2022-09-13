@@ -1,0 +1,41 @@
+created: 20190725042217370
+modified: 20190725050358411
+tags: Basics
+title: Basics of the Internet and Web
+type: text/vnd.tiddlywiki
+
+!!What is the internet?
+
+The internet is made up of millions of computers connected together. Individual computers usually connect to an "internet service provider" (ISP) and the ISPs arrange to all be connected to each other. Connections can be 'wired', using a copper wires or fibre-optic cables or wireless, using wifi or other radio technologies. Every computer on the internet gets a unique identifier, called an IP address which can be used to send it information.
+
+The computers that make up the internet are either 'clients', 'servers' or 'routers'. Clients are the computers that are being used by people to access the network. Clients make requests to servers and the servers send responses containing information. Routers make sure the messages from client to server arrive by reading the address on each 'packet' of information and sending it to the right place. Usually there are at least several routers between the server and the client.
+
+!!What is the web?
+
+The World Wide Web is what most people think of as 'the internet'. It's what we access using web-browsers. It's all the websites and the links between them and is accessed using a web browser. The web is made up of web pages.
+
+Web pages are written in HTML - Hypertext Markup Language. A "markup language" is one that tells a computer how to display a document. The original web pages were simple text documents and the simplest HTML commands are for marking parts of the documents as paragraphs, headings etc. so that the web browser can display them correctly.
+
+Each web site exists on a server somewhere and can be accessed by entering the IP address of that computer, but we usually use a "domain name" instead, because they are easier to remember. When we type "www.mozilla.org" into the browser, this is an example of a "Uniform Resource Locator" (URL).  The browser looks-up the IP address for a URL using a "Domain Name Server" (DNS). If the IP address of a server changes, the DNS gets notified and your browser will still be able to find the site.
+
+!!Anchor tags
+
+Everything great about the web came from the simple idea of links. In an HTML document, you can refer to another one by creating a link which "points" to its URL. If a user 'clicks' on the link, their browser will 'navigate' to the new page, which might be on the same server or a different one.
+
+The way we turn a piece of text into a link is by marking-it-up with "anchor tags". 
+
+Why are they called anchor tags? 
+
+!Make Your Own Website
+
+To make your own web-page, then, you're going to need a server somewhere to serve the files when someone visits your site.
+
+You may also want to choose and buy a domain name for your site, in which case you will need to know how to tell the DNS where to find your server.
+
+Originally, getting your own server would have meant actually buying a computer and connecting it to the internet and then setting up web server software on it. Today there all kinds of different options for doing it, some of which still require you to know many of the underlying details of how servers and DNS work, but many of which are essentially "one click" hosting.
+
+We're going to start with a simple way, using an online service called Neocities. It's very easy to get your site online with literally only a few clicks and yet your site will be live and accessible, just as valid as anyone's website. To go the last little way to making your site totally 'legit', I'll show you how to buy your own domain and point it at your site.
+
+Then we'll explore other ways you can do the same things that offer you more control.
+
+First things first though, let's start right at the beginning and get you a computer and an internet connection, followed closely by an email address.

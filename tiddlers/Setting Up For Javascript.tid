@@ -1,0 +1,27 @@
+created: 20191030124223345
+modified: 20191101004626261
+tags: 
+title: Setting Up For Javascript
+type: text/vnd.tiddlywiki
+
+Roughly speaking, I think there distinct parts to learning to program javascript.
+
+They are
+#The Core Language
+#The APIs that are available
+#The tools that you will use
+
+I would approach teaching javascript very differently to different audiences.
+
+This is the most challenging thing about putting together online courses for me.
+
+
+You can install Node mon
+
+You can install the live server extension of VS Code (make sure you have opened the folder, not individual files)
+
+
+Safari Preferences Develop menu.
+
+Then you can use the keyboard shortcuts.
+

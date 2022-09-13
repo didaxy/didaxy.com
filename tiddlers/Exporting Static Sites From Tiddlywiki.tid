@@ -1,0 +1,38 @@
+created: 20170729010830742
+modified: 20190724121114900
+tags: StaticSites Tiddlywiki Live
+title: Exporting Static Sites From Tiddlywiki
+type: text/vnd.tiddlywiki
+
+<$image class="article-image" alt="from tiddlywiki to static html" source="Tiddlywikitohtml.svg"/>
+
+!Exporting Static Sites From Tiddlywiki (v0.1)
+!!Introduction
+
+This tutorial will show you how to use [[Tiddlywiki|http://www.tiddlywiki.com]] to generate static pages using templates, with consistent internal links. The resulting site will be (extremely) like the one you are currently looking at.
+
+Our goal in doing this is to get as close as we can to "one click" publishing from a private desktop environment with all of our pages having a consistent overall style and the ability to customise individual pages as required.
+
+Static sites are simple, have a very small attack-surface and can be hosted just about anywhere, with minimal dependencies. If you'd like to know more, there's lots to read on the web: [[here|https://www.smashingmagazine.com/2015/11/modern-static-website-generators-next-big-thing/]] and [[here|https://www.netlify.com/blog/2016/05/18/9-reasons-your-site-should-be-static/]], for example. We'll also show you how to easily deploy your site to a number of different places (Neocities, Github and Netlify).
+
+Static site generation is a good use-case for Tiddlywiki and there is ample room to further develop these ideas in the future - perhaps by providing a more polished UI. At the moment it's all still a bit bare-bones, but the potential is there.
+
+''Note:'' Only some of Tiddlywiki's functionality translates well into static content at the moment. Basic transclusion works great, but the "tabs" macro doesn't work at all, for example. If these features turn out to be important, they should be fairly straightforward (though not necessarily easy) to implement.
+
+!!Abstract
+
+The tutorial is broken up into a number of parts to (hopefully) make it easier to follow.
+
+Firstly we're going to set up a Tiddlywiki server and try out the basic static site generation commands along with the built-in templates.
+
+Then we'll configure things so we have more control over which pages are included in the output and exactly how they look. 
+
+We'll put in place mechanisms to let us add custom css and javascript to individual pages and show how to include external resources like css libraries and Google analytics code (for tracking traffic).
+
+We'll also see how we can control the formatting of the URLs and links in our site and consider the surprisingly complicated topic of images.
+
+Finally, we'll host our site and look at the different ways that we could deploy it. We'll show you how to do it "by hand" with a simple web host, and in a more automated way using Git.
+
+If you just want to use the plugin, or you'd like to clone a repo, instead of creating all the changes for yourself, you can find a link and instructions in [[Part 8|Exporting Static Sites From Tiddlywiki Part 8]] but you may still need to consult the other sections of the tutorial to know what's going on.
+
+<<tutorial_list>>

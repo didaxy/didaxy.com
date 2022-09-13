@@ -1,0 +1,164 @@
+created: 20171024004901431
+modified: 20171208035320702
+next: [[React Notes Part 8]]
+part: 7
+partof: React Notes
+previous: [[React Notes Part 6]]
+subtitle: JSX
+tags: TutorialPart Live noindex
+title: React Notes Part 7
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+
+!!createElement
+
+JSX is sugar on this method
+
+```
+React.createElement(component, props, ...children)
+```
+
+It takes ``props`` in place of attributes and the children are nested between the tags, if their are two tags. If there's only one tag, it doesn't have children - in this case the 'children' prop is ``null``.
+
+!!Scope
+
+```
+function WarningButton() {
+  // return React.createElement(CustomButton, {color: 'red'}, null);
+  return <CustomButton color="red" />;
+}
+```
+
+The key point about this snippet is that ``CustomButton`` in the JSX is //actually// ``React.createElement(CustomButton, props, ..children)``, so both React and CustomButton must be in scope, meaning that you would need to do;
+
+```
+import React from 'react';
+import CustomButton from './CustomButton';
+```
+for it to work.
+
+If you load React from a CDN (or otherwise insert it at the top of the HTML) it will be in scope as the React global.
+
+!!Dot Notation
+
+Dot notation is allowed. For example, you could have a module that exports a number of components and you can refer to them as properties of an object.
+
+```
+<MyComponents.ThisComponent />
+```
+
+!!Capital Letters
+
+User defined components should start with a capital letter or JSX will assume that they're regular HTML components.
+
+If you have one starting with a lower-case letter (why though?) you should assign it to a variable that has starts with a capital letter.
+
+!!Choosing Components at Runtime
+
+You can't write an expression in JSX. If you need to choose between components, you do the logic outside the JSX and assign the result to a capitalised variable, like this...
+
+```
+import React from 'react';
+import { PhotoStory, VideoStory } from './stories';
+
+const components = {
+  photo: PhotoStory,
+  video: VideoStory
+};
+
+function Story(props) {
+  // Correct! JSX type can be a capitalized variable.
+  const SpecificStory = components[props.storyType];
+  return <SpecificStory story={props.story} />;
+}
+```
+
+!!Props
+!!!Expressons
+You ''can'' pass expressions as props.
+
+Branching and Loops are not expressions (they're statements) so you can't use them in JSX.
+
+!!!Strings
+
+You ''can'' pass a string literal as a prop. It will get unescaped.
+
+```
+<MyComponent message="&lt;3" />
+
+<MyComponent message={'<3'} />
+```
+
+!!!Defaults
+
+Unspecified props default to Boolean ``true``
+
+```
+<MyTextBox autocomplete />
+
+<MyTextBox autocomplete={true} />
+```
+
+This is only implemented to match the behaviour of HTML. It's not recommended.
+
+!!!Spread Operator
+
+```
+function App() {
+  const theseProps = {time: "about now",
+              name: 'big boss',
+              balls: "as big as" + " aeroplanes"}
+  return (
+    <div>
+      <p>yo</p>
+      <PropLogger {...theseProps}/>
+    </div>
+  )
+}
+```
+
+!!Children
+
+Children are listed between the open and close brackets of a component.
+
+They can be text, valid HTML, other components, ''arrays'' or javascript expressions, 
+
+When using js it's usual to only return things that can be rendered, but you could (in theory) pass any arbitrary code this way (don't).
+
+Expressions evaluating to boolean true/false, null or undefined are passed but not rendered, meaning they can be used in cutesy conditionals,
+
+
+```
+<div>
+  {showHeader && <Header />}
+  <Content />
+</div>
+```
+
+But beware that values which are not inherently boolean but which, in regular JS, would get coerced to true/false will instead be rendered, so use an explicitly boolean construct.
+
+
+```
+<div>
+  {props.messages.length &&
+    <MessageList messages={props.messages} />
+  }
+</div>
+```
+
+To fix this, make sure that the expression before && is always boolean:
+
+```
+<div>
+  {props.messages.length > 0 &&
+    <MessageList messages={props.messages} />
+  }
+</div>
+```
+
+If you want to render a boolean value, you need to manually convert it to a string.
+<<tutorial_nav>>

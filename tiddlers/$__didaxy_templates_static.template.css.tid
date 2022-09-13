@@ -1,0 +1,9 @@
+created: 20170815071232361
+modified: 20181017014443665
+tags: 
+title: $:/didaxy/templates/static.template.css
+type: text/vnd.tiddlywiki
+
+{{$:/didaxy/styles/static-styles.css||$:/core/templates/plain-text-tiddler}}
+
+

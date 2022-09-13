@@ -1,0 +1,45 @@
+created: 20171023233852590
+modified: 20171208035247544
+next: [[React Notes Part 7]]
+part: 6
+partof: React Notes
+previous: [[React Notes Part 5]]
+subtitle: Thinking in React
+tags: TutorialPart Live noindex
+title: React Notes Part 6
+type: text/vnd.tiddlywiki
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!Thinking in React
+
+How shall we build React apps? Let's see what the advice is...
+
+First define all the components that you're going to need and put them into a hierarchy - use the principle of single responsibility.
+
+!!Mock
+
+Then build a static mock.
+
+The basic idea of this is that all it needs to do is render the data model. It won't handle any interactivity.
+
+They claim that this step involves "a lot of typing and no thinking" (hmmm...)
+
+When you've done this, you will have a set of 'reusable' components and your root component will be accepting the whole data model as its props.
+
+Next - figure out the minimum amount of mutable state that your app needs.
+
+Don't store anything that can be computed from something else, don't store props as state and don't store anything that doesn't change over time in state.
+
+For each piece of state, identify all the components that need it. Then put it in a common parent (or higher) of the group.
+
+Then, draw the rest of the owl.
+
+(add the 'inverse data flow' to the one-way data flow....)
+
+
+ 
+
+<<tutorial_nav>>

@@ -1,0 +1,36 @@
+created: 20170821095246017
+modified: 20180922013637037
+tags: TutorialPart Live noindex
+title: A Page With A Gif In It
+type: text/vnd.tiddlywiki
+
+Regardless of how you pronounce it, there are lots of occasions where GIFs hit a sweet spot between images and videos that is just right for the web.
+
+Some regular image hosts support GIFs but there are some, such as Giphy that are dedicated to the format. I don't know much about it, but so far it seems good. It's very easy to use.
+
+All I need to do is this
+
+```
+<img src="https://media.giphy.com/media/xT39DdMxzP9ZUjhku4/giphy.gif">
+```
+and I get this.
+
+<img src="https://media.giphy.com/media/xT39DdMxzP9ZUjhku4/giphy.gif">
+
+
+We can also to this using a macro
+
+<<giphy xT39DdMxzP9ZUjhku4>>
+
+```
+<<giphy xT39DdMxzP9ZUjhku4>>
+```
+which has the advantage of letting us change all our links at once if we ever need to.
+
+!!GIFs at Neocities?
+
+!!As A Tiddler
+
+If you have a particular need for the gif to be managed as a tiddler, you can create it with its _canonical_uri field pointing to the address.
+
+This, as with everything else, is a pathway that could be smoothed by use. 

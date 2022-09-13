@@ -1,0 +1,399 @@
+created: 20170905004059026
+modified: 20190725015212506
+partof: Intermediate TiddlyWiki
+tags: Tiddlywiki
+title: Experiments in Packing and Unpacking Tiddlers
+type: text/vnd.tiddlywiki
+
+!!Introduction
+
+I recently had some experience of making a plugin for Tiddlywiki for the first time.
+
+I came across two sets of instructions.
+
+The first were the instructions for making a plugin at the command line. (http://tiddlywiki.com/dev/#Developing%20plugins%20using%20Node.js%20and%20GitHub)
+
+The second were the instructions for packing a plugin from the browser console (http://tiddlywiki.com/dev/#How%20to%20create%20plugins%20in%20the%20browser)
+
+!!Making a plugin using Git etc.
+
+The trouble with the first set of instructions is that they seem to be explaining something more complicated than what we really need if we just want to pack some stuff into a plugin.
+
+They also seem to assume that we're starting from scratch //but// we already know what we want to build.
+
+A more likely scenario is that we've already written some tiddlers that we'd now like to make into a plugin.
+
+If we're using the browser-based Tiddlywiki, we have no choice but to try the second set of instructions, but if we're already running it under Node, surely we don't //need// to download the TW5 repo and then build that to get our plugin packed?
+
+It turns out that we can - we only need to discern the core of the instructions, which are that to be made into a plugin, our tiddlers should be grouped together into a file by the name of the plugin, in a folder named 'pluigns' which should be alongside the tiddlers directory we're familiar with.
+
+In that directory, we also need a 'plugin.info' file with a minimal amount of information.
+
+```
+plugin.info
+```
+
+All we do, then, is stop our server, move the tiddlers, add the plugin.info file and restart the server and, by the magic of @jermolene, there's our plugin, already installed.
+
+!!Running Build
+
+Alternatively, we could run
+
+```
+tiddlywiki --build
+```
+
+as the instructions suggest, 
+
+!!readme
+
+The other thing you probably want to include is a readme for your plugin.
+
+''important'' This also relies on there being a 'list' field.
+
+
+
+!!Packing Plugins in the browser
+
+If you are constrained to using the browser edition but wish to pack a plugin, the instructions are quite good.
+
+The thing you should be aware of, though, is that when you pack a plugin in this manner, the original tiddlers are deleted. If there is a chance of subsequently needing to un-pack them again, that would seem to be an unsolved problem as of now.
+
+!!Packing the Task Tracker as a Plugin
+
+
+
+!!Unpacking the Image Externaliser
+
+We previously made a thing and packed it as a plugin. We'd now like to improve it.
+
+It would seem that the first thing we need to do it 'unpack it'
+
+We can unpack its tiddlers one by one as and if we need to change them and the browser-based instructions for re-packing are pretty clear that we can use the method to then re-add the tiddler.
+
+It isn't clear how the server-based method would work if our plugin was a mixture of an existing plugin and some new tiddlers, so it //feels// like we would need to "pop out" all the tiddlers involved.
+
+In the first instance, we're going to want to pop them all out anyway, because we need to do global re-naming of the tiddlers.
+
+!!Avoid Tragic Mistakes
+
+Mistakes happen and there are few sadder feelings than the realisation that you've just deleted all your own work. To avoid heartbreak, we shouldn't ever be tempted to do "quick experiments" with our real data. 
+
+For this work, then, we need a copy of our Task Tracker wiki. Since this is a copy that we can burn if we ruin it, we can also use it to do the work we want to do with the Image Externaliser.
+
+We can import that from the wiki where we recently started hosting it.
+
+Then we'll do all our experiments with both plugins, right in the same wiki.
+
+We start the server, import the plugin, reload to check it's working, then stop the server.
+
+Now we try to run the command ``--unpackplugin image-externaliser`` but are told that image-externaliser is not the name of a plugin...
+
+Then we spend > an hour trying to find something that works.
+
+Possibly it hates the hyphen in our plugin name? We tried unpacking the built in plugins, but we don't have filenames for them... (we're not even sure whether it's filename or a tiddler name or a path that we're supposed to put in)
+
+We'll have to come back to it.
+
+!!Unpacking a Plugin Manually
+
+Unpacking the plugin "manually" should be as simple as "popping out" all of the tiddlers one by one.
+
+If we wanted to do this by hand, all we have to do is visit the list of contents for the plugin, open all the tiddlers, edit them and save them where by edit, we mean just over-write with a copy of themselves.
+
+These over-writing copies, which will now take precedence over the ones packed in the plugin, will now be "real tiddlers". We should be able to delete the plugin and all of it's functionality will remain.
+
+It seems that we should be able to make a button that unpacks all the tiddlers from a plugin by running through the list, putting them into edit mode or something similar (adding and removing a tag, for example)
+
+I think I saw that someone else was working on this in the groups and its a duplication of effort to do the same.
+
+Oh - that was a "pack plugin" button - that's something different. OK.
+
+!!How To
+
+The list of tiddlers packed in the plugin is rendered to the view by `` $:/core/ui/ViewTemplate/plugin `` which is wrapping ``$:/core/ui/Components/plugin-info`` which we chase through ``$:/core/ui/PluginInfo`` to ``$:/core/ui/PluginInfo/Default/contents``
+
+Where we find this:  ``<$list filter="[all[current]plugintiddlers[]sort[title]]"`` and lo, there is, in fact, a filter operator to do exactly this. Who would have known? http://tiddlywiki.com/#plugintiddlers%20Operator (if the information for "plugin tiddlers" mentioned "subtiddlers", which is what they seem to be called elsewhere, ''we'd'' have known half an hour ago. Ho hum)
+
+Hoorah.
+
+Now we've got a list of all the tiddlers that are in the plugin, what we want to do is break them all out.
+
+We do this by duplicating our list, wrapping the duplicate in a button (we're only keeping the first list around for convenience) and then, inside the list, put the actions that we want to dispatch, which will be to add and then remove a tag from each of them, thus freeing them from the world of the shadows.
+
+Turns out the easiest way to change them to real tiddlers is to just delete a field that doesn't exist.
+
+```
+<$list filter="[[$:/plugins/rs/image-externaliser]plugintiddlers[]]">
+<$link>{{!!title}}</$link>
+</$list>
+
+<$button>
+<$list filter="[[$:/plugins/rs/image-externaliser]plugintiddlers[]]">
+<$action-deletefield jhsfjh/>
+</$list>
+sproing
+</$button>
+```
+
+If you wanted, for some reason, to add this to the view of all your plugins, you could overwrite ``$:/core/ui/PluginInfo/Default/contents``
+
+so it looks like this
+
+```
+\define lingo-base() $:/language/TiddlerInfo/Advanced/PluginInfo/
+<<lingo Hint>>
+<ul>
+<$list filter="[all[current]plugintiddlers[]sort[title]]" emptyMessage=<<lingo Empty/Hint>>>
+<li>
+<$link to={{!!title}}>
+<$view field="title"/>
+</$link>
+</li>
+</$list>
+<$button>
+<$list filter="[all[current]plugintiddlers[]]">
+<$action-deletefield jhsfjh/>
+</$list>
+sproing
+</$button>
+</ul>
+```
+This gives you a button that lets you easily "unpack" any of the built in plugins in one go.
+
+If our goal is to then work with the plugin before re-packing it and assuming that we already have ample back ups, we can now delete the plugin tiddler itself and everything should still work.
+
+!!Re-naming
+
+The trickiest part of getting everything polished and neat may well prove to be a consistent naming scheme for all the tiddlers in the plugin.
+
+The reason is that it's quite likely your tiddlers will refer to each other by name and, if you started making them without consideration for them becoming a plugin, you will now need to rename them.
+
+!!List field
+
+http://tiddlywiki.com/#Plugin%20Information%20Tiddlers
+
+
+!!Re-packing
+
+Because we still have a plugin tiddler, all we need to do to repack is
+
+```
+$tw.utils.repackPlugin("$:/plugins/rs/image-externaliser")
+```
+
+from the javascript console.
+
+Getting fancy, we can make our own module - which is nice - and we can use it to run the code to re-pack the plugin
+
+`` $:/didaxy/modules/widgets/pack-plugin.js ``
+
+```
+/*\
+title: $:/didaxy/modules/widgets/pack-plugin.js
+type: application/javascript
+module-type: widget
+
+Action widget to pack a plugin
+\*/
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+"use strict";
+
+var Widget = require("$:/core/modules/widgets/widget.js").widget;
+
+var packPluginWidget = function(parseTreeNode,options) {
+	this.initialise(parseTreeNode,options);
+};
+
+/*
+Inherit from the base widget class
+*/
+packPluginWidget.prototype = new Widget();
+
+/*
+Render this widget into the DOM
+*/
+packPluginWidget.prototype.render = function(parent,nextSibling) {
+	this.computeAttributes();
+	this.execute();
+};
+
+/*
+Compute the internal state of the widget
+*/
+packPluginWidget.prototype.execute = function() {
+	this.plugin = this.getAttribute("$plugin");
+};
+
+/*
+Refresh the widget by ensuring our attributes are up to date
+*/
+packPluginWidget.prototype.refresh = function(changedTiddlers) {
+	var changedAttributes = this.computeAttributes();
+	if(changedAttributes["$tiddler"] || changedAttributes["$field"] || changedAttributes["$index"] || changedAttributes["$value"]) {
+		this.refreshSelf();
+		return true;
+	}
+	return this.refreshChildren(changedTiddlers);
+};
+
+/*
+Invoke the action associated with this widget
+*/
+packPluginWidget.prototype.invokeAction = function(triggeringWidget,event) {
+        $tw.utils.repackPlugin(this.plugin);
+        console.log("hi mum!");
+	return true; // Action was invoked
+};
+
+exports["action-packplugin"] = packPluginWidget;
+
+})();
+```
+
+We chose something (action setfiled) that seemed a bit similar to what we were trying to do and we copied it.
+
+Add this to the content tiddler and we are getting close to having the chrome to manage them much more simply.
+
+```
+\define lingo-base() $:/language/TiddlerInfo/Advanced/PluginInfo/
+<<lingo Hint>>
+<ul>
+<$list filter="[all[current]plugintiddlers[]sort[title]]" emptyMessage=<<lingo Empty/Hint>>>
+<li>
+<$link to={{!!title}}>
+<$view field="title"/>
+</$link>
+</li>
+</$list>
+<$button>
+<$list filter="[all[current]plugintiddlers[]]">
+<$action-deletefield jhsfjh/>
+</$list>
+unpack
+</$button>
+<$button>
+<$action-packplugin $plugin="$:/plugins/rs/image-externaliser"/>
+repack
+</$button>
+</ul>
+```
+
+You need to refresh the wiki when you re-pack the plugin.
+
+!!More
+
+All we'd really need to be able to is create a completely new plugin from inside the browser and add tiddlers to its initial list.
+
+I think both of those things are within striking distance now //and// we learned about Macros in the process.
+
+!!More Tools?
+
+There are some other tools that might be useful too - specifically for keeping copies of the tiddlers that are packed into the plugin but "namespaced" in a way that we can easily toggle them backwards and forwards between overwriting and non-blocking.
+
+!!pluginmaker.js
+
+To find out more about how repackPlugin works, we have to get the source to Tiddlywiki 5 itself and search the project for 'repackPlugin' which we find in ``pluginmaker.js`` and it has this signature
+
+```
+exports.repackPlugin = function(title,additionalTiddlers,excludeTiddlers) {
+
+```
+
+Which is awesome, because it already has the ability to remove tiddlers too.
+
+Assuming we can pass our lists in to javascript...
+
+!!Success
+
+```
+/*\
+title: $:/didaxy/modules/widgets/pack-plugin.js
+type: application/javascript
+module-type: widget
+
+Action widget to pack a plugin
+\*/
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+"use strict";
+
+var Widget = require("$:/core/modules/widgets/widget.js").widget;
+
+var packPluginWidget = function(parseTreeNode,options) {
+	this.initialise(parseTreeNode,options);
+};
+
+/*
+Inherit from the base widget class
+*/
+packPluginWidget.prototype = new Widget();
+
+/*
+Render this widget into the DOM
+*/
+packPluginWidget.prototype.render = function(parent,nextSibling) {
+	this.computeAttributes();
+	this.execute();
+};
+
+/*
+Compute the internal state of the widget
+*/
+packPluginWidget.prototype.execute = function() {
+	this.plugin = this.getAttribute("$plugin",this.getVariable("currentTiddler"));
+	this.include = this.getAttribute("$include","").split(" ");;
+	this.exclude = this.getAttribute("$exclude","").split(" ");
+};
+
+/*
+Refresh the widget by ensuring our attributes are up to date
+*/
+packPluginWidget.prototype.refresh = function(changedTiddlers) {
+	var changedAttributes = this.computeAttributes();
+	if(changedAttributes["$tiddler"] || changedAttributes["$field"] || changedAttributes["$index"] || changedAttributes["$value"]) {
+		this.refreshSelf();
+		return true;
+	}
+	return this.refreshChildren(changedTiddlers);
+};
+
+/*
+Invoke the action associated with this widget
+*/
+packPluginWidget.prototype.invokeAction = function(triggeringWidget,event) {
+        $tw.utils.repackPlugin(this.plugin, this.include, this.exclude);
+        console.log("hi mum!");
+	return true; // Action was invoked
+};
+
+exports["action-packplugin"] = packPluginWidget;
+
+})();
+```
+
+It's a crude method but it works - it relies on the macro call being modified like so 
+
+```
+<$action-packplugin $include={{$:/didaxy/pluginTools/state!!add-list}} $exclude={{$:/didaxy/pluginTools/state!!remove-list}}/>
+repack
+</$button>
+<br>
+remove: <$edit-text tiddler="$:/didaxy/pluginTools/state" field="remove-list"/>
+<br>
+add: <$edit-text tiddler="$:/didaxy/pluginTools/state" field="add-list"/>
+```
+
+where the field is hard-coded to match the edit-text field we have there.
+
+There's nothing fancy about it - it's still manual, but it lets you add and remove stuff.
+
+The only other thing we need is a button to make a plugin from scratch.
+
+The easiest/nastiest way to do that is to clone an existing plugin, strip out its non-essentials and then keep it as a template for starting new ones. Let's just do that for now.
+

@@ -1,0 +1,113 @@
+created: 20170914090508658
+modified: 20190726024450200
+next: 
+part: 5
+partof: So, You Want To Make A Website?
+previous: Atom Text Editor
+subtitle: Github
+tags: Crash
+title: A Crash Course in Git and Github
+type: text/vnd.tiddlywiki
+
+https://www.reddit.com/r/learnprogramming/comments/chqjo1/making_sense_of_git_and_github/
+
+
+
+!Introduction to Git
+
+Git is a distributed version control manager that was originally written by Linus Torsvalds of linux fame.
+
+Git has many features for managing complex workflows and collaboration amongst large distributed teams on multiple simultaneous but different 'branches' of the same code. It can get quite complicated. There are whole books written on the subject of using Git.
+
+Here are the basics.
+
+!!What Git does
+
+Git tracks the state of a code base over time in a way that keeps a record of all the changes made at each step, that can be easily replicated in different places and then the various copies kept in sync with each other.
+
+!!Basic Git
+
+The basic features of Git are not all that complicated and are very useful.
+
+By putting your project into git you can easily keep track of changes that you make. If you stuff everything up, you can easily go back - this is obviously very useful when you're learning if it can be done in a neat way.
+
+!!Github
+
+Git was originally conceived as a decentralised way to manage the archive of a project, so it's ironic that centralised services have come to play such a big part in its usefulness to developers.
+
+Github is the biggest such service and has become the de facto home of open source software on the internet.
+
+!!Backups
+
+It is easy to integrate Git with Github, once you have an account there, and use it to keep a copy of your work on their servers.
+
+!!Deployment
+
+The next thing that we'll use Git for is to actually manage the deployment of our code
+
+!!Other People's Code
+
+As we said, Github is the home of lots of open source software and it's a great place to get whole projects.
+
+!!Github Desktop
+
+If these simple features of Git are all we want, and we're happy to use Github, then we don't really need to use Git on the command line at all. We can install Github desktop instead.
+
+Again, purists might balk at the idea of using a GUI tool when there's a perfectly good command line utility that does the job and is much, much more powerful, but the reality, I find at least, is that switching contexts and using graphical UI, to perform specific sets of tasks, as we need to do here, is better for reducing the overall cognitive load of working on a project.
+
+(the same reason I use a graphical editor, instead of Emacs or Vim like the cool kids.
+
+!!Basic Model
+
+Even if you're only going to need Github Desktop, it still helps to have a good mental model of roughly how git works.
+
+MASH POINT ->
+
+!Introduction to Git
+
+Git is a distributed version control manager that was originally written by Linus Torsvalds of linux fame.
+
+Git has many features for managing complex workflows and collaboration amongst large distributed teams on multiple simultaneous but different 'branches' of the same code. It can get quite complicated. There are whole books written on the subject of using Git.
+
+Here are the basics.
+
+!!What Git does
+
+Git tracks the state of a code base over time in a way that keeps a record of all the changes made at each step, that can be easily replicated in different places and then the various copies kept in sync with each other.
+
+!!Basic Git
+
+The basic features of Git are not all that complicated and are very useful.
+
+By putting your project into git you can easily keep track of changes that you make. If you stuff everything up, you can easily go back - this is obviously very useful when you're learning if it can be done in a neat way.
+
+!!Github
+
+Git was originally conceived as a decentralised way to manage the archive of a project, so it's ironic that centralised services have come to play such a big part in its usefulness to developers.
+
+Github is the biggest such service and has become the de facto home of open source software on the internet.
+
+!!Backups
+
+It is easy to integrate Git with Github, once you have an account there, and use it to keep a copy of your work on their servers.
+
+!!Deployment
+
+The next thing that we'll use Git for is to actually manage the deployment of our code
+
+!!Other People's Code
+
+As we said, Github is the home of lots of open source software and it's a great place to get whole projects.
+
+!!Github Desktop
+
+If these simple features of Git are all we want, and we're happy to use Github, then we don't really need to use Git on the command line at all. We can install Github desktop instead.
+
+Again, purists might balk at the idea of using a GUI tool when there's a perfectly good command line utility that does the job and is much, much more powerful, but the reality, I find at least, is that switching contexts and using graphical UI, to perform specific sets of tasks, as we need to do here, is better for reducing the overall cognitive load of working on a project.
+
+(the same reason I use a graphical editor, instead of Emacs or Vim like the cool kids.)
+
+!!Basic Model
+
+Even if you're only going to need Github Desktop, it still helps to have a good mental model of roughly how git works.
+

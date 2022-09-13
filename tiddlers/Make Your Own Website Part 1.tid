@@ -1,0 +1,50 @@
+created: 20190718022451449
+modified: 20200824064532323
+next: [[Make Your Own Website Part 2]]
+part: 1
+partof: Make Your Own Website
+subtitle: Tools
+tags: Live TutorialPart noindex
+title: Make Your Own Website Part 1
+type: text/vnd.tiddlywiki
+
+<$image class="tutorial-part-image" alt="a tutorial logo/image" source="Motovun Jack.svg"/>
+
+<<tutorial_header>>
+
+<$macrocall $name="tutorial_parts" name={{!!partof}}/>
+
+!!What You Need Before You Start
+
+You need a computer running a 'desktop' operating system, meaning Windows, MacOS or Linux.
+
+You need to know basically what the operating system is and does and you should know how to use your computer for basic tasks like running programs, downloading, saving and copying files. 
+
+If you're not sure what an Operating System is, or which one you're using, you can read about the [[Basics of Operating Systems]] here.
+
+You should also know a little bit about the filing system, for example, do you know what a 'file path' is and how to write one for your operating system? 
+
+You're also going to need to know the basics of the web and browsers, both for finding information and because we're going to write pages and programs that will run in yours and other people's web browsers. You're probably reading this on the web, so it's likely you already know enough to get you started, but if you like, you can read more about the [[Basics of Browsers]] here.
+
+!!Text Editor
+
+The only thing you need to begin with, that you might not have, is a text editor.
+
+A text editor is NOT a word-processor. 
+
+
+If you don't already have a favourite text editor, I'd recommend VS Code from Microsoft because it's very commonly used, available for free and has a lot of additional tools available as extensions. 
+
+You can read more about the [[Basics of Text Editors]] here.
+
+!!The Command Line
+
+The most advanced tool that you'll need in this course??
+
+There's no app to download, every operating system has a command line interface (CLI) built in. On Linux its called a "shell", on MacOS its called the "terminal" but its also actually a shell.
+
+The Linux and Mac CLIs are basically the same and commands that work in one will work in the other but on Windows things are a bit more tricky.
+
+
+
+<<tutorial_nav>>

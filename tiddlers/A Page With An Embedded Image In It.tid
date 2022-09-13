@@ -1,0 +1,55 @@
+created: 20170821063916188
+modified: 20190723064653115
+tags: TutorialPart Live noindex
+title: A Page With An Embedded Image In It
+type: text/vnd.tiddlywiki
+
+!!Smaller Images
+
+SVGs are really cool and I'm personally nerdy enough to consider whether I might be able to make a site with jsut svgs but the reality is they can't do everything.
+
+!!Embedding an Image From Elsewhere
+
+Embedding an image from somewhere on the internet is easy
+
+!!Serving Your Own Images and Embedding Them
+
+Put your images somewhere that they get served in the same way that other images on the net are and it's equally easy to embed them.
+
+I'm going to show you how to put your static site on Neocities and I'm using it as my image host at the moment but note that they advertise "hotlinking" (embedding) as being available only on the ($5/mo) supporter plan. It does //seem// to work on the free plan (for now).
+
+ There are about a million different places you could host your images and they all have pros and cons. Some are free and some are very expensive. Good luck.
+
+All I need to do is make a folder at neocities called images and put my image into it. I can get it's full URL (https://didaxy.neocities.org/images/noah2.png) by clicking through to it and then I can embed it as an image, like this
+
+<<extimg "https://didaxy.neocities.org/images/noah2.png">>
+
+!!Images In Tiddlywiki
+
+So far we've seen how to embed an image tiddler and have it inlined into our static page and how to link to an external image by URL.
+
+The latter method is better, and we can get by using it if we have to but it would be better if we could still use Tiddlywiki to manage our images as tiddlers whilst referring to them as external resources. There is a way!
+
+We can create the image tiddler as normal by importing an image. But then we set the ``_canonical_uri`` field of the tiddler and, instead of loading it's own content, it points the url we gave it.
+
+There is documentation about external images at http://tiddlywiki.com/#ExternalImages that explains how to export all of your images.
+
+I made a plugin available that can help you to manage the 'root' of the ``_canonical_uri`` field for all of your tiddlers, as well as providing an interface for exporting the images, which I personally prefer over running bulk operations. 
+
+The plugin aims to provide a graphical interface for the steps outlines in the Tiddlywiki documentation and crucially allows you to check that the ``_canonical_uri`` field is pointing to a live image before deleting the body of the tiddler. 
+
+Once an image tiddler is "fully external" you can still change the relative path of all your images to ``some/new/url`` meaning you can develop locally with your images on a simple http server and then copy them to your host of choice, provided they remain in the same relationship and can still be referred to by the scheme ``"some/new/url/" + filename.ext``
+
+
+
+!!A Word Of Warning
+
+I suspect that there might be a way to make sure that the static site generator doesn't allow inlined images like we discussed above, and I'll update this when I get a chance to do some research. For now, you need to make sure you don't accidentally leave any inlined images. The giveaway will be unusually huge html files.
+
+If you're deploying your static site to a host manually, by a web interface eg; neocities or by ftp, you should keep an on the size of your html files, ensuring there are no big ones. Of course, if you find one, the problem is easy to fix using the methods outlined above.
+
+If you decide to use Git as part of your deploy pipeline, as we will detail for deployment to Github and Netlify, you need to be especially vigilant, because if you accidentally commit images to your Git repository, whether they're embedded or not, it will quickly balloon in size.
+
+Not only that but, because Git is supposed to remember the state of your project at all points in time, even if you take the images out again, the repo won't get any smalller. 
+
+If you do accidentally commit big resources to Git then Google may be your friend, but the intricacies of Git have reduced grown adults to tears so you may be better off starting a new Git repo and losing the history.

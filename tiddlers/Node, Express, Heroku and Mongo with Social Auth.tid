@@ -1,0 +1,22 @@
+created: 20170806082643834
+modified: 20190725062003954
+tags: Tutorial
+title: Node, Express, Heroku and Mongo with Social Auth
+type: text/vnd.tiddlywiki
+
+<$image class="article-image" alt="React Logo" source="Node.js_logo_2015.svg"/>
+
+
+
+!!Introduction
+
+The first two "full stack" apps in the freecodecamp roadmap match these criteria and you could use this tutorial as the basis for both of those projects.
+
+Node is a server-side javascript environment, Express is a Node web framework. Heroku is an online platform for easily hosting apps. Passport.js is 'middleware' for Express that handles authentication.
+
+Mongo is a NoSQL database, designed to be accessed over the web - you can run your own, or you can get rent one online from companies such as mLab, who also provide free instances for learning.
+
+When we put these things together, along with a few other useful tools, we get a live web-app with authentication and a database that we can write to and read from. This gives us everything we need to build simple apps for multiple users with basic access controls.
+
+
+<<tutorial_list>>

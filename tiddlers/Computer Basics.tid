@@ -1,0 +1,11 @@
+created: 20190725234232095
+modified: 20190725234547201
+tags: Tutorial Live
+title: Computer Basics
+type: text/vnd.tiddlywiki
+
+!!Some Basics of Computers
+
+<$list filter="[tag[Basics]]">
+
+</$list>
