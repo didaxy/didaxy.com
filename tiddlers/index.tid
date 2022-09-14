@@ -1,5 +1,5 @@
 created: 20190202052246814
-modified: 20220914062142997
+modified: 20220914125114026
 scripts: shopifytest.js
 tags: noindex Live
 title: index
@@ -15,7 +15,7 @@ To make a website, you need to make a set of files and then put them on a web se
 
 Let's start by making our first file. You'll need a text editor (not a word processor!) to do this. If you don't already have a text editor that you like, you can download VS Code.
 
-Make a new folder to hold your website create a new file inside it called 'index.html'.
+Make a new folder to hold your website and create a new file inside it called 'index.html'.
 
 If you would like more help with any of the these steps, take a look at our [[detailed setup guide|HTML Detailed Setup]]
 
@@ -25,4 +25,42 @@ Every website has a main page and it is usually called ``index.html``. The file 
 
 In ``index.html`` type "hello world!". Save the file and open it with your web browser. You should see the words "hello world!" displayed in your browser window. In the address bar, you should see an address that starts with ``file://`` and then contains the "path" to your file on your filing system.
 
-If you don't know what a path is, you can read about them [[here|Basics of Files]].
+If you don't know about filing systems, files or what a path is, you can read about them [[here|Basics of Files]].
+
+!!Development Loop
+
+Now go back to your text editor and change the text to something else. Save the file again, go back to the browser and refresh the page. You should see the text update to show the changes you made.
+
+As you develop your website, you will go backwards and forwards between the text editor and the browser this way. You should organise your workspace so that this is easy. If your screen is big enough, it's better to have both the browser and editor visible at the same time. You will speed up your development by using keyboard shortcuts to switch between the two.
+
+We will see later how you can use other tools to speed up your development loop.
+
+
+!!Tags
+
+paragraphs
+headings
+bold and underlined text.
+
+!!Boilerplate Code
+
+Even though our file kind of works, it doesn't contain any actual HTML code yet. Go back to the file and delete everything in it (you can do this by selecting everything and pressing the delete key). 
+
+Now, if you are using VS Code, at the start of a blank line start typing ``html`` and you should see some suggestions appear in a menu. Choose the one that says ``html:5`` and you should see the following code appear.
+
+```
+boilerplate
+```
+
+!!The Head
+
+!!The Body
+
+!!Block and Inline Elements
+
+!!Pictures
+
+!!Neocities
+
+!!Make Your First Webpage
+
