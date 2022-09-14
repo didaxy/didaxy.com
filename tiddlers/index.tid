@@ -1,18 +1,28 @@
 created: 20190202052246814
-modified: 20220913080607975
+modified: 20220914062142997
 scripts: shopifytest.js
 tags: noindex Live
 title: index
 type: text/vnd.tiddlywiki
 
-!Hello Again
+!Hello Everyone
 
-How are you?
+!!Would you like to make a website?
 
-{{unicorn1.svg}}
+A website is made up of a set of files, stored on a computer attached to the internet, called a web server.
 
-I love you x
+To make a website, you need to make a set of files and then put them on a web server.
 
-very much indeed
+Let's start by making our first file. You'll need a text editor (not a word processor!) to do this. If you don't already have a text editor that you like, you can download VS Code.
 
-be well
+Make a new folder to hold your website create a new file inside it called 'index.html'.
+
+If you would like more help with any of the these steps, take a look at our [[detailed setup guide|HTML Detailed Setup]]
+
+!!index.html
+
+Every website has a main page and it is usually called ``index.html``. The file extension ``.html`` indicates that it will contain HTML code. HTML files are just plain text files and the only difference between a ``.txt`` file and an ``.html`` file is the file extension.
+
+In ``index.html`` type "hello world!". Save the file and open it with your web browser. You should see the words "hello world!" displayed in your browser window. In the address bar, you should see an address that starts with ``file://`` and then contains the "path" to your file on your filing system.
+
+If you don't know what a path is, you can read about them [[here|Basics of Files]].
